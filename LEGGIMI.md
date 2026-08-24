@@ -53,6 +53,28 @@ Entrambi aprono l'app di posta con `mailto:` — nessun server, nessun servizio 
 Il primo (nella scaletta) manda le performance scelte con giorno e orario; il secondo
 (sezione "Su misura") manda la richiesta di performance personalizzata.
 
+## Mandare online le modifiche
+
+Il sito è pubblicato su GitHub Pages all'indirizzo
+**https://organiqsocialagency-wq.github.io/elisa-carosi/**
+e si aggiorna da solo a ogni caricamento. Dopo aver modificato qualcosa:
+
+    ./pubblica.sh "cosa hai cambiato"
+
+Il sito è online entro un minuto circa. Se ometti la descrizione ci mette la data.
+
+In alternativa puoi modificare i file direttamente su
+https://github.com/organiqsocialagency-wq/elisa-carosi dal browser: ogni salvataggio lì
+vale come una pubblicazione, senza usare il terminale. Se lo fai, prima di ripubblicare
+da qui esegui `git pull` per riallineare la copia locale.
+
+## Anteprima del link
+
+`media/anteprima.jpg` è l'immagine che compare quando il link viene mandato su WhatsApp
+o sui social; il testo che l'accompagna sta nei meta `og:` in cima a `index.html`.
+Se un domani colleghi un dominio tuo, in quei meta e nel `canonical` va sostituito
+l'indirizzo github.io con il nuovo dominio.
+
 ## Vedere il sito in locale
 
     node .claude/preview-server.mjs
