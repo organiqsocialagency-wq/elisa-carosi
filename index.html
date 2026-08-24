@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elisa Carosi · Danza aerea e fuoco per matrimoni ed eventi a Roma</title>
-<meta name="description" content="Tessuti aerei, cerchio, palo, fuoco e ali di luce per matrimoni, diciottesimi e serate nei locali. Componi la scaletta della serata e ricevi il preventivo. Roma e trasferte in tutta Italia.">
+<meta name="description" content="Oltre 200 serate tra matrimoni, diciottesimi e locali. Tessuti aerei, cerchio, palo, fuoco e ali di luce: componi la scaletta e ricevi il preventivo. Roma e trasferte in tutta Italia.">
 <meta name="theme-color" content="#2B0F2E">
 <link rel="canonical" href="https://organiqsocialagency-wq.github.io/elisa-carosi/">
 
@@ -345,6 +345,38 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--rose);background:#fff}
 .field input::placeholder,.field textarea::placeholder{color:var(--ink-faint)}
 
+
+/* ============ bio ============ */
+.bio-grid{display:grid;gap:clamp(26px,4vw,60px);align-items:center}
+@media(min-width:900px){.bio-grid{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)}}
+.bio-foto{position:relative;border-radius:var(--r-card);overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 60px rgba(43,15,46,.2)}
+.bio-foto img{width:100%;height:100%;object-fit:cover}
+.bio-foto::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--line-gold)}
+.bio-testo p{color:var(--ink-soft);font-size:1.1rem;line-height:1.6}
+.bio-testo p+p{margin-top:14px}
+.bio-firma{font-family:var(--script);font-size:2.6rem;line-height:1;color:var(--rose);margin-top:18px;display:block}
+.numeri{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,24px);margin:clamp(22px,3vw,32px) 0 0;padding-top:clamp(20px,2.6vw,28px);border-top:1px solid var(--line)}
+.numero b{display:block;font-size:clamp(2rem,4vw,2.9rem);font-weight:600;line-height:1;
+  background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+.numero span{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-top:7px;line-height:1.4}
+
+/* ============ recensioni ============ */
+.recensioni{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.rec{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;gap:14px}
+.rec-virg{font-family:var(--serif);font-size:3rem;line-height:.6;color:var(--rose);opacity:.5}
+.rec p{font-size:1.06rem;line-height:1.55;color:var(--ink)}
+.rec footer{font-family:var(--sans);font-size:.68rem;letter-spacing:.1em;color:var(--ink-faint);border:0;padding:0;background:none;text-align:left;margin-top:auto}
+.rec footer b{display:block;font-weight:600;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:2px}
+.da-riempire{border-style:dashed;border-color:var(--rose);background:rgba(196,122,135,.05)}
+.da-riempire p{color:var(--ink-faint);font-style:italic}
+.avviso{
+  grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;
+  border:1px dashed var(--coral-deep);border-radius:14px;padding:14px 18px;
+  background:rgba(255,107,107,.07);font-family:var(--sans);font-size:.78rem;
+  color:var(--ink-soft);line-height:1.5;
+}
+.avviso b{color:var(--coral-deep)}
+
 /* ============ eventi ============ */
 .eventi{display:grid;gap:clamp(13px,1.7vw,18px);grid-template-columns:repeat(auto-fit,minmax(205px,1fr))}
 .evento{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(20px,2.1vw,26px);display:flex;flex-direction:column;gap:8px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease,border-color .4s ease}
@@ -426,7 +458,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
  "@id": "https://organiqsocialagency-wq.github.io/elisa-carosi/#elisa",
  "name": "Elisa Carosi",
  "alternateName": "Elisa Carosi — Performer di danza aerea",
- "description": "Performer di danza aerea: tessuti aerei, cerchio aereo, lollipop, palo, fuoco e ali di luce per matrimoni, diciottesimi, anniversari, serate nei locali ed eventi aziendali.",
+ "description": "Performer di danza aerea con oltre dieci anni di pratica e cinque di attività professionale, più di duecento serate all'attivo. Tessuti aerei, cerchio aereo, lollipop, palo, fuoco e ali di luce per matrimoni, diciottesimi, anniversari, serate nei locali ed eventi aziendali a Roma e in tutta Italia.",
  "url": "https://organiqsocialagency-wq.github.io/elisa-carosi/",
  "image": "https://organiqsocialagency-wq.github.io/elisa-carosi/media/anteprima.jpg",
  "email": "elisa.carosi@me.com",
@@ -658,6 +690,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
     <a href="#essenza">Elisa</a>
     <a href="#performance">Performance</a>
     <a href="#eventi">Eventi</a>
+    <a href="#recensioni">Recensioni</a>
     <a href="#personalizzata">Su misura</a>
     <a href="#contatti">Contatti</a>
   </nav>
@@ -678,7 +711,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="eyebrow on-dark">Performer di danza aerea · Roma e trasferte</p>
+      <p class="eyebrow on-dark">Performer di danza aerea · Oltre 200 serate · Roma e trasferte</p>
       <h1>Trasformo il movimento in <span class="pw on-dark">emozione</span></h1>
       <p class="hero-lead">Tre minuti sospesa a mezz'aria e la sala smette di parlare. Tessuti, cerchio, palo, fuoco e ali di luce per matrimoni, diciottesimi e serate nei locali.</p>
       <div class="hero-cta">
@@ -704,6 +737,22 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       <h2>Sei cose che <span class="pw">porto in scena</span></h2>
       <p>Non arrivo con un numero da catalogo: la serata la costruiamo prima, insieme, sulla vostra musica e sui vostri tempi.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
+    </div>
+
+    <div class="bio-grid rev" style="margin-bottom:clamp(40px,5vw,68px)">
+      <div class="bio-foto">
+        <img src="media/elisa-ritratto.jpg" alt="Elisa Carosi durante una performance con i ventagli di fuoco">
+      </div>
+      <div class="bio-testo">
+        <p>Ho cominciato più di dieci anni fa, in palestra, per il gusto di stare a testa in giù. Da cinque salgo in scena per lavoro, e nel frattempo ho fatto più di duecento serate: matrimoni, diciottesimi, locali, inaugurazioni.</p>
+        <p>Quello che ho imparato in duecento serate è che il numero perfetto non esiste: esiste quello giusto per la vostra sala, alla vostra ora, davanti ai vostri ospiti. Per questo prima di proporvi qualcosa vi faccio un po' di domande.</p>
+        <span class="bio-firma">Elisa</span>
+        <div class="numeri">
+          <div class="numero"><b>10<span style="font-size:.5em">+</span></b><span>anni di pratica</span></div>
+          <div class="numero"><b>5</b><span>anni in scena</span></div>
+          <div class="numero"><b>200<span style="font-size:.5em">+</span></b><span>serate</span></div>
+        </div>
+      </div>
     </div>
     <div class="values rev">
       <div class="value"><svg aria-hidden="true"><use href="#i-heart"/></svg><b>Espressiva</b><i>Ogni uscita nasce sulla musica che scegliete voi</i></div>
@@ -1003,6 +1052,50 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       <div class="evento"><svg aria-hidden="true"><use href="#i-glass"/></svg><b>Anniversari</b><p>Qui non serve stupire. Il cerchio in pose lente, mentre si cena, fa il suo lavoro senza interrompere le conversazioni.</p></div>
       <div class="evento"><svg aria-hidden="true"><use href="#i-music"/></svg><b>Locali e serate</b><p>Nei locali il pubblico è a due metri e si vede tutto, anche la fatica. Meglio uscite brevi e ripetute, con il welcome sul lollipop mentre la gente arriva.</p></div>
       <div class="evento"><svg aria-hidden="true"><use href="#i-corp"/></svg><b>Eventi aziendali</b><p>Inaugurazioni, gala, presentazioni di prodotto. Di solito aggancio il numero al momento in cui si scopre il prodotto o si fa il brindisi.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECENSIONI ============
+     PLACEHOLDER: sostituire i tre testi con recensioni vere prima di mandare il link
+     ai clienti. Se non le hai ancora, aggiungi hidden al tag <section> qui sotto
+     per nascondere l'intera sezione:  <section id="recensioni" hidden ...>
+================================================================= -->
+<section id="recensioni" style="background:linear-gradient(180deg,var(--ivory) 0%,#F2EBE3 100%)">
+  <img class="tex tex--faint" src="media/tex-corallo.png" alt="" aria-hidden="true"
+       style="width:min(28vw,260px);top:8%;left:-5%;transform:rotate(-10deg)">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">Dicono di me</p>
+      <h2>Come è andata a <span class="pw">chi mi ha scelta</span></h2>
+      <p>Le parole degli sposi e dei gestori dei locali dopo la serata.</p>
+      <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
+    </div>
+    <div class="recensioni rev">
+
+      <div class="avviso">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="flex:0 0 auto;margin-top:2px;color:var(--coral-deep)"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>
+        <span><b>Da riempire prima di pubblicare.</b> Questi tre riquadri sono segnaposto: sostituisci il testo con recensioni vere di clienti reali, oppure nascondi la sezione aggiungendo <code>hidden</code> al tag <code>&lt;section id="recensioni"&gt;</code>. Le istruzioni sono nel commento sopra questa sezione, dentro <code>index.html</code>.</span>
+      </div>
+
+      <div class="rec da-riempire">
+        <span class="rec-virg" aria-hidden="true">&rdquo;</span>
+        <p>Qui va la recensione vera di uno sposo o di una sposa: due o tre righe su come è andata la serata e su cosa hanno detto gli invitati.</p>
+        <footer><b>Nome e cognome</b>Matrimonio · luogo e mese</footer>
+      </div>
+
+      <div class="rec da-riempire">
+        <span class="rec-virg" aria-hidden="true">&rdquo;</span>
+        <p>Qui va la recensione di chi gestisce un locale: com'è stato lavorare insieme, come ha reagito il pubblico, se richiamerebbe Elisa.</p>
+        <footer><b>Nome e locale</b>Serata · luogo e mese</footer>
+      </div>
+
+      <div class="rec da-riempire">
+        <span class="rec-virg" aria-hidden="true">&rdquo;</span>
+        <p>Qui va la terza: va bene anche un messaggio WhatsApp ricevuto il giorno dopo, riportato tale e quale con il permesso di chi l'ha scritto.</p>
+        <footer><b>Nome e cognome</b>Diciottesimo · luogo e mese</footer>
+      </div>
+
     </div>
   </div>
 </section>
