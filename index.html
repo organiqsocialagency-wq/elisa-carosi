@@ -199,15 +199,6 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .dark{background:var(--grad-dark);color:var(--on-dark)}
 .dark .sec-head p{color:var(--on-dark-soft)}
 
-/* ============ essenza ============ */
-.values{display:grid;gap:clamp(20px,2.6vw,34px);grid-template-columns:repeat(2,1fr)}
-@media(min-width:620px){.values{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1060px){.values{grid-template-columns:repeat(6,1fr)}}
-.value{display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px}
-.value svg{width:36px;height:36px;color:var(--rose)}
-.value b{font-family:var(--sans);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
-.value i{font-style:italic;font-size:1.02rem;color:var(--ink-soft);line-height:1.42;font-weight:400}
-
 /* ============ selettore performance ============ */
 .filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:clamp(22px,3vw,32px)}
 .filter{
@@ -687,7 +678,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
     <span class="brand-word">Elisa</span>
   </a>
   <nav class="site-nav" aria-label="Principale">
-    <a href="#essenza">Elisa</a>
+    <a href="#essenza">Chi sono</a>
     <a href="#performance">Performance</a>
     <a href="#eventi">Eventi</a>
     <a href="#recensioni">Recensioni</a>
@@ -716,7 +707,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       <p class="hero-lead">Tre minuti sospesa a mezz'aria e la sala smette di parlare. Tessuti, cerchio, palo, fuoco e ali di luce per matrimoni, diciottesimi e serate nei locali.</p>
       <div class="hero-cta">
         <a class="btn btn--onDark" href="#performance">Seleziona la performance</a>
-        <a class="btn btn--onDarkGhost" href="#essenza">Come lavoro</a>
+        <a class="btn btn--onDarkGhost" href="#essenza">Chi sono</a>
       </div>
       <div class="hero-tags">
         <span>Tessuti aerei</span><span>Cerchio aereo</span><span>Lollipop</span>
@@ -733,9 +724,8 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
        style="width:min(30vw,280px);top:8%;left:-5%;transform:rotate(-12deg)">
   <div class="wrap">
     <div class="sec-head rev">
-      <p class="eyebrow">Come lavoro</p>
-      <h2>Sei cose che <span class="pw">porto in scena</span></h2>
-      <p>Non arrivo con un numero da catalogo: la serata la costruiamo prima, insieme, sulla vostra musica e sui vostri tempi.</p>
+      <p class="eyebrow">Chi sono</p>
+      <h2>Piacere, sono <span class="pw">Elisa</span></h2>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
 
@@ -745,7 +735,8 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       </div>
       <div class="bio-testo">
         <p>Ho cominciato più di dieci anni fa, in palestra, per il gusto di stare a testa in giù. Da cinque salgo in scena per lavoro, e nel frattempo ho fatto più di duecento serate: matrimoni, diciottesimi, locali, inaugurazioni.</p>
-        <p>Quello che ho imparato in duecento serate è che il numero perfetto non esiste: esiste quello giusto per la vostra sala, alla vostra ora, davanti ai vostri ospiti. Per questo prima di proporvi qualcosa vi faccio un po' di domande.</p>
+        <p>Quello che ho imparato in duecento serate è che il numero perfetto non esiste: esiste quello giusto per la vostra sala, alla vostra ora, davanti ai vostri ospiti. Per questo prima di propormi vi faccio qualche domanda.</p>
+        <p>Non arrivo mai con un numero da catalogo. Musica e coreografia le decidiamo prima insieme, e costume e trucco li coordino ai colori del vostro evento.</p>
         <span class="bio-firma">Elisa</span>
         <div class="numeri">
           <div class="numero"><b>10<span style="font-size:.5em">+</span></b><span>anni di pratica</span></div>
@@ -753,14 +744,6 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
           <div class="numero"><b>200<span style="font-size:.5em">+</span></b><span>serate</span></div>
         </div>
       </div>
-    </div>
-    <div class="values rev">
-      <div class="value"><svg aria-hidden="true"><use href="#i-heart"/></svg><b>Espressiva</b><i>Ogni uscita nasce sulla musica che scegliete voi</i></div>
-      <div class="value"><svg aria-hidden="true"><use href="#i-versatile"/></svg><b>Versatile</b><i>Sette attrezzi diversi: se la sala non regge uno, ne resta un altro</i></div>
-      <div class="value"><svg aria-hidden="true"><use href="#i-art"/></svg><b>Artistica</b><i>Coreografie scritte per il vostro momento, non riciclate</i></div>
-      <div class="value"><svg aria-hidden="true"><use href="#i-light"/></svg><b>Luminosa</b><i>Ali LED e attrezzi illuminati per le sale al buio</i></div>
-      <div class="value"><svg aria-hidden="true"><use href="#i-elegant"/></svg><b>Elegante</b><i>Costume e trucco coordinati ai colori del vostro evento</i></div>
-      <div class="value"><svg aria-hidden="true"><use href="#i-magnetic"/></svg><b>Magnetica</b><i>Qualche minuto in cui nessuno guarda il telefono</i></div>
     </div>
   </div>
 </section>
