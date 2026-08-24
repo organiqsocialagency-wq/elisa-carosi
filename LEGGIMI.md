@@ -29,6 +29,23 @@ Ogni performance è un `<article class="perf">` con `data-key`, `data-name`, `da
 `data-cat` (aerea / terra / luce, per il filtro). Cliccando l'intestazione la card si apre e
 mostra descrizione, tag e stepper. Per aggiungerne una, copia un blocco e cambia quei dati.
 
+## Date speciali
+
+Le date con supplemento stanno nello `<script>` di `index.html`, cerca `DATE_SPECIALI`:
+
+    var DATE_SPECIALI = { "12-31": { nome: "Capodanno", importo: 100 } };
+
+La chiave è mese-giorno, vale per qualsiasi anno. Per aggiungerne altre basta una riga,
+per esempio Ferragosto:
+
+    var DATE_SPECIALI = {
+      "12-31": { nome: "Capodanno", importo: 100 },
+      "08-15": { nome: "Ferragosto", importo: 80 }
+    };
+
+Quando aggiungi una data, aggiorna anche la legenda sotto i campi Giorno e Orario:
+cerca `class="legenda"` nel markup.
+
 ## La regola del set
 
 Il set scatta quando raggiungi il massimo di uscite di quell'attrezzo: 3 uguali per tutte le

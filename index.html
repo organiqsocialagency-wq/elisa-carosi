@@ -293,9 +293,10 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 @keyframes pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
 /* supplementi */
-.extras{margin-top:clamp(22px,3vw,32px);background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(16px,2vw,22px)}
-.extras-title{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:6px}
-.extra{display:flex;gap:13px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.extras{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.extras-title{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
+.extra{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .25s ease}
+.extra:hover .extra-txt b{color:var(--coral-deep)}
 .extra:last-child{border-bottom:0;padding-bottom:0}
 .extra input{position:absolute;opacity:0;width:0;height:0}
 .tick{flex:0 0 auto;width:20px;height:20px;border:1px solid var(--line);border-radius:50%;margin-top:4px;display:grid;place-items:center;transition:border-color .25s ease}
@@ -304,8 +305,8 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .extra input:checked~.tick::after{transform:scale(1)}
 .extra input:focus-visible~.tick{outline:2px solid var(--coral);outline-offset:3px}
 .extra-txt{display:flex;flex-direction:column;gap:1px}
-.extra-txt b{font-family:var(--sans);font-weight:500;font-size:.84rem}
-.extra-txt small{color:var(--ink-faint);font-size:.94rem;font-weight:300}
+.extra-txt b{font-family:var(--sans);font-weight:600;font-size:.86rem;transition:color .25s ease}
+.extra-txt small{color:var(--ink-faint);font-size:.86rem;font-weight:400;line-height:1.4}
 .extra-price{font-family:var(--sans);margin-left:auto;color:var(--wine);font-variant-numeric:tabular-nums;font-size:.8rem;white-space:nowrap;font-weight:600}
 .extra[hidden]{display:none}
 
@@ -322,13 +323,22 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .sc-req{display:block;margin-top:4px;font-family:var(--sans);font-size:.7rem;font-weight:600;color:var(--coral-deep);letter-spacing:.02em;font-style:normal}
 .sc-req::before{content:"▸ ";opacity:.65}
 .empty{color:var(--ink-faint);font-style:italic;font-size:1.14rem;padding:10px 0;line-height:1.4}
-.tot{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-top:14px;border-top:1px solid var(--line)}
+.tot{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-top:18px;padding-top:16px;border-top:2px solid var(--plum)}
 .tot span{font-family:var(--sans);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
 .tot b{font-size:clamp(2.1rem,4vw,2.7rem);font-weight:600;font-variant-numeric:tabular-nums;line-height:1;
   background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
 .cur{font-family:var(--sans);font-weight:400;margin-left:.18em;font-size:.42em;vertical-align:.46em}
 .saving{font-family:var(--sans);font-size:.78rem;color:var(--coral-deep);margin-top:6px;text-align:right;min-height:1.1em;font-weight:500}
 .when{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-top:18px}
+.legenda{
+  font-family:var(--sans);font-size:.72rem;color:var(--ink-faint);line-height:1.45;
+  margin-top:9px;padding:8px 12px;border-radius:10px;border:1px dashed var(--line);
+  transition:border-color .3s ease,background .3s ease,color .3s ease;
+}
+.legenda span{color:var(--rose);font-weight:700}
+.legenda b{font-weight:600;color:var(--ink-soft)}
+.legenda.attiva{border-color:var(--coral-deep);border-style:solid;background:rgba(200,69,90,.08);color:var(--plum)}
+.legenda.attiva b{color:var(--coral-deep)}
 .quote-actions{display:flex;flex-direction:column;gap:9px;margin-top:14px}
 .quote-note{font-family:var(--sans);font-size:.76rem;color:var(--ink-faint);margin-top:12px;line-height:1.5;font-weight:400}
 
@@ -699,7 +709,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
     <a href="#personalizzata">Su misura</a>
     <a href="#contatti">Contatti</a>
   </nav>
-  <a class="btn btn--primary head-cta" href="#performance">Prenota ora</a>
+  <a class="btn btn--primary head-cta" href="#performance">Richiedi un preventivo</a>
 </header>
 
 <!-- ============ HERO ============ -->
@@ -738,7 +748,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
        style="width:min(30vw,280px);top:8%;left:-5%;transform:rotate(-12deg)">
   <div class="wrap">
     <div class="sec-head rev">
-      <p class="eyebrow">Chi sono</p>
+      <p class="eyebrow">La performer</p>
       <h2>Piacere, sono <span class="pw">Elisa</span></h2>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
@@ -802,7 +812,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <p>Due teli di seta appesi al soffitto: ci salgo, mi avvolgo e mi lascio cadere fermandomi poco sopra il pavimento. È il numero che fa alzare i telefoni a tutti, quindi conviene avvisare prima il fotografo.</p>
             <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span class="req"><svg aria-hidden="true"><use href="#i-height"/></svg>Altezza minima 4,5 metri</span><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span></div>
             <div class="perf-pick">
-              <span class="pick-label">Quante uscite in serata?</span>
+              <span class="pick-label">Quante volte salgo in scena?</span>
               <div class="stepper">
                 <button type="button" data-step="-1" aria-label="Togli un'uscita di Tessuti Aerei">&minus;</button>
                 <output aria-live="polite">0</output>
@@ -831,7 +841,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <p>Un cerchio d'acciaio appeso sopra la pista. Posso farlo coreografato su una canzone, oppure restarci dieci minuti in pose lente mentre gli ospiti cenano: in quel caso è più atmosfera che spettacolo.</p>
             <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span><span class="req"><svg aria-hidden="true"><use href="#i-height"/></svg>Altezza minima 3 metri</span></div>
             <div class="perf-pick">
-              <span class="pick-label">Quante uscite in serata?</span>
+              <span class="pick-label">Quante volte salgo in scena?</span>
               <div class="stepper">
                 <button type="button" data-step="-1" aria-label="Togli un'uscita di Cerchio Aereo">&minus;</button>
                 <output aria-live="polite">0</output>
@@ -847,7 +857,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       <article class="perf" data-key="lollipop" data-req="Pedana autoportante inclusa" data-name="Lollipop" data-max="3" data-n="0" data-cat="aerea">
         <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-lollipop">
           <span class="perf-fig"><img src="media/perf-lollipop.jpg" alt="Elisa Carosi in posa sul lollipop" loading="lazy"></span>
-          <span class="perf-title"><b>Lollipop</b><small>Pedana autoportante inclusa · welcome</small></span>
+          <span class="perf-title"><b>Lollipop</b><small>Pedana inclusa · anche accoglienza ospiti</small></span>
           <span class="perf-state">
             <span class="perf-price">50 € a uscita</span>
             <span class="perf-chip" hidden></span>
@@ -858,9 +868,9 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
           <div><div class="perf-inner">
             
             <p>Un cerchio montato su una pedana che porto io, quindi non serve appendere niente al soffitto. È l'unico attrezzo su cui posso anche accogliere gli ospiti all'arrivo, seduta in alto, offrendo da bere.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Welcome</span><span class="req"><svg aria-hidden="true"><use href="#i-space"/></svg>Struttura inclusa</span></div>
+            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Accoglienza ospiti</span><span class="req"><svg aria-hidden="true"><use href="#i-space"/></svg>Struttura inclusa</span></div>
             <div class="perf-pick">
-              <span class="pick-label">Quante uscite in serata?</span>
+              <span class="pick-label">Quante volte salgo in scena?</span>
               <div class="stepper">
                 <button type="button" data-step="-1" aria-label="Togli un'uscita di Lollipop">&minus;</button>
                 <output aria-live="polite">0</output>
@@ -889,7 +899,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <p>Pole dance su pedana autoportante. Rende molto più nei locali che nelle sale grandi: il pubblico deve stare vicino per accorgersi della differenza tra una figura difficile e una facile.</p>
             <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span class="req"><svg aria-hidden="true"><use href="#i-space"/></svg>Struttura inclusa</span></div>
             <div class="perf-pick">
-              <span class="pick-label">Quante uscite in serata?</span>
+              <span class="pick-label">Quante volte salgo in scena?</span>
               <div class="stepper">
                 <button type="button" data-step="-1" aria-label="Togli un'uscita di Palo">&minus;</button>
                 <output aria-live="polite">0</output>
@@ -917,7 +927,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <p>Ventagli, bastone e catene accese. Si fa solo all'aperto e solo dopo il tramonto, altrimenti le fiamme non si vedono. Di solito è il numero con cui chiudo la serata.</p>
             <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span class="req"><svg aria-hidden="true"><use href="#i-pin"/></svg>Solo spazi esterni</span></div>
             <div class="perf-pick">
-              <span class="pick-label">Quante uscite in serata?</span>
+              <span class="pick-label">Quante volte salgo in scena?</span>
               <div class="stepper">
                 <button type="button" data-step="-1" aria-label="Togli un'uscita di Fuoco">&minus;</button>
                 <output aria-live="polite">0</output>
@@ -945,7 +955,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <p>Ali LED che cambiano colore a tempo di musica. Le uso per l'ingresso degli sposi e per il taglio della torta: si vedono bene anche a sala completamente buia, quando nient'altro si vedrebbe.</p>
             <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span><span class="req"><svg aria-hidden="true"><use href="#i-space"/></svg>Interno o esterno</span></div>
             <div class="perf-pick">
-              <span class="pick-label">Quante uscite in serata?</span>
+              <span class="pick-label">Quante volte salgo in scena?</span>
               <div class="stepper">
                 <button type="button" data-step="-1" aria-label="Togli un'uscita di Ali di Luce">&minus;</button>
                 <output aria-live="polite">0</output>
@@ -974,7 +984,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <p>Coreografie a terra: latino, commerciale, contemporaneo. Servono a riempire i passaggi tra un numero aereo e l'altro, e sono la risposta quando la sala non ha l'altezza per le aeree.</p>
             <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a uscita</span><span><svg aria-hidden="true"><use href="#i-note"/></svg>Su misura</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span></div>
             <div class="perf-pick">
-              <span class="pick-label">Quante uscite in serata?</span>
+              <span class="pick-label">Quante volte salgo in scena?</span>
               <div class="stepper">
                 <button type="button" data-step="-1" aria-label="Togli un'uscita di Ballerina">&minus;</button>
                 <output aria-live="polite">0</output>
@@ -987,12 +997,18 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
         </div>
       </article>        </div>
 
-        <div class="extras">
+      </div>
+
+      <aside class="quote" id="riepilogo" aria-label="Riepilogo del preventivo">
+        <h3>La tua scaletta</h3>
+        <ul class="scaletta" id="scaletta"></ul>
+
+        <div class="extras" id="extras">
           <p class="extras-title">Supplementi</p>
           <label class="extra" id="extra-struttura" hidden>
             <input type="checkbox" data-extra="struttura" data-label="Struttura autoportante" data-amount="150">
             <span class="tick" aria-hidden="true"></span>
-            <span class="extra-txt"><b>Struttura autoportante</b><small>Tripode o pedana in noleggio, quando in loco non ci sono punti di aggancio.</small></span>
+            <span class="extra-txt"><b>Struttura autoportante</b><small>Tripode o pedana in noleggio, se in sala non ci sono punti di aggancio.</small></span>
             <span class="extra-price">+150 €</span>
           </label>
           <label class="extra">
@@ -1001,20 +1017,8 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Per eventi oltre Roma e provincia.</small></span>
             <span class="extra-price">+50 €</span>
           </label>
-          <label class="extra">
-            <input type="checkbox" data-extra="capodanno" data-label="Capodanno" data-amount="100">
-            <span class="tick" aria-hidden="true"></span>
-            <span class="extra-txt"><b>Capodanno</b><small>Tariffa dedicata alla notte del 31 dicembre.</small></span>
-            <span class="extra-price">+100 €</span>
-          </label>
         </div>
-      </div>
 
-      <aside class="quote" id="riepilogo" aria-label="Riepilogo del preventivo">
-        <h3>La tua scaletta</h3>
-        <ul class="scaletta" id="scaletta"></ul>
-        <div class="tot"><span>Totale</span><b id="totale">0 €</b></div>
-        <p class="saving" id="risparmio"></p>
         <div class="when">
           <div class="field">
             <label for="q-data">Giorno</label>
@@ -1025,6 +1029,12 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
             <input id="q-ora" type="time">
           </div>
         </div>
+        <p class="legenda" id="legenda">
+          <span aria-hidden="true">*</span> Date speciali con supplemento di 100&nbsp;€: <b>31 dicembre</b>.
+        </p>
+
+        <div class="tot"><span>Totale</span><b id="totale">0 €</b></div>
+        <p class="saving" id="risparmio"></p>
         <div class="quote-actions">
           <a class="btn btn--primary" id="mail" href="#">Richiedi ora via mail</a>
         </div>
@@ -1038,7 +1048,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
 <section id="eventi">
   <div class="wrap">
     <div class="sec-head rev">
-      <p class="eyebrow">Dove funziona</p>
+      <p class="eyebrow">Tipi di evento</p>
       <h2>Dove e quando <span class="pw">funziona meglio</span></h2>
       <p>Lo stesso numero rende in modo diverso a seconda della sala e dell'ora. Ecco cosa consiglio di solito.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
@@ -1229,7 +1239,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
           <span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>Rispondo entro 24 ore</span>
           <span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Preventivo senza impegno</span>
         </div>
-        <a class="btn btn--ghost" href="#performance">Vai alla scaletta</a>
+        <a class="btn btn--ghost" href="#performance">Scegli le performance</a>
         <p class="form-note">Oppure scrivimi direttamente a <strong>elisa.carosi@me.com</strong>.</p>
       </div>
     </div>
@@ -1266,6 +1276,15 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
   var PREZZO_SET    = 130;     // prezzo quando si raggiunge il set completo
   var EMAIL         = "elisa.carosi@me.com";
   var RICHIEDE_STRUTTURA = ["tessuti","cerchio","lollipop","palo"];
+
+  // date con tariffa maggiorata, in formato MM-GG: il supplemento si applica da solo
+  var DATE_SPECIALI = { "12-31": { nome: "Capodanno", importo: 100 } };
+
+  function dataSpeciale(valore){
+    if(!valore) return null;
+    var parti = valore.split("-");            // aaaa-mm-gg
+    return DATE_SPECIALI[parti[1] + "-" + parti[2]] || null;
+  }
 
   var perfs    = Array.prototype.slice.call(document.querySelectorAll(".perf"));
   var extras   = Array.prototype.slice.call(document.querySelectorAll("[data-extra]"));
@@ -1313,12 +1332,19 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       }
     });
 
+    var speciale = voci.length ? dataSpeciale(qData.value) : null;
+    if(speciale){
+      supplementi.push({ nome: speciale.nome, costo: speciale.importo, auto: true });
+      totale += speciale.importo;
+    }
+
     // il risparmio si conta solo dove il set costa meno delle uscite singole
     var risparmio = voci.reduce(function(acc,v){
       return acc + Math.max(0, v.n * PREZZO_USCITA - v.costo);
     }, 0);
 
-    return { voci: voci, supplementi: supplementi, totale: totale, risparmio: risparmio, aereeAttive: aereeAttive };
+    return { voci: voci, supplementi: supplementi, totale: totale, risparmio: risparmio,
+             aereeAttive: aereeAttive, speciale: speciale };
   }
 
   function riga(num, testo, prezzo, requisito){
@@ -1373,9 +1399,11 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
         scaletta.appendChild(riga(("0" + i).slice(-2), etichetta, euroHTML(v.costo), dettaglio));
       });
       s.supplementi.forEach(function(v){
-        scaletta.appendChild(riga("+", v.nome, euroHTML(v.costo)));
+        scaletta.appendChild(riga("+", v.nome + (v.auto ? ' <em>data speciale</em>' : ''), euroHTML(v.costo)));
       });
     }
+
+    document.getElementById("legenda").classList.toggle("attiva", !!s.speciale);
 
     totaleEl.innerHTML = euroHTML(s.totale);
     barTotEl.innerHTML = euroHTML(s.totale);
