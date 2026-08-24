@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elisa Carosi</title>
+<meta name="description" content="Performance aeree, danza e fuoco per eventi indimenticabili. Seleziona le performance, scegli data e orario e richiedi il preventivo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  /* palette identità visiva */
+  --plum:#2B0F2E;
+  --plum-deep:#1A0819;
+  --plum-mid:#4A1740;
+  --wine:#6E2140;
+  --coral:#FF6B6B;
+  --coral-deep:#C8455A;
+  --rose:#C47A87;
+  --midnight:#0D1B2A;
+  --gold:#D4AF37;
+  --gold-soft:#E5C86B;
+  --ivory:#F7F4EF;
+  --ivory-pure:#FDFBF8;
+
+  /* il gradiente del logotipo: prugna → vino → corallo */
+  --grad-brand:linear-gradient(96deg,#2B0F2E 0%,#6E2140 42%,#C8455A 74%,#FF6B6B 100%);
+  --grad-dark:linear-gradient(158deg,#1A0819 0%,#2B0F2E 38%,#4A1740 72%,#6E2140 100%);
+
+  --ink:#2B0F2E;
+  --ink-soft:#70546F;
+  --ink-faint:#9C849A;
+  --line:rgba(43,15,46,.13);
+  --line-gold:rgba(212,175,55,.4);
+  --on-dark:#F7F4EF;
+  --on-dark-soft:rgba(247,244,239,.76);
+  --on-dark-faint:rgba(247,244,239,.52);
+  --line-dark:rgba(247,244,239,.17);
+
+  --serif:"Cormorant Garamond",Garamond,Georgia,serif;
+  --sans:"Montserrat",-apple-system,"Segoe UI",sans-serif;
+  --script:"Allura",cursive;
+
+  --pad:clamp(20px,5vw,72px);
+  --r-card:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;overflow-x:clip}
+body{
+  margin:0;background:var(--ivory);color:var(--ink);
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(17px,1.22vw,19px);line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:500;line-height:1.1;text-wrap:balance}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:6px}
+.ui{font-family:var(--sans)}
+
+/* etichette e parole d'accento */
+.eyebrow{
+  font-family:var(--sans);font-size:.64rem;font-weight:500;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--rose);display:inline-block;
+}
+.eyebrow.on-dark{color:var(--gold-soft)}
+.pw{font-family:var(--script);font-weight:400;font-size:1.34em;line-height:1.04;padding:0 .1em .06em 0;
+  background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.pw.on-dark{background:linear-gradient(96deg,#E5C86B,#FF9E8A 60%,#C47A87);-webkit-background-clip:text;background-clip:text}
+
+/* texture acquerello */
+.tex{position:absolute;pointer-events:none;z-index:0;opacity:.85;user-select:none}
+.tex--soft{opacity:.5}
+.tex--faint{opacity:.3}
+
+/* ============ bottoni ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  padding:15px 32px;border-radius:999px;border:1px solid transparent;
+  font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;text-decoration:none;white-space:nowrap;cursor:pointer;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease,background .3s ease,color .3s ease,border-color .3s ease,opacity .3s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn--primary{background:var(--grad-brand);background-size:170% 100%;background-position:0% 0;color:var(--ivory);box-shadow:0 10px 26px rgba(110,33,64,.3)}
+.btn--primary:hover{background-position:60% 0;box-shadow:0 14px 32px rgba(200,69,90,.36)}
+.btn--ghost{border-color:var(--line-gold);color:var(--plum)}
+.btn--ghost:hover{border-color:var(--gold);background:rgba(212,175,55,.1)}
+.btn--onDark{background:var(--ivory);color:var(--plum)}
+.btn--onDark:hover{background:#fff}
+.btn--onDarkGhost{border-color:rgba(247,244,239,.45);color:var(--ivory)}
+.btn--onDarkGhost:hover{border-color:var(--gold);background:rgba(212,175,55,.16)}
+.btn[aria-disabled="true"]{opacity:.4;pointer-events:none;box-shadow:none}
+
+/* ============ header ============ */
+.site-head{
+  position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:clamp(14px,3vw,40px);
+  padding:13px var(--pad);background:rgba(247,244,239,.9);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-mark{width:34px;height:34px;flex:0 0 auto}
+.brand-word{
+  font-family:var(--serif);font-weight:600;font-size:1.2rem;letter-spacing:.3em;
+  text-transform:uppercase;line-height:1;padding-left:.3em;
+  background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.site-nav{display:none;gap:clamp(14px,2vw,30px);margin-left:auto}
+.site-nav a{
+  font-family:var(--sans);text-decoration:none;font-size:.68rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);padding:6px 0;
+  position:relative;transition:color .3s ease;
+}
+.site-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .35s cubic-bezier(.22,1,.36,1)}
+.site-nav a:hover{color:var(--plum)}
+.site-nav a:hover::after{right:0}
+.head-cta{margin-left:auto;padding:11px 22px;font-size:.64rem}
+@media(min-width:920px){.site-nav{display:flex}.head-cta{margin-left:0}}
+
+/* ============ hero con video di sfondo ============ */
+.hero{
+  position:relative;min-height:calc(100svh - 60px);display:grid;align-items:center;
+  padding:clamp(56px,9vh,110px) var(--pad);overflow:hidden;isolation:isolate;color:var(--on-dark);
+  background:var(--grad-dark);
+}
+.hero-bg,.hero-bg video,.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-bg{z-index:0}
+.hero-bg img{z-index:0}
+.hero-bg video{z-index:1}
+.hero-veil{
+  position:absolute;inset:0;z-index:2;
+  background:
+    radial-gradient(78% 62% at 76% 16%,rgba(196,122,135,.4),transparent 62%),
+    radial-gradient(62% 54% at 12% 88%,rgba(255,107,107,.26),transparent 64%),
+    linear-gradient(102deg,rgba(26,8,25,.94) 0%,rgba(43,15,46,.86) 34%,rgba(74,23,64,.6) 62%,rgba(110,33,64,.42) 100%);
+}
+@media(max-width:820px){
+  .hero-veil{background:
+    radial-gradient(80% 50% at 70% 8%,rgba(196,122,135,.38),transparent 60%),
+    linear-gradient(178deg,rgba(26,8,25,.82) 0%,rgba(43,15,46,.7) 40%,rgba(26,8,25,.94) 88%);}
+}
+.hero-inner{position:relative;z-index:4;max-width:1240px;width:100%;margin:0 auto}
+.hero-copy{max-width:min(94vw,700px)}
+.hero h1{
+  font-size:clamp(2.7rem,5.6vw,4.9rem);font-weight:300;line-height:1.06;
+  margin:clamp(14px,2.2vw,22px) 0 0;letter-spacing:-.006em;
+}
+.hero h1 .pw{display:inline-block;font-size:1.22em;line-height:1;padding:0 .14em .08em 0}
+.hero-lead{
+  font-family:var(--serif);font-weight:300;font-style:italic;
+  margin-top:clamp(16px,2.4vw,24px);max-width:34ch;
+  color:var(--on-dark-soft);font-size:clamp(1.05rem,1.5vw,1.28rem);line-height:1.5;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,3.4vw,40px)}
+.hero-tags{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(30px,4vw,46px);
+  padding-top:clamp(20px,2.8vw,28px);border-top:1px solid var(--line-dark);max-width:60ch;
+}
+.hero-tags span{
+  font-family:var(--sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:500;color:var(--on-dark-faint);border:1px solid var(--line-dark);
+  border-radius:999px;padding:6px 14px;
+}
+.scroll-cue{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:4;
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  font-family:var(--sans);font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--on-dark-faint);text-decoration:none;
+}
+.scroll-cue i{display:block;width:1px;height:34px;background:linear-gradient(180deg,var(--gold),transparent);animation:cue 2.4s ease-in-out infinite}
+@media(max-width:820px){.scroll-cue{display:none}}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ============ sezioni ============ */
+section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:clip}
+.wrap{max-width:1240px;margin:0 auto;position:relative;z-index:3}
+.sec-head{max-width:66ch;margin:0 auto clamp(34px,4.6vw,54px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.sec-head h2{font-size:clamp(2.1rem,4.8vw,3.6rem);font-weight:400}
+.sec-head p{color:var(--ink-soft);max-width:56ch;font-weight:400;font-size:1.06rem;line-height:1.55}
+.sec-head .orn{width:82px;height:12px;color:var(--gold);opacity:.9}
+.dark{background:var(--grad-dark);color:var(--on-dark)}
+.dark .sec-head p{color:var(--on-dark-soft)}
+
+/* ============ essenza ============ */
+.values{display:grid;gap:clamp(20px,2.6vw,34px);grid-template-columns:repeat(2,1fr)}
+@media(min-width:620px){.values{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1060px){.values{grid-template-columns:repeat(6,1fr)}}
+.value{display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px}
+.value svg{width:36px;height:36px;color:var(--rose)}
+.value b{font-family:var(--sans);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+.value i{font-style:italic;font-size:1.02rem;color:var(--ink-soft);line-height:1.42;font-weight:400}
+
+/* ============ selettore performance ============ */
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:clamp(22px,3vw,32px)}
+.filter{
+  font-family:var(--sans);border:1px solid var(--line);border-radius:999px;padding:9px 20px;
+  font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);background:var(--ivory-pure);
+  transition:background .3s ease,color .3s ease,border-color .3s ease,transform .3s ease;
+}
+.filter:hover{border-color:var(--rose);color:var(--plum);transform:translateY(-1px)}
+.filter[aria-pressed="true"]{background:var(--grad-brand);border-color:transparent;color:var(--ivory)}
+
+.pick-grid{display:grid;gap:clamp(24px,3.2vw,44px);align-items:start}
+@media(min-width:1020px){.pick-grid{grid-template-columns:minmax(0,1.62fr) minmax(320px,1fr)}}
+
+.perf-list{display:flex;flex-direction:column;gap:10px}
+.perf{
+  background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);
+  overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease,background .35s ease;
+}
+.perf[hidden]{display:none}
+.perf:hover{border-color:var(--line-gold)}
+.perf.chosen{border-color:var(--coral-deep);box-shadow:0 8px 26px rgba(200,69,90,.14)}
+.perf.open{box-shadow:0 14px 40px rgba(43,15,46,.1)}
+.perf-head{
+  width:100%;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;
+  gap:clamp(12px,1.6vw,18px);padding:14px clamp(14px,1.8vw,20px);text-align:left;
+}
+.perf-fig{
+  width:64px;height:84px;border-radius:14px;overflow:hidden;flex:0 0 auto;
+  background:var(--grad-dark);display:grid;place-items:center;position:relative;
+}
+.perf-fig img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.perf:hover .perf-fig img,.perf.open .perf-fig img{transform:scale(1.06)}
+.perf-fig svg{width:26px;height:26px;color:var(--gold-soft)}
+@media(max-width:640px){.perf-fig{width:56px;height:74px}}
+.perf-title{display:flex;flex-direction:column;gap:2px;min-width:0}
+.perf-title b{font-family:var(--serif);font-size:1.42rem;font-weight:500;line-height:1.15}
+.perf-title small{font-family:var(--sans);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.perf-state{display:flex;align-items:center;gap:10px;justify-self:end}
+.perf-price{font-family:var(--sans);font-size:.7rem;color:var(--ink-faint);white-space:nowrap;font-variant-numeric:tabular-nums}
+.perf-chip{
+  font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  border-radius:999px;padding:5px 12px;background:var(--grad-brand);color:var(--ivory);white-space:nowrap;
+}
+.perf-chip[hidden]{display:none}
+.chev{width:18px;height:18px;color:var(--rose);transition:transform .4s cubic-bezier(.22,1,.36,1);flex:0 0 auto}
+.perf.open .chev{transform:rotate(180deg)}
+@media(max-width:640px){
+  .perf-head{grid-template-columns:auto 1fr auto;row-gap:10px}
+  .perf-state{grid-column:2/-1;justify-self:start}
+  .chev{position:absolute;right:18px;top:30px}
+  .perf{position:relative}
+}
+.perf-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1)}
+.perf.open .perf-body{grid-template-rows:1fr}
+.perf-body>div{overflow:hidden}
+.perf-inner{padding:0 clamp(14px,1.8vw,20px) 20px;display:flex;flex-direction:column;gap:14px}
+.perf-inner p{font-size:1.02rem;color:var(--ink-soft);line-height:1.56}
+.perf-tags{display:flex;flex-wrap:wrap;gap:6px}
+.perf-tags span{
+  font-family:var(--sans);display:inline-flex;align-items:center;gap:.45em;
+  font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--ink-faint);
+}
+.perf-tags span svg{width:11px;height:11px;color:var(--gold)}
+.perf-pick{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;
+  padding-top:14px;border-top:1px dashed var(--line);
+}
+.pick-label{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.pick-sum{font-family:var(--sans);font-size:.78rem;color:var(--ink);margin-left:auto;font-variant-numeric:tabular-nums;font-weight:500}
+.stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;height:44px;overflow:hidden;background:var(--ivory)}
+.stepper button{width:44px;height:100%;color:var(--wine);font-size:1.05rem;line-height:1;transition:background .25s ease,color .25s ease}
+.stepper button:hover:not(:disabled){background:var(--wine);color:var(--ivory)}
+.stepper button:disabled{color:var(--ink-faint);opacity:.45;cursor:not-allowed}
+.stepper output{
+  min-width:46px;text-align:center;font-family:var(--sans);font-variant-numeric:tabular-nums;
+  font-weight:600;font-size:.95rem;height:100%;display:grid;place-items:center;border-inline:1px solid var(--line);
+}
+.badge{
+  font-family:var(--sans);display:none;font-size:.55rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;border-radius:999px;padding:5px 12px;
+  background:rgba(212,175,55,.16);border:1px solid var(--line-gold);color:#8A6B14;
+}
+.badge.on{display:inline-block;animation:pop .35s cubic-bezier(.22,1,.36,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* supplementi */
+.extras{margin-top:clamp(22px,3vw,32px);background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(16px,2vw,22px)}
+.extras-title{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:6px}
+.extra{display:flex;gap:13px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.extra:last-child{border-bottom:0;padding-bottom:0}
+.extra input{position:absolute;opacity:0;width:0;height:0}
+.tick{flex:0 0 auto;width:20px;height:20px;border:1px solid var(--line);border-radius:50%;margin-top:4px;display:grid;place-items:center;transition:border-color .25s ease}
+.tick::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--coral-deep);transform:scale(0);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.extra input:checked~.tick{border-color:var(--coral-deep)}
+.extra input:checked~.tick::after{transform:scale(1)}
+.extra input:focus-visible~.tick{outline:2px solid var(--coral);outline-offset:3px}
+.extra-txt{display:flex;flex-direction:column;gap:1px}
+.extra-txt b{font-family:var(--sans);font-weight:500;font-size:.84rem}
+.extra-txt small{color:var(--ink-faint);font-size:.94rem;font-weight:300}
+.extra-price{font-family:var(--sans);margin-left:auto;color:var(--wine);font-variant-numeric:tabular-nums;font-size:.8rem;white-space:nowrap;font-weight:600}
+.extra[hidden]{display:none}
+
+/* riepilogo */
+.quote{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(20px,2.3vw,28px);box-shadow:0 18px 46px rgba(43,15,46,.09)}
+@media(min-width:1020px){.quote{position:sticky;top:100px}}
+.quote h3{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+.scaletta{list-style:none;padding:0;margin:0 0 16px;min-height:80px}
+.scaletta li{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);animation:pop .4s cubic-bezier(.22,1,.36,1) both}
+.sc-num{font-family:var(--sans);font-size:.56rem;letter-spacing:.12em;color:var(--gold);font-variant-numeric:tabular-nums;font-weight:600}
+.sc-name{font-size:1.02rem;line-height:1.3}
+.sc-name em{font-style:normal;color:var(--ink-faint);font-size:.82rem;font-family:var(--sans)}
+.sc-price{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.82rem;font-weight:500}
+.empty{color:var(--ink-faint);font-style:italic;font-size:1.05rem;padding:10px 0;line-height:1.4}
+.tot{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-top:14px;border-top:1px solid var(--line)}
+.tot span{font-family:var(--sans);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.tot b{font-size:clamp(2.1rem,4vw,2.7rem);font-weight:600;font-variant-numeric:tabular-nums;line-height:1;
+  background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cur{font-family:var(--sans);font-weight:400;margin-left:.18em;font-size:.42em;vertical-align:.46em}
+.saving{font-family:var(--sans);font-size:.7rem;color:var(--coral-deep);margin-top:6px;text-align:right;min-height:1.1em;font-weight:500}
+.when{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-top:18px}
+.quote-actions{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.quote-note{font-family:var(--sans);font-size:.68rem;color:var(--ink-faint);margin-top:12px;line-height:1.5;font-weight:400}
+
+/* campi */
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.field input,.field select,.field textarea{
+  font-family:var(--sans);font-size:.85rem;color:var(--ink);font-weight:400;
+  background:var(--ivory);border:1px solid var(--line);border-radius:12px;padding:11px 14px;width:100%;
+  transition:border-color .3s ease,background .3s ease;
+}
+.field textarea{min-height:104px;resize:vertical;line-height:1.6}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--rose);background:#fff}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-faint)}
+
+/* ============ eventi ============ */
+.eventi{display:grid;gap:clamp(13px,1.7vw,18px);grid-template-columns:repeat(auto-fit,minmax(205px,1fr))}
+.evento{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(20px,2.1vw,26px);display:flex;flex-direction:column;gap:8px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease,border-color .4s ease}
+.evento:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(43,15,46,.1);border-color:var(--line-gold)}
+.evento svg{width:25px;height:25px;color:var(--rose)}
+.evento b{font-size:1.32rem;font-weight:500}
+.evento p{font-size:.98rem;color:var(--ink-soft);line-height:1.5}
+
+/* ============ note ============ */
+.note{display:grid;gap:clamp(18px,2.4vw,32px);grid-template-columns:repeat(auto-fit,minmax(275px,1fr))}
+.nota{display:flex;gap:15px;align-items:flex-start}
+.nota-k{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-gold);color:var(--gold)}
+.nota-k svg{width:16px;height:16px}
+.nota h4{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin:0 0 5px;color:var(--rose)}
+.nota p{font-size:1rem;color:var(--ink-soft);line-height:1.56}
+.nota p+p{margin-top:5px}
+
+/* ============ contatti e modulo ============ */
+.contact-grid{display:grid;gap:clamp(26px,3.6vw,56px);align-items:start}
+@media(min-width:920px){.contact-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}}
+.contact-aside .pw{font-size:3.6rem;display:block;margin-bottom:10px;line-height:1.1}
+.contact-aside p{color:var(--ink-soft)}
+.contact-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.contact-list a{
+  font-family:var(--sans);display:flex;align-items:center;gap:12px;text-decoration:none;
+  font-size:.76rem;letter-spacing:.08em;color:var(--ink);padding:12px 18px;
+  border:1px solid var(--line);border-radius:999px;background:var(--ivory-pure);
+  transition:border-color .3s ease,transform .3s ease,box-shadow .3s ease;
+}
+.contact-list a:hover{border-color:var(--line-gold);transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,15,46,.08)}
+.contact-list svg{width:16px;height:16px;color:var(--rose);flex:0 0 auto}
+.form{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(22px,2.6vw,34px);display:grid;gap:14px;position:relative;overflow:hidden}
+.form h3{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:500;position:relative;z-index:2}
+.form>p{color:var(--ink-soft);font-size:1.02rem;position:relative;z-index:2;line-height:1.5}
+.form .field,.form-row,.form .btn,.form-note{position:relative;z-index:2}
+.form-row{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:560px){.form-row{grid-template-columns:1fr 1fr}}
+.form-note{font-family:var(--sans);font-size:.68rem;color:var(--ink-faint);line-height:1.5}
+.form .btn{width:100%}
+
+/* ============ footer ============ */
+footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(--on-dark);text-align:center;padding:clamp(54px,7vw,92px) var(--pad) clamp(30px,4vw,46px)}
+.foot-mark{width:62px;height:62px;margin:0 auto 18px;color:var(--gold)}
+.foot-word{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,4.2vw,2.7rem);letter-spacing:.3em;text-transform:uppercase;padding-left:.3em;color:var(--ivory)}
+.foot-claim{font-family:var(--script);font-size:clamp(1.7rem,3.6vw,2.4rem);color:var(--gold-soft);margin-top:4px;line-height:1.2}
+.foot-payoff{font-family:var(--sans);font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--on-dark-faint);margin-top:20px;font-weight:500}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;margin-top:26px}
+.foot-links a{font-family:var(--sans);text-decoration:none;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);border-bottom:1px solid transparent;padding-bottom:3px;transition:color .3s ease,border-color .3s ease}
+.foot-links a:hover{color:var(--gold-soft);border-color:var(--gold)}
+.copy{font-family:var(--sans);margin-top:30px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,239,.34);font-weight:300}
+
+/* ============ barra mobile ============ */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;align-items:center;gap:14px;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(247,244,239,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  transform:translateY(115%);transition:transform .45s cubic-bezier(.22,1,.36,1);
+}
+.bar.on{transform:none}
+.bar-tot{display:flex;flex-direction:column;line-height:1.15}
+.bar-tot small{font-family:var(--sans);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.bar-tot b{font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums;background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bar .btn{margin-left:auto;padding:11px 20px;font-size:.62rem}
+@media(min-width:1020px){.bar{display:none}}
+
+/* ============ reveal ============ */
+.rev{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rev.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rev{opacity:1;transform:none}
+}
+@media print{.bar,.site-head,.hero-bg,.tex,.scroll-cue{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gMark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2B0F2E"/><stop offset="1" stop-color="#5A2350"/>
+    </linearGradient>
+  </defs>
+  <symbol id="i-sparkle" viewBox="0 0 24 24">
+    <path d="M12 1.6c.7 5.4 4.9 9.7 10.4 10.4-5.5.7-9.7 5-10.4 10.4-.7-5.4-4.9-9.7-10.4-10.4C7.1 11.3 11.3 7 12 1.6Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-mark" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="23" fill="url(#gMark)"/>
+    <circle cx="24" cy="24" r="20.5" fill="none" stroke="#D4AF37" stroke-width=".8" opacity=".7"/>
+    <text x="24" y="31.5" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="24" font-weight="600" fill="#E5C86B">E</text>
+    <path d="M33 15.6c.25 1.9 1.75 3.4 3.65 3.65-1.9.25-3.4 1.75-3.65 3.65-.25-1.9-1.75-3.4-3.65-3.65 1.9-.25 3.4-1.75 3.65-3.65Z" fill="#D4AF37" opacity=".9"/>
+  </symbol>
+  <symbol id="i-orn" viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1">
+    <path d="M0 6h28M52 6h28"/><path d="M40 2.2 43.8 6 40 9.8 36.2 6Z" fill="currentColor" stroke="none"/>
+  </symbol>
+
+  <symbol id="i-silk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8"/><path d="M10 2c-2.4 5.6-3.4 12.4-2.4 20"/><path d="M14 2c2.4 5.6 3.4 12.4 2.4 20"/><path d="M12 8.5c-1.4 4-1.6 9-.6 13.5"/></symbol>
+    <symbol id="i-hoop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><circle cx="12" cy="14.5" r="7.5"/></symbol>
+    <symbol id="i-lollipop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="5.5"/><path d="M12 13v9"/><path d="M7.5 22h9"/></symbol>
+    <symbol id="i-pole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M7 22h10"/><path d="M12 3h-4"/><path d="M12 9c2.4.6 4 2.4 4.4 4.6"/></symbol>
+    <symbol id="i-fire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 2c.6 3.1-1.4 4.2-2.6 6-1.6 2.4.2 4.2 1.4 4.2 1.6 0 2.6-1.4 2.2-3 2.2 1.6 3.4 4 3.4 6.2A6.6 6.6 0 0 1 5 15.4c0-4.6 4.6-6.4 5.4-10.2.2-1 .4-2.2 2.8-3.2Z"/></symbol>
+    <symbol id="i-wings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M12 7C9.4 4.4 5.6 3.4 2 4c.4 5.4 3.6 9.6 8 11"/><path d="M12 7c2.6-2.6 6.4-3.6 10-3-.4 5.4-3.6 9.6-8 11"/></symbol>
+    <symbol id="i-dance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="3.6" r="1.8"/><path d="M13 6c-1 2.4-2.6 3.8-5 4.6"/><path d="M13 6c1.6 1.4 2.2 3.4 2 5.6L13 22"/><path d="M15 11.6c1.8.6 3 2 3.6 3.8"/><path d="M13 13.4 8.6 22"/></symbol>
+
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4S3.2 15 3.2 9.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8.8 2.2c0 5.8-8.8 11.2-8.8 11.2Z"/></symbol>
+    <symbol id="i-versatile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 9A8.6 8.6 0 0 1 19 6.4"/><path d="M20.4 15A8.6 8.6 0 0 1 5 17.6"/><path d="M19 2.6V6.6h-4"/><path d="M5 21.4v-4h4"/></symbol>
+    <symbol id="i-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><path d="m5.6 5.6 3.2 3.2M15.2 15.2l3.2 3.2M18.4 5.6l-3.2 3.2M8.8 15.2l-3.2 3.2"/></symbol>
+    <symbol id="i-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3M4.6 4.6l2.2 2.2M17.2 17.2l2.2 2.2M19.4 4.6l-2.2 2.2M6.8 17.2l-2.2 2.2"/></symbol>
+    <symbol id="i-elegant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4-3.4-6.6-7-6.6-10.8C5.4 5.6 8.4 2.4 12 2.4s6.6 3.2 6.6 7.8C18.6 14 16.4 17.6 12 21Z"/><path d="M12 21V8"/></symbol>
+    <symbol id="i-magnetic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v9a6 6 0 0 0 12 0V3"/><path d="M6 8.4h4.6M13.4 8.4H18"/></symbol>
+
+    <symbol id="i-rings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14.6" r="6"/><circle cx="15.6" cy="14.6" r="6"/><path d="M12 2.6 13.6 6h-3.2Z"/></symbol>
+    <symbol id="i-balloon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.4c3.2 0 5.6-2.8 5.6-6.6S15.2 2 12 2 6.4 5 6.4 8.8s2.4 6.6 5.6 6.6Z"/><path d="M12 15.4v2"/><path d="M12 17.4c1.6 1.2-1.6 2.4 0 4.2"/></symbol>
+    <symbol id="i-glass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14l-7 8Z"/><path d="M12 11v9"/><path d="M8 20h8"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.4" cy="18" r="3"/><circle cx="17.6" cy="15.4" r="3"/><path d="M9.4 18V5.4l11.2-2.6v12.6"/><path d="M9.4 9 20.6 6.4"/></symbol>
+    <symbol id="i-corp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="7.4" width="18.8" height="13" rx="2"/><path d="M8.4 7.4V5a2 2 0 0 1 2-2h3.2a2 2 0 0 1 2 2v2.4"/><path d="M2.6 13h18.8"/></symbol>
+
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.4"/><path d="M12 6.6V12l3.6 2.2"/></symbol>
+    <symbol id="i-height" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="m8.4 6.6 3.6-3.6 3.6 3.6"/><path d="m8.4 17.4 3.6 3.6 3.6-3.6"/><path d="M3.4 3h3M17.6 3h3M3.4 21h3M17.6 21h3"/></symbol>
+    <symbol id="i-space" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17.4" r="3"/><path d="M10 17.4V4.6l9-2.2v12.4"/><circle cx="16" cy="14.8" r="3"/></symbol>
+
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 16.9v2.8a1.9 1.9 0 0 1-2 1.9 18.6 18.6 0 0 1-8.1-2.9 18.3 18.3 0 0 1-5.6-5.6A18.6 18.6 0 0 1 2.8 5a1.9 1.9 0 0 1 1.9-2h2.8a1.9 1.9 0 0 1 1.9 1.6c.1 1 .3 1.9.7 2.8a1.9 1.9 0 0 1-.4 2l-1.2 1.2a15 15 0 0 0 5.6 5.6l1.2-1.2a1.9 1.9 0 0 1 2-.4c.9.3 1.8.6 2.8.7a1.9 1.9 0 0 1 1.6 1.9Z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.6 8.6 0 1 1 8.2 19.4L3 21Z"/><path d="M8.8 8.4c.3 2.8 3 5.5 5.8 5.8l1.2-1.4 1.8.9-.4 1.7c-2.6.8-7.3-2-8.9-4.7l1.7-.5.9 1.8Z" fill="currentColor" stroke="none" opacity=".85"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.6" width="18.8" height="14.8" rx="2.4"/><path d="m3.4 6.6 8.6 6 8.6-6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.6s7-6 7-11.2a7 7 0 1 0-14 0C5 15.6 12 21.6 12 21.6Z"/><circle cx="12" cy="10.2" r="2.6"/></symbol>
+    <symbol id="i-star-o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.2 2.6 5.4 5.9.8-4.3 4.1 1.1 5.9-5.3-2.9-5.3 2.9 1.1-5.9L3.5 9.4l5.9-.8Z"/></symbol>
+    <symbol id="i-private" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20.4v-1.8a3.6 3.6 0 0 0-3.6-3.6H6.6A3.6 3.6 0 0 0 3 18.6v1.8"/><circle cx="10" cy="7.4" r="3.6"/><path d="M21 20.4v-1.8a3.6 3.6 0 0 0-2.7-3.5"/></symbol>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="Elisa Carosi, torna in cima">
+    <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+    <span class="brand-word">Elisa</span>
+  </a>
+  <nav class="site-nav" aria-label="Principale">
+    <a href="#essenza">Elisa</a>
+    <a href="#performance">Performance</a>
+    <a href="#eventi">Eventi</a>
+    <a href="#personalizzata">Su misura</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+  <a class="btn btn--primary head-cta" href="#performance">Prenota ora</a>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="media/poster.jpg" alt="">
+    <video src="media/hero.mp4" poster="media/poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+  </div>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <img class="tex tex--soft" src="media/tex-macchia.png" alt="" aria-hidden="true"
+       style="width:min(46vw,420px);top:-4%;right:-6%;transform:rotate(14deg);z-index:3">
+  <img class="tex tex--faint" src="media/tex-schizzi.png" alt="" aria-hidden="true"
+       style="width:min(40vw,360px);bottom:6%;left:-4%;transform:rotate(-8deg);z-index:3">
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow on-dark">Multidisciplinary Performance Artist</p>
+      <h1>Trasformo il movimento in <span class="pw on-dark">emozione</span></h1>
+      <p class="hero-lead">Performance aeree, danza e fuoco per eventi indimenticabili. Arte che ispira, emoziona, resta.</p>
+      <div class="hero-cta">
+        <a class="btn btn--onDark" href="#performance">Seleziona la performance</a>
+        <a class="btn btn--onDarkGhost" href="#essenza">Scopri Elisa</a>
+      </div>
+      <div class="hero-tags">
+        <span>Tessuti aerei</span><span>Cerchio aereo</span><span>Lollipop</span>
+        <span>Palo</span><span>Fuoco</span><span>Ali di luce</span><span>Ballerina</span>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#essenza" aria-label="Scorri">Scorri<i></i></a>
+</section>
+
+<!-- ============ ESSENZA ============ -->
+<section id="essenza">
+  <img class="tex tex--faint" src="media/tex-oro.png" alt="" aria-hidden="true"
+       style="width:min(30vw,280px);top:8%;left:-5%;transform:rotate(-12deg)">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">Essenza del brand</p>
+      <h2>L'arte che <span class="pw">prende vita</span></h2>
+      <p>Elisa si muove tra elementi ed emozioni, unendo forza e leggerezza, fuoco e aria. Ogni performance è un viaggio.</p>
+      <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
+    </div>
+    <div class="values rev">
+      <div class="value"><svg aria-hidden="true"><use href="#i-heart"/></svg><b>Espressiva</b><i>Emozione autentica e coinvolgente</i></div>
+      <div class="value"><svg aria-hidden="true"><use href="#i-versatile"/></svg><b>Versatile</b><i>Molte discipline, infinite possibilità</i></div>
+      <div class="value"><svg aria-hidden="true"><use href="#i-art"/></svg><b>Artistica</b><i>Creatività che prende forma</i></div>
+      <div class="value"><svg aria-hidden="true"><use href="#i-light"/></svg><b>Luminosa</b><i>Luce che ispira e trasforma</i></div>
+      <div class="value"><svg aria-hidden="true"><use href="#i-elegant"/></svg><b>Elegante</b><i>Stile raffinato, femminile e curato</i></div>
+      <div class="value"><svg aria-hidden="true"><use href="#i-magnetic"/></svg><b>Magnetica</b><i>Presenza scenica che lascia il segno</i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SELEZIONA LA PERFORMANCE ============ -->
+<section id="performance" style="background:linear-gradient(180deg,var(--ivory) 0%,#F2EBE3 46%,var(--ivory) 100%)">
+  <img class="tex tex--faint" src="media/tex-corallo.png" alt="" aria-hidden="true"
+       style="width:min(34vw,300px);top:4%;right:-4%;transform:rotate(8deg)">
+  <img class="tex tex--faint" src="media/tex-macchia.png" alt="" aria-hidden="true"
+       style="width:min(38vw,340px);bottom:2%;left:-8%;transform:rotate(-16deg)">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">Il repertorio</p>
+      <h2>Seleziona la <span class="pw">performance</span></h2>
+      <p>Sette discipline, un solo linguaggio: il corpo che lascia il pavimento. Apri quella che ti interessa per leggerne i dettagli e scegliere quante volte Elisa sale in scena: il preventivo si aggiorna mentre componi.</p>
+      <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
+    </div>
+
+    <div class="filters rev" role="group" aria-label="Filtra le performance">
+      <button type="button" class="filter" data-filter="tutte" aria-pressed="true">Tutte</button>
+      <button type="button" class="filter" data-filter="aerea" aria-pressed="false">Aeree</button>
+      <button type="button" class="filter" data-filter="terra" aria-pressed="false">A terra</button>
+      <button type="button" class="filter" data-filter="luce" aria-pressed="false">Fuoco e luce</button>
+    </div>
+
+    <div class="pick-grid">
+      <div>
+        <div class="perf-list" id="perf-list">
+      <article class="perf" data-key="tessuti" data-name="Tessuti Aerei" data-max="2" data-n="0" data-cat="aerea">
+        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-tessuti">
+          <span class="perf-fig"><img src="media/perf-tessuti.jpg" alt="Elisa Carosi sospesa ai tessuti aerei" loading="lazy"></span>
+          <span class="perf-title"><b>Tessuti Aerei</b><small>H. min 4,5 m · max 2 uscite</small></span>
+          <span class="perf-state">
+            <span class="perf-price">50 € a uscita</span>
+            <span class="perf-chip" hidden></span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="perf-body" id="body-tessuti">
+          <div><div class="perf-inner">
+            
+            <p>La seta scende dal soffitto e diventa un secondo corpo: avvolgimenti, verticali, cadute libere. Il numero più cinematografico del repertorio.</p>
+            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span><svg aria-hidden="true"><use href="#i-height"/></svg>H. min 4,5 m</span><span><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 min a uscita</span></div>
+            <div class="perf-pick">
+              <span class="pick-label">Quante uscite in serata?</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Togli un'uscita di Tessuti Aerei">&minus;</button>
+                <output aria-live="polite">0</output>
+                <button type="button" data-step="1" aria-label="Aggiungi un'uscita di Tessuti Aerei">+</button>
+              </div>
+              <span class="badge"></span>
+              <span class="pick-sum"></span>
+            </div>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="perf" data-key="cerchio" data-name="Cerchio Aereo" data-max="3" data-n="0" data-cat="aerea">
+        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-cerchio">
+          <span class="perf-fig"><img src="media/perf-cerchio.jpg" alt="Elisa Carosi in figura sul cerchio aereo" loading="lazy"></span>
+          <span class="perf-title"><b>Cerchio Aereo</b><small>H. min 3 m</small></span>
+          <span class="perf-state">
+            <span class="perf-price">50 € a uscita</span>
+            <span class="perf-chip" hidden></span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="perf-body" id="body-cerchio">
+          <div><div class="perf-inner">
+            
+            <p>Un anello d'acciaio sospeso nel vuoto: eleganza in sospensione, movimento che incanta. Coreografato su canzone, oppure in isse freestyle da dieci minuti, più lente e ipnotiche.</p>
+            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span><span><svg aria-hidden="true"><use href="#i-height"/></svg>H. min 3 m</span></div>
+            <div class="perf-pick">
+              <span class="pick-label">Quante uscite in serata?</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Togli un'uscita di Cerchio Aereo">&minus;</button>
+                <output aria-live="polite">0</output>
+                <button type="button" data-step="1" aria-label="Aggiungi un'uscita di Cerchio Aereo">+</button>
+              </div>
+              <span class="badge"></span>
+              <span class="pick-sum"></span>
+            </div>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="perf" data-key="lollipop" data-name="Lollipop" data-max="3" data-n="0" data-cat="aerea">
+        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-lollipop">
+          <span class="perf-fig"><img src="media/perf-lollipop.jpg" alt="Elisa Carosi in posa sul lollipop" loading="lazy"></span>
+          <span class="perf-title"><b>Lollipop</b><small>Pedana propria · welcome</small></span>
+          <span class="perf-state">
+            <span class="perf-price">50 € a uscita</span>
+            <span class="perf-chip" hidden></span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="perf-body" id="body-lollipop">
+          <div><div class="perf-inner">
+            
+            <p>Cerchio montato su pedana autoportante: non serve agganciare nulla. È l'unico attrezzo su cui si può fare anche welcome e animazione, seduta in alto mentre offre da bere agli ospiti.</p>
+            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-private"/></svg>Welcome</span><span><svg aria-hidden="true"><use href="#i-space"/></svg>Struttura inclusa</span></div>
+            <div class="perf-pick">
+              <span class="pick-label">Quante uscite in serata?</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Togli un'uscita di Lollipop">&minus;</button>
+                <output aria-live="polite">0</output>
+                <button type="button" data-step="1" aria-label="Aggiungi un'uscita di Lollipop">+</button>
+              </div>
+              <span class="badge"></span>
+              <span class="pick-sum"></span>
+            </div>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="perf" data-key="palo" data-name="Palo" data-max="3" data-n="0" data-cat="aerea">
+        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-palo">
+          <span class="perf-fig"><img src="media/perf-palo.jpg" alt="Elisa Carosi in verticale sul palo" loading="lazy"></span>
+          <span class="perf-title"><b>Palo</b><small>Pedana propria · h. min 3 m</small></span>
+          <span class="perf-state">
+            <span class="perf-price">50 € a uscita</span>
+            <span class="perf-chip" hidden></span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="perf-body" id="body-palo">
+          <div><div class="perf-inner">
+            
+            <p>Pole dance da spettacolo su pedana autoportante personale. Velocità, forza e figure a mezz'aria: funziona benissimo nei locali, dove il pubblico è vicino.</p>
+            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span><svg aria-hidden="true"><use href="#i-space"/></svg>Struttura inclusa</span></div>
+            <div class="perf-pick">
+              <span class="pick-label">Quante uscite in serata?</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Togli un'uscita di Palo">&minus;</button>
+                <output aria-live="polite">0</output>
+                <button type="button" data-step="1" aria-label="Aggiungi un'uscita di Palo">+</button>
+              </div>
+              <span class="badge"></span>
+              <span class="pick-sum"></span>
+            </div>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="perf" data-key="fuoco" data-name="Fuoco" data-max="3" data-n="0" data-cat="luce">
+        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-fuoco">
+          <span class="perf-fig"><img src="media/perf-fuoco.jpg" alt="Elisa Carosi durante una performance con il fuoco" loading="lazy"></span>
+          <span class="perf-title"><b>Fuoco</b><small>Solo spazi esterni</small></span>
+          <span class="perf-state">
+            <span class="perf-price">50 € a uscita</span>
+            <span class="perf-chip" hidden></span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="perf-body" id="body-fuoco">
+          <div><div class="perf-inner">
+            <p>Ventagli, bastone e catene infuocate. All'aperto, dopo il tramonto, è il numero che chiude la serata e non lo dimentica più nessuno.</p>
+            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span><svg aria-hidden="true"><use href="#i-pin"/></svg>Solo esterni</span></div>
+            <div class="perf-pick">
+              <span class="pick-label">Quante uscite in serata?</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Togli un'uscita di Fuoco">&minus;</button>
+                <output aria-live="polite">0</output>
+                <button type="button" data-step="1" aria-label="Aggiungi un'uscita di Fuoco">+</button>
+              </div>
+              <span class="badge"></span>
+              <span class="pick-sum"></span>
+            </div>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="perf" data-key="ali" data-name="Ali di Luce" data-max="3" data-n="0" data-cat="luce">
+        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-ali">
+          <span class="perf-fig"><img src="media/perf-ali.jpg" alt="Elisa Carosi con le ali di luce a LED" loading="lazy"></span>
+          <span class="perf-title"><b>Ali di Luce</b><small>Ali LED · interno o esterno</small></span>
+          <span class="perf-state">
+            <span class="perf-price">50 € a uscita</span>
+            <span class="perf-chip" hidden></span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="perf-body" id="body-ali">
+          <div><div class="perf-inner">
+            <p>Ali LED programmabili che cambiano colore a tempo di musica. L'ingresso degli sposi, il taglio della torta, il momento in cui tutti tirano fuori il telefono.</p>
+            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span><span><svg aria-hidden="true"><use href="#i-space"/></svg>Interno o esterno</span></div>
+            <div class="perf-pick">
+              <span class="pick-label">Quante uscite in serata?</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Togli un'uscita di Ali di Luce">&minus;</button>
+                <output aria-live="polite">0</output>
+                <button type="button" data-step="1" aria-label="Aggiungi un'uscita di Ali di Luce">+</button>
+              </div>
+              <span class="badge"></span>
+              <span class="pick-sum"></span>
+            </div>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="perf" data-key="ballerina" data-name="Ballerina" data-max="3" data-n="0" data-cat="terra">
+        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-ballerina">
+          <span class="perf-fig"><img src="media/perf-ballerina.jpg" alt="Elisa Carosi durante una coreografia a terra" loading="lazy"></span>
+          <span class="perf-title"><b>Ballerina</b><small>Coreografia a terra su misura</small></span>
+          <span class="perf-state">
+            <span class="perf-price">50 € a uscita</span>
+            <span class="perf-chip" hidden></span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="perf-body" id="body-ballerina">
+          <div><div class="perf-inner">
+            
+            <p>Coreografie a terra costruite su misura per la serata: latino, commerciale, contemporaneo. Da sola o insieme agli altri numeri, per riempire i momenti di passaggio.</p>
+            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-note"/></svg>Su misura</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span></div>
+            <div class="perf-pick">
+              <span class="pick-label">Quante uscite in serata?</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Togli un'uscita di Ballerina">&minus;</button>
+                <output aria-live="polite">0</output>
+                <button type="button" data-step="1" aria-label="Aggiungi un'uscita di Ballerina">+</button>
+              </div>
+              <span class="badge"></span>
+              <span class="pick-sum"></span>
+            </div>
+          </div></div>
+        </div>
+      </article>        </div>
+
+        <div class="extras">
+          <p class="extras-title">Supplementi</p>
+          <label class="extra" id="extra-struttura" hidden>
+            <input type="checkbox" data-extra="struttura" data-label="Struttura autoportante" data-amount="150">
+            <span class="tick" aria-hidden="true"></span>
+            <span class="extra-txt"><b>Struttura autoportante</b><small>Tripode o pedana in noleggio, quando in loco non ci sono punti di aggancio.</small></span>
+            <span class="extra-price">+150 €</span>
+          </label>
+          <label class="extra">
+            <input type="checkbox" data-extra="trasferta" data-label="Trasferta fuori Roma" data-amount="50">
+            <span class="tick" aria-hidden="true"></span>
+            <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Per eventi oltre Roma e provincia.</small></span>
+            <span class="extra-price">+50 €</span>
+          </label>
+          <label class="extra">
+            <input type="checkbox" data-extra="capodanno" data-label="Capodanno" data-amount="100">
+            <span class="tick" aria-hidden="true"></span>
+            <span class="extra-txt"><b>Capodanno</b><small>Tariffa dedicata alla notte del 31 dicembre.</small></span>
+            <span class="extra-price">+100 €</span>
+          </label>
+        </div>
+      </div>
+
+      <aside class="quote" id="riepilogo" aria-label="Riepilogo del preventivo">
+        <h3>La tua scaletta</h3>
+        <ul class="scaletta" id="scaletta"></ul>
+        <div class="tot"><span>Totale</span><b id="totale">0 €</b></div>
+        <p class="saving" id="risparmio"></p>
+        <div class="when">
+          <div class="field">
+            <label for="q-data">Giorno</label>
+            <input id="q-data" type="date">
+          </div>
+          <div class="field">
+            <label for="q-ora">Orario</label>
+            <input id="q-ora" type="time">
+          </div>
+        </div>
+        <div class="quote-actions">
+          <a class="btn btn--primary" id="mail" href="#">Richiedi ora via mail</a>
+        </div>
+        <p class="quote-note" id="quote-note">Preventivo indicativo. La disponibilità della data e la quotazione definitiva vengono confermate da Elisa.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVENTI ============ -->
+<section id="eventi">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">Dove funziona</p>
+      <h2>Ogni serata ha il suo <span class="pw">momento</span></h2>
+      <p>Lo stesso numero cambia pelle a seconda della sala, dell'ora e di chi guarda.</p>
+      <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
+    </div>
+    <div class="eventi rev">
+      <div class="evento"><svg aria-hidden="true"><use href="#i-rings"/></svg><b>Matrimoni</b><p>Ingresso degli sposi, taglio della torta, apertura delle danze. Ali di luce e tessuti finiscono in tutti i video.</p></div>
+      <div class="evento"><svg aria-hidden="true"><use href="#i-balloon"/></svg><b>Diciottesimi</b><p>Ritmo alto e foto continue: palo, fuoco e un finale all'altezza della festa che hanno in testa.</p></div>
+      <div class="evento"><svg aria-hidden="true"><use href="#i-glass"/></svg><b>Anniversari</b><p>Numeri lenti, isse freestyle, luce calda. Meno spettacolo, più atmosfera.</p></div>
+      <div class="evento"><svg aria-hidden="true"><use href="#i-music"/></svg><b>Locali e serate</b><p>Pubblico ravvicinato, uscite brevi distribuite nella notte, welcome sul lollipop.</p></div>
+      <div class="evento"><svg aria-hidden="true"><use href="#i-corp"/></svg><b>Eventi aziendali</b><p>Inaugurazioni, gala e presentazioni: la performance si aggancia al momento chiave.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTE TECNICHE ============ -->
+<section id="tecnica" style="background:linear-gradient(180deg,#F2EBE3 0%,var(--ivory) 100%)">
+  <img class="tex tex--faint" src="media/tex-schizzi.png" alt="" aria-hidden="true"
+       style="width:min(32vw,300px);top:12%;right:-6%;transform:rotate(6deg) scaleX(-1)">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">Prima di prenotare</p>
+      <h2>Quattro cose da <span class="pw">verificare</span></h2>
+      <p>Da chiedere al locale: risolvono il novanta per cento dei dubbi.</p>
+      <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
+    </div>
+    <div class="note rev">
+      <div class="nota">
+        <span class="nota-k"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
+        <div><h4>Durata</h4><p>Ogni uscita dura quanto una canzone, tre o quattro minuti. Cerchio e lollipop possono diventare isse freestyle da dieci-quindici minuti, con pose e presenza scenica continua.</p></div>
+      </div>
+      <div class="nota">
+        <span class="nota-k"><svg aria-hidden="true"><use href="#i-height"/></svg></span>
+        <div><h4>Altezze</h4><p>Cerchio, lollipop e palo richiedono almeno 3 metri liberi. Il tessuto ne richiede 4,5.</p><p>Per le aeree serve un punto di aggancio certificato: se non c'è, si porta la struttura autoportante.</p></div>
+      </div>
+      <div class="nota">
+        <span class="nota-k"><svg aria-hidden="true"><use href="#i-space"/></svg></span>
+        <div><h4>Spazio</h4><p>Serve un'area sgombra di circa tre metri per tre attorno all'attrezzo, e un camerino o uno spazio riservato per i cambi.</p><p>Il fuoco si fa solo all'aperto, lontano da tende e vegetazione.</p></div>
+      </div>
+      <div class="nota">
+        <span class="nota-k"><svg aria-hidden="true"><use href="#i-note"/></svg></span>
+        <div><h4>Musica</h4><p>Le coreografie si costruiscono sulle canzoni scelte insieme: si concordano in anticipo con voi e con il DJ della serata.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERFORMANCE PERSONALIZZATA ============ -->
+<section id="personalizzata" class="dark">
+  <img class="tex tex--soft" src="media/tex-macchia.png" alt="" aria-hidden="true"
+       style="width:min(40vw,380px);top:-8%;left:-6%;transform:rotate(22deg)">
+  <img class="tex tex--soft" src="media/tex-oro.png" alt="" aria-hidden="true"
+       style="width:min(28vw,260px);bottom:4%;right:-3%;transform:rotate(-14deg)">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow on-dark">Su misura</p>
+      <h2>Richiedi una performance <span class="pw on-dark">personalizzata</span></h2>
+      <p>Un numero costruito sulla tua serata: musica scelta insieme, costume coordinato ai colori dell'evento, coreografia scritta per il momento esatto in cui deve succedere.</p>
+      <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
+    </div>
+
+    <form class="form rev" id="form-custom" novalidate style="max-width:760px;margin:0 auto">
+      <div class="form-row">
+        <div class="field">
+          <label for="c-nome">Nome e cognome</label>
+          <input id="c-nome" type="text" autocomplete="name" placeholder="Come ti chiami">
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input id="c-email" type="email" autocomplete="email" placeholder="La tua email">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="c-data">Giorno dell'evento</label>
+          <input id="c-data" type="date">
+        </div>
+        <div class="field">
+          <label for="c-ora">Orario</label>
+          <input id="c-ora" type="time">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="c-tipo">Tipologia evento</label>
+          <select id="c-tipo">
+            <option value="">Scegli</option>
+            <option>Matrimonio</option>
+            <option>Diciottesimo</option>
+            <option>Anniversario</option>
+            <option>Serata in locale</option>
+            <option>Evento aziendale</option>
+            <option>Altro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="c-luogo">Luogo</label>
+          <input id="c-luogo" type="text" placeholder="Location e città">
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-idea">L'idea che hai in mente</label>
+        <textarea id="c-idea" placeholder="Che effetto vuoi fare agli ospiti? C'è una canzone, un colore, un momento preciso della serata?"></textarea>
+      </div>
+      <p class="form-note">La richiesta apre la tua app di posta con il messaggio già scritto: controlla e invia.</p>
+      <a class="btn btn--primary" id="custom-mail" href="#">Richiedi ora</a>
+    </form>
+  </div>
+</section>
+
+<!-- ============ CONTATTI ============ -->
+<section id="contatti">
+  <img class="tex tex--faint" src="media/tex-corallo.png" alt="" aria-hidden="true"
+       style="width:min(30vw,280px);bottom:8%;right:-5%;transform:rotate(-6deg)">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-aside rev">
+        <p class="eyebrow">Contatti</p>
+        <span class="pw">Parliamone</span>
+        <p>Raccontami che serata hai in mente: giorno, luogo e che effetto vuoi fare agli ospiti. Ti rispondo con disponibilità e preventivo definitivo.</p>
+        <div class="contact-list">
+          <a href="mailto:elisa.carosi@me.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>elisa.carosi@me.com</a>
+          <a href="tel:+393342843928"><svg aria-hidden="true"><use href="#i-phone"/></svg>334 284 3928</a>
+          <a href="https://wa.me/393342843928" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+          <a href="#performance"><svg aria-hidden="true"><use href="#i-pin"/></svg>Roma e trasferte</a>
+        </div>
+      </div>
+
+      <div class="form rev">
+        <h3>Hai già scelto le performance?</h3>
+        <p>Torna alla scaletta, aggiungi giorno e orario e invia la richiesta: il messaggio parte con tutto il riepilogo.</p>
+        <div class="perf-tags" style="margin-top:4px">
+          <span><svg aria-hidden="true"><use href="#i-clock"/></svg>Risposta in 24 ore</span>
+          <span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Preventivo senza impegno</span>
+        </div>
+        <a class="btn btn--ghost" href="#performance">Vai alla scaletta</a>
+        <p class="form-note">Oppure scrivi direttamente a <strong>elisa.carosi@me.com</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <img class="tex tex--faint" src="media/tex-schizzi.png" alt="" aria-hidden="true"
+       style="width:min(44vw,420px);top:-10%;left:50%;transform:translateX(-50%)">
+  <div style="position:relative;z-index:3">
+    <svg class="foot-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+    <p class="foot-word">Elisa Carosi</p>
+    <p class="foot-claim">unfold your light</p>
+    <p class="foot-payoff">Art in motion · Power in presence</p>
+    <div class="foot-links">
+      <a href="mailto:elisa.carosi@me.com">elisa.carosi@me.com</a>
+      <a href="tel:+393342843928">334 284 3928</a>
+      <a href="https://wa.me/393342843928" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="copy">Multidisciplinary Performance Artist · Roma e trasferte</p>
+  </div>
+</footer>
+
+<div class="bar" id="bar">
+  <div class="bar-tot"><small>Totale serata</small><b id="barTot">0 €</b></div>
+  <a class="btn btn--primary" href="#riepilogo">Vedi scaletta</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var PREZZO_USCITA = 50;      // prezzo di una singola uscita
+  var PREZZO_SET    = 130;     // prezzo quando si raggiunge il set completo
+  var EMAIL         = "elisa.carosi@me.com";
+  var RICHIEDE_STRUTTURA = ["tessuti","cerchio","lollipop","palo"];
+
+  var perfs    = Array.prototype.slice.call(document.querySelectorAll(".perf"));
+  var extras   = Array.prototype.slice.call(document.querySelectorAll("[data-extra]"));
+  var scaletta = document.getElementById("scaletta");
+  var totaleEl = document.getElementById("totale");
+  var barTotEl = document.getElementById("barTot");
+  var risparmioEl = document.getElementById("risparmio");
+  var extraStruttura = document.getElementById("extra-struttura");
+  var noteEl = document.getElementById("quote-note");
+  var bar   = document.getElementById("bar");
+  var mail  = document.getElementById("mail");
+  var qData = document.getElementById("q-data");
+  var qOra  = document.getElementById("q-ora");
+
+  var euro     = function(n){ return n.toLocaleString("it-IT") + " €"; };
+  var euroHTML = function(n){ return n.toLocaleString("it-IT") + '<span class="cur">€</span>'; };
+  var dataIT   = function(v){ var d = v.split("-"); return d[2] + "/" + d[1] + "/" + d[0]; };
+
+  // Il set scatta al massimo di uscite dell'attrezzo: 3 uguali, o 2 per il tessuto.
+  function costo(n, max){
+    if(n <= 0) return 0;
+    if(n >= max) return PREZZO_SET;
+    return n * PREZZO_USCITA;
+  }
+
+  function stato(){
+    var voci = [], totale = 0, aereeAttive = false;
+
+    perfs.forEach(function(p){
+      var n = +p.dataset.n, max = +p.dataset.max;
+      if(!n) return;
+      var c = costo(n, max);
+      totale += c;
+      voci.push({ nome: p.dataset.name, n: n, costo: c, set: n >= max });
+      if(RICHIEDE_STRUTTURA.indexOf(p.dataset.key) > -1) aereeAttive = true;
+    });
+
+    // i supplementi hanno senso solo se c'è almeno un'uscita in scaletta
+    var supplementi = [];
+    if(voci.length) extras.forEach(function(inp){
+      if(inp.dataset.extra === "struttura" && !aereeAttive) return;
+      if(inp.checked){
+        supplementi.push({ nome: inp.dataset.label, costo: +inp.dataset.amount });
+        totale += +inp.dataset.amount;
+      }
+    });
+
+    // il risparmio si conta solo dove il set costa meno delle uscite singole
+    var risparmio = voci.reduce(function(acc,v){
+      return acc + Math.max(0, v.n * PREZZO_USCITA - v.costo);
+    }, 0);
+
+    return { voci: voci, supplementi: supplementi, totale: totale, risparmio: risparmio, aereeAttive: aereeAttive };
+  }
+
+  function riga(num, testo, prezzo){
+    var li = document.createElement("li");
+    li.innerHTML = '<span class="sc-num">' + num + '</span>' +
+                   '<span class="sc-name">' + testo + '</span>' +
+                   '<span class="sc-price">' + prezzo + '</span>';
+    return li;
+  }
+
+  function render(){
+    var s = stato();
+
+    perfs.forEach(function(p){
+      var n = +p.dataset.n, max = +p.dataset.max;
+      var c = costo(n, max);
+      var chip  = p.querySelector(".perf-chip");
+      var prezzo = p.querySelector(".perf-price");
+      var badge = p.querySelector(".badge");
+      var somma = p.querySelector(".pick-sum");
+
+      chip.hidden = !n;
+      chip.textContent = n ? n + (n > 1 ? " uscite · " : " uscita · ") + euro(c) : "";
+      prezzo.hidden = !!n;
+      badge.textContent = max === 2 ? "Set completo" : "Set da 3";
+      badge.classList.toggle("on", n >= max);
+      somma.innerHTML = n ? euroHTML(c) : '<span style="color:var(--ink-faint);font-weight:400">50 € a uscita</span>';
+      p.classList.toggle("chosen", n > 0);
+      p.querySelector('[data-step="-1"]').disabled = n === 0;
+      p.querySelector('[data-step="1"]').disabled  = n >= max;
+    });
+
+    // la struttura autoportante ha senso solo con un'aerea o il palo in scaletta
+    extraStruttura.hidden = !s.aereeAttive;
+    if(!s.aereeAttive) extraStruttura.querySelector("input").checked = false;
+
+    scaletta.innerHTML = "";
+    if(!s.voci.length){
+      var vuoto = document.createElement("li");
+      vuoto.className = "empty";
+      vuoto.style.cssText = "display:block;border:0;animation:none";
+      vuoto.textContent = "Apri una performance qui accanto e scegli quante uscite.";
+      scaletta.appendChild(vuoto);
+    } else {
+      var i = 0;
+      s.voci.forEach(function(v){
+        i++;
+        var etichetta = v.nome + ' <em>× ' + v.n + (v.set ? " · set" : "") + '</em>';
+        scaletta.appendChild(riga(("0" + i).slice(-2), etichetta, euroHTML(v.costo)));
+      });
+      s.supplementi.forEach(function(v){
+        scaletta.appendChild(riga("+", v.nome, euroHTML(v.costo)));
+      });
+    }
+
+    totaleEl.innerHTML = euroHTML(s.totale);
+    barTotEl.innerHTML = euroHTML(s.totale);
+    risparmioEl.textContent = s.risparmio > 0 ? "Risparmi " + euro(s.risparmio) + " con i set" : "";
+    bar.classList.toggle("on", s.totale > 0);
+
+    var righe = ["Ciao Elisa,", "", "ho composto una serata sul sito:", ""];
+    s.voci.forEach(function(v){
+      righe.push("• " + v.nome + " — " + v.n + (v.n > 1 ? " uscite" : " uscita") + " — " + euro(v.costo));
+    });
+    s.supplementi.forEach(function(v){ righe.push("• " + v.nome + " — " + euro(v.costo)); });
+    righe.push("", "Totale indicativo: " + euro(s.totale), "");
+    righe.push("Giorno: " + (qData.value ? dataIT(qData.value) : "da definire"));
+    righe.push("Orario: " + (qOra.value || "da definire"));
+    righe.push("", "Mi confermi disponibilità e preventivo?");
+
+    var attivo = s.totale > 0;
+    mail.href = "mailto:" + EMAIL +
+      "?subject=" + encodeURIComponent("Richiesta preventivo — serata del " + (qData.value ? dataIT(qData.value) : "…")) +
+      "&body=" + encodeURIComponent(righe.join("\n"));
+    mail.setAttribute("aria-disabled", attivo ? "false" : "true");
+
+    noteEl.textContent = !attivo
+      ? "Seleziona almeno una performance per attivare la richiesta."
+      : (!qData.value
+        ? "Indica il giorno per aiutare Elisa a verificare la disponibilità."
+        : "Preventivo indicativo. La disponibilità e la quotazione definitiva vengono confermate da Elisa.");
+  }
+
+  // apertura delle card e stepper
+  perfs.forEach(function(p){
+    var head = p.querySelector(".perf-head");
+    head.addEventListener("click", function(){
+      var apri = !p.classList.contains("open");
+      perfs.forEach(function(o){
+        o.classList.remove("open");
+        o.querySelector(".perf-head").setAttribute("aria-expanded","false");
+      });
+      if(apri){
+        p.classList.add("open");
+        head.setAttribute("aria-expanded","true");
+      }
+    });
+    p.querySelector(".perf-pick").addEventListener("click", function(e){
+      var b = e.target.closest("[data-step]");
+      if(!b) return;
+      var n = +p.dataset.n + (+b.dataset.step);
+      p.dataset.n = Math.max(0, Math.min(+p.dataset.max, n));
+      p.querySelector("output").textContent = p.dataset.n;
+      render();
+    });
+  });
+  extras.forEach(function(inp){ inp.addEventListener("change", render); });
+  [qData, qOra].forEach(function(c){ c.addEventListener("change", render); c.addEventListener("input", render); });
+
+  // filtro del repertorio
+  var filtri = Array.prototype.slice.call(document.querySelectorAll(".filter"));
+  filtri.forEach(function(b){
+    b.addEventListener("click", function(){
+      filtri.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      var f = b.dataset.filter;
+      perfs.forEach(function(p){ p.hidden = !(f === "tutte" || p.dataset.cat === f); });
+    });
+  });
+
+  // modulo performance personalizzata
+  var custom = {
+    nome:  document.getElementById("c-nome"),
+    email: document.getElementById("c-email"),
+    data:  document.getElementById("c-data"),
+    ora:   document.getElementById("c-ora"),
+    tipo:  document.getElementById("c-tipo"),
+    luogo: document.getElementById("c-luogo"),
+    idea:  document.getElementById("c-idea")
+  };
+  var customMail = document.getElementById("custom-mail");
+  function renderCustom(){
+    var r = ["Ciao Elisa,", "", "vorrei una performance personalizzata per il mio evento.", ""];
+    if(custom.nome.value)  r.push("Nome: " + custom.nome.value);
+    if(custom.email.value) r.push("Email: " + custom.email.value);
+    r.push("Giorno: " + (custom.data.value ? dataIT(custom.data.value) : "da definire"));
+    r.push("Orario: " + (custom.ora.value || "da definire"));
+    if(custom.tipo.value)  r.push("Tipo di evento: " + custom.tipo.value);
+    if(custom.luogo.value) r.push("Luogo: " + custom.luogo.value);
+    if(custom.idea.value)  r.push("", "L'idea:", custom.idea.value);
+    r.push("", "Mi fai sapere se è realizzabile e quanto verrebbe a costare?");
+    customMail.href = "mailto:" + EMAIL +
+      "?subject=" + encodeURIComponent("Richiesta performance personalizzata") +
+      "&body=" + encodeURIComponent(r.join("\n"));
+  }
+  Object.keys(custom).forEach(function(k){
+    custom[k].addEventListener("input", renderCustom);
+    custom[k].addEventListener("change", renderCustom);
+  });
+  document.getElementById("form-custom").addEventListener("submit", function(e){ e.preventDefault(); });
+
+  render();
+  renderCustom();
+
+  if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold:.1, rootMargin:"0px 0px -6% 0px" });
+    document.querySelectorAll(".rev").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".rev").forEach(function(el){ el.classList.add("in"); });
+  }
+})();
+</script>
+</body>
+</html>

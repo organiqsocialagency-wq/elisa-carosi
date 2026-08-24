@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# build locale: il file unico da 6,5 MB si rigenera, non serve versionarlo
+elisa-carosi-file-unico.html
