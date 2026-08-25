@@ -453,13 +453,33 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 
 
 /* ============ transizione al tema scuro: da "Il momento giusto" in giù ============ */
+/* la coda della sezione chiara comincia già a raffreddarsi:
+   il passaggio parte prima e ha più strada per compiersi */
+#performance{padding-bottom:clamp(120px,14vw,190px)}
+
 #eventi{
-  /* la sfumatura si consuma nel margine superiore, prima che inizi il testo:
-     così nessun contenuto cade nella fascia di passaggio */
-  padding-top:clamp(150px,20vw,290px);
+  /* Il passaggio si consuma tutto nel margine superiore, prima che inizi il testo.
+     Gli stop sono calcolati interpolando in Lab: la luminosità cala in modo
+     percettivamente uniforme (niente banda) mentre la tinta passa per il rosa
+     polveroso del brand invece di virare al grigio. */
+  padding-top:clamp(380px,42vw,660px);
   background:linear-gradient(180deg,
-    var(--ivory) 0%, #F0E5DD 22%, #C98E93 44%, #7A2743 66%, var(--plum) 86%, var(--plum-deep) 100%);
-  background-size:100% clamp(150px,20vw,290px);
+    #F7F4EF 0%,
+    #EFDEDC 7%,
+    #E6C8C9 14%,
+    #DAB4B7 21%,
+    #CDA0A5 29%,
+    #BF8C94 36%,
+    #AF7A84 43%,
+    #9E6974 50%,
+    #8D5865 57%,
+    #7A4957 64%,
+    #673A49 71%,
+    #542D3C 79%,
+    #402130 86%,
+    #2D1624 93%,
+    #1A0819 100%);
+  background-size:100% clamp(380px,42vw,660px);
   background-repeat:no-repeat;
   background-color:var(--plum-deep);
 }
