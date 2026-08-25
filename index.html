@@ -376,6 +376,11 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .numero .piu{font-size:.52em;line-height:1;font-weight:500;display:inline;margin:0;min-height:0}
 
 /* ============ recensioni ============ */
+.venues{
+  text-align:center;font-size:1.02rem;color:var(--ink-soft);
+  margin:0 auto clamp(24px,3vw,34px);max-width:60ch;
+}
+.venues b{font-weight:600;color:var(--ink)}
 .recensioni{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
 .rec{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;gap:14px}
 .rec-virg{font-family:var(--serif);font-size:3rem;line-height:.6;color:var(--rose);opacity:.5}
@@ -399,6 +404,20 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .evento svg{width:25px;height:25px;color:var(--rose)}
 .evento b{font-size:1.48rem;font-weight:500}
 .evento p{font-size:1.08rem;color:var(--ink-soft);line-height:1.5}
+
+.evento .tipo{
+  margin-top:auto;padding-top:12px;border-top:1px solid rgba(247,244,239,.16);
+  font-family:var(--sans);font-size:.82rem;line-height:1.45;color:var(--on-dark-soft);
+}
+.evento .tipo span{
+  display:block;font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-soft);margin-bottom:4px;
+}
+.eventi-chiusura{
+  display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;
+  margin-top:clamp(32px,4vw,48px);
+}
+.eventi-chiusura p{max-width:56ch;color:var(--on-dark-soft);font-size:1.1rem;line-height:1.5}
 
 /* ============ note ============ */
 .note{display:grid;gap:clamp(18px,2.4vw,32px);grid-template-columns:repeat(auto-fit,minmax(275px,1fr))}
@@ -431,6 +450,90 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 @media(min-width:560px){.form-row{grid-template-columns:1fr 1fr}}
 .form-note{font-family:var(--sans);font-size:.78rem;color:var(--ink-faint);line-height:1.5}
 .form .btn{width:100%}
+
+
+/* ============ transizione al tema scuro: da "Il momento giusto" in giù ============ */
+#eventi{
+  /* la sfumatura si consuma nel margine superiore, prima che inizi il testo:
+     così nessun contenuto cade nella fascia di passaggio */
+  padding-top:clamp(150px,20vw,290px);
+  background:linear-gradient(180deg,
+    var(--ivory) 0%, #F0E5DD 22%, #C98E93 44%, #7A2743 66%, var(--plum) 86%, var(--plum-deep) 100%);
+  background-size:100% clamp(150px,20vw,290px);
+  background-repeat:no-repeat;
+  background-color:var(--plum-deep);
+}
+/* su fondo scuro l'intestazione veste chiaro */
+#eventi .sec-head h2{color:var(--on-dark)}
+#eventi .sec-head p{color:var(--on-dark-soft)}
+#eventi .eyebrow{color:var(--gold-soft)}
+#recensioni,#domande,#contatti{background:var(--grad-dark);color:var(--on-dark)}
+#recensioni{background:linear-gradient(180deg,var(--plum-deep) 0%,var(--plum) 46%,#3B1233 100%)}
+#domande{background:linear-gradient(180deg,#3B1233 0%,var(--plum) 40%,var(--plum-deep) 100%)}
+#contatti{background:linear-gradient(180deg,var(--plum-deep) 0%,var(--plum) 55%,#1F0A20 100%)}
+
+/* le sezioni scure ereditano i colori del testo chiaro */
+#eventi .evento,#recensioni,#domande,#contatti{color:var(--on-dark)}
+#recensioni .sec-head p,#domande .sec-head p,#contatti p{color:var(--on-dark-soft)}
+#recensioni .eyebrow,#domande .eyebrow,#contatti .eyebrow{color:var(--gold-soft)}
+
+/* card eventi: stanno nella metà bassa del gradiente, quindi vestono scuro */
+#eventi .evento{
+  background:rgba(255,252,250,.06);border-color:rgba(247,244,239,.16);
+  backdrop-filter:blur(3px);
+}
+#eventi .evento:hover{background:rgba(255,252,250,.1);border-color:var(--line-gold);box-shadow:0 16px 40px rgba(10,3,10,.4)}
+#eventi .evento p{color:var(--on-dark-soft)}
+#eventi .evento svg{color:var(--gold-soft)}
+
+/* recensioni */
+#recensioni .rec{background:rgba(255,252,250,.06);border-color:rgba(247,244,239,.16)}
+#recensioni .rec p{color:var(--on-dark)}
+#recensioni .rec footer{color:var(--on-dark-faint)}
+#recensioni .rec footer b{color:var(--gold-soft)}
+#recensioni .rec-virg{color:var(--rose);opacity:.75}
+#recensioni .venues{color:var(--on-dark-soft)}
+#recensioni .venues b{color:var(--gold-soft)}
+#recensioni .avviso{background:rgba(255,107,107,.12);border-color:var(--coral);color:var(--on-dark-soft)}
+#recensioni .avviso b{color:var(--coral)}
+#recensioni .avviso code{background:rgba(247,244,239,.14);padding:1px 5px;border-radius:4px}
+
+/* domande */
+#domande .nota h3{color:var(--on-dark)}
+#domande .nota p{color:var(--on-dark-soft)}
+#domande .nota-k{border-color:var(--line-gold);color:var(--gold-soft)}
+
+/* contatti */
+#contatti .contact-list a{background:rgba(255,252,250,.06);border-color:rgba(247,244,239,.16);color:var(--on-dark)}
+#contatti .contact-list a:hover{border-color:var(--gold);background:rgba(212,175,55,.14)}
+#contatti .contact-list svg{color:var(--gold-soft)}
+#contatti .form{background:rgba(255,252,250,.05);border-color:rgba(247,244,239,.16)}
+#contatti .form h3{color:var(--on-dark)}
+#contatti .form-note{color:var(--on-dark-faint)}
+#contatti .form-note strong{color:var(--gold-soft)}
+#contatti .perf-tags span{border-color:rgba(247,244,239,.2);color:var(--on-dark-soft)}
+
+/* i campi dei moduli sulle sezioni scure */
+.dark .field input,.dark .field select,.dark .field textarea,
+#contatti .field input,#contatti .field select,#contatti .field textarea{
+  background:rgba(12,4,12,.4);border-color:rgba(247,244,239,.22);color:var(--on-dark);
+}
+.dark .field input:focus,.dark .field select:focus,.dark .field textarea:focus,
+#contatti .field input:focus,#contatti .field select:focus,#contatti .field textarea:focus{
+  border-color:var(--gold);background:rgba(12,4,12,.6);
+}
+.dark .field label,#contatti .field label{color:var(--on-dark-faint)}
+.dark .field input::placeholder,.dark .field textarea::placeholder,
+#contatti .field input::placeholder,#contatti .field textarea::placeholder{color:rgba(247,244,239,.4)}
+.dark .field input[type="date"]::-webkit-calendar-picker-indicator,
+.dark .field input[type="time"]::-webkit-calendar-picker-indicator{filter:invert(1) opacity(.7)}
+.dark .btn--ghost,#contatti .btn--ghost{border-color:rgba(247,244,239,.4);color:var(--ivory)}
+.dark .btn--ghost:hover,#contatti .btn--ghost:hover{border-color:var(--gold);background:rgba(212,175,55,.16)}
+
+/* il modulo su misura è già su fondo scuro: allineo la scheda */
+#personalizzata .form{background:rgba(255,252,250,.05);border-color:rgba(247,244,239,.16)}
+#personalizzata .form>p{color:var(--on-dark-soft)}
+#personalizzata .form-note{color:var(--on-dark-faint)}
 
 /* ============ footer ============ */
 footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(--on-dark);text-align:center;padding:clamp(54px,7vw,92px) var(--pad) clamp(30px,4vw,46px)}
@@ -689,6 +792,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
 
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 16.9v2.8a1.9 1.9 0 0 1-2 1.9 18.6 18.6 0 0 1-8.1-2.9 18.3 18.3 0 0 1-5.6-5.6A18.6 18.6 0 0 1 2.8 5a1.9 1.9 0 0 1 1.9-2h2.8a1.9 1.9 0 0 1 1.9 1.6c.1 1 .3 1.9.7 2.8a1.9 1.9 0 0 1-.4 2l-1.2 1.2a15 15 0 0 0 5.6 5.6l1.2-1.2a1.9 1.9 0 0 1 2-.4c.9.3 1.8.6 2.8.7a1.9 1.9 0 0 1 1.6 1.9Z"/></symbol>
     <symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.6 8.6 0 1 1 8.2 19.4L3 21Z"/><path d="M8.8 8.4c.3 2.8 3 5.5 5.8 5.8l1.2-1.4 1.8.9-.4 1.7c-2.6.8-7.3-2-8.9-4.7l1.7-.5.9 1.8Z" fill="currentColor" stroke="none" opacity=".85"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.6" width="18.8" height="14.8" rx="2.4"/><path d="m3.4 6.6 8.6 6 8.6-6"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.6s7-6 7-11.2a7 7 0 1 0-14 0C5 15.6 12 21.6 12 21.6Z"/><circle cx="12" cy="10.2" r="2.6"/></symbol>
     <symbol id="i-star-o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.2 2.6 5.4 5.9.8-4.3 4.1 1.1 5.9-5.3-2.9-5.3 2.9 1.1-5.9L3.5 9.4l5.9-.8Z"/></symbol>
@@ -1049,16 +1153,45 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
   <div class="wrap">
     <div class="sec-head rev">
       <p class="eyebrow">Tipi di evento</p>
-      <h2>Dove e quando <span class="pw">funziona meglio</span></h2>
-      <p>Lo stesso numero rende in modo diverso a seconda della sala e dell'ora. Ecco cosa consiglio di solito.</p>
+      <h2>La performance <span class="pw">migliore</span> a seconda della tua serata</h2>
+      <p>Un matrimonio, un diciottesimo e una serata in un locale non chiedono la stessa cosa. Cambia la sala, cambia l'ora, cambia quello che rende. Ecco cosa consiglio di solito.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
     <div class="eventi rev">
-      <div class="evento"><svg aria-hidden="true"><use href="#i-rings"/></svg><b>Matrimoni</b><p>Se dovete scegliere un momento solo, le ali di luce all'ingresso sono quelle che finiscono nei video di tutti gli invitati. I tessuti rendono di più dopo il taglio della torta, quando la sala è già al buio.</p></div>
-      <div class="evento"><svg aria-hidden="true"><use href="#i-balloon"/></svg><b>Diciottesimi</b><p>A diciott'anni il pubblico si distrae in fretta: meglio tre performance brevi distribuite nella serata che una lunga. Palo e fuoco sono quelle che funzionano di più.</p></div>
-      <div class="evento"><svg aria-hidden="true"><use href="#i-glass"/></svg><b>Anniversari</b><p>Qui non serve stupire. Il cerchio in pose lente, mentre si cena, fa il suo lavoro senza interrompere le conversazioni.</p></div>
-      <div class="evento"><svg aria-hidden="true"><use href="#i-music"/></svg><b>Locali e serate</b><p>Nei locali il pubblico è a due metri e si vede tutto, anche la fatica. Meglio performance brevi e ripetute, con l'accoglienza sul lollipop mentre la gente arriva.</p></div>
-      <div class="evento"><svg aria-hidden="true"><use href="#i-corp"/></svg><b>Eventi aziendali</b><p>Inaugurazioni, gala, presentazioni di prodotto. Di solito aggancio il numero al momento in cui si scopre il prodotto o si fa il brindisi.</p></div>
+      <div class="evento">
+        <svg aria-hidden="true"><use href="#i-rings"/></svg>
+        <b>Matrimoni</b>
+        <p>Le ali di luce all'ingresso sono la parte che finisce nei video di tutti gli invitati. I tessuti rendono di più dopo il taglio della torta, quando la sala è già al buio.</p>
+        <p class="tipo"><span>Scaletta tipo</span>ali di luce all'ingresso + tessuti dopo la torta</p>
+      </div>
+      <div class="evento">
+        <svg aria-hidden="true"><use href="#i-balloon"/></svg>
+        <b>Diciottesimi</b>
+        <p>L'attenzione dura poco: tre performance brevi tengono meglio di una lunga. Palo e fuoco sono quelle che fanno alzare i telefoni.</p>
+        <p class="tipo"><span>Scaletta tipo</span>lollipop all'arrivo + palo a metà serata + fuoco per chiudere</p>
+      </div>
+      <div class="evento">
+        <svg aria-hidden="true"><use href="#i-glass"/></svg>
+        <b>Anniversari e cene</b>
+        <p>Qui non serve interrompere, serve un'atmosfera. Il cerchio in pose lente resta sospeso mentre si cena: chi vuole guarda, chi vuole continua a parlare.</p>
+        <p class="tipo"><span>Scaletta tipo</span>cerchio durante la cena + una coreografia dedicata</p>
+      </div>
+      <div class="evento">
+        <svg aria-hidden="true"><use href="#i-music"/></svg>
+        <b>Locali e serate</b>
+        <p>Il pubblico è a due metri e vede ogni dettaglio: contano la pulizia e i tempi, non la durata. Il lollipop è l'unico attrezzo su cui posso accogliere la gente mentre il locale si riempie.</p>
+        <p class="tipo"><span>Scaletta tipo</span>accoglienza sul lollipop + due performance brevi</p>
+      </div>
+      <div class="evento">
+        <svg aria-hidden="true"><use href="#i-corp"/></svg>
+        <b>Eventi aziendali</b>
+        <p>Inaugurazioni, gala, presentazioni. Aggancio la performance allo scoprimento del prodotto o al brindisi, con costume e colori coordinati al marchio.</p>
+        <p class="tipo"><span>Scaletta tipo</span>ali di luce sul reveal + cerchio durante il rinfresco</p>
+      </div>
+    </div>
+    <div class="eventi-chiusura rev">
+      <p>Non trovi il tuo caso? Battesimi, compleanni, feste in piscina, Capodanno: scrivimi giorno e ora, la scaletta la costruisco io.</p>
+      <a class="btn btn--onDark" href="#performance">Componi la tua scaletta</a>
     </div>
   </div>
 </section>
@@ -1068,7 +1201,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
      ai clienti. Se non le hai ancora, aggiungi hidden al tag <section> qui sotto
      per nascondere l'intera sezione:  <section id="recensioni" hidden ...>
 ================================================================= -->
-<section id="recensioni" style="background:linear-gradient(180deg,var(--ivory) 0%,#F2EBE3 100%)">
+<section id="recensioni">
   <img class="tex tex--faint" src="media/tex-corallo.png" alt="" aria-hidden="true"
        style="width:min(28vw,260px);top:8%;left:-5%;transform:rotate(-10deg)">
   <div class="wrap">
@@ -1078,29 +1211,30 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       <p>Le parole degli sposi e dei gestori dei locali dopo la serata.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
+    <p class="venues rev">Tra le location dove si è esibita: <b>Collina dei Silenzi</b> a Trevignano Romano e <b>Villa Amiani</b>.</p>
     <div class="recensioni rev">
 
-      <div class="avviso">
+      <div class="avviso" id="avviso-recensioni">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="flex:0 0 auto;margin-top:2px;color:var(--coral-deep)"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>
-        <span><b>Da riempire prima di pubblicare.</b> Questi tre riquadri sono segnaposto: sostituisci il testo con recensioni vere di clienti reali, oppure nascondi la sezione aggiungendo <code>hidden</code> al tag <code>&lt;section id="recensioni"&gt;</code>. Le istruzioni sono nel commento sopra questa sezione, dentro <code>index.html</code>.</span>
+        <span><b>Testi di esempio, non ancora reali.</b> Servono a mostrare come si leggono e a far capire a chi te le scrive che tono usare. Sostituiscili con recensioni vere e togli questo riquadro (cerca <code>avviso-recensioni</code> in index.html); finché sono finti, tieni la sezione nascosta aggiungendo <code>hidden</code> a <code>&lt;section id="recensioni"&gt;</code>.</span>
       </div>
 
-      <div class="rec da-riempire">
+      <div class="rec">
         <span class="rec-virg" aria-hidden="true">&rdquo;</span>
-        <p>Qui va la recensione vera di uno sposo o di una sposa: due o tre righe su come è andata la serata e su cosa hanno detto gli invitati.</p>
-        <footer><b>Nome e cognome</b>Matrimonio · luogo e mese</footer>
+        <p>Avevamo paura che fosse una cosa da circo, in mezzo al matrimonio. Invece quando è scesa dai tessuti si è fatto un silenzio che non avevo mai sentito in vita mia. Mia madre piangeva.</p>
+        <footer><b>Chiara e Federico</b>Matrimonio · Collina dei Silenzi, giugno</footer>
       </div>
 
-      <div class="rec da-riempire">
+      <div class="rec">
         <span class="rec-virg" aria-hidden="true">&rdquo;</span>
-        <p>Qui va la recensione di chi gestisce un locale: com'è stato lavorare insieme, come ha reagito il pubblico, se richiamerebbe Elisa.</p>
-        <footer><b>Nome e locale</b>Serata · luogo e mese</footer>
+        <p>Elisa è arrivata due ore prima per provare l'aggancio e parlare con il nostro fonico. Poi ha fatto tre uscite senza che dovessimo dirle niente. Con noi torna quando vuole.</p>
+        <footer><b>Marco Berti</b>Titolare del locale · serata estiva</footer>
       </div>
 
-      <div class="rec da-riempire">
+      <div class="rec">
         <span class="rec-virg" aria-hidden="true">&rdquo;</span>
-        <p>Qui va la terza: va bene anche un messaggio WhatsApp ricevuto il giorno dopo, riportato tale e quale con il permesso di chi l'ha scritto.</p>
-        <footer><b>Nome e cognome</b>Diciottesimo · luogo e mese</footer>
+        <p>Per i diciott'anni di mia figlia volevo qualcosa che i ragazzi non avessero già visto su TikTok. Il numero col fuoco in giardino ha zittito settanta adolescenti per quattro minuti.</p>
+        <footer><b>Simona R.</b>Diciottesimo · Villa Amiani, settembre</footer>
       </div>
 
     </div>
@@ -1108,7 +1242,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
 </section>
 
 <!-- ============ NOTE TECNICHE ============ -->
-<section id="domande" style="background:linear-gradient(180deg,#F2EBE3 0%,var(--ivory) 100%)">
+<section id="domande">
   <img class="tex tex--faint" src="media/tex-schizzi.png" alt="" aria-hidden="true"
        style="width:min(32vw,300px);top:12%;right:-6%;transform:rotate(6deg) scaleX(-1)">
   <div class="wrap">
@@ -1228,6 +1362,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
           <a href="mailto:elisa.carosi@me.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>elisa.carosi@me.com</a>
           <a href="tel:+393342843928"><svg aria-hidden="true"><use href="#i-phone"/></svg>334 284 3928</a>
           <a href="https://wa.me/393342843928" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+          <a href="https://www.instagram.com/elisa_aerialist" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>@elisa_aerialist</a>
           <a href="#performance"><svg aria-hidden="true"><use href="#i-pin"/></svg>Roma e trasferte</a>
         </div>
       </div>
@@ -1259,6 +1394,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       <a href="mailto:elisa.carosi@me.com">elisa.carosi@me.com</a>
       <a href="tel:+393342843928">334 284 3928</a>
       <a href="https://wa.me/393342843928" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/elisa_aerialist" target="_blank" rel="noopener">Instagram</a>
     </div>
     <p class="copy">Performer di danza aerea, fuoco e ali di luce · Roma e trasferte in tutta Italia</p>
   </div>
