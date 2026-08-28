@@ -257,6 +257,13 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .perf.open .perf-body{grid-template-rows:1fr}
 .perf-body>div{overflow:hidden}
 .perf-inner{padding:0 clamp(14px,1.8vw,20px) 20px;display:flex;flex-direction:column;gap:14px}
+.perf-pick{flex-wrap:wrap}
+.recupero{
+  flex:1 1 100%;display:flex;gap:8px;align-items:flex-start;margin-top:4px;
+  font-family:var(--sans);font-size:.76rem;line-height:1.45;color:var(--ink-faint);
+}
+.recupero svg{width:13px;height:13px;flex:0 0 auto;margin-top:3px;color:var(--gold)}
+.perf-pick .opz{flex:1 1 100%;margin-top:2px}
 .perf-inner p{font-size:1.14rem;color:var(--ink-soft);line-height:1.55}
 .perf-tags{display:flex;flex-wrap:wrap;gap:6px}
 .perf-tags span{
@@ -270,6 +277,19 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
   color:var(--plum);font-weight:600;
 }
 .perf-tags .req svg{color:var(--coral-deep)}
+.opz{
+  display:flex;gap:11px;align-items:flex-start;cursor:pointer;
+  padding:11px 13px;border:1px dashed var(--line);border-radius:12px;
+  background:rgba(196,122,135,.05);transition:border-color .25s ease,background .25s ease;
+}
+.opz:hover{border-color:var(--rose);background:rgba(196,122,135,.09)}
+.opz input{position:absolute;opacity:0;width:0;height:0}
+.opz .tick{width:19px;height:19px;margin-top:1px}
+.opz input:checked~.tick{border-color:var(--coral-deep)}
+.opz input:focus-visible~.tick{outline:2px solid var(--coral);outline-offset:3px}
+.opz-txt{font-family:var(--sans);font-size:.84rem;line-height:1.4;color:var(--ink-soft)}
+.opz-txt b{color:var(--wine);font-weight:600}
+.opz-txt em{display:block;font-style:normal;font-size:.76rem;color:var(--ink-faint);margin-top:2px}
 .perf-pick{
   display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;
   padding-top:14px;border-top:1px dashed var(--line);
@@ -920,7 +940,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
     <div class="pick-grid">
       <div>
         <div class="perf-list" id="perf-list">
-      <article class="perf" data-key="tessuti" data-req="Altezza minima 4,5 metri" data-name="Tessuti Aerei" data-max="2" data-n="0" data-cat="aerea">
+      <article class="perf" data-key="tessuti" data-req="Altezza minima 4,5 metri" data-name="Tessuti Aerei" data-max="2" data-max-amaca="3" data-n="0" data-cat="aerea">
         <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-tessuti">
           <span class="perf-fig"><img src="media/perf-tessuti.jpg" alt="Elisa Carosi sospesa ai tessuti aerei" loading="lazy"></span>
           <span class="perf-title"><b>Tessuti Aerei</b><small>Altezza minima 4,5 metri · massimo 2 performance</small></span>
@@ -944,7 +964,18 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
               </div>
               <span class="badge"></span>
               <span class="pick-sum"></span>
-            </div>
+              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
+
+              <label class="opz">
+                <input type="checkbox" data-opzione="struttura" data-amount="150" data-label="Struttura per Tessuti Aerei">
+                <span class="tick" aria-hidden="true"></span>
+                <span class="opz-txt">La struttura la porto io <b>+150 €</b></span>
+              </label>
+              <label class="opz">
+                <input type="checkbox" data-opzione="amaca">
+                <span class="tick" aria-hidden="true"></span>
+                <span class="opz-txt">Tessuto in versione amaca <em>sblocca la terza performance</em></span>
+              </label>            </div>
           </div></div>
         </div>
       </article>
@@ -973,7 +1004,13 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
               </div>
               <span class="badge"></span>
               <span class="pick-sum"></span>
-            </div>
+              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
+
+              <label class="opz">
+                <input type="checkbox" data-opzione="struttura" data-amount="150" data-label="Struttura per Cerchio Aereo">
+                <span class="tick" aria-hidden="true"></span>
+                <span class="opz-txt">La struttura la porto io <b>+150 €</b></span>
+              </label>            </div>
           </div></div>
         </div>
       </article>
@@ -1002,7 +1039,13 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
               </div>
               <span class="badge"></span>
               <span class="pick-sum"></span>
-            </div>
+              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
+
+              <label class="opz">
+                <input type="checkbox" data-opzione="struttura" data-amount="80" data-label="Struttura per Lollipop">
+                <span class="tick" aria-hidden="true"></span>
+                <span class="opz-txt">La struttura la porto io <b>+80 €</b></span>
+              </label>            </div>
           </div></div>
         </div>
       </article>
@@ -1031,7 +1074,13 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
               </div>
               <span class="badge"></span>
               <span class="pick-sum"></span>
-            </div>
+              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
+
+              <label class="opz">
+                <input type="checkbox" data-opzione="struttura" data-amount="80" data-label="Struttura per Palo">
+                <span class="tick" aria-hidden="true"></span>
+                <span class="opz-txt">La struttura la porto io <b>+80 €</b></span>
+              </label>            </div>
           </div></div>
         </div>
       </article>
@@ -1059,6 +1108,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
               </div>
               <span class="badge"></span>
               <span class="pick-sum"></span>
+              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
             </div>
           </div></div>
         </div>
@@ -1087,12 +1137,13 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
               </div>
               <span class="badge"></span>
               <span class="pick-sum"></span>
+              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
             </div>
           </div></div>
         </div>
       </article>
 
-      <article class="perf" data-key="ballerina" data-req="Nessun requisito di altezza" data-name="Ballerina" data-max="3" data-n="0" data-cat="terra">
+      <article class="perf" data-key="ballerina" data-req="Nessun requisito di altezza" data-durata="30 minuti" data-name="Ballerina" data-max="3" data-n="0" data-cat="terra">
         <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-ballerina">
           <span class="perf-fig"><img src="media/perf-ballerina.jpg" alt="Elisa Carosi durante una coreografia a terra" loading="lazy"></span>
           <span class="perf-title"><b>Ballerina</b><small>Coreografia a terra su misura</small></span>
@@ -1106,7 +1157,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
           <div><div class="perf-inner">
             
             <p>Coreografie a terra: latino, commerciale, contemporaneo. Servono a riempire i passaggi tra un numero aereo e l'altro, e sono la risposta quando la sala non ha l'altezza per le aeree.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-note"/></svg>Su misura</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span></div>
+            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>30 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-note"/></svg>Su misura</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span></div>
             <div class="perf-pick">
               <span class="pick-label">Quante performance vuoi riservarti?</span>
               <div class="stepper">
@@ -1116,6 +1167,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
               </div>
               <span class="badge"></span>
               <span class="pick-sum"></span>
+              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
             </div>
           </div></div>
         </div>
@@ -1129,12 +1181,6 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
 
         <div class="extras" id="extras">
           <p class="extras-title">Supplementi</p>
-          <label class="extra" id="extra-struttura" hidden>
-            <input type="checkbox" data-extra="struttura" data-label="Struttura autoportante" data-amount="150">
-            <span class="tick" aria-hidden="true"></span>
-            <span class="extra-txt"><b>Struttura autoportante</b><small>Tripode o pedana in noleggio, se in sala non ci sono punti di aggancio.</small></span>
-            <span class="extra-price">+150 €</span>
-          </label>
           <label class="extra">
             <input type="checkbox" data-extra="trasferta" data-label="Trasferta fuori Roma" data-amount="50">
             <span class="tick" aria-hidden="true"></span>
@@ -1431,7 +1477,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
   var PREZZO_USCITA = 50;      // prezzo di una singola performance
   var PREZZO_SET    = 130;     // prezzo quando si raggiunge il set completo
   var EMAIL         = "elisa.carosi@me.com";
-  var RICHIEDE_STRUTTURA = ["tessuti","cerchio","lollipop","palo"];
+  var RECUPERO_MIN  = 30;      // minuti di stacco fra una performance e la successiva
 
   // date con tariffa maggiorata, in formato MM-GG: il supplemento si applica da solo
   var DATE_SPECIALI = { "12-31": { nome: "Capodanno", importo: 100 } };
@@ -1448,7 +1494,6 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
   var totaleEl = document.getElementById("totale");
   var barTotEl = document.getElementById("barTot");
   var risparmioEl = document.getElementById("risparmio");
-  var extraStruttura = document.getElementById("extra-struttura");
   var noteEl = document.getElementById("quote-note");
   var bar   = document.getElementById("bar");
   var mail  = document.getElementById("mail");
@@ -1460,6 +1505,13 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
   var dataIT   = function(v){ var d = v.split("-"); return d[2] + "/" + d[1] + "/" + d[0]; };
 
   // Il set scatta al massimo di performance dell'attrezzo: 3 uguali, o 2 per il tessuto.
+  // il massimo di una performance può cambiare in base alle opzioni scelte
+  function massimo(p){
+    var amaca = p.querySelector('[data-opzione="amaca"]');
+    if(amaca && amaca.checked && p.dataset.maxAmaca) return +p.dataset.maxAmaca;
+    return +p.dataset.max;
+  }
+
   function costo(n, max){
     if(n <= 0) return 0;
     if(n >= max) return PREZZO_SET;
@@ -1467,21 +1519,31 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
   }
 
   function stato(){
-    var voci = [], totale = 0, aereeAttive = false;
+    var voci = [], totale = 0, aereeAttive = false, supplementiStruttura = [];
 
     perfs.forEach(function(p){
-      var n = +p.dataset.n, max = +p.dataset.max;
+      var n = +p.dataset.n, max = massimo(p);
       if(!n) return;
       var c = costo(n, max);
       totale += c;
-      voci.push({ nome: p.dataset.name, n: n, costo: c, set: n >= max, req: p.dataset.req });
-      if(RICHIEDE_STRUTTURA.indexOf(p.dataset.key) > -1) aereeAttive = true;
+      voci.push({
+        nome: p.dataset.name, n: n, costo: c, set: n >= max,
+        req: p.dataset.req, durata: p.dataset.durata || "3-4 minuti"
+      });
+      if(p.dataset.cat === "aerea") aereeAttive = true;
+
+      // la struttura si paga per ogni attrezzo che Elisa deve portare
+      var str = p.querySelector('[data-opzione="struttura"]');
+      if(str && str.checked){
+        var importo = +str.dataset.amount;
+        supplementiStruttura.push({ nome: "Struttura per " + p.dataset.name, costo: importo });
+        totale += importo;
+      }
     });
 
     // i supplementi hanno senso solo se c'è almeno una performance in scaletta
-    var supplementi = [];
+    var supplementi = supplementiStruttura.slice();
     if(voci.length) extras.forEach(function(inp){
-      if(inp.dataset.extra === "struttura" && !aereeAttive) return;
       if(inp.checked){
         supplementi.push({ nome: inp.dataset.label, costo: +inp.dataset.amount });
         totale += +inp.dataset.amount;
@@ -1517,7 +1579,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
     var s = stato();
 
     perfs.forEach(function(p){
-      var n = +p.dataset.n, max = +p.dataset.max;
+      var n = +p.dataset.n, max = massimo(p);
       var c = costo(n, max);
       var chip  = p.querySelector(".perf-chip");
       var prezzo = p.querySelector(".perf-price");
@@ -1527,17 +1589,13 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       chip.hidden = !n;
       chip.textContent = n ? n + " performance · " + euro(c) : "";
       prezzo.hidden = !!n;
-      badge.textContent = max === 2 ? "Set completo" : "Set da 3";
+      badge.textContent = max === 2 ? "Set completo" : "Set da " + max;
       badge.classList.toggle("on", n >= max);
       somma.innerHTML = n ? euroHTML(c) : '<span style="color:var(--ink-faint);font-weight:400">50 € a performance</span>';
       p.classList.toggle("chosen", n > 0);
       p.querySelector('[data-step="-1"]').disabled = n === 0;
       p.querySelector('[data-step="1"]').disabled  = n >= max;
     });
-
-    // la struttura autoportante ha senso solo con un'aerea o il palo in scaletta
-    extraStruttura.hidden = !s.aereeAttive;
-    if(!s.aereeAttive) extraStruttura.querySelector("input").checked = false;
 
     scaletta.innerHTML = "";
     if(!s.voci.length){
@@ -1551,7 +1609,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       s.voci.forEach(function(v){
         i++;
         var etichetta = v.nome + ' <em>× ' + v.n + (v.set ? " · set" : "") + '</em>';
-        var dettaglio = v.req + " · " + v.n + " performance da 3-4 minuti";
+        var dettaglio = v.req + " · " + v.n + " performance da " + v.durata;
         scaletta.appendChild(riga(("0" + i).slice(-2), etichetta, euroHTML(v.costo), dettaglio));
       });
       s.supplementi.forEach(function(v){
@@ -1569,7 +1627,7 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
     var righe = ["Ciao Elisa,", "", "ho composto una serata sul sito:", ""];
     s.voci.forEach(function(v){
       righe.push("• " + v.nome + " — " + v.n + " performance — " + euro(v.costo)
-                 + (v.req ? "  (" + v.req + ", 3-4 minuti l'una)" : ""));
+                 + (v.req ? "  (" + v.req + ", " + v.durata + " l'una)" : ""));
     });
     s.supplementi.forEach(function(v){ righe.push("• " + v.nome + " — " + euro(v.costo)); });
     righe.push("", "Totale indicativo: " + euro(s.totale), "");
@@ -1608,12 +1666,27 @@ footer{position:relative;overflow:hidden;background:var(--grad-dark);color:var(-
       var b = e.target.closest("[data-step]");
       if(!b) return;
       var n = +p.dataset.n + (+b.dataset.step);
-      p.dataset.n = Math.max(0, Math.min(+p.dataset.max, n));
+      p.dataset.n = Math.max(0, Math.min(massimo(p), n));
       p.querySelector("output").textContent = p.dataset.n;
       render();
     });
   });
   extras.forEach(function(inp){ inp.addEventListener("change", render); });
+
+  // le opzioni dentro le card: la struttura cambia il totale, l'amaca il massimo
+  Array.prototype.slice.call(document.querySelectorAll("[data-opzione]")).forEach(function(inp){
+    inp.addEventListener("change", function(){
+      var p = inp.closest(".perf");
+      var max = massimo(p);
+      if(+p.dataset.n > max){
+        p.dataset.n = max;
+        p.querySelector("output").textContent = max;
+      }
+      render();
+    });
+    // il click sull'opzione non deve richiudere la card
+    inp.closest(".opz").addEventListener("click", function(e){ e.stopPropagation(); });
+  });
   [qData, qOra].forEach(function(c){ c.addEventListener("change", render); c.addEventListener("input", render); });
 
   // filtro del repertorio
