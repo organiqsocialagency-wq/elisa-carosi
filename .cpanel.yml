@@ -1,6 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/mkdir -p /home/ymoepkke/public_html/media
-    - /bin/cp -R media/. /home/ymoepkke/public_html/media/
-    - /bin/cp index.html /home/ymoepkke/public_html/index.html
+    - /bin/sh deploy-cpanel.sh
