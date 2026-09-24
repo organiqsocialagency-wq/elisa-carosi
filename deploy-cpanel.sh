@@ -9,3 +9,4 @@ if ! grep -q '^DirectoryIndex index.html index.php$' "$webroot/.htaccess"; then
 fi
 cp -R media/. "$webroot/media/"
 cp index.html "$webroot/index.html"
+cp richiesta.php "$webroot/richiesta.php"
