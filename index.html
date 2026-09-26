@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elisa Carosi · Danza aerea e fuoco per matrimoni ed eventi a Roma</title>
-<meta name="description" content="Oltre 200 serate tra matrimoni, diciottesimi e locali. Tessuti aerei, cerchio, palo, fuoco e ali di luce: componi la scaletta e ricevi il preventivo. Roma e trasferte in tutta Italia.">
+<meta name="description" content="Elisa Carosi, performer di danza aerea, fuoco e ali di luce per matrimoni ed eventi a Roma e in tutta Italia. Scegli le performance e richiedi un preventivo.">
 <meta name="theme-color" content="#2B0F2E">
 <link rel="canonical" href="https://elisacarosiperformer.it/">
 
@@ -329,6 +329,9 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .extra-txt small{color:var(--ink-faint);font-size:.86rem;font-weight:400;line-height:1.4}
 .extra-price{font-family:var(--sans);margin-left:auto;color:var(--wine);font-variant-numeric:tabular-nums;font-size:.8rem;white-space:nowrap;font-weight:600}
 .extra[hidden]{display:none}
+.travel-confirmation{border:1px solid var(--line-gold);border-radius:14px;padding:14px;background:rgba(212,175,55,.07);margin-top:4px}
+.travel-confirmation .extra{padding:0}
+.travel-confirmation .extra-txt small{color:var(--ink-soft);font-family:var(--sans);font-size:.73rem;line-height:1.55;margin-top:5px}
 
 /* riepilogo */
 .quote{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(20px,2.3vw,28px);box-shadow:0 18px 46px rgba(43,15,46,.09)}
@@ -342,6 +345,28 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .sc-price{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.92rem;font-weight:500}
 .sc-req{display:block;margin-top:4px;font-family:var(--sans);font-size:.7rem;font-weight:600;color:var(--coral-deep);letter-spacing:.02em;font-style:normal}
 .sc-req::before{content:"▸ ";opacity:.65}
+.amaca-panel{grid-column:1 / -1;margin:8px 0 4px;padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(196,122,135,.05);transition:background .2s,border-color .2s}
+.amaca-panel.is-active{border-color:var(--wine);background:#f3e5e8;box-shadow:inset 3px 0 var(--wine)}
+.amaca-toggle{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-family:var(--sans);font-size:.82rem;line-height:1.5;color:var(--plum)}
+.amaca-toggle input{flex:0 0 auto;width:22px;height:22px;margin:2px 0 0;accent-color:var(--wine);cursor:pointer}
+.amaca-toggle input:focus-visible{outline:2px solid var(--wine);outline-offset:4px}
+.amaca-toggle strong,.amaca-toggle small{display:block}
+.amaca-toggle small{font-size:.74rem;color:var(--ink-soft);margin-top:3px}
+.amaca-state{display:block;width:fit-content;margin:9px 0 0 34px;padding:4px 9px;border-radius:6px;background:var(--wine);color:var(--ivory-pure);font:600 .65rem/1.5 var(--sans)}
+.amaca-state[hidden]{display:none}
+.amaca-quantity{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font:500 .73rem/1.5 var(--sans);color:var(--plum)}
+.amaca-feedback{font:400 .73rem/1.55 var(--sans);color:var(--wine);margin-top:10px;min-height:1.5em}
+.amaca-hint{flex-basis:100%;font:400 .76rem/1.5 var(--sans);color:var(--wine)}
+.selection-count{font:500 .78rem/1.5 var(--sans);color:var(--wine);padding:10px 13px;background:rgba(196,122,135,.08);border:1px solid var(--line);border-radius:10px;margin:0 0 18px}
+.selection-count.at-limit{background:#f3e5e8;border-color:var(--wine)}
+.selection-count[hidden]{display:none}
+.stepper button[aria-disabled="true"]{color:var(--ink-faint);background:rgba(43,15,46,.04);cursor:not-allowed}
+.stepper button[aria-disabled="true"]:hover{background:rgba(110,33,64,.12);color:var(--wine)}
+.limit-feedback{position:fixed;top:90px;left:50%;transform:translateX(-50%);z-index:1200;width:min(90vw,480px);padding:16px 20px;border-radius:14px;background:var(--wine);color:var(--ivory-pure);box-shadow:0 10px 32px rgba(43,15,46,.25);font:500 .86rem/1.55 var(--sans);pointer-events:none}
+.limit-feedback[hidden]{display:none}
+.stepper button.limit-bump{animation:limit-bump .35s ease;background:var(--wine);color:var(--ivory-pure)}
+@keyframes limit-bump{0%,100%{transform:translateX(0)}25%,75%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+@media(prefers-reduced-motion:reduce){.stepper button.limit-bump{animation:none}}
 .empty{color:var(--ink-faint);font-style:italic;font-size:1.14rem;padding:10px 0;line-height:1.4}
 .tot{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-top:18px;padding-top:16px;border-top:2px solid var(--plum)}
 .tot span{font-family:var(--sans);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
@@ -350,6 +375,9 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .cur{font-family:var(--sans);font-weight:400;margin-left:.18em;font-size:.42em;vertical-align:.46em}
 .saving{font-family:var(--sans);font-size:.78rem;color:var(--coral-deep);margin-top:6px;text-align:right;min-height:1.1em;font-weight:500}
 .when{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-top:18px}
+.when .event-date{grid-column:1 / -1}
+.time-help{grid-column:1 / -1;font:400 .72rem/1.5 var(--sans);color:var(--ink-soft);margin:0}
+.dark .time-help{color:var(--on-dark-soft)}
 .legenda{
   font-family:var(--sans);font-size:.72rem;color:var(--ink-faint);line-height:1.45;
   margin-top:9px;padding:8px 12px;border-radius:10px;border:1px dashed var(--line);
@@ -963,7 +991,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   <div class="wrap">
     <div class="sec-head rev">
       <p class="eyebrow">La performer</p>
-      <h2>Piacere, sono <span class="pw">Elisa</span></h2>
+      <h2>Piacere, sono <span class="pw">Elisa Carosi</span></h2>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
 
@@ -974,7 +1002,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       <div class="bio-testo">
         <p>Ho cominciato più di dieci anni fa, in palestra, per il gusto di stare a testa in giù. Da cinque salgo in scena per lavoro, e nel frattempo ho fatto più di duecento serate: matrimoni, diciottesimi, locali, inaugurazioni.</p>
         <p>Quello che ho imparato in duecento serate è che il numero perfetto non esiste: esiste quello giusto per la vostra sala, alla vostra ora, davanti ai vostri ospiti. Per questo prima di propormi vi faccio qualche domanda.</p>
-        <p>Non arrivo mai con un numero da catalogo. Musica e coreografia le decidiamo prima insieme, e costume e trucco li coordino ai colori del vostro evento.</p>
         <span class="bio-firma">Elisa</span>
         <div class="numeri">
           <div class="numero"><b>10<span class="piu">+</span></b><span>anni di pratica</span></div>
@@ -996,7 +1023,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     <div class="sec-head rev">
       <p class="eyebrow">Il repertorio</p>
       <h2>Seleziona la <span class="pw">performance</span></h2>
-      <p>Guarda cosa rende speciale ogni performance. Apri le card che ti incuriosiscono, scegli quante volte desideri vederle e trovi la tua scaletta nel riepilogo.</p>
+      <p>Scopri le performance di Elisa Carosi: danza aerea, fuoco, ali di luce e danza a terra. Apri una card, scegli quante performance riservare e ritrova tutto nel riepilogo.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
 
@@ -1009,13 +1036,14 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
 
     <div class="pick-grid">
       <div>
+        <p class="selection-count" id="performance-limit-status" role="status" aria-live="polite" hidden></p>
         <div class="perf-list" id="perf-list">
       <article class="perf" data-key="tessuti" data-req="Altezza minima 4,5 metri" data-name="Tessuti Aerei" data-max="2" data-max-amaca="3" data-n="0" data-cat="aerea">
         <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-tessuti">
           <span class="perf-fig"><img src="media/perf-tessuti.jpg" alt="Elisa Carosi sospesa ai tessuti aerei" loading="lazy"></span>
           <span class="perf-title"><b>Tessuti Aerei</b><span class="perf-teaser">Figure sospese e discese che catturano lo sguardo.</span><small>Altezza minima 4,5 metri · massimo 2 performance</small></span>
           <span class="perf-state">
-            <span class="perf-price">50 € a performance</span>
+            <span class="perf-price">100 € a performance</span>
             <span class="perf-chip" hidden></span>
           </span>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -1039,16 +1067,12 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
               <div class="structure-choice field">
                 <label for="struttura-tessuti">Serve la struttura di Elisa?</label>
                 <select id="struttura-tessuti" data-opzione="struttura" data-amount="150" data-label="Struttura per Tessuti Aerei">
-                  <option value="unknown">Non lo so ancora · da verificare</option>
                   <option value="location">È già presente nella location</option>
                   <option value="elisa">La porta Elisa · +150 €</option>
                 </select>
               </div>
-              <label class="opz">
-                <input type="checkbox" data-opzione="amaca">
-                <span class="tick" aria-hidden="true"></span>
-                <span class="opz-txt">Tessuto in versione amaca <em>sblocca la terza performance</em></span>
-              </label>            </div>
+              <p class="amaca-hint">Vuoi una terza performance? Dopo aver aggiunto il Tessuto, attiva la versione amaca nel riepilogo.</p>
+            </div>
           </div></div>
         </div>
       </article>
@@ -1058,7 +1082,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
           <span class="perf-fig"><img src="media/perf-cerchio.jpg" alt="Elisa Carosi in figura sul cerchio aereo" loading="lazy"></span>
           <span class="perf-title"><b>Cerchio Aereo</b><span class="perf-teaser">Una coreografia in aria, vicina agli ospiti.</span><small>Altezza minima 3 metri</small></span>
           <span class="perf-state">
-            <span class="perf-price">50 € a performance</span>
+            <span class="perf-price">100 € a performance</span>
             <span class="perf-chip" hidden></span>
           </span>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -1082,7 +1106,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
               <div class="structure-choice field">
                 <label for="struttura-cerchio">Serve la struttura di Elisa?</label>
                 <select id="struttura-cerchio" data-opzione="struttura" data-amount="150" data-label="Struttura per Cerchio Aereo">
-                  <option value="unknown">Non lo so ancora · da verificare</option>
                   <option value="location">È già presente nella location</option>
                   <option value="elisa">La porta Elisa · +150 €</option>
                 </select>
@@ -1096,7 +1119,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
           <span class="perf-fig"><img src="media/perf-lollipop.jpg" alt="Elisa Carosi in posa sul lollipop" loading="lazy"></span>
           <span class="perf-title"><b>Lollipop</b><span class="perf-teaser">Una presenza scenica già dall’arrivo.</span><small>Senza aggancio al soffitto · accoglienza ospiti</small></span>
           <span class="perf-state">
-            <span class="perf-price">50 € a performance</span>
+            <span class="perf-price">100 € a performance</span>
             <span class="perf-chip" hidden></span>
           </span>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -1120,7 +1143,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
               <div class="structure-choice field">
                 <label for="struttura-lollipop">Serve la struttura di Elisa?</label>
                 <select id="struttura-lollipop" data-opzione="struttura" data-amount="80" data-label="Struttura per Lollipop">
-                  <option value="unknown">Non lo so ancora · da verificare</option>
                   <option value="location">È già presente nella location</option>
                   <option value="elisa">La porta Elisa · +80 €</option>
                 </select>
@@ -1134,7 +1156,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
           <span class="perf-fig"><img src="media/perf-palo.jpg" alt="Elisa Carosi in verticale sul palo" loading="lazy"></span>
           <span class="perf-title"><b>Palo</b><span class="perf-teaser">Forza ed eleganza, a pochi passi dal pubblico.</span><small>Altezza minima 3 metri · su pedana</small></span>
           <span class="perf-state">
-            <span class="perf-price">50 € a performance</span>
+            <span class="perf-price">100 € a performance</span>
             <span class="perf-chip" hidden></span>
           </span>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -1158,7 +1180,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
               <div class="structure-choice field">
                 <label for="struttura-palo">Serve la struttura di Elisa?</label>
                 <select id="struttura-palo" data-opzione="struttura" data-amount="80" data-label="Struttura per Palo">
-                  <option value="unknown">Non lo so ancora · da verificare</option>
                   <option value="location">È già presente nella location</option>
                   <option value="elisa">La porta Elisa · +80 €</option>
                 </select>
@@ -1262,32 +1283,28 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         <button class="quote-close" type="button" id="closeQuote" aria-label="Chiudi il riepilogo">&times;</button>
         <h3>La tua scaletta</h3>
         <ul class="scaletta" id="scaletta"></ul>
+        <p class="selection-count" id="quote-performance-count" hidden></p>
         <div class="show-flow" id="show-flow" hidden>
           <p class="show-flow-title">Come può prendere forma la serata</p>
           <div class="show-flow-steps" id="show-flow-steps"></div>
           <p class="show-flow-note">Tra due performance di Elisa servono almeno 30 minuti. Gli orari precisi si concordano con la location.</p>
         </div>
-        <p class="structure-note" id="structure-note" hidden>Struttura da verificare con la location: il totale potrebbe cambiare.</p>
 
-        <div class="extras" id="extras">
-          <p class="extras-title">Supplementi</p>
-          <label class="extra">
-            <input type="checkbox" data-extra="trasferta" data-label="Trasferta fuori Roma" data-amount="50">
-            <span class="tick" aria-hidden="true"></span>
-            <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Per eventi oltre Roma e provincia.</small></span>
-            <span class="extra-price">+50 €</span>
-          </label>
-        </div>
 
         <div class="when">
-          <div class="field">
+          <div class="field event-date">
             <label for="q-data">Giorno</label>
-            <input id="q-data" type="date">
+            <input id="q-data" type="date" required>
           </div>
           <div class="field">
-            <label for="q-ora">Orario</label>
-            <input id="q-ora" type="time">
+            <label for="q-ora">Inizio serata</label>
+            <select id="q-ora" aria-describedby="q-time-help" required></select>
           </div>
+          <div class="field">
+            <label for="q-fine">Fine serata</label>
+            <select id="q-fine" aria-describedby="q-time-help" required></select>
+          </div>
+          <p class="time-help" id="q-time-help">Intervalli di 30 minuti, dalle 08:00 alle 04:00 del giorno dopo. La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
         </div>
         <p class="legenda" id="legenda">
           <span aria-hidden="true">*</span> Date speciali con supplemento di 100&nbsp;€: <b>31 dicembre</b>.
@@ -1298,7 +1315,16 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         <form id="quote-form" class="quote-form" novalidate>
           <div class="field"><label for="q-nome">Il tuo nome</label><input id="q-nome" name="name" autocomplete="name" required placeholder="Come ti chiami"></div>
           <div class="field"><label for="q-email">La tua email</label><input id="q-email" name="email" type="email" autocomplete="email" required placeholder="Per risponderti"></div>
+          <div class="field"><label for="q-note">Note aggiuntive (facoltative)</label><textarea id="q-note" name="notes" rows="3" maxlength="2000" placeholder="La location, un momento speciale o qualcosa che Elisa dovrebbe sapere…"></textarea></div>
           <div class="trap" aria-hidden="true"><label for="q-website">Lascia vuoto</label><input id="q-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="travel-confirmation" id="extras">
+            <label class="extra">
+              <input type="checkbox" data-extra="trasferta" data-label="Trasferta fuori Roma" data-amount="50">
+              <span class="tick" aria-hidden="true"></span>
+              <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Se l’evento è fuori Roma e provincia, seleziona questa voce: aggiunge 50 € ed evita che il preventivo risulti incompleto.</small></span>
+              <span class="extra-price">+50 €</span>
+            </label>
+          </div>
           <button class="btn btn--primary" id="mail" type="submit">Richiedi ora via mail</button>
           <p class="data-note">Useremo nome e indirizzo email solo per rispondere alla tua richiesta.</p>
           <p class="form-status" id="quote-status" role="status" aria-live="polite"></p>
@@ -1362,7 +1388,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   <div class="wrap">
     <p class="eyebrow on-dark">Esperienza sul campo</p>
     <h2>Luoghi che hanno già fatto <span class="pw on-dark">spazio allo spettacolo.</span></h2>
-    <p>Tra le location dove Elisa si è esibita:</p>
+    <p>Le performance di Elisa Carosi hanno accompagnato eventi e serate anche in queste location:</p>
     <div class="venue-list" aria-label="Location">
       <span>Collina dei Silenzi <small>Trevignano Romano</small></span>
       <span>Villa Amiani</span>
@@ -1445,12 +1471,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
           <input id="c-data" type="date" required>
         </div>
         <div class="field">
-          <label for="c-ora">Orario</label>
-          <input id="c-ora" type="time" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
           <label for="c-tipo">Tipologia evento</label>
           <select id="c-tipo">
             <option value="">Scegli</option>
@@ -1462,6 +1482,19 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
             <option>Altro</option>
           </select>
         </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="c-ora">Inizio serata</label>
+          <select id="c-ora" aria-describedby="c-time-help" required></select>
+        </div>
+        <div class="field">
+          <label for="c-fine">Fine serata</label>
+          <select id="c-fine" aria-describedby="c-time-help" required></select>
+        </div>
+        <p class="time-help" id="c-time-help">Intervalli di 30 minuti, dalle 08:00 alle 04:00 del giorno dopo. La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
+      </div>
+      <div class="form-row">
         <div class="field">
           <label for="c-luogo">Luogo</label>
           <input id="c-luogo" type="text" placeholder="Location e città" required>
@@ -1471,8 +1504,12 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         <label for="c-idea">L'idea che hai in mente</label>
         <textarea id="c-idea" placeholder="C'è una canzone a cui tenete? Un colore, un momento della serata, un'idea vista da qualche parte?" required></textarea>
       </div>
+      <div class="field">
+        <label for="c-note">Note aggiuntive (facoltative)</label>
+        <textarea id="c-note" rows="3" maxlength="2000" placeholder="Altri dettagli sulla location, sugli ospiti o sull'organizzazione…"></textarea>
+      </div>
       <div class="trap" aria-hidden="true"><label for="c-website">Lascia vuoto</label><input id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
-      <p class="form-note">La richiesta arriva a Elisa via email. Ti risponderà per definire i dettagli.</p>
+      <p class="form-note">La richiesta arriva direttamente a Elisa Carosi, che ti risponderà via email per definire i dettagli.</p>
       <button class="btn btn--primary" id="custom-mail" type="submit">Richiedi ora</button>
       <p class="data-note">Useremo nome e indirizzo email solo per rispondere alla tua richiesta.</p>
       <p class="form-status" id="custom-status" role="status" aria-live="polite"></p>
@@ -1501,7 +1538,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
 
       <div class="form rev">
         <h3>Hai già scelto le performance?</h3>
-        <p>Torna su, aggiungi giorno e orario e invia: il messaggio arriva con la scaletta completa e il totale, così posso risponderti con un preventivo preciso.</p>
+        <p>Torna su, aggiungi giorno, inizio e fine serata e invia: il messaggio arriva con la scaletta completa e il totale, così posso risponderti con un preventivo preciso.</p>
         <div class="perf-tags" style="margin-top:4px">
           <span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>Risposta personale</span>
           <span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Preventivo senza impegno</span>
@@ -1540,8 +1577,10 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
 <script>
 (function(){
   "use strict";
-  var PREZZO_USCITA = 50;      // prezzo di una singola performance
-  var PREZZO_SET    = 130;     // prezzo quando si raggiunge il set completo
+  var PREZZO_AEREA  = 100;
+  var PREZZO_TERRA  = 50;      // comprende fuoco e ali di luce
+  var PREZZO_SET_TERRA = 130;  // tre performance uguali a terra
+  var MAX_PERFORMANCE = 4;    // comprende tutte le performance, aeree e a terra
   var EMAIL         = "elisa.carosi@me.com";
   var RECUPERO_MIN  = 30;      // minuti di stacco fra una performance e la successiva
 
@@ -1565,41 +1604,110 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   var mail  = document.getElementById("mail");
   var qData = document.getElementById("q-data");
   var qOra  = document.getElementById("q-ora");
+  var qFine = document.getElementById("q-fine");
+  var qNote = document.getElementById("q-note");
+
+  // La serata va dalle 08:00 del giorno scelto alle 04:00 del giorno successivo.
+  function minutiSerata(value){
+    if(!/^\d{2}:(00|30)$/.test(value)) return NaN;
+    var parts = value.split(":"), hours = +parts[0];
+    return (hours < 8 ? hours + 24 : hours) * 60 + +parts[1];
+  }
+  function orarioTesto(value){
+    return value ? value + (minutiSerata(value) >= 1440 ? " (giorno dopo)" : "") : "da definire";
+  }
+  function preparaOrari(start, end){
+    [start, end].forEach(function(select, index){
+      select.appendChild(new Option(index ? "Scegli la fine" : "Scegli l'inizio", ""));
+      for(var minutes = 480 + (index ? 30 : 0); minutes <= 1680 - (index ? 0 : 30); minutes += 30){
+        var value = String(Math.floor(minutes / 60) % 24).padStart(2,"0") + ":" + (minutes % 60 ? "30" : "00");
+        select.appendChild(new Option(orarioTesto(value), value));
+      }
+    });
+    start.addEventListener("change", function(){
+      Array.prototype.forEach.call(end.options, function(option){
+        option.disabled = !!(start.value && option.value && minutiSerata(option.value) <= minutiSerata(start.value));
+      });
+      if(end.value && end.selectedOptions[0].disabled) end.value = "";
+    });
+  }
+  preparaOrari(qOra, qFine);
+  var tessuti = document.querySelector('[data-key="tessuti"]');
+  var amacaPanel = document.createElement("div");
+  amacaPanel.className = "amaca-panel";
+  amacaPanel.innerHTML = '<label class="amaca-toggle" for="quote-amaca">' +
+    '<input type="checkbox" id="quote-amaca" aria-describedby="amaca-help amaca-feedback">' +
+    '<span><strong>Tessuto in versione amaca</strong><small id="amaca-help">Sblocca la terza performance. Ogni performance costa 100 €.</small></span></label>' +
+    '<span class="amaca-state" hidden>✓ Amaca selezionata</span>' +
+    '<div class="amaca-quantity"><span>Performance di Tessuti</span><div class="stepper">' +
+    '<button type="button" data-step="-1" aria-label="Togli una performance di Tessuti dal riepilogo">−</button>' +
+    '<output aria-label="Performance di Tessuti selezionate">0</output>' +
+    '<button type="button" data-step="1" aria-label="Aggiungi una performance di Tessuti dal riepilogo">+</button>' +
+    '</div></div><p class="amaca-feedback" id="amaca-feedback" role="status" aria-live="polite"></p>';
+  var amaca = amacaPanel.querySelector("input");
+  var amacaFeedback = amacaPanel.querySelector(".amaca-feedback");
+  var amacaAvviso = "";
 
   var euro     = function(n){ return n.toLocaleString("it-IT") + " €"; };
   var euroHTML = function(n){ return n.toLocaleString("it-IT") + '<span class="cur">€</span>'; };
   var dataIT   = function(v){ var d = v.split("-"); return d[2] + "/" + d[1] + "/" + d[0]; };
 
-  // Il set da 130 € richiede sempre tre performance uguali.
+  // Le aeree costano sempre 100 € ciascuna; il set resta solo per le performance a terra.
   // il massimo di una performance può cambiare in base alle opzioni scelte
+  function totaleAeree(){
+    return perfs.reduce(function(sum, item){
+      return sum + (item.dataset.cat === "aerea" ? +item.dataset.n : 0);
+    }, 0);
+  }
+  function totalePerformance(){
+    return perfs.reduce(function(sum, item){ return sum + +item.dataset.n; }, 0);
+  }
   function massimo(p){
-    if(p.dataset.key === "ballerina"){
-      var aeree = perfs.reduce(function(sum, item){
-        return sum + (item.dataset.cat === "aerea" ? +item.dataset.n : 0);
-      }, 0);
-      return aeree >= 2 ? 2 : 3;
-    }
-    var amaca = p.querySelector('[data-opzione="amaca"]');
-    if(amaca && amaca.checked && p.dataset.maxAmaca) return +p.dataset.maxAmaca;
-    return +p.dataset.max;
+    var max = p === tessuti && amaca.checked ? +p.dataset.maxAmaca : +p.dataset.max;
+    if(p.dataset.key === "ballerina" && totaleAeree() >= 2) max = 2;
+    return Math.min(max, MAX_PERFORMANCE - totalePerformance() + +p.dataset.n);
+  }
+  var limitFeedback = document.createElement("div");
+  limitFeedback.className = "limit-feedback";
+  limitFeedback.setAttribute("role", "alert");
+  limitFeedback.hidden = true;
+  document.body.appendChild(limitFeedback);
+  var limitTimer;
+  function segnalaLimite(button){
+    clearTimeout(limitTimer);
+    limitFeedback.hidden = false;
+    limitFeedback.textContent = "Massimo 4 performance per serata. Rimuovine una prima di aggiungerne un’altra.";
+    button.classList.remove("limit-bump");
+    void button.offsetWidth;
+    button.classList.add("limit-bump");
+    limitTimer = setTimeout(function(){ limitFeedback.hidden = true; button.classList.remove("limit-bump"); }, 4000);
+  }
+  function aggiornaPiu(button, n, max, total){
+    var full = total >= MAX_PERFORMANCE;
+    button.disabled = !full && n >= max;
+    button.setAttribute("aria-disabled", full || n >= max ? "true" : "false");
   }
 
-  function costo(n, max){
+  function prezzoUnitario(p){ return p.dataset.cat === "aerea" ? PREZZO_AEREA : PREZZO_TERRA; }
+
+  function costo(n, p){
     if(n <= 0) return 0;
-    if(n >= 3) return PREZZO_SET;
-    return n * PREZZO_USCITA;
+    if(n >= 3 && p.dataset.cat !== "aerea") return PREZZO_SET_TERRA;
+    return n * prezzoUnitario(p);
   }
 
   function stato(){
-    var voci = [], totale = 0, aereeAttive = false, supplementiStruttura = [], daVerificare = [];
+    var voci = [], totale = 0, aereeAttive = false, supplementiStruttura = [];
 
     perfs.forEach(function(p){
-      var n = +p.dataset.n, max = massimo(p);
+      var n = +p.dataset.n;
       if(!n) return;
-      var c = costo(n, max);
+      var c = costo(n, p);
       totale += c;
       voci.push({
-        nome: p.dataset.name, n: n, costo: c, set: n >= 3,
+        key: p.dataset.key,
+        nome: p.dataset.name + (p === tessuti && amaca.checked ? " · versione amaca" : ""),
+        n: n, costo: c, unitario: prezzoUnitario(p), set: n >= 3 && p.dataset.cat !== "aerea",
         req: p.dataset.req, durata: p.dataset.durata || "3-4 minuti",
         immagine: p.querySelector(".perf-fig img").getAttribute("src")
       });
@@ -1612,7 +1720,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         supplementiStruttura.push({ nome: "Struttura per " + p.dataset.name, costo: importo });
         totale += importo;
       }
-      if(str && str.value === "unknown") daVerificare.push(p.dataset.name);
     });
 
     // i supplementi hanno senso solo se c'è almeno una performance in scaletta
@@ -1632,11 +1739,10 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
 
     // il risparmio si conta solo dove il set costa meno delle performance singole
     var risparmio = voci.reduce(function(acc,v){
-      return acc + Math.max(0, v.n * PREZZO_USCITA - v.costo);
+      return acc + Math.max(0, v.n * v.unitario - v.costo);
     }, 0);
 
     return { voci: voci, supplementi: supplementi, totale: totale, risparmio: risparmio,
-             daVerificare: daVerificare,
              aereeAttive: aereeAttive, speciale: speciale };
   }
 
@@ -1651,16 +1757,27 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   }
 
   function render(){
+    var amacaFocus = amacaPanel.contains(document.activeElement) ? document.activeElement : null;
+    if(+tessuti.dataset.n === 0){ amaca.checked = false; amacaAvviso = ""; }
     var ballerina = document.querySelector('[data-key="ballerina"]');
     if(+ballerina.dataset.n > massimo(ballerina)){
       ballerina.dataset.n = massimo(ballerina);
       ballerina.querySelector("output").textContent = ballerina.dataset.n;
     }
     var s = stato();
+    var selectedCount = totalePerformance();
+    var limiteTesto = "Hai selezionato 4 performance: il massimo per una serata, tra aeree e a terra. Per aggiungerne un’altra, rimuovine una.";
+    if(selectedCount < MAX_PERFORMANCE){ limitFeedback.hidden = true; clearTimeout(limitTimer); }
+    [document.getElementById("performance-limit-status"), document.getElementById("quote-performance-count")].forEach(function(el){
+      el.textContent = limiteTesto;
+      el.classList.toggle("at-limit", selectedCount >= MAX_PERFORMANCE);
+      el.hidden = selectedCount < MAX_PERFORMANCE;
+    });
+
 
     perfs.forEach(function(p){
       var n = +p.dataset.n, max = massimo(p);
-      var c = costo(n, max);
+      var c = costo(n, p);
       var chip  = p.querySelector(".perf-chip");
       var prezzo = p.querySelector(".perf-price");
       var badge = p.querySelector(".badge");
@@ -1670,11 +1787,14 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       chip.textContent = n ? n + " performance · " + euro(c) : "";
       prezzo.hidden = !!n;
       badge.textContent = "Set da 3";
-      badge.classList.toggle("on", n >= 3);
-      somma.innerHTML = n ? euroHTML(c) : '<span style="color:var(--ink-faint);font-weight:400">50 € a performance</span>';
+      badge.classList.toggle("on", n >= 3 && p.dataset.cat !== "aerea");
+      prezzo.textContent = euro(prezzoUnitario(p)) + " a performance";
+      somma.innerHTML = n ? euroHTML(c) : '<span style="color:var(--ink-faint);font-weight:400">' + euro(prezzoUnitario(p)) + ' a performance</span>';
+      if(p === tessuti) p.querySelector(".perf-title small").textContent = p.dataset.req + " · " +
+        (amaca.checked ? "amaca selezionata · massimo 3 performance" : "massimo 2 performance");
       p.classList.toggle("chosen", n > 0);
       p.querySelector('[data-step="-1"]').disabled = n === 0;
-      p.querySelector('[data-step="1"]').disabled  = n >= max;
+      aggiornaPiu(p.querySelector('[data-step="1"]'), n, max, selectedCount);
     });
 
     scaletta.innerHTML = "";
@@ -1690,7 +1810,21 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         i++;
         var etichetta = v.nome + ' <em>× ' + v.n + (v.set ? " · set" : "") + '</em>';
         var dettaglio = v.req + " · " + v.n + " performance da " + v.durata;
-        scaletta.appendChild(riga(("0" + i).slice(-2), etichetta, euroHTML(v.costo), dettaglio));
+        var voce = riga(("0" + i).slice(-2), etichetta, euroHTML(v.costo), dettaglio);
+        if(v.key === "tessuti"){
+          amacaPanel.classList.toggle("is-active", amaca.checked);
+          amacaPanel.querySelector(".amaca-state").hidden = !amaca.checked;
+          amacaPanel.querySelector("output").textContent = v.n;
+          aggiornaPiu(amacaPanel.querySelector('[data-step="1"]'), v.n, massimo(tessuti), selectedCount);
+          amacaPanel.querySelector('[data-step="-1"]').disabled = v.n <= 0;
+          amacaFeedback.textContent = amacaAvviso || (amaca.checked
+            ? (v.n === 3 ? "Terza performance aggiunta · 300 € per i Tessuti." : selectedCount >= MAX_PERFORMANCE
+              ? "Amaca selezionata. Hai già 4 performance: rimuovine una per aggiungere altri Tessuti."
+              : "Terza performance sbloccata: usa + per aggiungerla.")
+            : "Tessuto classico: puoi selezionare fino a 2 performance.");
+          voce.appendChild(amacaPanel);
+        }
+        scaletta.appendChild(voce);
       });
       s.supplementi.forEach(function(v){
         scaletta.appendChild(riga("+", v.nome + (v.auto ? ' <em>data speciale</em>' : ''), euroHTML(v.costo)));
@@ -1719,11 +1853,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       item.appendChild(label);
       steps.appendChild(item);
     });
-    var strutturaNota = document.getElementById("structure-note");
-    strutturaNota.hidden = !s.daVerificare.length;
-    strutturaNota.textContent = s.daVerificare.length
-      ? "Struttura da verificare per " + s.daVerificare.join(", ") + ": il totale potrebbe cambiare."
-      : "";
 
     document.getElementById("legenda").classList.toggle("attiva", !!s.speciale);
 
@@ -1739,10 +1868,11 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
                  + (v.req ? "  (" + v.req + ", " + v.durata + " l'una)" : ""));
     });
     s.supplementi.forEach(function(v){ righe.push("• " + v.nome + " — " + euro(v.costo)); });
-    if(s.daVerificare.length) righe.push("Struttura da verificare per: " + s.daVerificare.join(", "));
     righe.push("", "Totale indicativo: " + euro(s.totale), "");
     righe.push("Giorno: " + (qData.value ? dataIT(qData.value) : "da definire"));
-    righe.push("Orario: " + (qOra.value || "da definire"));
+    righe.push("Inizio serata: " + orarioTesto(qOra.value));
+    righe.push("Fine serata: " + orarioTesto(qFine.value));
+    if(qNote.value.trim()) righe.push("", "Note aggiuntive:", qNote.value.trim());
     righe.push("", "Mi confermi disponibilità e preventivo?");
 
     var attivo = s.totale > 0;
@@ -1756,7 +1886,28 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       : (!qData.value
         ? "Aggiungi il giorno: è la prima cosa che devo verificare."
         : "Il totale è indicativo: Elisa ti risponderà per confermare disponibilità e preventivo.");
+    if(amacaFocus && amacaFocus.isConnected && !amacaFocus.disabled) amacaFocus.focus({preventScroll:true});
   }
+
+  amaca.addEventListener("change", function(){
+    amacaAvviso = "";
+    if(+tessuti.dataset.n > massimo(tessuti)){
+      tessuti.dataset.n = massimo(tessuti);
+      tessuti.querySelector("output").textContent = tessuti.dataset.n;
+      amacaAvviso = "Amaca disattivata: i Tessuti tornano a 2 performance, per un totale di 200 €.";
+    }
+    render();
+  });
+  amacaPanel.addEventListener("click", function(e){
+    var button = e.target.closest("[data-step]");
+    if(!button) return;
+    if(+button.dataset.step > 0 && totalePerformance() >= MAX_PERFORMANCE){ segnalaLimite(button); return; }
+    amacaAvviso = "";
+    tessuti.dataset.n = Math.max(0, Math.min(massimo(tessuti), +tessuti.dataset.n + +button.dataset.step));
+    tessuti.querySelector("output").textContent = tessuti.dataset.n;
+    render();
+    if(+tessuti.dataset.n === 0) tessuti.querySelector(".perf-head").focus({preventScroll:true});
+  });
 
   // apertura delle card e stepper
   perfs.forEach(function(p){
@@ -1775,7 +1926,9 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     p.querySelector(".perf-pick").addEventListener("click", function(e){
       var b = e.target.closest("[data-step]");
       if(!b) return;
+      if(+b.dataset.step > 0 && totalePerformance() >= MAX_PERFORMANCE){ segnalaLimite(b); return; }
       var n = +p.dataset.n + (+b.dataset.step);
+      if(p === tessuti) amacaAvviso = "";
       p.dataset.n = Math.max(0, Math.min(massimo(p), n));
       p.querySelector("output").textContent = p.dataset.n;
       render();
@@ -1783,7 +1936,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   });
   extras.forEach(function(inp){ inp.addEventListener("change", render); });
 
-  // le opzioni dentro le card: la struttura cambia il totale, l'amaca il massimo
+  // Le opzioni struttura restano nelle card; l'amaca si seleziona nel riepilogo.
   Array.prototype.slice.call(document.querySelectorAll("[data-opzione]")).forEach(function(inp){
     inp.addEventListener("change", function(){
       var p = inp.closest(".perf");
@@ -1798,7 +1951,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     var optionWrap = inp.closest(".opz");
     if(optionWrap) optionWrap.addEventListener("click", function(e){ e.stopPropagation(); });
   });
-  [qData, qOra].forEach(function(c){ c.addEventListener("change", render); c.addEventListener("input", render); });
+  [qData, qOra, qFine, qNote].forEach(function(c){ c.addEventListener("change", render); c.addEventListener("input", render); });
 
   // filtro del repertorio
   var filtri = Array.prototype.slice.call(document.querySelectorAll(".filter"));
@@ -1835,20 +1988,25 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     email: document.getElementById("c-email"),
     data:  document.getElementById("c-data"),
     ora:   document.getElementById("c-ora"),
+    fine:  document.getElementById("c-fine"),
     tipo:  document.getElementById("c-tipo"),
     luogo: document.getElementById("c-luogo"),
-    idea:  document.getElementById("c-idea")
+    idea:  document.getElementById("c-idea"),
+    note:  document.getElementById("c-note")
   };
   var customMail = document.getElementById("custom-mail");
+  preparaOrari(custom.ora, custom.fine);
   function renderCustom(){
     var r = ["Ciao Elisa,", "", "vorrei una performance personalizzata per il mio evento.", ""];
     if(custom.nome.value)  r.push("Nome: " + custom.nome.value);
     if(custom.email.value) r.push("Email: " + custom.email.value);
     r.push("Giorno: " + (custom.data.value ? dataIT(custom.data.value) : "da definire"));
-    r.push("Orario: " + (custom.ora.value || "da definire"));
+    r.push("Inizio serata: " + orarioTesto(custom.ora.value));
+    r.push("Fine serata: " + orarioTesto(custom.fine.value));
     if(custom.tipo.value)  r.push("Tipo di evento: " + custom.tipo.value);
     if(custom.luogo.value) r.push("Luogo: " + custom.luogo.value);
     if(custom.idea.value)  r.push("", "L'idea:", custom.idea.value);
+    if(custom.note.value.trim()) r.push("", "Note aggiuntive:", custom.note.value.trim());
     r.push("", "Mi fai sapere se è realizzabile e quanto verrebbe a costare?");
     customMail.dataset.fallback = "mailto:" + EMAIL +
       "?subject=" + encodeURIComponent("Richiesta performance personalizzata") +
@@ -1891,18 +2049,19 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     var name = document.getElementById("q-nome");
     var email = document.getElementById("q-email");
     if(!name.reportValidity() || !email.reportValidity()) return;
-    if(!qData.value || !qOra.value){
-      (!qData.value ? qData : qOra).focus();
-      noteEl.textContent = "Inserisci giorno e orario prima di richiedere il preventivo.";
+    if(!qData.value || !qOra.value || !qFine.value){
+      (!qData.value ? qData : !qOra.value ? qOra : qFine).focus();
+      noteEl.textContent = "Inserisci giorno, inizio e fine serata prima di richiedere il preventivo.";
       return;
     }
+    if(!qData.reportValidity() || !qOra.reportValidity() || !qFine.reportValidity()) return;
     var current = stato();
     if(!current.voci.length) return;
     sendRequest({type:"quote",name:name.value,email:email.value,date:qData.value,
-      time:qOra.value,website:document.getElementById("q-website").value,
+      time:qOra.value,endTime:qFine.value,notes:qNote.value.trim(),website:document.getElementById("q-website").value,
       items:current.voci.map(function(v){ return v.nome + " × " + v.n + " — " + euro(v.costo); }),
       supplements:current.supplementi.map(function(v){ return v.nome + " — " + euro(v.costo); }),
-      pending:current.daVerificare,total:euro(current.totale)},
+      pending:[],total:euro(current.totale)},
       mail,document.getElementById("quote-status"),mail.dataset.fallback);
   });
 
@@ -1911,8 +2070,8 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     var form = e.currentTarget;
     if(!form.reportValidity()) return;
     sendRequest({type:"custom",name:custom.nome.value,email:custom.email.value,
-      date:custom.data.value,time:custom.ora.value,event:custom.tipo.value,
-      place:custom.luogo.value,idea:custom.idea.value,
+      date:custom.data.value,time:custom.ora.value,endTime:custom.fine.value,event:custom.tipo.value,
+      place:custom.luogo.value,idea:custom.idea.value,notes:custom.note.value.trim(),
       website:document.getElementById("c-website").value},
       customMail,document.getElementById("custom-status"),customMail.dataset.fallback);
   });

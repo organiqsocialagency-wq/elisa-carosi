@@ -29,10 +29,21 @@ $name = field($data, 'name', 100);
 $email = field($data, 'email', 254);
 $date = field($data, 'date', 10);
 $time = field($data, 'time', 5);
+$endTime = field($data, 'endTime', 5);
+$notes = field($data, 'notes', 8000);
 if (strlen($name) < 2 || !filter_var($email, FILTER_VALIDATE_EMAIL)) reply(400, false);
 $eventDate = DateTimeImmutable::createFromFormat('!Y-m-d', $date, new DateTimeZone('Europe/Rome'));
 if (!$eventDate || $eventDate->format('Y-m-d') !== $date || $eventDate < new DateTimeImmutable('today', new DateTimeZone('Europe/Rome'))) reply(400, false);
-if (!preg_match('/^(?:[01][0-9]|2[0-3]):[0-5][0-9]$/', $time)) reply(400, false);
+function eventMinutes(string $value): int {
+    if (!preg_match('/^(?:[01][0-9]|2[0-3]):(?:00|30)$/', $value)) reply(400, false);
+    [$hour, $minute] = array_map('intval', explode(':', $value));
+    return ($hour < 8 ? $hour + 24 : $hour) * 60 + $minute;
+}
+$startMinutes = eventMinutes($time);
+$endMinutes = eventMinutes($endTime);
+if ($startMinutes < 480 || $endMinutes > 1680 || $endMinutes <= $startMinutes) reply(400, false);
+$startLabel = $time . ($startMinutes >= 1440 ? ' (giorno dopo)' : '');
+$endLabel = $endTime . ($endMinutes >= 1440 ? ' (giorno dopo)' : '');
 
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
 $rateFile = sys_get_temp_dir() . '/elisa-request-' . hash('sha256', $ip);
@@ -41,7 +52,7 @@ if (!$handle || !flock($handle, LOCK_EX)) reply(503, false);
 $last = (int)stream_get_contents($handle);
 if (time() - $last < 60) { flock($handle, LOCK_UN); fclose($handle); reply(429, false); }
 
-$lines = ["Nuova richiesta dal sito", '', "Nome: $name", "Email: $email", "Data: $date", "Orario: $time", ''];
+$lines = ["Nuova richiesta dal sito", '', "Nome: $name", "Email: $email", "Data della serata: $date", "Inizio serata: $startLabel", "Fine serata: $endLabel", ''];
 if ($type === 'quote') {
     foreach (['items', 'supplements', 'pending'] as $key) {
         if (!isset($data[$key]) || !is_array($data[$key]) || count($data[$key]) > 20) reply(400, false);
@@ -76,6 +87,10 @@ if ($type === 'quote') {
     $lines[] = '';
     $lines[] = "Idea:\n" . $idea;
     $subject = 'Richiesta performance personalizzata - Elisa Carosi';
+}
+if ($notes !== '') {
+    $lines[] = '';
+    $lines[] = "Note aggiuntive:\n" . $notes;
 }
 $headers = [
     'From: Sito Elisa Carosi <no-reply@elisacarosiperformer.it>',
