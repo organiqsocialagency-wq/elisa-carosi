@@ -2,6 +2,12 @@
 
 La pagina è in `index.html`; foto, texture e video sono in `media/`. `richiesta.php` riceve i due moduli e li inoltra a `elisa.carosi@me.com`. Se il server non riesce a inviarli, la pagina propone un link `mailto:` con la richiesta già scritta. Il recapito effettivo va verificato con Elisa usando una richiesta di prova prima di considerare conclusa la messa in funzione dei moduli.
 
+## Interfaccia
+
+Lora è usato per i titoli, Manrope per testi e controlli e Allura per le firme decorative. Le card chiuse mostrano foto, titolo, requisiti sintetici e selettore quantità; le descrizioni e le animazioni SVG dedicate compaiono all'apertura. Il nastro SVG accompagna il gradiente tra tema chiaro e scuro, si ferma fuori schermo e ha un comando pausa. Le animazioni rispettano la preferenza di sistema per il movimento ridotto.
+
+Per ogni attrezzo selezionato, la domanda **Serve la struttura di Elisa?** compare nel riepilogo ed è obbligatoria, senza opzione preselezionata. Sia la pagina sia il ricevitore PHP verificano la scelta prima di inviare la richiesta. Il supplemento si applica una volta per attrezzo, anche con più performance sullo stesso.
+
 ## Prezzi e limiti
 
 I prezzi base sono in cima allo script di `index.html`: 100 € per ogni performance aerea (Tessuti, Cerchio, Lollipop e Palo), senza sconto set. Le performance a terra, il fuoco e le ali di luce costano 50 €; tre performance uguali costano 130 €. Due tessuti classici costano 200 €; la terza performance è disponibile solo con l'opzione amaca e porta il totale a 300 €. Ogni attrezzo ha il proprio limite di selezione. I supplementi struttura restano 150 € per tessuti e cerchio, 80 € per lollipop e palo. La trasferta fuori Roma è selezionabile, ma il prezzo viene concordato in consulenza ed è escluso dal totale indicativo. Il 31 dicembre aggiunge automaticamente 100 €.

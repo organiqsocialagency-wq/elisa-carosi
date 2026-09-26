@@ -60,6 +60,20 @@ if ($type === 'quote') {
         if (!isset($data[$key]) || !is_array($data[$key]) || count($data[$key]) > 20) reply(400, false);
     }
     if (count($data['items']) < 1) reply(400, false);
+    $structures = $data['structures'] ?? [];
+    if (!is_array($structures) || count($structures) > 4) reply(400, false);
+    $equipment = ['tessuti' => 'Tessuti Aerei', 'cerchio' => 'Cerchio Aereo', 'lollipop' => 'Lollipop', 'palo' => 'Palo'];
+    $structureLines = [];
+    foreach ($data['items'] as $item) {
+        if (!is_string($item)) reply(400, false);
+        foreach ($equipment as $key => $label) {
+            if (str_starts_with($item, $label)) {
+                $choice = $structures[$key] ?? '';
+                if (!in_array($choice, ['location', 'elisa'], true)) reply(400, false);
+                $structureLines[] = $label . ': ' . ($choice === 'elisa' ? 'la struttura la porta Elisa' : 'struttura già presente nella location');
+            }
+        }
+    }
     $lines[] = 'Scaletta richiesta:';
     foreach ($data['items'] as $item) {
         if (!is_string($item) || strlen($item) > 160) reply(400, false);
@@ -68,6 +82,11 @@ if ($type === 'quote') {
     foreach ($data['supplements'] as $item) {
         if (!is_string($item) || strlen($item) > 160) reply(400, false);
         $lines[] = '- ' . str_replace("\n", ' ', $item);
+    }
+    if ($structureLines) {
+        $lines[] = '';
+        $lines[] = 'Strutture confermate nella richiesta:';
+        foreach ($structureLines as $line) $lines[] = '- ' . $line;
     }
     if ($data['pending']) {
         $lines[] = '';

@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
 <style>
 :root{
   /* palette identità visiva */
@@ -53,8 +53,8 @@
   --on-dark-faint:rgba(247,244,239,.52);
   --line-dark:rgba(247,244,239,.17);
 
-  --serif:"Cormorant Garamond",Garamond,Georgia,serif;
-  --sans:"Montserrat",-apple-system,"Segoe UI",sans-serif;
+  --serif:"Lora",Georgia,serif;
+  --sans:"Manrope",-apple-system,"Segoe UI",sans-serif;
   --script:"Allura",cursive;
 
   --pad:clamp(20px,5vw,72px);
@@ -711,6 +711,150 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   .bar-tot small{font-size:.59rem;letter-spacing:.08em}
   .bar .btn{padding:10px 14px;font-size:.63rem}
 }
+
+/* ============ Atto II · tipografia, materia e movimento ============ */
+:root{--ink-soft:#655361;--ink-faint:#776773;--on-dark-soft:rgba(247,244,239,.84);--on-dark-faint:rgba(247,244,239,.68)}
+body{font-family:var(--sans);font-size:16px;line-height:1.7}
+h1,h2,h3{letter-spacing:-.035em;font-weight:400;line-height:1.15}
+h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
+.pw{font-family:var(--serif);font-style:italic;font-size:1em;line-height:inherit;padding:0 .04em}
+.bio-firma,.foot-payoff{font-family:var(--script)}
+.hero h1{font-size:clamp(3.2rem,5.5vw,5.7rem);line-height:1.08;max-width:15ch;letter-spacing:-.05em}
+.hero-lead{font-family:var(--sans);font-size:clamp(1rem,1.45vw,1.2rem);line-height:1.75;max-width:45ch;margin-top:26px;color:#f5ecee}
+.hero-cta{margin-top:28px}
+.sec-head>p:not(.eyebrow){font-family:var(--sans);font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;max-width:62ch;margin-inline:auto}
+.eyebrow{font-size:.73rem;font-weight:600;letter-spacing:.19em;color:var(--wine)}
+.bio-testo p,.evento p,.nota p,.form>p,.contact-aside>p,.venues-section p:not(.eyebrow){font-family:var(--sans);font-size:1rem;line-height:1.8}
+.bio-testo p+p{margin-top:20px}
+.nota h3{font-size:1.5rem;line-height:1.3;margin-bottom:12px}
+.evento b{font-family:var(--serif);font-size:1.65rem;font-weight:400;line-height:1.3}
+.numeri .numero b{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.6rem)}
+.numero>span{font-size:.72rem;letter-spacing:.1em}
+.btn{font-size:.78rem;font-weight:700;letter-spacing:.065em;min-height:48px}
+.head-cta{font-size:.67rem;padding:12px 20px}
+@media(max-width:1199px){.site-nav{display:none}.head-cta{margin-left:auto}}
+.bio-firma{font-size:3.4rem}
+.foot-word{font-family:var(--serif)}
+.venue-list>span{font-family:var(--serif);font-size:1.5rem}
+#performance{padding-bottom:75px}
+.pick-grid{gap:32px}
+@media(min-width:1120px){.pick-grid{grid-template-columns:minmax(0,1.4fr) minmax(350px,1fr)}}
+.perf-list{gap:13px}
+.perf{position:relative;border-radius:18px;border-color:#e2d7d6;box-shadow:0 3px 12px rgba(43,15,46,.025);background:#fffcf8}
+.perf:hover{border-color:#bc9d93}
+.perf.chosen{border-color:var(--wine);box-shadow:inset 3px 0 var(--wine),0 8px 25px rgba(110,33,64,.08)}
+.perf-shell{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 16px 12px 12px}
+.perf-head{grid-template-columns:86px minmax(0,1fr) 18px;gap:18px;padding:0;min-height:104px;align-self:stretch;border-radius:10px}
+.perf-fig{width:86px;height:104px;border-radius:11px;box-shadow:0 5px 15px rgba(43,15,46,.08)}
+.perf-title{gap:11px;align-items:flex-start}
+.perf-title b{font:400 clamp(1.25rem,1.8vw,1.7rem)/1.2 var(--serif);letter-spacing:-.035em}
+.perf-capsules{display:flex;flex-wrap:wrap;gap:5px;align-items:flex-start}
+.perf-capsules>span{display:inline-flex;font:600 .7rem/1.45 var(--sans);letter-spacing:0;border:1px solid #e3d1ce;border-radius:7px;padding:4px 7px;color:#704753;background:#f9efea;text-align:left}
+.perf-capsules .max-pill{color:#5d5260;border-color:#e7ded9;background:#f4f0eb;white-space:nowrap}
+.perf .chev{position:static;width:18px;height:18px;align-self:center;color:#8b5e70}
+.perf .perf-pick{padding:0;border:0;display:flex;align-items:center;justify-content:flex-end;gap:0}
+.perf-pick .stepper{height:44px;background:#fffdf9;box-shadow:0 2px 6px rgba(43,15,46,.04)}
+.perf-pick .stepper button{width:44px;font-family:var(--sans);font-size:1.2rem}
+.perf-pick .stepper output{min-width:32px;font-size:.9rem}
+.perf-body{transition:grid-template-rows .55s cubic-bezier(.22,1,.36,1),visibility .55s;visibility:hidden}
+.perf.open .perf-body{visibility:visible}
+.perf-inner{position:relative;isolation:isolate;display:block;min-height:155px;padding:24px 24px 23px;border-top:1px solid #eadcd7;background:linear-gradient(110deg,#fffaf5 12%,#f6e7df 100%)}
+.perf-description{position:relative;z-index:2;max-width:76%}
+.perf-description>p:first-child{font:400 .95rem/1.75 var(--sans);color:#584652;max-width:53ch}
+.perf-details{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:16px;color:var(--wine);font:600 .73rem/1.5 var(--sans)}
+.perf-details .perf-price{font-size:.73rem;color:var(--wine)}
+.perf-inner .recupero{font:400 .75rem/1.6 var(--sans);color:#695863;margin-top:12px;display:block}
+.discipline-art{position:absolute;right:-28px;bottom:-8px;width:245px;height:175px;z-index:0;opacity:.42;pointer-events:none;overflow:visible}
+.perf[data-key="fuoco"] .perf-inner{background:linear-gradient(110deg,#fffaf5 15%,#ffe8d7 100%)}
+.perf[data-key="ali"] .perf-inner{background:linear-gradient(110deg,#fffaf5 15%,#f3e2ef 100%)}
+.perf.open .silk-unroll{animation:silk-unroll 1.1s cubic-bezier(.18,.7,.2,1) both;transform-origin:150px 0}
+.perf.open .orbit-reveal{animation:orbit-reveal 1s cubic-bezier(.22,1,.36,1) both;transform-origin:164px 100px}
+.perf.open .pedestal-rise{animation:pedestal-rise .9s cubic-bezier(.22,1,.36,1) both}
+.perf.open .pole-reveal{animation:orbit-reveal .9s cubic-bezier(.22,1,.36,1) both;transform-origin:164px 100px}
+.perf.open .flame-rise{animation:flame-rise .85s cubic-bezier(.16,1,.3,1) both,flame-flicker 2.2s .85s 2 alternate ease-in-out;transform-origin:160px 200px}
+.perf.open .embers{animation:ember-rise 1.8s ease-out 2 both}
+.perf.open .wings-open{animation:wings-open 1s cubic-bezier(.16,1,.3,1) both;transform-origin:160px 170px}
+.perf.open .dance-draw{stroke-dasharray:500;stroke-dashoffset:0;animation:dance-draw 1.25s ease-out both}
+@keyframes silk-unroll{from{clip-path:inset(0 0 100% 0);transform:skewY(-12deg)}to{clip-path:inset(0);transform:skewY(0)}}
+@keyframes orbit-reveal{from{opacity:0;transform:rotate(-70deg) scale(.65)}to{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes pedestal-rise{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+@keyframes flame-rise{from{transform:scale(.7,.05);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes flame-flicker{from{transform:skewX(-4deg) scaleY(.96)}to{transform:skewX(4deg) scaleY(1.04)}}
+@keyframes ember-rise{from{transform:translateY(45px);opacity:0}30%{opacity:1}to{transform:translateY(-35px);opacity:0}}
+@keyframes wings-open{from{opacity:0;transform:scaleX(.08) rotate(-12deg)}to{opacity:1;transform:scaleX(1) rotate(0)}}
+@keyframes dance-draw{from{stroke-dashoffset:500;opacity:0}to{stroke-dashoffset:0;opacity:1}}
+.quote h3{font-size:.78rem;letter-spacing:.12em;color:var(--wine)}
+.quote{padding:24px;border-radius:20px;border-color:#decfc9;box-shadow:0 18px 60px rgba(43,15,46,.065)}
+.scaletta li{animation:none;padding:16px 0;gap:8px;grid-template-columns:20px minmax(0,1fr) auto}
+.sc-name{font-family:var(--serif);font-size:1.08rem;line-height:1.5}
+.sc-name>em{font:500 .72rem/1.5 var(--sans);display:block}
+.sc-name .sc-req{font:500 .71rem/1.65 var(--sans);color:#714654}
+.sc-price{font-size:.85rem;max-width:110px}
+.empty{font:400 1rem/1.75 var(--sans);color:var(--ink-soft);padding:8px 0 18px}
+.quote-structure{grid-column:1/-1;padding:15px;margin-top:5px;border:1px dashed #bc8f9b;background:#fcf1ed;border-radius:12px}
+.quote-structure label{display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px;font:600 .8rem/1.6 var(--sans);text-transform:none;letter-spacing:0;color:var(--plum)}
+.required-tag{font-size:.63rem;letter-spacing:.04em;text-transform:uppercase;color:var(--wine)}
+.quote-structure select{font:500 .83rem/1.5 var(--sans);padding:12px;background:#fffdfa;min-height:48px}
+.quote-structure.is-complete{border-style:solid;border-color:#c9c4b1;background:#f5f4ec}
+.quote-structure select[aria-invalid="true"]{border:2px solid var(--wine)}
+.structure-error{font:500 .75rem/1.5 var(--sans);color:#8a243e;margin-top:7px}
+.structure-error[hidden]{display:none}
+.amaca-panel{grid-column:1/-1}
+.show-flow{padding:17px}
+.show-flow-title{font-family:var(--serif);font-size:1.15rem}
+.field label{font-size:.73rem;letter-spacing:.06em}
+.field input,.field select,.field textarea{font-family:var(--sans);font-size:1rem;line-height:1.5;min-width:0}
+.time-help{font-size:.75rem}
+.tot b{font-family:var(--serif)}
+.scene-transition{position:relative;height:clamp(390px,42vw,600px);overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#f7f4ef 0%,#f3eae3 8%,#e8d5cf 20%,#d1aeb1 34%,#ac7f8e 48%,#7c506c 61%,#512c49 73%,#32162e 86%,#1a0819 100%)}
+.scene-transition::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 18% 48%,rgba(255,197,145,.3),transparent 55%),radial-gradient(ellipse at 80% 64%,rgba(172,111,151,.3),transparent 48%);mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent);pointer-events:none}
+.scene-transition svg{position:absolute;left:50%;top:0;width:max(100%,1000px);height:100%;transform:translateX(-50%);overflow:visible}
+.ribbon-fabric{transform:translateY(var(--ribbon-y,0px));transition:transform .3s ease-out}
+.ribbon-breath{animation:ribbon-breath 9s ease-in-out infinite alternate;transform-origin:720px 300px}
+.ribbon-shimmer{stroke-dasharray:70 930;animation:ribbon-shimmer 9s linear infinite}
+.ribbon-stars circle{animation:ribbon-twinkle 5s ease-in-out infinite alternate}
+.ribbon-stars circle:nth-child(2n){animation-delay:-2.8s}
+.ribbon-stars circle:nth-child(3n){animation-delay:-1.4s}
+.scene-transition:not(.in-view) *,.scene-transition.is-paused *{animation-play-state:paused!important}
+.scene-signature{position:absolute;inset:auto 20px 8%;text-align:center;color:#ead6bf;font:400 clamp(2.1rem,4vw,3rem)/1 var(--script);letter-spacing:0;opacity:.85;pointer-events:none}
+.motion-toggle{position:absolute;right:var(--pad);bottom:20px;border:1px solid rgba(246,227,216,.38);border-radius:50%;width:44px;height:44px;display:grid;place-items:center;color:#f7f4ef;background:rgba(26,8,25,.15);z-index:2}
+.motion-toggle svg{position:static;transform:none;width:14px;height:14px}
+@keyframes ribbon-breath{from{transform:translateY(-10px) rotate(-2deg) scale(1.02)}to{transform:translateY(12px) rotate(1.5deg) scale(1.05)}}
+@keyframes ribbon-shimmer{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@keyframes ribbon-twinkle{from{opacity:.15;transform:translateY(0)}to{opacity:.9;transform:translateY(-7px)}}
+#eventi{background:var(--plum-deep);padding-top:clamp(65px,8vw,115px)}
+#eventi .pw,#domande .pw,#contatti .pw{background:linear-gradient(96deg,#f2d28b,#ffb6a3 60%,#dfacc3);-webkit-background-clip:text;background-clip:text}
+#personalizzata{background:linear-gradient(180deg,#1a0819,#301127 60%,#1a0819)}
+#eventi .sec-head p,#domande .sec-head p{font-size:1.05rem}
+@media(max-width:1120px) and (min-width:1020px){.perf-shell{grid-template-columns:1fr}.perf .perf-pick{justify-content:flex-end;margin-top:-48px;margin-right:30px}.perf-head{grid-template-columns:76px 1fr 18px}.perf-title{padding-bottom:50px}.perf-fig{width:76px;height:110px}}
+@media(max-width:640px){
+  .site-head{gap:10px;padding:10px 16px}.brand-word{font-size:1rem;letter-spacing:.2em}.brand-mark{width:28px;height:28px}.brand{gap:6px}
+  .head-cta{font-size:.6rem;padding:10px 13px;letter-spacing:.03em;min-height:44px}
+  .hero h1{font-size:clamp(2.7rem,9.5vw,3.8rem);max-width:15ch;line-height:1.13}.hero-lead{font-size:1rem;line-height:1.7}
+  .perf-shell{grid-template-columns:1fr;padding:10px 12px 12px 10px;gap:10px}
+  .perf-head{grid-template-columns:78px minmax(0,1fr) 18px;gap:13px;min-height:96px}
+  .perf-fig{width:78px;height:96px}.perf-title b{font-size:1.27rem}.perf-title{gap:9px}
+  .perf-capsules>span{font-size:.68rem;padding:3px 6px}.perf-capsules{gap:4px}
+  .perf .perf-pick{justify-content:flex-end;padding-top:0;margin-top:-3px;margin-right:30px}
+  .perf-description{max-width:100%}.perf-inner{padding:20px;min-height:160px}
+  .perf-description>p:first-child{font-size:.9rem}.discipline-art{right:-75px;opacity:.18}
+  .perf-body .perf-details{max-width:85%}.quote{padding:20px}
+  .scene-transition{height:360px}.scene-transition svg{width:960px}.scene-signature{bottom:12%;font-size:2.2rem}
+  .motion-toggle{right:20px;bottom:15px}.scene-transition .motion-toggle svg{width:14px}
+  .sc-name{font-size:1rem}.sc-price{max-width:96px;font-size:.8rem}.quote-structure{padding:12px}
+  .form .field input,.form .field select,.quote .field input,.quote .field select{font-size:16px}
+  .sec-head>p:not(.eyebrow){font-size:1rem}.nota h3{font-size:1.35rem}
+}
+@media(max-width:1019px){
+  .quote.sheet-open .scaletta{clear:both}
+  body.quote-is-open .bar{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .discipline-art *,.scene-transition *{animation:none!important;transition:none!important;transform:none!important;clip-path:none!important;stroke-dashoffset:0!important}
+ .scene-transition>svg{transform:translateX(-50%)!important}.ribbon-shimmer{display:none}.motion-toggle{display:none}
+ .perf-body{transition:none}.perf.open .perf-inner{animation:none}
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1031,7 +1175,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     <div class="sec-head rev">
       <p class="eyebrow">Il repertorio</p>
       <h2>Seleziona la <span class="pw">performance</span></h2>
-      <p>Scopri le performance di Elisa Carosi: danza aerea, fuoco, ali di luce e danza a terra. Apri una card, scegli quante performance riservare e ritrova tutto nel riepilogo.</p>
+      <p>Scegli quante performance desideri con + e −. Tocca una card per scoprirla: il tuo preventivo prende forma nel riepilogo.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
 
@@ -1046,243 +1190,123 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       <div>
         <p class="selection-count" id="performance-limit-status" role="status" aria-live="polite" hidden></p>
         <div class="perf-list" id="perf-list">
-      <article class="perf" data-key="tessuti" data-req="Altezza minima 4,5 metri" data-name="Tessuti Aerei" data-max="2" data-max-amaca="3" data-n="0" data-cat="aerea">
-        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-tessuti">
-          <span class="perf-fig"><img src="media/perf-tessuti.jpg" alt="Elisa Carosi sospesa ai tessuti aerei" loading="lazy"></span>
-          <span class="perf-title"><b>Tessuti Aerei</b><span class="perf-teaser">Figure sospese e discese che catturano lo sguardo.</span><small>Altezza minima 4,5 metri · massimo 2 performance</small></span>
-          <span class="perf-state">
-            <span class="perf-price">100 € a performance</span>
-            <span class="perf-chip" hidden></span>
-          </span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="perf-body" id="body-tessuti">
-          <div><div class="perf-inner">
-            
-            <p>Due teli di seta appesi al soffitto: ci salgo, mi avvolgo e mi lascio cadere fermandomi poco sopra il pavimento. È il numero che fa alzare i telefoni a tutti, quindi conviene avvisare prima il fotografo.</p>
-            <div class="perf-tags"><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span class="req"><svg aria-hidden="true"><use href="#i-height"/></svg><b id="tessuti-height" style="font:inherit">Altezza minima 4,5 metri</b></span><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a performance</span></div>
-            <div class="perf-pick">
-              <span class="pick-label">Quante performance vuoi riservarti?</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Togli una performance di Tessuti Aerei">&minus;</button>
-                <output aria-live="polite">0</output>
-                <button type="button" data-step="1" aria-label="Aggiungi una performance di Tessuti Aerei">+</button>
-              </div>
-              <span class="badge"></span>
-              <span class="pick-sum"></span>
-              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
-
-              <div class="structure-choice field">
-                <label for="struttura-tessuti">Serve la struttura di Elisa?</label>
-                <select id="struttura-tessuti" data-opzione="struttura" data-amount="150" data-label="Struttura per Tessuti Aerei">
-                  <option value="location">È già presente nella location</option>
-                  <option value="elisa">La porta Elisa · +150 €</option>
-                </select>
-              </div>
-              <p class="amaca-hint">Vuoi una terza performance? Dopo aver aggiunto il Tessuto, attiva la versione amaca nel riepilogo.</p>
-            </div>
-          </div></div>
+      <article class="perf" data-key="tessuti" data-name="Tessuti Aerei" data-req="Altezza minima 4,5 metri" data-max="2" data-max-amaca="3" data-n="0" data-cat="aerea" data-durata="3-4 minuti" data-structure-fee="150">
+        <div class="perf-shell">
+          <button type="button" class="perf-head" aria-label="Scopri Tessuti Aerei" aria-expanded="false" aria-controls="body-tessuti">
+            <span class="perf-fig"><img src="media/perf-tessuti.jpg" alt="Elisa Carosi sospesa ai tessuti aerei" loading="lazy"></span>
+            <span class="perf-title"><b>Tessuti Aerei</b><span class="perf-capsules"><span class="height-pill">Altezza minima 4,5 metri</span><span class="max-pill">Fino a 2</span></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Tessuti Aerei">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Tessuti Aerei">−</button><output aria-live="polite" aria-label="Performance di Tessuti Aerei selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Tessuti Aerei">+</button></div>
+          </div>
         </div>
+        <div class="perf-body" id="body-tessuti" inert><div><div class="perf-inner">
+          <svg class="discipline-art art-tessuti" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-tessuti" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="silk-unroll"><path d="M100-30 C44 40 202 43 132 105 S41 150 101 225 L159 225 C87 149 222 140 188 71 S136 5 160-30Z" fill="url(#art-tessuti)"/><path d="M143-30 C102 28 211 50 156 113 S100 170 135 225" fill="none" stroke="#ffe3c5" stroke-width="1.5"/><path d="M232-30 C160 55 274 40 215 132 S189 188 242 225" fill="none" stroke="url(#art-tessuti)" stroke-width="20"/></g></svg>
+          <div class="perf-description"><p>Due teli, figure sospese e cadute controllate. Un momento che cattura gli sguardi, ideale quando vuoi portare tutta l’attenzione sullo spettacolo.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+        </div></div></div>
       </article>
 
-      <article class="perf" data-key="cerchio" data-req="Altezza minima 3 metri" data-name="Cerchio Aereo" data-max="3" data-n="0" data-cat="aerea">
-        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-cerchio">
-          <span class="perf-fig"><img src="media/perf-cerchio.jpg" alt="Elisa Carosi in figura sul cerchio aereo" loading="lazy"></span>
-          <span class="perf-title"><b>Cerchio Aereo</b><span class="perf-teaser">Una coreografia in aria, vicina agli ospiti.</span><small>Altezza minima 3 metri</small></span>
-          <span class="perf-state">
-            <span class="perf-price">100 € a performance</span>
-            <span class="perf-chip" hidden></span>
-          </span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="perf-body" id="body-cerchio">
-          <div><div class="perf-inner">
-            
-            <p>Un cerchio d'acciaio appeso sopra la pista. Posso farlo coreografato su una canzone, oppure restarci dieci minuti in pose lente mentre gli ospiti cenano: in quel caso è più atmosfera che spettacolo.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span><span class="req"><svg aria-hidden="true"><use href="#i-height"/></svg>Altezza minima 3 metri</span></div>
-            <div class="perf-pick">
-              <span class="pick-label">Quante performance vuoi riservarti?</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Togli una performance di Cerchio Aereo">&minus;</button>
-                <output aria-live="polite">0</output>
-                <button type="button" data-step="1" aria-label="Aggiungi una performance di Cerchio Aereo">+</button>
-              </div>
-              <span class="badge"></span>
-              <span class="pick-sum"></span>
-              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
-
-              <div class="structure-choice field">
-                <label for="struttura-cerchio">Serve la struttura di Elisa?</label>
-                <select id="struttura-cerchio" data-opzione="struttura" data-amount="150" data-label="Struttura per Cerchio Aereo">
-                  <option value="location">È già presente nella location</option>
-                  <option value="elisa">La porta Elisa · +150 €</option>
-                </select>
-              </div>            </div>
-          </div></div>
+      <article class="perf" data-key="cerchio" data-name="Cerchio Aereo" data-req="Altezza minima 3 metri" data-max="3" data-n="0" data-cat="aerea" data-durata="3-4 minuti" data-structure-fee="150">
+        <div class="perf-shell">
+          <button type="button" class="perf-head" aria-label="Scopri Cerchio Aereo" aria-expanded="false" aria-controls="body-cerchio">
+            <span class="perf-fig"><img src="media/perf-cerchio.jpg" alt="Elisa Carosi in figura sul cerchio aereo" loading="lazy"></span>
+            <span class="perf-title"><b>Cerchio Aereo</b><span class="perf-capsules"><span class="height-pill">Altezza minima 3 metri</span><span class="max-pill">Fino a 3</span></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Cerchio Aereo">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Cerchio Aereo">−</button><output aria-live="polite" aria-label="Performance di Cerchio Aereo selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Cerchio Aereo">+</button></div>
+          </div>
         </div>
+        <div class="perf-body" id="body-cerchio" inert><div><div class="perf-inner">
+          <svg class="discipline-art art-cerchio" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-cerchio" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="orbit-reveal"><circle cx="164" cy="99" r="70" fill="none" stroke="url(#art-cerchio)" stroke-width="7"/><circle cx="164" cy="99" r="81" fill="none" stroke="#d4af37" stroke-width=".8" stroke-dasharray="3 9"/><path d="M164-20V25" stroke="#b98461" stroke-width="2"/><path d="M128 49 Q176 88 138 122 T192 151" fill="none" stroke="#c47a87" stroke-width="2"/></g></svg>
+          <div class="perf-description"><p>Una coreografia sospesa sul cerchio, oppure pose lente per accompagnare la cena. Può diventare il centro della scena o parte dell’atmosfera.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+        </div></div></div>
       </article>
 
-      <article class="perf" data-key="lollipop" data-req="Non serve aggancio al soffitto" data-name="Lollipop" data-max="3" data-n="0" data-cat="aerea">
-        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-lollipop">
-          <span class="perf-fig"><img src="media/perf-lollipop.jpg" alt="Elisa Carosi in posa sul lollipop" loading="lazy"></span>
-          <span class="perf-title"><b>Lollipop</b><span class="perf-teaser">Una presenza scenica già dall’arrivo.</span><small>Senza aggancio al soffitto · accoglienza ospiti</small></span>
-          <span class="perf-state">
-            <span class="perf-price">100 € a performance</span>
-            <span class="perf-chip" hidden></span>
-          </span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="perf-body" id="body-lollipop">
-          <div><div class="perf-inner">
-            
-            <p>Un cerchio montato su una pedana autoportante, quindi non serve appendere niente al soffitto. È l'unico attrezzo su cui posso anche accogliere gli ospiti all'arrivo, seduta in alto, offrendo da bere.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Accoglienza ospiti</span><span class="req"><svg aria-hidden="true"><use href="#i-space"/></svg>Su pedana, senza aggancio</span></div>
-            <div class="perf-pick">
-              <span class="pick-label">Quante performance vuoi riservarti?</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Togli una performance di Lollipop">&minus;</button>
-                <output aria-live="polite">0</output>
-                <button type="button" data-step="1" aria-label="Aggiungi una performance di Lollipop">+</button>
-              </div>
-              <span class="badge"></span>
-              <span class="pick-sum"></span>
-              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
-
-              <div class="structure-choice field">
-                <label for="struttura-lollipop">Serve la struttura di Elisa?</label>
-                <select id="struttura-lollipop" data-opzione="struttura" data-amount="80" data-label="Struttura per Lollipop">
-                  <option value="location">È già presente nella location</option>
-                  <option value="elisa">La porta Elisa · +80 €</option>
-                </select>
-              </div>            </div>
-          </div></div>
+      <article class="perf" data-key="lollipop" data-name="Lollipop" data-req="Altezza minima 3 metri" data-max="3" data-n="0" data-cat="aerea" data-durata="3-4 minuti" data-structure-fee="80">
+        <div class="perf-shell">
+          <button type="button" class="perf-head" aria-label="Scopri Lollipop" aria-expanded="false" aria-controls="body-lollipop">
+            <span class="perf-fig"><img src="media/perf-lollipop.jpg" alt="Elisa Carosi in posa sul lollipop" loading="lazy"></span>
+            <span class="perf-title"><b>Lollipop</b><span class="perf-capsules"><span class="height-pill">Altezza minima 3 metri</span><span class="max-pill">Fino a 3</span></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Lollipop">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Lollipop">−</button><output aria-live="polite" aria-label="Performance di Lollipop selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Lollipop">+</button></div>
+          </div>
         </div>
+        <div class="perf-body" id="body-lollipop" inert><div><div class="perf-inner">
+          <svg class="discipline-art art-lollipop" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-lollipop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="pedestal-rise"><path d="M159 123V196 M112 197H206" fill="none" stroke="url(#art-lollipop)" stroke-width="5"/><circle cx="159" cy="68" r="54" fill="none" stroke="url(#art-lollipop)" stroke-width="6"/><ellipse cx="159" cy="198" rx="67" ry="7" fill="none" stroke="#d4af37" stroke-width="1"/></g></svg>
+          <div class="perf-description"><p>Un cerchio su pedana, senza agganci al soffitto. Perfetto anche per accogliere gli ospiti dall’alto, con il drink di benvenuto se previsto.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+        </div></div></div>
       </article>
 
-      <article class="perf" data-key="palo" data-req="Altezza minima 3 metri" data-name="Palo" data-max="3" data-n="0" data-cat="aerea">
-        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-palo">
-          <span class="perf-fig"><img src="media/perf-palo.jpg" alt="Elisa Carosi in verticale sul palo" loading="lazy"></span>
-          <span class="perf-title"><b>Palo</b><span class="perf-teaser">Forza ed eleganza, a pochi passi dal pubblico.</span><small>Altezza minima 3 metri · su pedana</small></span>
-          <span class="perf-state">
-            <span class="perf-price">100 € a performance</span>
-            <span class="perf-chip" hidden></span>
-          </span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="perf-body" id="body-palo">
-          <div><div class="perf-inner">
-            
-            <p>Pole dance su pedana autoportante. Rende molto più nei locali che nelle sale grandi: il pubblico deve stare vicino per accorgersi della differenza tra una figura difficile e una facile.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span class="req"><svg aria-hidden="true"><use href="#i-space"/></svg>Su pedana, senza aggancio</span></div>
-            <div class="perf-pick">
-              <span class="pick-label">Quante performance vuoi riservarti?</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Togli una performance di Palo">&minus;</button>
-                <output aria-live="polite">0</output>
-                <button type="button" data-step="1" aria-label="Aggiungi una performance di Palo">+</button>
-              </div>
-              <span class="badge"></span>
-              <span class="pick-sum"></span>
-              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
-
-              <div class="structure-choice field">
-                <label for="struttura-palo">Serve la struttura di Elisa?</label>
-                <select id="struttura-palo" data-opzione="struttura" data-amount="80" data-label="Struttura per Palo">
-                  <option value="location">È già presente nella location</option>
-                  <option value="elisa">La porta Elisa · +80 €</option>
-                </select>
-              </div>            </div>
-          </div></div>
+      <article class="perf" data-key="palo" data-name="Palo" data-req="Altezza minima 3 metri" data-max="3" data-n="0" data-cat="aerea" data-durata="3-4 minuti" data-structure-fee="80">
+        <div class="perf-shell">
+          <button type="button" class="perf-head" aria-label="Scopri Palo" aria-expanded="false" aria-controls="body-palo">
+            <span class="perf-fig"><img src="media/perf-palo.jpg" alt="Elisa Carosi in verticale sul palo" loading="lazy"></span>
+            <span class="perf-title"><b>Palo</b><span class="perf-capsules"><span class="height-pill">Altezza minima 3 metri</span><span class="max-pill">Fino a 3</span></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Palo">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Palo">−</button><output aria-live="polite" aria-label="Performance di Palo selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Palo">+</button></div>
+          </div>
         </div>
+        <div class="perf-body" id="body-palo" inert><div><div class="perf-inner">
+          <svg class="discipline-art art-palo" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-palo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="pole-reveal"><path d="M164 5V196 M112 197H213" stroke="url(#art-palo)" stroke-width="5" fill="none"/><ellipse cx="164" cy="93" rx="88" ry="29" transform="rotate(-35 164 93)" fill="none" stroke="url(#art-palo)" stroke-width="3"/><ellipse cx="164" cy="120" rx="73" ry="23" transform="rotate(-35 164 120)" fill="none" stroke="#d4af37" stroke-width="1"/></g></svg>
+          <div class="perf-description"><p>Forza e fluidità su pedana autoportante. Una performance da vivere da vicino, per cogliere ogni figura e ogni passaggio.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+        </div></div></div>
       </article>
 
-      <article class="perf" data-key="fuoco" data-req="Solo spazi esterni, dopo il tramonto" data-name="Fuoco" data-max="3" data-n="0" data-cat="luce">
-        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-fuoco">
-          <span class="perf-fig"><img src="media/perf-fuoco.jpg" alt="Elisa Carosi durante una performance con il fuoco" loading="lazy"></span>
-          <span class="perf-title"><b>Fuoco</b><span class="perf-teaser">Il finale che illumina la serata.</span><small>Solo spazi esterni</small></span>
-          <span class="perf-state">
-            <span class="perf-price">50 € a performance</span>
-            <span class="perf-chip" hidden></span>
-          </span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="perf-body" id="body-fuoco">
-          <div><div class="perf-inner">
-            <p>Ventagli, bastone e catene accese. Si fa solo all'aperto e solo dopo il tramonto, altrimenti le fiamme non si vedono. Di solito è il numero con cui chiudo la serata.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Spettacolo</span><span class="req"><svg aria-hidden="true"><use href="#i-pin"/></svg>Solo spazi esterni</span></div>
-            <div class="perf-pick">
-              <span class="pick-label">Quante performance vuoi riservarti?</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Togli una performance di Fuoco">&minus;</button>
-                <output aria-live="polite">0</output>
-                <button type="button" data-step="1" aria-label="Aggiungi una performance di Fuoco">+</button>
-              </div>
-              <span class="badge"></span>
-              <span class="pick-sum"></span>
-              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
-            </div>
-          </div></div>
+      <article class="perf" data-key="fuoco" data-name="Fuoco" data-req="Solo spazi esterni, dopo il tramonto" data-max="3" data-n="0" data-cat="luce" data-durata="3-4 minuti" data-structure-fee="0">
+        <div class="perf-shell">
+          <button type="button" class="perf-head" aria-label="Scopri Fuoco" aria-expanded="false" aria-controls="body-fuoco">
+            <span class="perf-fig"><img src="media/perf-fuoco.jpg" alt="Elisa Carosi durante una performance con il fuoco" loading="lazy"></span>
+            <span class="perf-title"><b>Fuoco</b><span class="perf-capsules"><span class="height-pill">All’aperto · di notte</span><span class="max-pill">Fino a 3</span></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Fuoco">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Fuoco">−</button><output aria-live="polite" aria-label="Performance di Fuoco selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Fuoco">+</button></div>
+          </div>
         </div>
+        <div class="perf-body" id="body-fuoco" inert><div><div class="perf-inner">
+          <svg class="discipline-art art-fuoco" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-fuoco" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#ff793e"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="flame-rise"><path d="M162 10 C187 62 224 59 210 114 C240 80 248 134 217 175 C185 214 125 206 105 170 C81 125 121 93 132 74 C127 125 174 121 151 69 C142 47 153 26 162 10Z" fill="url(#art-fuoco)"/><path d="M166 83 C184 122 202 127 180 167 C216 151 179 216 149 183 C126 153 159 140 166 83Z" fill="#f7cf7b" opacity=".9"/></g><g class="embers" fill="#cf9342"><circle cx="105" cy="56" r="3"/><circle cx="231" cy="38" r="2"/><circle cx="79" cy="125" r="2"/><circle cx="228" cy="99" r="4"/></g></svg>
+          <div class="perf-description"><p>Ventagli, bastone e catene accese disegnano la notte. Un finale intenso, in uno spazio esterno libero da ostacoli e materiali infiammabili.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">50 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+        </div></div></div>
       </article>
 
-      <article class="perf" data-key="ali" data-req="Solo in orario notturno · interno o esterno" data-name="Ali di Luce" data-max="3" data-n="0" data-cat="luce">
-        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-ali">
-          <span class="perf-fig"><img src="media/perf-ali.jpg" alt="Elisa Carosi con le ali di luce a LED" loading="lazy"></span>
-          <span class="perf-title"><b>Ali di Luce</b><span class="perf-teaser">La luce che prende scena nella notte.</span><small>Solo in orario notturno · interno o esterno</small></span>
-          <span class="perf-state">
-            <span class="perf-price">50 € a performance</span>
-            <span class="perf-chip" hidden></span>
-          </span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="perf-body" id="body-ali">
-          <div><div class="perf-inner">
-            <p>Ali LED che cambiano colore a tempo di musica. Le propongo solo in orario notturno, quando la luce risalta davvero, per il taglio della torta o un momento speciale a serata inoltrata. Come il fuoco, non sono una performance di apertura.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>3-4 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span><span class="req"><svg aria-hidden="true"><use href="#i-space"/></svg>Solo in orario notturno</span></div>
-            <div class="perf-pick">
-              <span class="pick-label">Quante performance vuoi riservarti?</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Togli una performance di Ali di Luce">&minus;</button>
-                <output aria-live="polite">0</output>
-                <button type="button" data-step="1" aria-label="Aggiungi una performance di Ali di Luce">+</button>
-              </div>
-              <span class="badge"></span>
-              <span class="pick-sum"></span>
-              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
-            </div>
-          </div></div>
+      <article class="perf" data-key="ali" data-name="Ali di Luce" data-req="Solo in orario notturno · interno o esterno" data-max="3" data-n="0" data-cat="luce" data-durata="3-4 minuti" data-structure-fee="0">
+        <div class="perf-shell">
+          <button type="button" class="perf-head" aria-label="Scopri Ali di Luce" aria-expanded="false" aria-controls="body-ali">
+            <span class="perf-fig"><img src="media/perf-ali.jpg" alt="Elisa Carosi con le ali di luce a LED" loading="lazy"></span>
+            <span class="perf-title"><b>Ali di Luce</b><span class="perf-capsules"><span class="height-pill">Solo in orario notturno</span><span class="max-pill">Fino a 3</span></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Ali di Luce">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Ali di Luce">−</button><output aria-live="polite" aria-label="Performance di Ali di Luce selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Ali di Luce">+</button></div>
+          </div>
         </div>
+        <div class="perf-body" id="body-ali" inert><div><div class="perf-inner">
+          <svg class="discipline-art art-ali" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-ali" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="wings-open"><path d="M160 181 Q38 168 16 36 Q102 32 160 126 Q219 32 304 36 Q282 168 160 181Z" fill="url(#art-ali)" opacity=".65"/><path d="M160 181 Q25 118 25 51" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q45 118 45 49" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q65 118 65 46" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q85 118 85 44" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q105 118 105 41" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q125 118 125 39" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q145 118 145 36" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q165 118 165 35" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q185 118 185 38" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q205 118 205 40" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q225 118 225 43" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q245 118 245 45" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q265 118 265 48" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q285 118 285 50" fill="none" stroke="#d4af37" stroke-width="1.4"/></g></svg>
+          <div class="perf-description"><p>Ali luminose che si aprono a tempo di musica. Per il taglio della torta o un momento speciale a serata inoltrata, quando la luce può risaltare.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">50 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+        </div></div></div>
       </article>
 
-      <article class="perf" data-key="ballerina" data-req="Nessun requisito di altezza" data-durata="30 minuti" data-name="Ballerina" data-max="3" data-n="0" data-cat="terra">
-        <button type="button" class="perf-head" aria-expanded="false" aria-controls="body-ballerina">
-          <span class="perf-fig"><img src="media/perf-ballerina.jpg" alt="Elisa Carosi durante una coreografia a terra" loading="lazy"></span>
-          <span class="perf-title"><b>Ballerina</b><span class="perf-teaser">Danza a terra costruita sul tuo evento.</span><small>Coreografia a terra su misura</small></span>
-          <span class="perf-state">
-            <span class="perf-price">50 € a performance</span>
-            <span class="perf-chip" hidden></span>
-          </span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="perf-body" id="body-ballerina">
-          <div><div class="perf-inner">
-            
-            <p>Coreografie a terra: latino, commerciale, contemporaneo. Servono a riempire i passaggi tra un numero aereo e l'altro, e sono la risposta quando la sala non ha l'altezza per le aeree.</p>
-            <div class="perf-tags"><span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>30 minuti a performance</span><span><svg aria-hidden="true"><use href="#i-note"/></svg>Su misura</span><span><svg aria-hidden="true"><use href="#i-private"/></svg>Eventi privati</span></div>
-            <div class="perf-pick">
-              <span class="pick-label">Quante performance vuoi riservarti?</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Togli una performance di Ballerina">&minus;</button>
-                <output aria-live="polite">0</output>
-                <button type="button" data-step="1" aria-label="Aggiungi una performance di Ballerina">+</button>
-              </div>
-              <span class="badge"></span>
-              <span class="pick-sum"></span>
-              <p class="recupero"><svg aria-hidden="true"><use href="#i-clock"/></svg>Fra una performance e l'altra servono 30 minuti di stacco per il cambio costume e il recupero.</p>
-              <p class="terra-limit">Se hai già scelto almeno due performance aeree, puoi riservare al massimo due performance di danza a terra.</p>
-            </div>
-          </div></div>
+      <article class="perf" data-key="ballerina" data-name="Ballerina" data-req="Nessun requisito di altezza" data-max="3" data-n="0" data-cat="terra" data-durata="30 minuti" data-structure-fee="0">
+        <div class="perf-shell">
+          <button type="button" class="perf-head" aria-label="Scopri Ballerina" aria-expanded="false" aria-controls="body-ballerina">
+            <span class="perf-fig"><img src="media/perf-ballerina.jpg" alt="Elisa Carosi durante una coreografia a terra" loading="lazy"></span>
+            <span class="perf-title"><b>Ballerina</b><span class="perf-capsules"><span class="height-pill">Danza a terra</span><span class="max-pill">Fino a 3</span></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Ballerina">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Ballerina">−</button><output aria-live="polite" aria-label="Performance di Ballerina selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Ballerina">+</button></div>
+          </div>
         </div>
+        <div class="perf-body" id="body-ballerina" inert><div><div class="perf-inner">
+          <svg class="discipline-art art-ballerina" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-ballerina" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="dance-draw" fill="none" stroke="url(#art-ballerina)" stroke-linecap="round"><circle cx="177" cy="39" r="11" stroke-width="3"/><path d="M174 56 Q142 89 162 113 Q185 137 197 175 M161 113 Q129 146 110 193 M166 72 Q126 62 88 79 M167 73 Q211 76 235 42" stroke-width="4"/><path d="M156 107 Q90 102 72 140 Q159 171 227 145 Q213 119 168 108" stroke-width="1.4"/><path d="M76 180 Q-5 95 77 37 Q143-2 253 94" stroke-width=".9"/></g></svg>
+          <div class="perf-description"><p>Latino, commerciale o contemporaneo: una coreografia a terra che accompagna il ritmo della festa. Ogni performance dura 30 minuti.</p><div class="perf-details"><span>30 minuti a performance</span><span class="perf-price">50 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+        </div></div></div>
       </article>        </div>
 
       </div>
@@ -1295,7 +1319,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         <div class="show-flow" id="show-flow" hidden>
           <p class="show-flow-title">Come può prendere forma la serata</p>
           <div class="show-flow-steps" id="show-flow-steps"></div>
-          <p class="show-flow-note">Tra due performance di Elisa servono almeno 30 minuti. Gli orari precisi si concordano con la location.</p>
+          <p class="show-flow-note">Servono 30 minuti tra una performance e l'altra.</p>
         </div>
 
 
@@ -1312,7 +1336,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
             <label for="q-fine">Fine serata</label>
             <select id="q-fine" aria-describedby="q-time-help" required></select>
           </div>
-          <p class="time-help" id="q-time-help">Intervalli di 30 minuti, dalle 08:00 alle 04:00 del giorno dopo. La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
+          <p class="time-help" id="q-time-help">La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
         </div>
         <p class="legenda" id="legenda">
           <span aria-hidden="true">*</span> Date speciali con supplemento di 100&nbsp;€: <b>31 dicembre</b>.
@@ -1342,6 +1366,29 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     </div>
   </div>
 </section>
+
+<!-- Un nastro di seta accompagna il passaggio dalla luce alla scena. -->
+<div class="scene-transition" id="scene-transition">
+  <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="silk-spectrum" x1="0" y1="0" x2="1" y2=".65"><stop stop-color="#582238"/><stop offset=".18" stop-color="#af506f"/><stop offset=".37" stop-color="#f5c994"/><stop offset=".47" stop-color="#a44366"/><stop offset=".67" stop-color="#e7a595"/><stop offset=".83" stop-color="#84416b"/><stop offset="1" stop-color="#f3cb8d"/></linearGradient>
+      <linearGradient id="silk-light"><stop stop-color="#fff2cb" stop-opacity="0"/><stop offset=".5" stop-color="#fff2cb"/><stop offset="1" stop-color="#fff2cb" stop-opacity="0"/></linearGradient>
+      <filter id="silk-shadow" x="-20%" y="-70%" width="140%" height="260%"><feGaussianBlur stdDeviation="13"/></filter>
+      <path id="silk-path" d="M-140 156 C 104 -2 366 15 597 235 C 730 361 1109 472 1132 252 C 1155 34 656 99 704 332 C 748 541 1286 466 1580 261" pathLength="1000"/>
+    </defs>
+    <g class="ribbon-fabric"><g class="ribbon-breath">
+      <use href="#silk-path" transform="translate(0 25)" fill="none" stroke="#42162e" stroke-width="66" opacity=".18" filter="url(#silk-shadow)"/>
+      <use href="#silk-path" fill="none" stroke="url(#silk-spectrum)" stroke-width="58"/>
+      <use href="#silk-path" fill="none" stroke="#ffdac6" stroke-width="0.5" opacity="0.2" transform="translate(0 -26)"/><use href="#silk-path" fill="none" stroke="#8c3c62" stroke-width="0.65" opacity="0.30000000000000004" transform="translate(0 -24)"/><use href="#silk-path" fill="none" stroke="#e7b080" stroke-width="0.8" opacity="0.4" transform="translate(0 -22)"/><use href="#silk-path" fill="none" stroke="#f1c999" stroke-width="0.5" opacity="0.5" transform="translate(0 -20)"/><use href="#silk-path" fill="none" stroke="#ffdac6" stroke-width="0.65" opacity="0.2" transform="translate(0 -18)"/><use href="#silk-path" fill="none" stroke="#8c3c62" stroke-width="0.8" opacity="0.30000000000000004" transform="translate(0 -16)"/><use href="#silk-path" fill="none" stroke="#e7b080" stroke-width="0.5" opacity="0.4" transform="translate(0 -14)"/><use href="#silk-path" fill="none" stroke="#f1c999" stroke-width="0.65" opacity="0.5" transform="translate(0 -12)"/><use href="#silk-path" fill="none" stroke="#ffdac6" stroke-width="0.8" opacity="0.2" transform="translate(0 -10)"/><use href="#silk-path" fill="none" stroke="#8c3c62" stroke-width="0.5" opacity="0.30000000000000004" transform="translate(0 -8)"/><use href="#silk-path" fill="none" stroke="#e7b080" stroke-width="0.65" opacity="0.4" transform="translate(0 -6)"/><use href="#silk-path" fill="none" stroke="#f1c999" stroke-width="0.8" opacity="0.5" transform="translate(0 -4)"/><use href="#silk-path" fill="none" stroke="#ffdac6" stroke-width="0.5" opacity="0.2" transform="translate(0 -2)"/><use href="#silk-path" fill="none" stroke="#8c3c62" stroke-width="0.65" opacity="0.30000000000000004" transform="translate(0 0)"/><use href="#silk-path" fill="none" stroke="#e7b080" stroke-width="0.8" opacity="0.4" transform="translate(0 2)"/><use href="#silk-path" fill="none" stroke="#f1c999" stroke-width="0.5" opacity="0.5" transform="translate(0 4)"/><use href="#silk-path" fill="none" stroke="#ffdac6" stroke-width="0.65" opacity="0.2" transform="translate(0 6)"/><use href="#silk-path" fill="none" stroke="#8c3c62" stroke-width="0.8" opacity="0.30000000000000004" transform="translate(0 8)"/><use href="#silk-path" fill="none" stroke="#e7b080" stroke-width="0.5" opacity="0.4" transform="translate(0 10)"/><use href="#silk-path" fill="none" stroke="#f1c999" stroke-width="0.65" opacity="0.5" transform="translate(0 12)"/><use href="#silk-path" fill="none" stroke="#ffdac6" stroke-width="0.8" opacity="0.2" transform="translate(0 14)"/><use href="#silk-path" fill="none" stroke="#8c3c62" stroke-width="0.5" opacity="0.30000000000000004" transform="translate(0 16)"/><use href="#silk-path" fill="none" stroke="#e7b080" stroke-width="0.65" opacity="0.4" transform="translate(0 18)"/><use href="#silk-path" fill="none" stroke="#f1c999" stroke-width="0.8" opacity="0.5" transform="translate(0 20)"/><use href="#silk-path" fill="none" stroke="#ffdac6" stroke-width="0.5" opacity="0.2" transform="translate(0 22)"/><use href="#silk-path" fill="none" stroke="#8c3c62" stroke-width="0.65" opacity="0.30000000000000004" transform="translate(0 24)"/><use href="#silk-path" fill="none" stroke="#e7b080" stroke-width="0.8" opacity="0.4" transform="translate(0 26)"/>
+      <use href="#silk-path" transform="translate(0 -29)" fill="none" stroke="#fff0cf" stroke-width="1.3" opacity=".8"/>
+      <use href="#silk-path" transform="translate(0 29)" fill="none" stroke="#52223d" stroke-width="1" opacity=".4"/>
+      <use class="ribbon-shimmer" href="#silk-path" fill="none" stroke="url(#silk-light)" stroke-width="4"/>
+    </g></g>
+    <g class="ribbon-stars" fill="#ffe9b5"><circle cx="120" cy="221" r="1.5"/><circle cx="272" cy="176" r="2"/><circle cx="405" cy="308" r="1.2"/><circle cx="517" cy="356" r="2"/><circle cx="630" cy="151" r="1.8"/><circle cx="729" cy="104" r="1.2"/><circle cx="814" cy="459" r="2"/><circle cx="930" cy="203" r="1.5"/><circle cx="1088" cy="398" r="2.1"/><circle cx="1155" cy="176" r="1.3"/><circle cx="1228" cy="333" r="1.8"/><circle cx="1369" cy="438" r="1.3"/><circle cx="910" cy="99" r="1"/><circle cx="574" cy="447" r="1.5"/><circle cx="372" cy="246" r="1"/></g>
+  </svg>
+  <span class="scene-signature" aria-hidden="true">Lascia spazio alla meraviglia</span>
+  <button class="motion-toggle" id="motion-toggle" type="button" aria-label="Metti in pausa l’animazione del nastro" aria-pressed="false"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 2h3v12H3zM10 2h3v12h-3z"/></svg></button>
+</div>
 
 <!-- ============ EVENTI ============ -->
 <section id="eventi">
@@ -1506,7 +1553,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
           <label for="c-fine">Fine serata</label>
           <select id="c-fine" aria-describedby="c-time-help" required></select>
         </div>
-        <p class="time-help" id="c-time-help">Intervalli di 30 minuti, dalle 08:00 alle 04:00 del giorno dopo. La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
+        <p class="time-help" id="c-time-help">La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
       </div>
       <div class="form-row">
         <div class="field">
@@ -1610,6 +1657,24 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   }
 
   var perfs    = Array.prototype.slice.call(document.querySelectorAll(".perf"));
+  var structures = {};
+  perfs.forEach(function(p){
+    if(!+p.dataset.structureFee) return;
+    var key = p.dataset.key, field = document.createElement("div");
+    field.className = "quote-structure field";
+    field.innerHTML = '<label for="q-struttura-' + key + '">Serve la struttura di Elisa? <span class="required-tag">Obbligatorio</span></label>' +
+      '<select id="q-struttura-' + key + '" form="quote-form" required aria-describedby="structure-error-' + key + '">' +
+      '<option value="" disabled selected>Scegli un’opzione</option><option value="location">È già presente nella location</option>' +
+      '<option value="elisa">La porta Elisa · +' + p.dataset.structureFee + ' €</option></select>' +
+      '<p class="structure-error" id="structure-error-' + key + '" hidden>Scegli chi fornisce la struttura per ' + p.dataset.name + '.</p>';
+    var select = field.querySelector("select");
+    structures[key] = {field:field, select:select};
+    select.addEventListener("change", function(){
+      select.removeAttribute("aria-invalid");
+      field.querySelector(".structure-error").hidden = true;
+      render();
+    });
+  });
   var extras   = Array.prototype.slice.call(document.querySelectorAll("[data-extra]"));
   var scaletta = document.getElementById("scaletta");
   var totaleEl = document.getElementById("totale");
@@ -1729,15 +1794,16 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         key: p.dataset.key,
         nome: p.dataset.name + (p === tessuti && amaca.checked ? " · versione amaca" : ""),
         n: n, costo: c, unitario: prezzoUnitario(p), set: n >= 3 && p.dataset.cat !== "aerea",
+        struttura: structures[p.dataset.key] ? structures[p.dataset.key].select.value : null,
         req: requisito(p), durata: p.dataset.durata || "3-4 minuti",
         immagine: p.querySelector(".perf-fig img").getAttribute("src")
       });
       if(p.dataset.cat === "aerea") aereeAttive = true;
 
       // la struttura si paga per ogni attrezzo che Elisa deve portare
-      var str = p.querySelector('[data-opzione="struttura"]');
+      var str = structures[p.dataset.key] && structures[p.dataset.key].select;
       if(str && str.value === "elisa"){
-        var importo = +str.dataset.amount;
+        var importo = +p.dataset.structureFee;
         supplementiStruttura.push({ nome: "Struttura per " + p.dataset.name, costo: importo });
         totale += importo;
       }
@@ -1782,15 +1848,26 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   }
 
   function render(){
-    var amacaFocus = amacaPanel.contains(document.activeElement) ? document.activeElement : null;
+    var quoteFocus = scaletta.contains(document.activeElement) ? document.activeElement : null;
     if(+tessuti.dataset.n === 0){ amaca.checked = false; amacaAvviso = ""; }
     var ballerina = document.querySelector('[data-key="ballerina"]');
     if(+ballerina.dataset.n > massimo(ballerina)){
       ballerina.dataset.n = massimo(ballerina);
       ballerina.querySelector("output").textContent = ballerina.dataset.n;
     }
-    document.getElementById("tessuti-height").textContent = requisito(tessuti);
+    perfs.forEach(function(p){
+      if(+p.dataset.n === 0 && structures[p.dataset.key]){
+        structures[p.dataset.key].select.value = "";
+        structures[p.dataset.key].select.removeAttribute("aria-invalid");
+        structures[p.dataset.key].field.querySelector(".structure-error").hidden = true;
+      }
+    });
     var s = stato();
+    var structureStatus = document.getElementById("quote-status");
+    if(structureStatus.textContent === "Completa la scelta della struttura per ogni attrezzo selezionato." &&
+      !perfs.some(function(p){ return +p.dataset.n && structures[p.dataset.key] && !structures[p.dataset.key].select.value; })){
+      structureStatus.textContent = "";
+    }
     var selectedCount = totalePerformance();
     var limiteTesto = "Hai selezionato 4 performance: il massimo per una serata, tra aeree e a terra. Per aggiungerne un’altra, rimuovine una.";
     if(selectedCount < MAX_PERFORMANCE){ limitFeedback.hidden = true; clearTimeout(limitTimer); }
@@ -1804,20 +1881,17 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     perfs.forEach(function(p){
       var n = +p.dataset.n, max = massimo(p);
       var c = costo(n, p);
-      var chip  = p.querySelector(".perf-chip");
       var prezzo = p.querySelector(".perf-price");
       var badge = p.querySelector(".badge");
       var somma = p.querySelector(".pick-sum");
 
-      chip.hidden = !n;
-      chip.textContent = n ? n + " performance · " + euro(c) : "";
-      prezzo.hidden = !!n;
+      prezzo.hidden = false;
       badge.textContent = "Set da 3";
       badge.classList.toggle("on", n >= 3 && p.dataset.cat !== "aerea");
       prezzo.textContent = euro(prezzoUnitario(p)) + " a performance";
       somma.innerHTML = n ? euroHTML(c) : '<span style="color:var(--ink-faint);font-weight:400">' + euro(prezzoUnitario(p)) + ' a performance</span>';
-      if(p === tessuti) p.querySelector(".perf-title small").textContent = requisito(p) + " · " +
-        (amaca.checked ? "amaca selezionata · massimo 3 performance" : "massimo 2 performance");
+      p.querySelector(".max-pill").textContent = "Fino a " + (p === tessuti && amaca.checked ? 3 : p.dataset.key === "ballerina" && totaleAeree() >= 2 ? 2 : p.dataset.max);
+      if(p === tessuti) p.querySelector(".height-pill").textContent = amaca.checked ? "Amaca · altezza da verificare" : p.dataset.req;
       p.classList.toggle("chosen", n > 0);
       p.querySelector('[data-step="-1"]').disabled = n === 0;
       aggiornaPiu(p.querySelector('[data-step="1"]'), n, max, selectedCount);
@@ -1828,7 +1902,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       var vuoto = document.createElement("li");
       vuoto.className = "empty";
       vuoto.style.cssText = "display:block;border:0;animation:none";
-      vuoto.textContent = "Apri una performance qui accanto e scegli quante ne vuoi riservare.";
+      vuoto.textContent = "La tua serata comincia da una scelta. Aggiungi le performance con il pulsante +.";
       scaletta.appendChild(vuoto);
     } else {
       var i = 0;
@@ -1849,6 +1923,11 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
               : "Terza performance sbloccata: usa + per aggiungerla.")
             : "Tessuto classico: puoi selezionare fino a 2 performance.");
           voce.appendChild(amacaPanel);
+        }
+        if(structures[v.key]){
+          var config = structures[v.key];
+          config.field.classList.toggle("is-complete", !!config.select.value);
+          voce.appendChild(config.field);
         }
         scaletta.appendChild(voce);
       });
@@ -1892,6 +1971,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     s.voci.forEach(function(v){
       righe.push("• " + v.nome + " — " + v.n + " performance — " + euro(v.costo)
                  + (v.req ? "  (" + v.req + ", " + v.durata + " l'una)" : ""));
+      if(v.struttura !== null) righe.push("  Struttura: " + (v.struttura === "elisa" ? "la porta Elisa" : v.struttura === "location" ? "già presente nella location" : "da scegliere"));
     });
     s.supplementi.forEach(function(v){ righe.push("• " + v.nome + " — " + prezzoSupplemento(v, false)); });
     righe.push("", "Totale indicativo: " + euro(s.totale), "");
@@ -1913,7 +1993,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       : (!qData.value
         ? "Aggiungi il giorno: è la prima cosa che devo verificare."
         : "Il totale è indicativo: Elisa ti risponderà per confermare disponibilità e preventivo.");
-    if(amacaFocus && amacaFocus.isConnected && !amacaFocus.disabled) amacaFocus.focus({preventScroll:true});
+    if(quoteFocus && quoteFocus.isConnected && !quoteFocus.disabled) quoteFocus.focus({preventScroll:true});
   }
 
   amaca.addEventListener("change", function(){
@@ -1944,10 +2024,12 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       perfs.forEach(function(o){
         o.classList.remove("open");
         o.querySelector(".perf-head").setAttribute("aria-expanded","false");
+        o.querySelector(".perf-body").inert = true;
       });
       if(apri){
         p.classList.add("open");
         head.setAttribute("aria-expanded","true");
+        p.querySelector(".perf-body").inert = false;
       }
     });
     p.querySelector(".perf-pick").addEventListener("click", function(e){
@@ -1963,21 +2045,6 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   });
   extras.forEach(function(inp){ inp.addEventListener("change", render); });
 
-  // Le opzioni struttura restano nelle card; l'amaca si seleziona nel riepilogo.
-  Array.prototype.slice.call(document.querySelectorAll("[data-opzione]")).forEach(function(inp){
-    inp.addEventListener("change", function(){
-      var p = inp.closest(".perf");
-      var max = massimo(p);
-      if(+p.dataset.n > max){
-        p.dataset.n = max;
-        p.querySelector("output").textContent = max;
-      }
-      render();
-    });
-    // il click sull'opzione non deve richiudere la card
-    var optionWrap = inp.closest(".opz");
-    if(optionWrap) optionWrap.addEventListener("click", function(e){ e.stopPropagation(); });
-  });
   [qData, qOra, qFine, qNote, qTelefono].forEach(function(c){ c.addEventListener("change", render); c.addEventListener("input", render); });
 
   // filtro del repertorio
@@ -1998,6 +2065,13 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     quotePanel.classList.toggle("sheet-open", open);
     document.body.classList.toggle("quote-is-open", open);
     showQuote.setAttribute("aria-expanded", open ? "true" : "false");
+    if(open){
+      quotePanel.setAttribute("role", "dialog");
+      quotePanel.setAttribute("aria-modal", "true");
+    } else {
+      quotePanel.removeAttribute("role");
+      quotePanel.removeAttribute("aria-modal");
+    }
     if(open) closeQuote.focus(); else showQuote.focus();
   }
   showQuote.addEventListener("click", function(){
@@ -2007,6 +2081,17 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   closeQuote.addEventListener("click", function(){ toggleQuote(false); });
   document.addEventListener("keydown", function(e){
     if(e.key === "Escape" && quotePanel.classList.contains("sheet-open")) toggleQuote(false);
+    if(e.key === "Tab" && quotePanel.classList.contains("sheet-open")){
+      var controls = Array.prototype.slice.call(quotePanel.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')).filter(function(el){
+        return !el.disabled && el.tabIndex >= 0 && !el.closest('.trap') && el.getClientRects().length;
+      });
+      var first = controls[0], last = controls[controls.length - 1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+  window.addEventListener("resize", function(){
+    if(window.innerWidth >= 1020 && quotePanel.classList.contains("sheet-open")) toggleQuote(false);
   });
 
   // modulo performance personalizzata
@@ -2075,6 +2160,19 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
 
   document.getElementById("quote-form").addEventListener("submit", function(e){
     e.preventDefault();
+    var missing = perfs.filter(function(p){ return +p.dataset.n && structures[p.dataset.key] && !structures[p.dataset.key].select.value; });
+    if(missing.length){
+      missing.forEach(function(p){
+        structures[p.dataset.key].select.setAttribute("aria-invalid", "true");
+        structures[p.dataset.key].field.querySelector(".structure-error").hidden = false;
+      });
+      var first = structures[missing[0].dataset.key].select;
+      first.focus();
+      first.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"});
+      document.getElementById("quote-status").textContent = "Completa la scelta della struttura per ogni attrezzo selezionato.";
+      return;
+    }
+    document.getElementById("quote-status").textContent = "";
     var name = document.getElementById("q-nome");
     var email = document.getElementById("q-email");
     if(!name.reportValidity() || !email.reportValidity()) return;
@@ -2090,6 +2188,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       time:qOra.value,endTime:qFine.value,phone:qTelefono.value.trim(),notes:qNote.value.trim(),website:document.getElementById("q-website").value,
       items:current.voci.map(function(v){ return v.nome + " × " + v.n + " — " + euro(v.costo); }),
       supplements:current.supplementi.map(function(v){ return v.nome + " — " + prezzoSupplemento(v, false); }),
+      structures:current.voci.reduce(function(result,v){ if(v.struttura !== null) result[v.key] = v.struttura; return result; },{}),
       pending:[],total:euro(current.totale)},
       mail,document.getElementById("quote-status"),mail.dataset.fallback);
   });
@@ -2116,6 +2215,36 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       });
       campo.style.cursor = "pointer";
     });
+
+
+  // Il nastro si anima soltanto quando è visibile e segue delicatamente lo scorrimento.
+  var scene = document.getElementById("scene-transition");
+  var motionToggle = document.getElementById("motion-toggle");
+  var motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var motionPaused = false, sceneVisible = false, motionFrame = 0;
+  function syncMotion(){
+    scene.classList.toggle("in-view", sceneVisible && !document.hidden && !motionPreference.matches);
+    scene.classList.toggle("is-paused", motionPaused || motionPreference.matches);
+  }
+  new IntersectionObserver(function(entries){ sceneVisible = entries[0].isIntersecting; syncMotion(); },{threshold:0}).observe(scene);
+  document.addEventListener("visibilitychange", syncMotion);
+  motionPreference.addEventListener("change", syncMotion);
+  motionToggle.addEventListener("click", function(){
+    motionPaused = !motionPaused;
+    motionToggle.setAttribute("aria-pressed", String(motionPaused));
+    motionToggle.setAttribute("aria-label", motionPaused ? "Riprendi l’animazione del nastro" : "Metti in pausa l’animazione del nastro");
+    motionToggle.querySelector("path").setAttribute("d",motionPaused ? "M4 2l10 6-10 6z" : "M3 2h3v12H3zM10 2h3v12h-3z");
+    syncMotion();
+  });
+  window.addEventListener("scroll",function(){
+    if(motionFrame || !sceneVisible || motionPaused || motionPreference.matches) return;
+    motionFrame = requestAnimationFrame(function(){
+      var box = scene.getBoundingClientRect();
+      var progress = Math.max(-1,Math.min(1,(window.innerHeight/2-box.top-box.height/2)/window.innerHeight));
+      scene.style.setProperty("--ribbon-y",progress*24 + "px");
+      motionFrame = 0;
+    });
+  },{passive:true});
 
   render();
   renderCustom();
