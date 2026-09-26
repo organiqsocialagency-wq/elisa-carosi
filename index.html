@@ -342,7 +342,7 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .sc-num{font-family:var(--sans);font-size:.56rem;letter-spacing:.12em;color:var(--gold);font-variant-numeric:tabular-nums;font-weight:600}
 .sc-name{font-size:1.12rem;line-height:1.3}
 .sc-name em{font-style:normal;color:var(--ink-faint);font-size:.82rem;font-family:var(--sans)}
-.sc-price{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.92rem;font-weight:500}
+.sc-price{max-width:160px;text-align:right;overflow-wrap:break-word;font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.92rem;font-weight:500}
 .sc-req{display:block;margin-top:4px;font-family:var(--sans);font-size:.7rem;font-weight:600;color:var(--coral-deep);letter-spacing:.02em;font-style:normal}
 .sc-req::before{content:"▸ ";opacity:.65}
 .amaca-panel{grid-column:1 / -1;margin:8px 0 4px;padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(196,122,135,.05);transition:background .2s,border-color .2s}
@@ -880,7 +880,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
    "name": "Lavori anche fuori Roma?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Sì. Roma e provincia sono la zona abituale, ma faccio trasferte in tutta Italia: in quel caso al preventivo si aggiunge il supplemento di trasferta."
+    "text": "Sì. Roma e provincia sono la zona abituale, ma faccio trasferte in tutta Italia: il costo della trasferta si concorda in consulenza, in base alla location."
    }
   }
  ]
@@ -1315,18 +1315,18 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         <form id="quote-form" class="quote-form" novalidate>
           <div class="field"><label for="q-nome">Il tuo nome</label><input id="q-nome" name="name" autocomplete="name" required placeholder="Come ti chiami"></div>
           <div class="field"><label for="q-email">La tua email</label><input id="q-email" name="email" type="email" autocomplete="email" required placeholder="Per risponderti"></div>
+          <div class="field"><label for="q-telefono">Telefono (facoltativo)</label><input id="q-telefono" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Il numero a cui contattarti"></div>
           <div class="field"><label for="q-note">Note aggiuntive (facoltative)</label><textarea id="q-note" name="notes" rows="3" maxlength="2000" placeholder="La location, un momento speciale o qualcosa che Elisa dovrebbe sapere…"></textarea></div>
           <div class="trap" aria-hidden="true"><label for="q-website">Lascia vuoto</label><input id="q-website" name="website" tabindex="-1" autocomplete="off"></div>
           <div class="travel-confirmation" id="extras">
             <label class="extra">
-              <input type="checkbox" data-extra="trasferta" data-label="Trasferta fuori Roma" data-amount="50">
+              <input type="checkbox" data-extra="trasferta" data-label="Trasferta fuori Roma" data-amount="0" data-quote="true">
               <span class="tick" aria-hidden="true"></span>
-              <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Se l’evento è fuori Roma e provincia, seleziona questa voce: aggiunge 50 € ed evita che il preventivo risulti incompleto.</small></span>
-              <span class="extra-price">+50 €</span>
+              <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Se l’evento è fuori Roma e provincia, seleziona questa voce: il costo della trasferta si concorda in consulenza e non è incluso nel totale indicativo.</small></span>
             </label>
           </div>
           <button class="btn btn--primary" id="mail" type="submit">Richiedi ora via mail</button>
-          <p class="data-note">Useremo nome e indirizzo email solo per rispondere alla tua richiesta.</p>
+          <p class="data-note">Useremo i tuoi recapiti solo per rispondere alla tua richiesta.</p>
           <p class="form-status" id="quote-status" role="status" aria-live="polite"></p>
         </form>
         <p class="quote-note" id="quote-note">Il totale è indicativo. Elisa ti risponderà per confermare disponibilità e preventivo.</p>
@@ -1434,7 +1434,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-corp"/></svg></span>
-        <div><h3>Lavori anche fuori Roma?</h3><p>Sì. Roma e provincia sono la zona abituale, ma faccio trasferte in tutta Italia: in quel caso al preventivo si aggiunge il supplemento di trasferta.</p></div>
+        <div><h3>Lavori anche fuori Roma?</h3><p>Sì. Roma e provincia sono la zona abituale, ma faccio trasferte in tutta Italia: il costo della trasferta si concorda in consulenza, in base alla location.</p></div>
       </div>
     </div>
   </div>
@@ -1501,6 +1501,10 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         </div>
       </div>
       <div class="field">
+        <label for="c-telefono">Telefono (facoltativo)</label>
+        <input id="c-telefono" type="tel" autocomplete="tel" maxlength="40" placeholder="Il numero a cui contattarti">
+      </div>
+      <div class="field">
         <label for="c-idea">L'idea che hai in mente</label>
         <textarea id="c-idea" placeholder="C'è una canzone a cui tenete? Un colore, un momento della serata, un'idea vista da qualche parte?" required></textarea>
       </div>
@@ -1511,7 +1515,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       <div class="trap" aria-hidden="true"><label for="c-website">Lascia vuoto</label><input id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
       <p class="form-note">La richiesta arriva direttamente a Elisa Carosi, che ti risponderà via email per definire i dettagli.</p>
       <button class="btn btn--primary" id="custom-mail" type="submit">Richiedi ora</button>
-      <p class="data-note">Useremo nome e indirizzo email solo per rispondere alla tua richiesta.</p>
+      <p class="data-note">Useremo i tuoi recapiti solo per rispondere alla tua richiesta.</p>
       <p class="form-status" id="custom-status" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -1606,6 +1610,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   var qOra  = document.getElementById("q-ora");
   var qFine = document.getElementById("q-fine");
   var qNote = document.getElementById("q-note");
+  var qTelefono = document.getElementById("q-telefono");
 
   // La serata va dalle 08:00 del giorno scelto alle 04:00 del giorno successivo.
   function minutiSerata(value){
@@ -1730,7 +1735,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     var supplementi = supplementiStruttura.slice();
     if(voci.length) extras.forEach(function(inp){
       if(inp.checked){
-        supplementi.push({ nome: inp.dataset.label, costo: +inp.dataset.amount });
+        supplementi.push({ nome: inp.dataset.label, costo: inp.dataset.quote ? null : +inp.dataset.amount });
         totale += +inp.dataset.amount;
       }
     });
@@ -1748,6 +1753,10 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
 
     return { voci: voci, supplementi: supplementi, totale: totale, risparmio: risparmio,
              aereeAttive: aereeAttive, speciale: speciale };
+  }
+
+  function prezzoSupplemento(v, html){
+    return v.costo === null ? "Da concordare in consulenza" : (html ? euroHTML(v.costo) : euro(v.costo));
   }
 
   function riga(num, testo, prezzo, requisito){
@@ -1832,7 +1841,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
         scaletta.appendChild(voce);
       });
       s.supplementi.forEach(function(v){
-        scaletta.appendChild(riga("+", v.nome + (v.auto ? ' <em>data speciale</em>' : ''), euroHTML(v.costo)));
+        scaletta.appendChild(riga("+", v.nome + (v.auto ? ' <em>data speciale</em>' : ''), prezzoSupplemento(v, true)));
       });
     }
 
@@ -1872,11 +1881,12 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
       righe.push("• " + v.nome + " — " + v.n + " performance — " + euro(v.costo)
                  + (v.req ? "  (" + v.req + ", " + v.durata + " l'una)" : ""));
     });
-    s.supplementi.forEach(function(v){ righe.push("• " + v.nome + " — " + euro(v.costo)); });
+    s.supplementi.forEach(function(v){ righe.push("• " + v.nome + " — " + prezzoSupplemento(v, false)); });
     righe.push("", "Totale indicativo: " + euro(s.totale), "");
     righe.push("Giorno: " + (qData.value ? dataIT(qData.value) : "da definire"));
     righe.push("Inizio serata: " + orarioTesto(qOra.value));
     righe.push("Fine serata: " + orarioTesto(qFine.value));
+    if(qTelefono.value.trim()) righe.push("Telefono: " + qTelefono.value.trim());
     if(qNote.value.trim()) righe.push("", "Note aggiuntive:", qNote.value.trim());
     righe.push("", "Mi confermi disponibilità e preventivo?");
 
@@ -1956,7 +1966,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     var optionWrap = inp.closest(".opz");
     if(optionWrap) optionWrap.addEventListener("click", function(e){ e.stopPropagation(); });
   });
-  [qData, qOra, qFine, qNote].forEach(function(c){ c.addEventListener("change", render); c.addEventListener("input", render); });
+  [qData, qOra, qFine, qNote, qTelefono].forEach(function(c){ c.addEventListener("change", render); c.addEventListener("input", render); });
 
   // filtro del repertorio
   var filtri = Array.prototype.slice.call(document.querySelectorAll(".filter"));
@@ -1991,6 +2001,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
   var custom = {
     nome:  document.getElementById("c-nome"),
     email: document.getElementById("c-email"),
+    telefono: document.getElementById("c-telefono"),
     data:  document.getElementById("c-data"),
     ora:   document.getElementById("c-ora"),
     fine:  document.getElementById("c-fine"),
@@ -2005,6 +2016,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     var r = ["Ciao Elisa,", "", "vorrei una performance personalizzata per il mio evento.", ""];
     if(custom.nome.value)  r.push("Nome: " + custom.nome.value);
     if(custom.email.value) r.push("Email: " + custom.email.value);
+    if(custom.telefono.value.trim()) r.push("Telefono: " + custom.telefono.value.trim());
     r.push("Giorno: " + (custom.data.value ? dataIT(custom.data.value) : "da definire"));
     r.push("Inizio serata: " + orarioTesto(custom.ora.value));
     r.push("Fine serata: " + orarioTesto(custom.fine.value));
@@ -2063,9 +2075,9 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     var current = stato();
     if(!current.voci.length) return;
     sendRequest({type:"quote",name:name.value,email:email.value,date:qData.value,
-      time:qOra.value,endTime:qFine.value,notes:qNote.value.trim(),website:document.getElementById("q-website").value,
+      time:qOra.value,endTime:qFine.value,phone:qTelefono.value.trim(),notes:qNote.value.trim(),website:document.getElementById("q-website").value,
       items:current.voci.map(function(v){ return v.nome + " × " + v.n + " — " + euro(v.costo); }),
-      supplements:current.supplementi.map(function(v){ return v.nome + " — " + euro(v.costo); }),
+      supplements:current.supplementi.map(function(v){ return v.nome + " — " + prezzoSupplemento(v, false); }),
       pending:[],total:euro(current.totale)},
       mail,document.getElementById("quote-status"),mail.dataset.fallback);
   });
@@ -2076,7 +2088,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
     if(!form.reportValidity()) return;
     sendRequest({type:"custom",name:custom.nome.value,email:custom.email.value,
       date:custom.data.value,time:custom.ora.value,endTime:custom.fine.value,event:custom.tipo.value,
-      place:custom.luogo.value,idea:custom.idea.value,notes:custom.note.value.trim(),
+      place:custom.luogo.value,idea:custom.idea.value,phone:custom.telefono.value.trim(),notes:custom.note.value.trim(),
       website:document.getElementById("c-website").value},
       customMail,document.getElementById("custom-status"),customMail.dataset.fallback);
   });

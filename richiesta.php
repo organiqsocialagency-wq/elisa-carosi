@@ -27,6 +27,7 @@ $type = field($data, 'type', 10);
 if (!in_array($type, ['quote', 'custom'], true)) reply(400, false);
 $name = field($data, 'name', 100);
 $email = field($data, 'email', 254);
+$phone = field($data, 'phone', 40);
 $date = field($data, 'date', 10);
 $time = field($data, 'time', 5);
 $endTime = field($data, 'endTime', 5);
@@ -53,6 +54,7 @@ $last = (int)stream_get_contents($handle);
 if (time() - $last < 60) { flock($handle, LOCK_UN); fclose($handle); reply(429, false); }
 
 $lines = ["Nuova richiesta dal sito", '', "Nome: $name", "Email: $email", "Data della serata: $date", "Inizio serata: $startLabel", "Fine serata: $endLabel", ''];
+if ($phone !== '') $lines[] = 'Telefono: ' . str_replace("\n", ' ', $phone);
 if ($type === 'quote') {
     foreach (['items', 'supplements', 'pending'] as $key) {
         if (!isset($data[$key]) || !is_array($data[$key]) || count($data[$key]) > 20) reply(400, false);
