@@ -859,6 +859,16 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
  .perf-body{transition:none}.perf.open .perf-inner{animation:none}
 }
 
+/* Opzioni compatte del riepilogo */
+.quote-structure,.amaca-panel{grid-column:2/-1;padding:0;margin:0;border:0;border-radius:0;background:none;box-shadow:none}
+.amaca-panel.is-active{background:none;border:0;box-shadow:none}
+.quote-check,.quote-structure .quote-check{display:flex;align-items:center;justify-content:flex-start;gap:9px;min-height:36px;cursor:pointer;font:500 .78rem/1.4 var(--sans);color:var(--wine)}
+.quote-check input{appearance:auto;position:static;opacity:1;flex:0 0 auto;width:17px;height:17px;margin:0;accent-color:var(--wine)}
+.amaca-count{display:flex;align-items:center;gap:10px;min-height:40px;font:500 .76rem/1.4 var(--sans);color:var(--ink-soft)}
+.amaca-count[hidden]{display:none}
+.amaca-count select{min-height:36px;width:60px;border:1px solid var(--line);border-radius:8px;background:var(--ivory);color:var(--wine);font:600 16px var(--sans);padding:4px 8px}
+.sc-structure-fee{grid-column:2/-1;display:flex;justify-content:space-between;gap:12px;font:500 .76rem/1.5 var(--sans);color:var(--ink-soft)}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1326,25 +1336,18 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
           <p>Puoi selezionare massimo 4 performance per serata.</p>
           <div class="limit-alternative"><span>Oppure:</span><a class="btn limit-custom-cta" href="#personalizzata">Invia una richiesta personalizzata</a></div>
         </div>
-        <div class="show-flow" id="show-flow" hidden>
-          <p class="show-flow-title">Come può prendere forma la serata</p>
-          <div class="show-flow-steps" id="show-flow-steps"></div>
-          <p class="show-flow-note">Servono 30 minuti tra una performance e l'altra.</p>
-        </div>
-
-
         <div class="when">
           <div class="field event-date">
             <label for="q-data">Giorno</label>
-            <input id="q-data" type="date" required>
+            <input id="q-data" form="quote-form" name="q-data" type="date" required>
           </div>
           <div class="field">
             <label for="q-ora">Inizio serata</label>
-            <select id="q-ora" aria-describedby="q-time-help" required></select>
+            <select id="q-ora" form="quote-form" name="q-ora" aria-describedby="q-time-help" required></select>
           </div>
           <div class="field">
             <label for="q-fine">Fine serata</label>
-            <select id="q-fine" aria-describedby="q-time-help" required></select>
+            <select id="q-fine" form="quote-form" name="q-fine" aria-describedby="q-time-help" required></select>
           </div>
           <p class="time-help" id="q-time-help">La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
         </div>
@@ -1538,8 +1541,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       </div>
       <div class="form-row">
         <div class="field">
-          <label for="c-data">Giorno dell'evento</label>
-          <input id="c-data" type="date" required>
+          <label for="c-data">Giorno dell'evento (facoltativo)</label>
+          <input id="c-data" type="date">
         </div>
         <div class="field">
           <label for="c-tipo">Tipologia evento</label>
@@ -1556,12 +1559,12 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       </div>
       <div class="form-row">
         <div class="field">
-          <label for="c-ora">Inizio serata</label>
-          <select id="c-ora" aria-describedby="c-time-help" required></select>
+          <label for="c-ora">Inizio serata (facoltativo)</label>
+          <select id="c-ora" aria-describedby="c-time-help"></select>
         </div>
         <div class="field">
-          <label for="c-fine">Fine serata</label>
-          <select id="c-fine" aria-describedby="c-time-help" required></select>
+          <label for="c-fine">Fine serata (facoltativo)</label>
+          <select id="c-fine" aria-describedby="c-time-help"></select>
         </div>
         <p class="time-help" id="c-time-help">La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
       </div>
@@ -1671,19 +1674,12 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   perfs.forEach(function(p){
     if(!+p.dataset.structureFee) return;
     var key = p.dataset.key, field = document.createElement("div");
-    field.className = "quote-structure field";
-    field.innerHTML = '<label for="q-struttura-' + key + '">Serve la struttura di Elisa? <span class="required-tag">Obbligatorio</span></label>' +
-      '<select id="q-struttura-' + key + '" form="quote-form" required aria-describedby="structure-error-' + key + '">' +
-      '<option value="" disabled selected>Scegli un’opzione</option><option value="location">È già presente nella location</option>' +
-      '<option value="elisa">La porta Elisa · +' + p.dataset.structureFee + ' €</option></select>' +
-      '<p class="structure-error" id="structure-error-' + key + '" hidden>Scegli chi fornisce la struttura per ' + p.dataset.name + '.</p>';
-    var select = field.querySelector("select");
-    structures[key] = {field:field, select:select};
-    select.addEventListener("change", function(){
-      select.removeAttribute("aria-invalid");
-      field.querySelector(".structure-error").hidden = true;
-      render();
-    });
+    field.className = "quote-structure";
+    field.innerHTML = '<label class="quote-check" for="q-struttura-' + key + '">' +
+      '<input type="checkbox" id="q-struttura-' + key + '"><span>Ho già la struttura</span></label>';
+    var checkbox = field.querySelector("input");
+    structures[key] = {field:field, checkbox:checkbox};
+    checkbox.addEventListener("change", render);
   });
   var extras   = Array.prototype.slice.call(document.querySelectorAll("[data-extra]"));
   var scaletta = document.getElementById("scaletta");
@@ -1727,18 +1723,14 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   var tessuti = document.querySelector('[data-key="tessuti"]');
   var amacaPanel = document.createElement("div");
   amacaPanel.className = "amaca-panel";
-  amacaPanel.innerHTML = '<label class="amaca-toggle" for="quote-amaca">' +
-    '<input type="checkbox" id="quote-amaca" aria-describedby="amaca-help amaca-feedback">' +
-    '<span><strong>Tessuto in versione amaca</strong><small id="amaca-help">Sblocca la terza performance. Ogni performance costa 100 €.</small></span></label>' +
-    '<span class="amaca-state" hidden>✓ Amaca selezionata</span>' +
-    '<div class="amaca-quantity"><span>Performance di Tessuti</span><div class="stepper">' +
-    '<button type="button" data-step="-1" aria-label="Togli una performance di Tessuti dal riepilogo">−</button>' +
-    '<output aria-label="Performance di Tessuti selezionate">0</output>' +
-    '<button type="button" data-step="1" aria-label="Aggiungi una performance di Tessuti dal riepilogo">+</button>' +
-    '</div></div><p class="amaca-feedback" id="amaca-feedback" role="status" aria-live="polite"></p>';
+  amacaPanel.innerHTML = '<label class="quote-check" for="quote-amaca">' +
+    '<input type="checkbox" id="quote-amaca"><span>Tessuto in amaca</span></label>' +
+    '<div class="amaca-count" hidden><label for="quote-amaca-count">Quante in amaca?</label>' +
+    '<select id="quote-amaca-count" aria-label="Numero di performance in amaca"></select></div>';
   var amaca = amacaPanel.querySelector("input");
-  var amacaFeedback = amacaPanel.querySelector(".amaca-feedback");
-  var amacaAvviso = "";
+  var amacaCount = amacaPanel.querySelector("select");
+  var amacaNumero = 1;
+  function numeroAmaca(){ return amaca.checked ? Math.min(+tessuti.dataset.n, amacaNumero) : 0; }
 
   var euro     = function(n){ return n.toLocaleString("it-IT") + " €"; };
   var euroHTML = function(n){ return n.toLocaleString("it-IT") + '<span class="cur">€</span>'; };
@@ -1781,7 +1773,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   }
 
   function requisito(p){
-    return p === tessuti && amaca.checked ? "Amaca: altezza da verificare con la location" : p.dataset.req;
+    return p === tessuti && numeroAmaca() === +p.dataset.n && numeroAmaca() > 0 ? "Amaca: altezza da verificare con la location" : p.dataset.req;
   }
 
   function prezzoUnitario(p){ return p.dataset.cat === "aerea" ? PREZZO_AEREA : PREZZO_TERRA; }
@@ -1802,19 +1794,19 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       totale += c;
       voci.push({
         key: p.dataset.key,
-        nome: p.dataset.name + (p === tessuti && amaca.checked ? " · versione amaca" : ""),
+        nome: p.dataset.name + (p === tessuti && numeroAmaca() ? " · " + numeroAmaca() + " in amaca" : ""),
         n: n, costo: c, unitario: prezzoUnitario(p), set: n >= 3 && p.dataset.cat !== "aerea",
-        struttura: structures[p.dataset.key] ? structures[p.dataset.key].select.value : null,
+        struttura: structures[p.dataset.key] ? (structures[p.dataset.key].checkbox.checked ? "location" : "elisa") : null,
         req: requisito(p), durata: p.dataset.durata || "3-4 minuti",
         immagine: p.querySelector(".perf-fig img").getAttribute("src")
       });
       if(p.dataset.cat === "aerea") aereeAttive = true;
 
       // la struttura si paga per ogni attrezzo che Elisa deve portare
-      var str = structures[p.dataset.key] && structures[p.dataset.key].select;
-      if(str && str.value === "elisa"){
+      var str = structures[p.dataset.key] && structures[p.dataset.key].checkbox;
+      if(str && !str.checked){
         var importo = +p.dataset.structureFee;
-        supplementiStruttura.push({ nome: "Struttura per " + p.dataset.name, costo: importo });
+        supplementiStruttura.push({ nome: "Struttura " + ({tessuti:"tessuti",cerchio:"cerchio",lollipop:"lollipop",palo:"palo"}[p.dataset.key]), costo: importo, attrezzo: p.dataset.key });
         totale += importo;
       }
     });
@@ -1859,7 +1851,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
   function render(){
     var quoteFocus = scaletta.contains(document.activeElement) ? document.activeElement : null;
-    if(+tessuti.dataset.n === 0){ amaca.checked = false; amacaAvviso = ""; }
+    if(+tessuti.dataset.n === 0){ amaca.checked = false; amacaNumero = 1; }
+    amacaNumero = Math.max(1, Math.min(amacaNumero, +tessuti.dataset.n));
     var ballerina = document.querySelector('[data-key="ballerina"]');
     if(+ballerina.dataset.n > massimo(ballerina)){
       ballerina.dataset.n = massimo(ballerina);
@@ -1867,17 +1860,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     }
     perfs.forEach(function(p){
       if(+p.dataset.n === 0 && structures[p.dataset.key]){
-        structures[p.dataset.key].select.value = "";
-        structures[p.dataset.key].select.removeAttribute("aria-invalid");
-        structures[p.dataset.key].field.querySelector(".structure-error").hidden = true;
+        structures[p.dataset.key].checkbox.checked = false;
       }
     });
     var s = stato();
-    var structureStatus = document.getElementById("quote-status");
-    if(structureStatus.textContent === "Completa la scelta della struttura per ogni attrezzo selezionato." &&
-      !perfs.some(function(p){ return +p.dataset.n && structures[p.dataset.key] && !structures[p.dataset.key].select.value; })){
-      structureStatus.textContent = "";
-    }
     var selectedCount = totalePerformance();
     if(selectedCount < MAX_PERFORMANCE){ limitFeedback.hidden = true; clearTimeout(limitTimer); }
     [document.getElementById("performance-limit-status"), document.getElementById("quote-performance-count")].forEach(function(el){
@@ -1899,7 +1885,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       prezzo.textContent = euro(prezzoUnitario(p)) + " a performance";
       somma.innerHTML = n ? euroHTML(c) : '<span style="color:var(--ink-faint);font-weight:400">' + euro(prezzoUnitario(p)) + ' a performance</span>';
       p.querySelector(".max-pill").textContent = "Fino a " + (p === tessuti && amaca.checked ? 3 : p.dataset.key === "ballerina" && totaleAeree() >= 2 ? 2 : p.dataset.max);
-      if(p === tessuti) p.querySelector(".height-pill").textContent = amaca.checked ? "Amaca · altezza da verificare" : p.dataset.req;
+      if(p === tessuti) p.querySelector(".height-pill").textContent = numeroAmaca() === +p.dataset.n && numeroAmaca() > 0 ? "Amaca · altezza da verificare" : p.dataset.req;
       p.classList.toggle("chosen", n > 0);
       p.querySelector('[data-step="-1"]').disabled = n === 0;
       aggiornaPiu(p.querySelector('[data-step="1"]'), n, max, selectedCount);
@@ -1910,7 +1896,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       var vuoto = document.createElement("li");
       vuoto.className = "empty";
       vuoto.style.cssText = "display:block;border:0;animation:none";
-      vuoto.textContent = "La tua serata comincia da una scelta. Aggiungi le performance con il pulsante +.";
+      vuoto.textContent = "Aggiungi le performance con il pulsante +.";
       scaletta.appendChild(vuoto);
     } else {
       var i = 0;
@@ -1919,53 +1905,28 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         var etichetta = v.nome + ' <em>× ' + v.n + (v.set ? " · set" : "") + '</em>';
         var dettaglio = v.req + " · " + v.n + " performance da " + v.durata;
         var voce = riga(("0" + i).slice(-2), etichetta, euroHTML(v.costo), dettaglio);
+        var struttura = s.supplementi.find(function(extra){ return extra.attrezzo === v.key; });
+        if(struttura){
+          var subvoce = document.createElement("div");
+          subvoce.className = "sc-structure-fee";
+          subvoce.innerHTML = '<span>' + struttura.nome + '</span><span>' + euroHTML(struttura.costo) + '</span>';
+          voce.appendChild(subvoce);
+        }
+        if(structures[v.key]) voce.appendChild(structures[v.key].field);
         if(v.key === "tessuti"){
           amacaPanel.classList.toggle("is-active", amaca.checked);
-          amacaPanel.querySelector(".amaca-state").hidden = !amaca.checked;
-          amacaPanel.querySelector("output").textContent = v.n;
-          aggiornaPiu(amacaPanel.querySelector('[data-step="1"]'), v.n, massimo(tessuti), selectedCount);
-          amacaPanel.querySelector('[data-step="-1"]').disabled = v.n <= 0;
-          amacaFeedback.textContent = amacaAvviso || (amaca.checked
-            ? (v.n === 3 ? "Terza performance aggiunta · 300 € per i Tessuti." : selectedCount >= MAX_PERFORMANCE
-              ? "Amaca selezionata. Hai già 4 performance: rimuovine una per aggiungere altri Tessuti."
-              : "Terza performance sbloccata: usa + per aggiungerla.")
-            : "Tessuto classico: puoi selezionare fino a 2 performance.");
+          amacaPanel.querySelector(".amaca-count").hidden = !amaca.checked || v.n < 2;
+          amacaCount.innerHTML = "";
+          for(var count = 1; count <= v.n; count++) amacaCount.appendChild(new Option(String(count),String(count)));
+          amacaCount.value = String(amacaNumero);
           voce.appendChild(amacaPanel);
-        }
-        if(structures[v.key]){
-          var config = structures[v.key];
-          config.field.classList.toggle("is-complete", !!config.select.value);
-          voce.appendChild(config.field);
         }
         scaletta.appendChild(voce);
       });
-      s.supplementi.forEach(function(v){
+      s.supplementi.filter(function(v){ return !v.attrezzo; }).forEach(function(v){
         scaletta.appendChild(riga("+", v.nome + (v.auto ? ' <em>data speciale</em>' : ''), prezzoSupplemento(v, true)));
       });
     }
-
-    var flow = document.getElementById("show-flow");
-    var steps = document.getElementById("show-flow-steps");
-    flow.hidden = !s.voci.length;
-    steps.innerHTML = "";
-    s.voci.forEach(function(v, i){
-      if(i){
-        var pausa = document.createElement("p");
-        pausa.className = "flow-pause";
-        pausa.textContent = "↘ Almeno 30 minuti di pausa";
-        steps.appendChild(pausa);
-      }
-      var item = document.createElement("div");
-      item.className = "flow-step";
-      var img = document.createElement("img");
-      img.src = v.immagine;
-      img.alt = "";
-      var label = document.createElement("span");
-      label.textContent = v.nome + " · " + v.n + " performance";
-      item.appendChild(img);
-      item.appendChild(label);
-      steps.appendChild(item);
-    });
 
     document.getElementById("legenda").classList.toggle("attiva", !!s.speciale);
 
@@ -1998,31 +1959,19 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
     noteEl.textContent = !attivo
       ? "Scegli almeno una performance per poter inviare la richiesta."
-      : (!qData.value
-        ? "Aggiungi il giorno: è la prima cosa che devo verificare."
-        : "Il totale è indicativo: Elisa ti risponderà per confermare disponibilità e preventivo.");
+      : "Il totale è indicativo: Elisa ti risponderà per confermare disponibilità e preventivo.";
     if(quoteFocus && quoteFocus.isConnected && !quoteFocus.disabled) quoteFocus.focus({preventScroll:true});
   }
 
   amaca.addEventListener("change", function(){
-    amacaAvviso = "";
+    amacaNumero = 1;
     if(+tessuti.dataset.n > massimo(tessuti)){
       tessuti.dataset.n = massimo(tessuti);
       tessuti.querySelector("output").textContent = tessuti.dataset.n;
-      amacaAvviso = "Amaca disattivata: i Tessuti tornano a 2 performance, per un totale di 200 €.";
     }
     render();
   });
-  amacaPanel.addEventListener("click", function(e){
-    var button = e.target.closest("[data-step]");
-    if(!button) return;
-    if(+button.dataset.step > 0 && totalePerformance() >= MAX_PERFORMANCE){ segnalaLimite(button); return; }
-    amacaAvviso = "";
-    tessuti.dataset.n = Math.max(0, Math.min(massimo(tessuti), +tessuti.dataset.n + +button.dataset.step));
-    tessuti.querySelector("output").textContent = tessuti.dataset.n;
-    render();
-    if(+tessuti.dataset.n === 0) tessuti.querySelector(".perf-head").focus({preventScroll:true});
-  });
+  amacaCount.addEventListener("change", function(){ amacaNumero = +amacaCount.value; render(); });
 
   // apertura delle card e stepper
   perfs.forEach(function(p){
@@ -2045,7 +1994,6 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       if(!b) return;
       if(+b.dataset.step > 0 && totalePerformance() >= MAX_PERFORMANCE){ segnalaLimite(b); return; }
       var n = +p.dataset.n + (+b.dataset.step);
-      if(p === tessuti) amacaAvviso = "";
       p.dataset.n = Math.max(0, Math.min(massimo(p), n));
       p.querySelector("output").textContent = p.dataset.n;
       render();
@@ -2171,18 +2119,6 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
   document.getElementById("quote-form").addEventListener("submit", function(e){
     e.preventDefault();
-    var missing = perfs.filter(function(p){ return +p.dataset.n && structures[p.dataset.key] && !structures[p.dataset.key].select.value; });
-    if(missing.length){
-      missing.forEach(function(p){
-        structures[p.dataset.key].select.setAttribute("aria-invalid", "true");
-        structures[p.dataset.key].field.querySelector(".structure-error").hidden = false;
-      });
-      var first = structures[missing[0].dataset.key].select;
-      first.focus();
-      first.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"});
-      document.getElementById("quote-status").textContent = "Completa la scelta della struttura per ogni attrezzo selezionato.";
-      return;
-    }
     document.getElementById("quote-status").textContent = "";
     var name = document.getElementById("q-nome");
     var email = document.getElementById("q-email");

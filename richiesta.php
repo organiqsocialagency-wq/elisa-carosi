@@ -33,18 +33,24 @@ $time = field($data, 'time', 5);
 $endTime = field($data, 'endTime', 5);
 $notes = field($data, 'notes', 8000);
 if (strlen($name) < 2 || !filter_var($email, FILTER_VALIDATE_EMAIL)) reply(400, false);
-$eventDate = DateTimeImmutable::createFromFormat('!Y-m-d', $date, new DateTimeZone('Europe/Rome'));
-if (!$eventDate || $eventDate->format('Y-m-d') !== $date || $eventDate < new DateTimeImmutable('today', new DateTimeZone('Europe/Rome'))) reply(400, false);
+if ($type === 'quote' && ($date === '' || $time === '' || $endTime === '')) reply(400, false);
+if ($date !== '') {
+    $eventDate = DateTimeImmutable::createFromFormat('!Y-m-d', $date, new DateTimeZone('Europe/Rome'));
+    if (!$eventDate || $eventDate->format('Y-m-d') !== $date || $eventDate < new DateTimeImmutable('today', new DateTimeZone('Europe/Rome'))) reply(400, false);
+}
 function eventMinutes(string $value): int {
     if (!preg_match('/^(?:[01][0-9]|2[0-3]):(?:00|30)$/', $value)) reply(400, false);
     [$hour, $minute] = array_map('intval', explode(':', $value));
     return ($hour < 8 ? $hour + 24 : $hour) * 60 + $minute;
 }
-$startMinutes = eventMinutes($time);
-$endMinutes = eventMinutes($endTime);
-if ($startMinutes < 480 || $endMinutes > 1680 || $endMinutes <= $startMinutes) reply(400, false);
-$startLabel = $time . ($startMinutes >= 1440 ? ' (giorno dopo)' : '');
-$endLabel = $endTime . ($endMinutes >= 1440 ? ' (giorno dopo)' : '');
+$startMinutes = $time !== '' ? eventMinutes($time) : null;
+$endMinutes = $endTime !== '' ? eventMinutes($endTime) : null;
+if ($startMinutes !== null && ($startMinutes < 480 || $startMinutes > 1650)) reply(400, false);
+if ($endMinutes !== null && ($endMinutes < 510 || $endMinutes > 1680)) reply(400, false);
+if ($startMinutes !== null && $endMinutes !== null && $endMinutes <= $startMinutes) reply(400, false);
+$dateLabel = $date !== '' ? $date : 'Da definire';
+$startLabel = $time !== '' ? $time . ($startMinutes >= 1440 ? ' (giorno dopo)' : '') : 'Da definire';
+$endLabel = $endTime !== '' ? $endTime . ($endMinutes >= 1440 ? ' (giorno dopo)' : '') : 'Da definire';
 
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
 $rateFile = sys_get_temp_dir() . '/elisa-request-' . hash('sha256', $ip);
@@ -53,7 +59,7 @@ if (!$handle || !flock($handle, LOCK_EX)) reply(503, false);
 $last = (int)stream_get_contents($handle);
 if (time() - $last < 60) { flock($handle, LOCK_UN); fclose($handle); reply(429, false); }
 
-$lines = ["Nuova richiesta dal sito", '', "Nome: $name", "Email: $email", "Data della serata: $date", "Inizio serata: $startLabel", "Fine serata: $endLabel", ''];
+$lines = ["Nuova richiesta dal sito", '', "Nome: $name", "Email: $email", "Data della serata: $dateLabel", "Inizio serata: $startLabel", "Fine serata: $endLabel", ''];
 if ($phone !== '') $lines[] = 'Telefono: ' . str_replace("\n", ' ', $phone);
 if ($type === 'quote') {
     foreach (['items', 'supplements', 'pending'] as $key) {
