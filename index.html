@@ -360,6 +360,9 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .selection-count{font:500 .78rem/1.5 var(--sans);color:var(--wine);padding:10px 13px;background:rgba(196,122,135,.08);border:1px solid var(--line);border-radius:10px;margin:0 0 18px}
 .selection-count.at-limit{background:#f3e5e8;border-color:var(--wine)}
 .selection-count[hidden]{display:none}
+.limit-alternative{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:10px}
+.selection-count .limit-custom-cta{font-size:.75rem;letter-spacing:0;text-transform:none;white-space:normal;text-align:center;min-height:44px;padding:10px 16px;border-color:rgba(110,33,64,.35);background:rgba(255,252,248,.7);color:var(--wine)}
+.selection-count .limit-custom-cta:hover{background:var(--wine);border-color:var(--wine);color:var(--ivory)}
 .stepper button[aria-disabled="true"]{color:var(--ink-faint);background:rgba(43,15,46,.04);cursor:not-allowed}
 .stepper button[aria-disabled="true"]:hover{background:rgba(110,33,64,.12);color:var(--wine)}
 .limit-feedback{position:fixed;top:90px;left:50%;transform:translateX(-50%);z-index:1200;width:min(90vw,480px);padding:16px 20px;border-radius:14px;background:var(--wine);color:var(--ivory-pure);box-shadow:0 10px 32px rgba(43,15,46,.25);font:500 .86rem/1.55 var(--sans);pointer-events:none}
@@ -689,6 +692,7 @@ button.btn:disabled{opacity:.48;cursor:not-allowed;transform:none;box-shadow:non
 @media(max-width:1020px){
   .quote.sheet-open{position:fixed;inset:4svh 10px 0;z-index:100;overflow:auto;max-height:96svh;border-radius:22px 22px 0 0;box-shadow:0 0 0 100vmax rgba(20,6,21,.68),0 18px 46px rgba(20,6,21,.26)}
   body.quote-is-open{overflow:hidden}
+  body.quote-is-open #performance{z-index:100;overflow:visible}
   .quote.sheet-open .quote-close{display:flex;position:sticky;top:0;float:right;width:40px;height:40px;align-items:center;justify-content:center;border-radius:50%;background:var(--ivory);color:var(--plum);text-decoration:none;font-size:1.6rem;z-index:1}
 }
 @media(max-width:820px){
@@ -1188,7 +1192,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
     <div class="pick-grid">
       <div>
-        <p class="selection-count" id="performance-limit-status" role="status" aria-live="polite" hidden></p>
+        <div class="selection-count" id="performance-limit-status" role="status" aria-live="polite" hidden>
+          <p>Puoi selezionare massimo 4 performance per serata.</p>
+          <div class="limit-alternative"><span>Oppure:</span><a class="btn limit-custom-cta" href="#personalizzata">Invia una richiesta personalizzata</a></div>
+        </div>
         <div class="perf-list" id="perf-list">
       <article class="perf" data-key="tessuti" data-name="Tessuti Aerei" data-req="Altezza minima 4,5 metri" data-max="2" data-max-amaca="3" data-n="0" data-cat="aerea" data-durata="3-4 minuti" data-structure-fee="150">
         <div class="perf-shell">
@@ -1315,7 +1322,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         <button class="quote-close" type="button" id="closeQuote" aria-label="Chiudi il riepilogo">&times;</button>
         <h3>La tua scaletta</h3>
         <ul class="scaletta" id="scaletta"></ul>
-        <p class="selection-count" id="quote-performance-count" hidden></p>
+        <div class="selection-count" id="quote-performance-count" hidden>
+          <p>Puoi selezionare massimo 4 performance per serata.</p>
+          <div class="limit-alternative"><span>Oppure:</span><a class="btn limit-custom-cta" href="#personalizzata">Invia una richiesta personalizzata</a></div>
+        </div>
         <div class="show-flow" id="show-flow" hidden>
           <p class="show-flow-title">Come può prendere forma la serata</p>
           <div class="show-flow-steps" id="show-flow-steps"></div>
@@ -1758,7 +1768,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   function segnalaLimite(button){
     clearTimeout(limitTimer);
     limitFeedback.hidden = false;
-    limitFeedback.textContent = "Massimo 4 performance per serata. Rimuovine una prima di aggiungerne un’altra.";
+    limitFeedback.textContent = "Puoi selezionare massimo 4 performance per serata.";
     button.classList.remove("limit-bump");
     void button.offsetWidth;
     button.classList.add("limit-bump");
@@ -1869,10 +1879,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       structureStatus.textContent = "";
     }
     var selectedCount = totalePerformance();
-    var limiteTesto = "Hai selezionato 4 performance: il massimo per una serata, tra aeree e a terra. Per aggiungerne un’altra, rimuovine una.";
     if(selectedCount < MAX_PERFORMANCE){ limitFeedback.hidden = true; clearTimeout(limitTimer); }
     [document.getElementById("performance-limit-status"), document.getElementById("quote-performance-count")].forEach(function(el){
-      el.textContent = limiteTesto;
       el.classList.toggle("at-limit", selectedCount >= MAX_PERFORMANCE);
       el.hidden = selectedCount < MAX_PERFORMANCE;
     });
@@ -2079,6 +2087,9 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     else quotePanel.scrollIntoView({behavior:"smooth",block:"start"});
   });
   closeQuote.addEventListener("click", function(){ toggleQuote(false); });
+  quotePanel.querySelector(".limit-custom-cta").addEventListener("click", function(){
+    if(quotePanel.classList.contains("sheet-open")) toggleQuote(false);
+  });
   document.addEventListener("keydown", function(e){
     if(e.key === "Escape" && quotePanel.classList.contains("sheet-open")) toggleQuote(false);
     if(e.key === "Tab" && quotePanel.classList.contains("sheet-open")){
