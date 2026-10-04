@@ -950,7 +950,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 .review-track{display:flex;width:max-content;animation:review-left var(--review-duration,44s) linear infinite}
 .review-row[data-direction="right"] .review-track{animation-name:review-right}
 .review-set{display:flex;gap:16px;padding-right:16px;flex:0 0 auto}
-.review-card{flex:0 0 auto;width:clamp(320px,34vw,470px);min-height:182px;margin:0;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;border:1px solid rgba(247,244,239,.18);border-radius:16px;background:rgba(255,252,250,.065);box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.review-card{flex:0 0 auto;width:clamp(320px,34vw,470px);min-height:210px;margin:0;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;border:1px solid rgba(247,244,239,.18);border-radius:16px;background:rgba(255,252,250,.065);box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.review-stars{align-self:flex-start;background:linear-gradient(100deg,#f4db9a,#d4af37 68%,#f8e7bc);-webkit-background-clip:text;background-clip:text;color:transparent;font:400 1.08rem/1 var(--sans);letter-spacing:.22em;white-space:nowrap}
 #recensioni .review-card p{font:400 1.08rem/1.45 var(--serif);color:var(--on-dark)}
 .review-card footer{position:static;overflow:visible;padding:0;border:0;background:none;text-align:left;color:var(--gold-soft);font:600 .61rem/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase}
 .review-marquees:hover .review-track,.review-marquees:focus-within .review-track,.review-marquees.is-paused .review-track,.review-marquees.is-offscreen .review-track{animation-play-state:paused}
@@ -969,7 +970,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   .showcase-status{min-width:100px;font-size:.7rem!important}
   .showcase-arrow{width:44px;height:44px}
   .review-marquees{gap:12px}
-  .review-card{width:285px;min-height:174px;padding:18px 20px}
+  .review-card{width:285px;min-height:200px;padding:18px 20px}
   #recensioni .review-card p{font-size:1rem}
 }
 @media(prefers-reduced-motion:reduce){
@@ -1608,19 +1609,19 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       </div>
       <div class="review-marquees" id="review-marquees" aria-label="Esempi di recensioni per Elisa Carosi">
         <div class="review-row" data-direction="right" aria-label="Prima riga, da sinistra verso destra"><div class="review-track"><div class="review-set">
-          <blockquote class="review-card"><p>Il cerchio durante il ricevimento ha raccolto tutti gli sguardi. Un momento delicato, arrivato proprio quando la festa ne aveva bisogno.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><p>Il fuoco dopo il tramonto ha cambiato l'energia della serata. Anche i tempi erano pensati bene.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><p>Le ali di luce sono apparse quando la sala era già al buio. È stato il dettaglio che tutti hanno ricordato.</p><footer>Evento aziendale · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il cerchio durante il ricevimento ha raccolto tutti gli sguardi. Un momento delicato, arrivato proprio quando la festa ne aveva bisogno.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il fuoco dopo il tramonto ha cambiato l'energia della serata. Anche i tempi erano pensati bene.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Le ali di luce sono apparse quando la sala era già al buio. È stato il dettaglio che tutti hanno ricordato.</p><footer>Evento aziendale · testo dimostrativo</footer></blockquote>
         </div></div></div>
         <div class="review-row" data-direction="left" aria-label="Seconda riga, da destra verso sinistra"><div class="review-track"><div class="review-set">
-          <blockquote class="review-card"><p>Il lollipop all'ingresso ha dato subito carattere alla serata. Gli ospiti si sono fermati a guardare.</p><footer>Serata in un locale · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><p>I tessuti sono stati una sorpresa per tutti. Elisa ha trovato il punto giusto della cena per iniziare.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><p>Volevamo qualcosa di elegante e breve. La danza ha lasciato spazio alla festa, senza interromperla.</p><footer>Anniversario · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il lollipop all'ingresso ha dato subito carattere alla serata. Gli ospiti si sono fermati a guardare.</p><footer>Serata in un locale · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>I tessuti sono stati una sorpresa per tutti. Elisa ha trovato il punto giusto della cena per iniziare.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Volevamo qualcosa di elegante e breve. La danza ha lasciato spazio alla festa, senza interromperla.</p><footer>Anniversario · testo dimostrativo</footer></blockquote>
         </div></div></div>
         <div class="review-row" data-direction="right" aria-label="Terza riga, da sinistra verso destra"><div class="review-track"><div class="review-set">
-          <blockquote class="review-card"><p>La performance al palo è stata il momento più fotografato della serata. Elisa Carosi ha coinvolto tutti.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><p>Il cerchio sopra la pista ha creato una pausa bellissima. Poi la musica è ripartita e si è tornati a ballare.</p><footer>Evento privato · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><p>Fuoco all'aperto, dopo cena: una chiusura semplice da organizzare e impossibile da dimenticare.</p><footer>Festa serale · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>La performance al palo è stata il momento più fotografato della serata. Elisa Carosi ha coinvolto tutti.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il cerchio sopra la pista ha creato una pausa bellissima. Poi la musica è ripartita e si è tornati a ballare.</p><footer>Evento privato · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Fuoco all'aperto, dopo cena: una chiusura semplice da organizzare e impossibile da dimenticare.</p><footer>Festa serale · testo dimostrativo</footer></blockquote>
         </div></div></div>
       </div>
       <button class="reviews-pause" id="reviews-pause" type="button" aria-pressed="false">Metti in pausa le recensioni</button>
