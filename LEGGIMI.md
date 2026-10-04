@@ -6,6 +6,12 @@ La pagina è in `index.html`; foto, texture e video sono in `media/`. `richiesta
 
 Lora è usato per i titoli, Manrope per testi e controlli e Allura per le firme decorative. Le card chiuse mostrano foto, titolo, requisiti sintetici e selettore quantità; le descrizioni e le animazioni SVG dedicate compaiono all'apertura. Il nastro SVG accompagna il gradiente tra tema chiaro e scuro, si ferma fuori schermo e ha un comando pausa. Le animazioni rispettano la preferenza di sistema per il movimento ridotto.
 
+## Galleria e recensioni
+
+La sezione dopo le location contiene un carosello circolare 3D con sette spazi foto vuoti, uno per disciplina. Per inserire uno scatto, copia il file nella cartella `media/` e imposta il percorso nell'attributo `data-photo` della relativa `.showcase-card` in `index.html`, ad esempio `data-photo="media/galleria-tessuti.jpg"`. La scheda passa automaticamente dal segnaposto alla foto caricata. Usa scatti verticali e ottimizzati per il web; il ritaglio riempie la card. Il carosello si può sfogliare con frecce, clic sulle card laterali, trascinamento e tasti freccia. La rotazione automatica si ferma quando la galleria non è visibile, durante l'interazione e con la preferenza di movimento ridotto.
+
+Le tre recensioni sono **testi inventati di esempio**, indicati come tali anche sul sito. Sostituiscile con testimonianze autorizzate e attribuibili prima di presentarle come recensioni reali. Non sono presenti dati strutturati `Review` per questi esempi.
+
 La struttura di Elisa è inclusa automaticamente nel preventivo come sottovoce di ciascun attrezzo: 150 € per tessuti e cerchio, 80 € per palo e lollipop. La casella compatta **Ho già la struttura** rimuove il relativo supplemento. Il supplemento si applica una volta per attrezzo, anche con più performance sullo stesso.
 
 ## Prezzi e limiti

@@ -869,6 +869,54 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 .amaca-count select{min-height:36px;width:60px;border:1px solid var(--line);border-radius:8px;background:var(--ivory);color:var(--wine);font:600 16px var(--sans);padding:4px 8px}
 .sc-structure-fee{grid-column:2/-1;display:flex;justify-content:space-between;gap:12px;font:500 .76rem/1.5 var(--sans);color:var(--ink-soft)}
 
+/* Galleria ad anello: spazi fotografici pronti per gli scatti di Elisa. */
+.showcase{margin-top:clamp(84px,10vw,140px);padding-top:clamp(50px,7vw,90px);border-top:1px solid rgba(229,200,107,.25)}
+.showcase-heading,.reviews-heading{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.showcase-heading h3,.reviews-heading h3{font-size:clamp(2.4rem,4.5vw,4.5rem);max-width:15ch;margin-top:12px;color:var(--ivory);line-height:1.12}
+.showcase-heading h3 em,.reviews-heading h3 em{font-weight:400;color:var(--gold-soft)}
+.showcase-heading>p{max-width:35ch;padding-bottom:7px}
+.showcase-stage{--carousel-radius:330px;--card-width:208px;--card-height:278px;position:relative;height:clamp(320px,37vw,430px);max-width:1120px;margin:35px auto 0;perspective:1400px;perspective-origin:50% 48%;touch-action:pan-y;cursor:grab;overflow:hidden;user-select:none;background:radial-gradient(ellipse at center,rgba(196,122,135,.12),transparent 65%)}
+.showcase-stage:active{cursor:grabbing}
+.showcase-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#240c25 0%,transparent 12%,transparent 88%,#34102f 100%);z-index:2}
+.showcase-ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transform:rotateY(0deg);transition:transform .9s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.showcase-card{position:absolute;left:0;top:0;width:var(--card-width);height:var(--card-height);padding:0;display:block;overflow:hidden;border:1px solid rgba(229,200,107,.48);border-radius:13px;text-align:left;color:var(--ivory);background:#40243c;box-shadow:0 20px 45px rgba(12,2,18,.35);backface-visibility:hidden;transform:translate(-50%,-50%) rotateY(var(--item-angle)) translateZ(var(--carousel-radius));transition:opacity .7s ease,border-color .4s ease,box-shadow .4s ease;opacity:.68}
+.showcase-card.is-active{opacity:1;border-color:var(--gold-soft);box-shadow:0 22px 55px rgba(10,2,18,.5),0 0 0 1px rgba(229,200,107,.3)}
+.showcase-card.is-distant{opacity:.24}
+.showcase-card.is-rear{opacity:.06;pointer-events:none}
+.showcase-card::after{content:"";position:absolute;inset:8px;border:1px solid rgba(248,220,168,.35);border-radius:8px;pointer-events:none}
+.showcase-photo{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:7px;background:radial-gradient(circle at 24% 24%,rgba(230,160,155,.2),transparent 45%),radial-gradient(circle at 84% 80%,rgba(212,175,55,.2),transparent 47%),linear-gradient(148deg,#351427,#693c55 55%,#281126);isolation:isolate}
+.showcase-photo::before{content:"";position:absolute;inset:14px;background:url('media/tex-macchia.png') center/cover no-repeat;opacity:.12;mix-blend-mode:screen;pointer-events:none}
+.showcase-monogram{position:relative;font:italic 3.6rem/1 var(--serif);letter-spacing:-.1em;color:rgba(247,244,239,.18);padding-right:.1em}
+.showcase-empty{position:relative;font:600 .58rem/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,239,.65)}
+.showcase-photo img{width:100%;height:100%;object-fit:cover;display:none}
+.showcase-card.has-photo img{display:block}
+.showcase-card.has-photo .showcase-monogram,.showcase-card.has-photo .showcase-empty{display:none}
+.showcase-card-title{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:36px 16px 17px;font:400 1.1rem/1.2 var(--serif);background:linear-gradient(0deg,rgba(23,5,22,.94),transparent)}
+.showcase-controls{display:flex;align-items:center;justify-content:center;gap:clamp(15px,3vw,35px);margin:0 auto}
+.showcase-arrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(229,200,107,.5);border-radius:50%;color:var(--gold-soft);font:400 1.4rem/1 var(--sans);transition:background .25s,border-color .25s,transform .25s}
+.showcase-arrow:hover{background:rgba(229,200,107,.13);border-color:var(--gold-soft);transform:scale(1.06)}
+.showcase-status{min-width:220px;text-align:center;color:var(--ivory)!important;font:500 .9rem/1.4 var(--sans)!important}
+.showcase-status span{display:block;color:var(--gold-soft);font-size:.68rem;letter-spacing:.16em;margin-top:3px}
+.showcase-hint{text-align:center;font:500 .69rem/1.4 var(--sans)!important;letter-spacing:.1em;color:var(--on-dark-faint)!important;margin-top:13px}
+.reviews-block{margin-top:clamp(90px,10vw,140px)}
+.reviews-heading{margin-bottom:28px}
+.reviews-disclosure{max-width:36ch;padding:14px 18px;border-left:2px solid var(--gold-soft);background:rgba(247,244,239,.06);font-size:.82rem!important;line-height:1.55!important}
+.rec{margin:0;min-height:240px}
+#recensioni .rec p{font-family:var(--serif);font-size:1.1rem!important;line-height:1.55!important;color:var(--on-dark)!important}
+.rec footer{font-family:var(--sans);font-size:.68rem;line-height:1.6}
+@media(max-width:700px){
+  .showcase-heading,.reviews-heading{display:block}
+  .showcase-heading>p,.reviews-disclosure{margin-top:18px;max-width:50ch}
+  .showcase-stage{--carousel-radius:160px;--card-width:142px;--card-height:222px;height:290px;margin-top:26px;perspective:800px}
+  .showcase-stage::after{background:linear-gradient(90deg,#260d27 0%,transparent 8%,transparent 92%,#34102f 100%)}
+  .showcase-card-title{font-size:.86rem;padding:30px 11px 13px}
+  .showcase-monogram{font-size:2.7rem}
+  .showcase-status{min-width:145px;font-size:.8rem!important}
+  .showcase-arrow{width:44px;height:44px}
+  .rec{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){.showcase-ring,.showcase-card,.showcase-arrow{transition:none!important}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1118,7 +1166,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     <a href="#essenza">Chi sono</a>
     <a href="#performance">Performance</a>
     <a href="#eventi">Eventi</a>
-    <a href="#recensioni">Location</a>
+    <a href="#recensioni">Galleria</a>
     <a href="#personalizzata">Su misura</a>
     <a href="#contatti">Contatti</a>
   </nav>
@@ -1451,7 +1499,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   </div>
 </section>
 
-<!-- ============ LOCATION ============ -->
+<!-- ============ LOCATION, GALLERIA E RECENSIONI ============ -->
 <section id="recensioni" class="venues-section">
   <div class="wrap">
     <p class="eyebrow on-dark">Esperienza sul campo</p>
@@ -1460,6 +1508,45 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     <div class="venue-list" aria-label="Location">
       <span>Collina dei Silenzi <small>Trevignano Romano</small></span>
       <span>Villa Miani</span>
+    </div>
+
+    <div class="showcase rev" aria-labelledby="showcase-title">
+      <div class="showcase-heading">
+        <div>
+          <p class="eyebrow on-dark">La galleria</p>
+          <h3 id="showcase-title">Ogni serata ha il suo <em>momento.</em></h3>
+        </div>
+        <p>Scorri le performance di Elisa Carosi. Le fotografie saranno aggiunte qui, una per volta.</p>
+      </div>
+      <div class="showcase-stage" id="showcase-stage" aria-label="Galleria circolare delle performance di Elisa Carosi">
+        <div class="showcase-ring" id="showcase-ring">
+          <button class="showcase-card" type="button" data-photo="" data-title="Tessuti Aerei" aria-label="Tessuti Aerei, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Tessuti Aerei</span></button>
+          <button class="showcase-card" type="button" data-photo="" data-title="Cerchio Aereo" aria-label="Cerchio Aereo, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Cerchio Aereo</span></button>
+          <button class="showcase-card" type="button" data-photo="" data-title="Lollipop" aria-label="Lollipop, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Lollipop</span></button>
+          <button class="showcase-card" type="button" data-photo="" data-title="Palo" aria-label="Palo, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Palo</span></button>
+          <button class="showcase-card" type="button" data-photo="" data-title="Fuoco" aria-label="Fuoco, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Fuoco</span></button>
+          <button class="showcase-card" type="button" data-photo="" data-title="Ali di Luce" aria-label="Ali di Luce, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Ali di Luce</span></button>
+          <button class="showcase-card" type="button" data-photo="" data-title="Danza a Terra" aria-label="Danza a Terra, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Danza a Terra</span></button>
+        </div>
+      </div>
+      <div class="showcase-controls">
+        <button class="showcase-arrow" id="showcase-prev" type="button" aria-label="Performance precedente">&#8592;</button>
+        <p class="showcase-status" id="showcase-status" role="status" aria-live="polite">Tessuti Aerei <span>01 / 07</span></p>
+        <button class="showcase-arrow" id="showcase-next" type="button" aria-label="Performance successiva">&#8594;</button>
+      </div>
+      <p class="showcase-hint">Trascina per esplorare le performance</p>
+    </div>
+
+    <div class="reviews-block rev" aria-labelledby="reviews-title">
+      <div class="reviews-heading">
+        <div><p class="eyebrow on-dark">Le parole dopo lo spettacolo</p><h3 id="reviews-title">Quello che resta <em>negli occhi.</em></h3></div>
+        <p class="reviews-disclosure">Recensioni di esempio: testi inventati per l'anteprima del sito, da sostituire con testimonianze autentiche.</p>
+      </div>
+      <div class="recensioni">
+        <blockquote class="rec"><span class="rec-virg" aria-hidden="true">“</span><p>Il cerchio durante il ricevimento ha raccolto tutti gli sguardi. Un momento delicato, arrivato proprio quando la festa ne aveva bisogno.</p><footer><b>Esempio · Matrimonio</b>Testo dimostrativo</footer></blockquote>
+        <blockquote class="rec"><span class="rec-virg" aria-hidden="true">“</span><p>Il fuoco dopo il tramonto ha cambiato l'energia della serata. Elisa Carosi ha curato anche i tempi, così tutto è successo al momento giusto.</p><footer><b>Esempio · Diciottesimo</b>Testo dimostrativo</footer></blockquote>
+        <blockquote class="rec"><span class="rec-virg" aria-hidden="true">“</span><p>Il lollipop all'ingresso ha dato subito carattere alla serata. Poi la performance al cerchio ha fermato la sala per qualche minuto.</p><footer><b>Esempio · Evento in un locale</b>Testo dimostrativo</footer></blockquote>
+      </div>
     </div>
   </div>
 </section>
@@ -2192,6 +2279,96 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       motionFrame = 0;
     });
   },{passive:true});
+
+  // Il carosello usa il cilindro 3D del riferimento, senza dipendenze React.
+  var carousel = document.querySelector(".showcase");
+  var stage = document.getElementById("showcase-stage");
+  var ring = document.getElementById("showcase-ring");
+  var cards = Array.prototype.slice.call(ring.querySelectorAll(".showcase-card"));
+  var carouselStatus = document.getElementById("showcase-status");
+  var step = 360 / cards.length;
+  var rotation = 0, dragStart = null, dragOrigin = 0, moved = false, suppressClick = false;
+  var carouselVisible = false, carouselHovered = false;
+  function currentCard(){ return ((-Math.round(rotation / step) % cards.length) + cards.length) % cards.length; }
+  function paintCarousel(){
+    var active = currentCard();
+    ring.style.transform = "rotateY(" + rotation + "deg)";
+    cards.forEach(function(card, index){
+      var distance = Math.min(Math.abs(index-active), cards.length-Math.abs(index-active));
+      card.classList.toggle("is-active",distance === 0);
+      card.classList.toggle("is-distant",distance === 2);
+      card.classList.toggle("is-rear",distance > 2);
+      card.tabIndex = distance === 0 ? 0 : -1;
+      if(distance === 0) card.setAttribute("aria-current","true");
+      else card.removeAttribute("aria-current");
+    });
+    carouselStatus.innerHTML = cards[active].dataset.title + ' <span>' +
+      String(active + 1).padStart(2,"0") + " / " + String(cards.length).padStart(2,"0") + "</span>";
+  }
+  function showCard(index){
+    var current = currentCard();
+    var offset = (index-current+cards.length) % cards.length;
+    if(offset > cards.length / 2) offset -= cards.length;
+    rotation = Math.round(rotation / step) * step - offset * step;
+    paintCarousel();
+  }
+  cards.forEach(function(card,index){
+    card.style.setProperty("--item-angle",index * step + "deg");
+    var photo = card.dataset.photo;
+    if(photo){
+      var image = document.createElement("img");
+      image.alt = "Elisa Carosi · " + card.dataset.title;
+      image.onload = function(){ card.classList.add("has-photo"); card.setAttribute("aria-label",image.alt); };
+      image.src = photo;
+      card.querySelector(".showcase-photo").appendChild(image);
+    }
+    card.addEventListener("click",function(){ if(!suppressClick) showCard(index); });
+  });
+  document.getElementById("showcase-prev").addEventListener("click",function(){showCard((currentCard()-1+cards.length)%cards.length);});
+  document.getElementById("showcase-next").addEventListener("click",function(){showCard((currentCard()+1)%cards.length);});
+  stage.addEventListener("keydown",function(event){
+    if(event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    showCard((currentCard()+(event.key === "ArrowRight" ? 1 : -1)+cards.length)%cards.length);
+    cards[currentCard()].focus();
+  });
+  stage.addEventListener("pointerdown",function(event){
+    if(event.pointerType === "mouse" && event.button !== 0) return;
+    dragStart = event.clientX; dragOrigin = rotation; moved = false;
+  });
+  stage.addEventListener("pointermove",function(event){
+    if(dragStart === null) return;
+    var dx = event.clientX-dragStart;
+    if(Math.abs(dx) < 5 && !moved) return;
+    if(!moved) stage.setPointerCapture(event.pointerId);
+    moved = true; ring.style.transition = "none";
+    rotation = dragOrigin + dx * .27;
+    ring.style.transform = "rotateY(" + rotation + "deg)";
+    event.preventDefault();
+  });
+  function finishDrag(){
+    if(dragStart === null) return;
+    dragStart = null;
+    ring.style.transition = "";
+    if(moved){
+      suppressClick = true;
+      rotation = Math.round(rotation / step) * step;
+      paintCarousel();
+      setTimeout(function(){suppressClick = false;},0);
+    }
+  }
+  stage.addEventListener("pointerup",finishDrag);
+  stage.addEventListener("pointercancel",finishDrag);
+  carousel.addEventListener("pointerenter",function(){carouselHovered = true;});
+  carousel.addEventListener("pointerleave",function(){carouselHovered = false;});
+  new IntersectionObserver(function(entries){carouselVisible = entries[0].isIntersecting;},{threshold:.2}).observe(stage);
+  setInterval(function(){
+    if(carouselVisible && !carouselHovered && !carousel.contains(document.activeElement) &&
+       !document.hidden && !motionPreference.matches && dragStart === null){
+      showCard((currentCard()+1)%cards.length);
+    }
+  },5500);
+  paintCarousel();
 
   render();
   renderCustom();
