@@ -869,53 +869,116 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 .amaca-count select{min-height:36px;width:60px;border:1px solid var(--line);border-radius:8px;background:var(--ivory);color:var(--wine);font:600 16px var(--sans);padding:4px 8px}
 .sc-structure-fee{grid-column:2/-1;display:flex;justify-content:space-between;gap:12px;font:500 .76rem/1.5 var(--sans);color:var(--ink-soft)}
 
-/* Galleria ad anello: spazi fotografici pronti per gli scatti di Elisa. */
+/* BorderGlow adattato alla palette Elisa: la luce segue il bordo vicino al puntatore. */
+.perf{position:relative;isolation:isolate;overflow:visible;--edge-proximity:0;--cursor-angle:0deg}
+.perf::before,.perf::after{content:"";position:absolute;pointer-events:none;border-radius:inherit;transition:opacity .28s ease;z-index:2}
+.perf::before{inset:-1px;border:2px solid transparent;background:conic-gradient(from var(--cursor-angle),transparent 0deg,#e5c86b 15deg,#c47a87 35deg,#8e3354 58deg,transparent 82deg) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:clamp(0,calc((var(--edge-proximity) - 28)/55),1)}
+.perf::after{inset:-9px;box-shadow:0 0 24px 2px rgba(212,175,55,.27),0 0 37px 4px rgba(196,122,135,.2);mask-image:conic-gradient(from var(--cursor-angle),#000 0deg,transparent 58deg,transparent 302deg,#000 360deg);opacity:clamp(0,calc((var(--edge-proximity) - 40)/48),.85)}
+.perf.chosen::before,.perf:focus-within::before{opacity:1}
+.perf.chosen::after{opacity:.28}
+.perf-shell{position:relative;border-radius:inherit;background:var(--ivory-pure)}
+.perf-body>div{border-radius:0 0 var(--r-card) var(--r-card)}
+@media(hover:none){.perf::after{display:none}.perf::before{opacity:0}.perf.chosen::before,.perf:focus-within::before{opacity:.8}}
+@media(prefers-reduced-motion:reduce){.perf::before,.perf::after{transition:none}}
+
+/* Desktop: catalogo a tre colonne, poi due colonne con preventivo a destra. */
+@media(min-width:1020px){
+  .pick-grid{grid-template-columns:minmax(0,1fr)}
+  .pick-grid.has-selection{grid-template-columns:minmax(0,1fr) minmax(325px,360px);transition:grid-template-columns .55s cubic-bezier(.22,1,.36,1)}
+  .pick-grid:not(.has-selection)>.quote{display:none}
+  .perf-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:16px}
+  .pick-grid.has-selection .perf-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .perf-shell{display:block;padding:12px}
+  .perf-head{grid-template-columns:64px minmax(0,1fr) 16px;gap:10px;min-height:82px}
+  .perf-fig{width:64px;height:82px}
+  .perf-title{gap:6px;padding:0}
+  .perf-title b{font-size:clamp(1.15rem,1.5vw,1.42rem)}
+  .perf-capsules>span{font-size:.61rem;padding:3px 6px}
+  .perf .perf-pick{justify-content:flex-end;margin:10px 0 0;padding:0}
+  .perf-inner{padding:18px;min-height:0}
+  .perf-description,.perf-body .perf-details{max-width:100%}
+  .discipline-art{opacity:.16;right:-70px}
+  .quote{position:sticky;top:100px;min-width:0;animation:quote-reveal .45s cubic-bezier(.22,1,.36,1) both}
+  @keyframes quote-reveal{from{opacity:0;transform:translateX(25px)}to{opacity:1;transform:translateX(0)}}
+}
+@media(min-width:1020px) and (max-width:1120px){
+  .perf-shell{display:block;grid-template-columns:none}
+  .perf .perf-pick{justify-content:flex-end;margin:10px 0 0}
+  .perf-head{grid-template-columns:58px minmax(0,1fr) 16px}
+  .perf-fig{width:58px;height:78px}
+  .perf-title{padding:0}
+}
+@media(min-width:1020px) and (max-width:1170px){.pick-grid.has-selection{grid-template-columns:minmax(0,1fr) 325px}.perf-list{gap:12px}.perf-shell{padding:10px}}
+
+/* Galleria fotografica: fila flessibile con lente inclinata, ispirata a FlexCarousel. */
 .showcase{margin-top:clamp(84px,10vw,140px);padding-top:clamp(50px,7vw,90px);border-top:1px solid rgba(229,200,107,.25)}
 .showcase-heading,.reviews-heading{display:flex;justify-content:space-between;align-items:end;gap:30px}
 .showcase-heading h3,.reviews-heading h3{font-size:clamp(2.4rem,4.5vw,4.5rem);max-width:15ch;margin-top:12px;color:var(--ivory);line-height:1.12}
 .showcase-heading h3 em,.reviews-heading h3 em{font-weight:400;color:var(--gold-soft)}
 .showcase-heading>p{max-width:35ch;padding-bottom:7px}
-.showcase-stage{--carousel-radius:330px;--card-width:208px;--card-height:278px;position:relative;height:clamp(320px,37vw,430px);max-width:1120px;margin:35px auto 0;perspective:1400px;perspective-origin:50% 48%;touch-action:pan-y;cursor:grab;overflow:hidden;user-select:none;background:radial-gradient(ellipse at center,rgba(196,122,135,.12),transparent 65%)}
+.showcase-stage{position:relative;height:560px;max-width:1120px;margin:35px auto 0;perspective:1500px;perspective-origin:50% 50%;touch-action:pan-y;cursor:grab;overflow:hidden;user-select:none;background:radial-gradient(ellipse at 50% 60%,rgba(196,122,135,.14),transparent 65%),#230e24}
 .showcase-stage:active{cursor:grabbing}
-.showcase-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#240c25 0%,transparent 12%,transparent 88%,#34102f 100%);z-index:2}
-.showcase-ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transform:rotateY(0deg);transition:transform .9s cubic-bezier(.2,.8,.2,1);will-change:transform}
-.showcase-card{position:absolute;left:0;top:0;width:var(--card-width);height:var(--card-height);padding:0;display:block;overflow:hidden;border:1px solid rgba(229,200,107,.48);border-radius:13px;text-align:left;color:var(--ivory);background:#40243c;box-shadow:0 20px 45px rgba(12,2,18,.35);backface-visibility:hidden;transform:translate(-50%,-50%) rotateY(var(--item-angle)) translateZ(var(--carousel-radius));transition:opacity .7s ease,border-color .4s ease,box-shadow .4s ease;opacity:.68}
-.showcase-card.is-active{opacity:1;border-color:var(--gold-soft);box-shadow:0 22px 55px rgba(10,2,18,.5),0 0 0 1px rgba(229,200,107,.3)}
-.showcase-card.is-distant{opacity:.24}
-.showcase-card.is-rear{opacity:.06;pointer-events:none}
-.showcase-card::after{content:"";position:absolute;inset:8px;border:1px solid rgba(248,220,168,.35);border-radius:8px;pointer-events:none}
+.showcase-stage::before{content:"";position:absolute;left:13%;top:-18%;width:74%;height:136%;border:1px solid rgba(229,200,107,.15);border-radius:50%;transform:rotate(62deg);box-shadow:inset 0 0 80px rgba(196,122,135,.07),0 0 55px rgba(212,175,55,.04);pointer-events:none}
+.showcase-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#230e24 0%,transparent 8%,transparent 92%,#230e24 100%);z-index:12}
+.showcase-current{position:absolute;top:30px;left:0;right:0;z-index:13;text-align:center;color:var(--ivory)!important;font:400 1.2rem/1.3 var(--serif)!important;pointer-events:none}
+.showcase-ring{position:absolute;inset:0;transform-style:preserve-3d}
+.showcase-card{position:absolute;left:50%;top:50%;width:var(--card-width,208px);height:var(--card-height,280px);padding:0;display:block;overflow:hidden;border:1px solid rgba(229,200,107,.33);border-radius:0;text-align:left;color:var(--ivory);background:#40243c;box-shadow:0 18px 42px rgba(12,2,18,.4);backface-visibility:hidden;transform:translate(-50%,-50%);transition:transform .85s cubic-bezier(.22,1,.36,1),opacity .7s ease,border-color .4s ease,filter .4s ease;will-change:transform;opacity:0}
+.showcase-stage.is-ready .showcase-card{opacity:1}
+.showcase-card.is-active{border-color:var(--gold-soft);box-shadow:0 24px 60px rgba(10,2,18,.56),2px 0 0 rgba(255,160,140,.35),-2px 0 0 rgba(110,175,210,.2)}
+.showcase-card.is-far{pointer-events:none}
+.showcase-card::after{content:"";position:absolute;inset:8px;border:1px solid rgba(248,220,168,.24);pointer-events:none}
+.showcase-stage.is-dragging .showcase-card{transition:none}
+.showcase-stage.is-expanded .showcase-card:not(.is-active){filter:blur(2px) brightness(.55)}
 .showcase-photo{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:7px;background:radial-gradient(circle at 24% 24%,rgba(230,160,155,.2),transparent 45%),radial-gradient(circle at 84% 80%,rgba(212,175,55,.2),transparent 47%),linear-gradient(148deg,#351427,#693c55 55%,#281126);isolation:isolate}
 .showcase-photo::before{content:"";position:absolute;inset:14px;background:url('media/tex-macchia.png') center/cover no-repeat;opacity:.12;mix-blend-mode:screen;pointer-events:none}
 .showcase-monogram{position:relative;font:italic 3.6rem/1 var(--serif);letter-spacing:-.1em;color:rgba(247,244,239,.18);padding-right:.1em}
 .showcase-empty{position:relative;font:600 .58rem/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,239,.65)}
-.showcase-photo img{width:100%;height:100%;object-fit:cover;display:none}
+.showcase-photo img{width:100%;height:100%;object-fit:contain;display:none}
 .showcase-card.has-photo img{display:block}
 .showcase-card.has-photo .showcase-monogram,.showcase-card.has-photo .showcase-empty{display:none}
 .showcase-card-title{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:36px 16px 17px;font:400 1.1rem/1.2 var(--serif);background:linear-gradient(0deg,rgba(23,5,22,.94),transparent)}
 .showcase-controls{display:flex;align-items:center;justify-content:center;gap:clamp(15px,3vw,35px);margin:0 auto}
 .showcase-arrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(229,200,107,.5);border-radius:50%;color:var(--gold-soft);font:400 1.4rem/1 var(--sans);transition:background .25s,border-color .25s,transform .25s}
 .showcase-arrow:hover{background:rgba(229,200,107,.13);border-color:var(--gold-soft);transform:scale(1.06)}
-.showcase-status{min-width:220px;text-align:center;color:var(--ivory)!important;font:500 .9rem/1.4 var(--sans)!important}
-.showcase-status span{display:block;color:var(--gold-soft);font-size:.68rem;letter-spacing:.16em;margin-top:3px}
+.showcase-status{min-width:120px;text-align:center;color:var(--gold-soft)!important;font:600 .72rem/1.4 var(--sans)!important;letter-spacing:.16em}
 .showcase-hint{text-align:center;font:500 .69rem/1.4 var(--sans)!important;letter-spacing:.1em;color:var(--on-dark-faint)!important;margin-top:13px}
 .reviews-block{margin-top:clamp(90px,10vw,140px)}
 .reviews-heading{margin-bottom:28px}
 .reviews-disclosure{max-width:36ch;padding:14px 18px;border-left:2px solid var(--gold-soft);background:rgba(247,244,239,.06);font-size:.82rem!important;line-height:1.55!important}
-.rec{margin:0;min-height:240px}
-#recensioni .rec p{font-family:var(--serif);font-size:1.1rem!important;line-height:1.55!important;color:var(--on-dark)!important}
-.rec footer{font-family:var(--sans);font-size:.68rem;line-height:1.6}
+.review-marquees{display:grid;gap:16px;margin:34px calc(-1 * var(--pad)) 0}
+.review-row{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.review-track{display:flex;width:max-content;animation:review-left var(--review-duration,44s) linear infinite}
+.review-row[data-direction="right"] .review-track{animation-name:review-right}
+.review-set{display:flex;gap:16px;padding-right:16px;flex:0 0 auto}
+.review-card{flex:0 0 auto;width:clamp(320px,34vw,470px);min-height:182px;margin:0;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;border:1px solid rgba(247,244,239,.18);border-radius:16px;background:rgba(255,252,250,.065);box-shadow:inset 0 1px rgba(255,255,255,.04)}
+#recensioni .review-card p{font:400 1.08rem/1.45 var(--serif);color:var(--on-dark)}
+.review-card footer{position:static;overflow:visible;padding:0;border:0;background:none;text-align:left;color:var(--gold-soft);font:600 .61rem/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.review-marquees:hover .review-track,.review-marquees:focus-within .review-track,.review-marquees.is-paused .review-track,.review-marquees.is-offscreen .review-track{animation-play-state:paused}
+@keyframes review-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes review-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.reviews-pause{display:block;margin:20px auto 0;padding:8px 15px;border:1px solid rgba(229,200,107,.36);border-radius:999px;color:var(--gold-soft);font:600 .65rem/1.4 var(--sans);letter-spacing:.07em;transition:background .25s}
+.reviews-pause:hover{background:rgba(229,200,107,.12)}
 @media(max-width:700px){
   .showcase-heading,.reviews-heading{display:block}
   .showcase-heading>p,.reviews-disclosure{margin-top:18px;max-width:50ch}
-  .showcase-stage{--carousel-radius:160px;--card-width:142px;--card-height:222px;height:290px;margin-top:26px;perspective:800px}
-  .showcase-stage::after{background:linear-gradient(90deg,#260d27 0%,transparent 8%,transparent 92%,#34102f 100%)}
+  .showcase-stage{height:390px;margin-top:26px;perspective:900px}
+  .showcase-stage::after{background:linear-gradient(90deg,#230e24 0%,transparent 5%,transparent 95%,#230e24 100%)}
+  .showcase-current{top:19px;font-size:1.04rem!important}
   .showcase-card-title{font-size:.86rem;padding:30px 11px 13px}
   .showcase-monogram{font-size:2.7rem}
-  .showcase-status{min-width:145px;font-size:.8rem!important}
+  .showcase-status{min-width:100px;font-size:.7rem!important}
   .showcase-arrow{width:44px;height:44px}
-  .rec{min-height:0}
+  .review-marquees{gap:12px}
+  .review-card{width:285px;min-height:174px;padding:18px 20px}
+  #recensioni .review-card p{font-size:1rem}
 }
-@media(prefers-reduced-motion:reduce){.showcase-ring,.showcase-card,.showcase-arrow{transition:none!important}}
+@media(prefers-reduced-motion:reduce){
+  .showcase-card,.showcase-arrow{transition:none!important}
+  .review-row{overflow-x:auto;mask-image:none}
+  .review-track{animation:none!important}
+  .review-set[aria-hidden="true"]{display:none}
+  .reviews-pause{display:none}
+}
 
 </style>
 <script type="application/ld+json">
@@ -1518,7 +1581,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
         <p>Scorri le performance di Elisa Carosi. Le fotografie saranno aggiunte qui, una per volta.</p>
       </div>
-      <div class="showcase-stage" id="showcase-stage" aria-label="Galleria circolare delle performance di Elisa Carosi">
+      <div class="showcase-stage" id="showcase-stage" role="region" tabindex="0" aria-label="Galleria fotografica delle performance di Elisa Carosi">
+        <p class="showcase-current" id="showcase-current" aria-live="polite">Tessuti Aerei</p>
         <div class="showcase-ring" id="showcase-ring">
           <button class="showcase-card" type="button" data-photo="" data-title="Tessuti Aerei" aria-label="Tessuti Aerei, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Tessuti Aerei</span></button>
           <button class="showcase-card" type="button" data-photo="" data-title="Cerchio Aereo" aria-label="Cerchio Aereo, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Cerchio Aereo</span></button>
@@ -1530,11 +1594,11 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
       </div>
       <div class="showcase-controls">
-        <button class="showcase-arrow" id="showcase-prev" type="button" aria-label="Performance precedente">&#8592;</button>
-        <p class="showcase-status" id="showcase-status" role="status" aria-live="polite">Tessuti Aerei <span>01 / 07</span></p>
-        <button class="showcase-arrow" id="showcase-next" type="button" aria-label="Performance successiva">&#8594;</button>
+        <button class="showcase-arrow" id="showcase-prev" type="button" aria-label="Foto precedente">&#8592;</button>
+        <p class="showcase-status" id="showcase-status" role="status" aria-live="polite">01 / 07</p>
+        <button class="showcase-arrow" id="showcase-next" type="button" aria-label="Foto successiva">&#8594;</button>
       </div>
-      <p class="showcase-hint">Trascina per esplorare le performance</p>
+      <p class="showcase-hint">Trascina, scorri o seleziona una foto. Tocca quella al centro per ingrandirla.</p>
     </div>
 
     <div class="reviews-block rev" aria-labelledby="reviews-title">
@@ -1542,11 +1606,24 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         <div><p class="eyebrow on-dark">Le parole dopo lo spettacolo</p><h3 id="reviews-title">Quello che resta <em>negli occhi.</em></h3></div>
         <p class="reviews-disclosure">Recensioni di esempio: testi inventati per l'anteprima del sito, da sostituire con testimonianze autentiche.</p>
       </div>
-      <div class="recensioni">
-        <blockquote class="rec"><span class="rec-virg" aria-hidden="true">“</span><p>Il cerchio durante il ricevimento ha raccolto tutti gli sguardi. Un momento delicato, arrivato proprio quando la festa ne aveva bisogno.</p><footer><b>Esempio · Matrimonio</b>Testo dimostrativo</footer></blockquote>
-        <blockquote class="rec"><span class="rec-virg" aria-hidden="true">“</span><p>Il fuoco dopo il tramonto ha cambiato l'energia della serata. Elisa Carosi ha curato anche i tempi, così tutto è successo al momento giusto.</p><footer><b>Esempio · Diciottesimo</b>Testo dimostrativo</footer></blockquote>
-        <blockquote class="rec"><span class="rec-virg" aria-hidden="true">“</span><p>Il lollipop all'ingresso ha dato subito carattere alla serata. Poi la performance al cerchio ha fermato la sala per qualche minuto.</p><footer><b>Esempio · Evento in un locale</b>Testo dimostrativo</footer></blockquote>
+      <div class="review-marquees" id="review-marquees" aria-label="Esempi di recensioni per Elisa Carosi">
+        <div class="review-row" data-direction="right" aria-label="Prima riga, da sinistra verso destra"><div class="review-track"><div class="review-set">
+          <blockquote class="review-card"><p>Il cerchio durante il ricevimento ha raccolto tutti gli sguardi. Un momento delicato, arrivato proprio quando la festa ne aveva bisogno.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><p>Il fuoco dopo il tramonto ha cambiato l'energia della serata. Anche i tempi erano pensati bene.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><p>Le ali di luce sono apparse quando la sala era già al buio. È stato il dettaglio che tutti hanno ricordato.</p><footer>Evento aziendale · testo dimostrativo</footer></blockquote>
+        </div></div></div>
+        <div class="review-row" data-direction="left" aria-label="Seconda riga, da destra verso sinistra"><div class="review-track"><div class="review-set">
+          <blockquote class="review-card"><p>Il lollipop all'ingresso ha dato subito carattere alla serata. Gli ospiti si sono fermati a guardare.</p><footer>Serata in un locale · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><p>I tessuti sono stati una sorpresa per tutti. Elisa ha trovato il punto giusto della cena per iniziare.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><p>Volevamo qualcosa di elegante e breve. La danza ha lasciato spazio alla festa, senza interromperla.</p><footer>Anniversario · testo dimostrativo</footer></blockquote>
+        </div></div></div>
+        <div class="review-row" data-direction="right" aria-label="Terza riga, da sinistra verso destra"><div class="review-track"><div class="review-set">
+          <blockquote class="review-card"><p>La performance al palo è stata il momento più fotografato della serata. Elisa Carosi ha coinvolto tutti.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><p>Il cerchio sopra la pista ha creato una pausa bellissima. Poi la musica è ripartita e si è tornati a ballare.</p><footer>Evento privato · testo dimostrativo</footer></blockquote>
+          <blockquote class="review-card"><p>Fuoco all'aperto, dopo cena: una chiusura semplice da organizzare e impossibile da dimenticare.</p><footer>Festa serale · testo dimostrativo</footer></blockquote>
+        </div></div></div>
       </div>
+      <button class="reviews-pause" id="reviews-pause" type="button" aria-pressed="false">Metti in pausa le recensioni</button>
     </div>
   </div>
 </section>
@@ -1952,6 +2029,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     });
     var s = stato();
     var selectedCount = totalePerformance();
+    document.querySelector(".pick-grid").classList.toggle("has-selection",selectedCount > 0);
     if(selectedCount < MAX_PERFORMANCE){ limitFeedback.hidden = true; clearTimeout(limitTimer); }
     [document.getElementById("performance-limit-status"), document.getElementById("quote-performance-count")].forEach(function(el){
       el.classList.toggle("at-limit", selectedCount >= MAX_PERFORMANCE);
@@ -2063,6 +2141,17 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   // apertura delle card e stepper
   perfs.forEach(function(p){
     var head = p.querySelector(".perf-head");
+    p.addEventListener("pointermove",function(event){
+      if(event.pointerType === "touch" || motionPreference.matches) return;
+      var box = p.getBoundingClientRect();
+      var x = event.clientX - box.left, y = event.clientY - box.top;
+      var cx = box.width/2, cy = box.height/2;
+      var proximity = Math.min(1,Math.max(Math.abs(x-cx)/cx,Math.abs(y-cy)/cy));
+      var angle = Math.atan2(y-cy,x-cx)*180/Math.PI+90;
+      p.style.setProperty("--edge-proximity",(proximity*100).toFixed(1));
+      p.style.setProperty("--cursor-angle",angle.toFixed(1)+"deg");
+    });
+    p.addEventListener("pointerleave",function(){ p.style.setProperty("--edge-proximity","0"); });
     head.addEventListener("click", function(){
       var apri = !p.classList.contains("open");
       perfs.forEach(function(o){
@@ -2280,40 +2369,49 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     });
   },{passive:true});
 
-  // Il carosello usa il cilindro 3D del riferimento, senza dipendenze React.
+  // Galleria flessibile: card inclinate, drag e ingrandimento senza dipendenze React.
   var carousel = document.querySelector(".showcase");
   var stage = document.getElementById("showcase-stage");
   var ring = document.getElementById("showcase-ring");
   var cards = Array.prototype.slice.call(ring.querySelectorAll(".showcase-card"));
   var carouselStatus = document.getElementById("showcase-status");
-  var step = 360 / cards.length;
-  var rotation = 0, dragStart = null, dragOrigin = 0, moved = false, suppressClick = false;
-  var carouselVisible = false, carouselHovered = false;
-  function currentCard(){ return ((-Math.round(rotation / step) % cards.length) + cards.length) % cards.length; }
+  var carouselTitle = document.getElementById("showcase-current");
+  var active = 0, expanded = false, dragStart = null, dragOffset = 0, moved = false, suppressClick = false;
+  var wheelTime = 0;
+  function relativeCard(index){
+    var distance = (index - active + cards.length) % cards.length;
+    return distance > cards.length / 2 ? distance - cards.length : distance;
+  }
   function paintCarousel(){
-    var active = currentCard();
-    ring.style.transform = "rotateY(" + rotation + "deg)";
+    var cardWidth = Math.min(208, Math.max(166, stage.clientWidth * .19));
+    stage.style.setProperty("--card-width", cardWidth + "px");
+    stage.style.setProperty("--card-height", stage.clientHeight * .5 + "px");
     cards.forEach(function(card, index){
-      var distance = Math.min(Math.abs(index-active), cards.length-Math.abs(index-active));
+      var distance = relativeCard(index), depth = Math.abs(distance);
+      var x = distance * (cardWidth + 12) * .96 + dragOffset + (expanded && distance ? Math.sign(distance) * 65 : 0);
+      var y = -distance * 23 + (stage.classList.contains("is-ready") ? 0 : 65);
+      var z = -depth * 32 + (expanded && !distance ? 100 : 0);
+      var scale = (1 - depth * .07) * (expanded && !distance ? 1.4 : 1) * (moved ? .8 : 1);
+      card.style.transform = "translate(-50%,-50%) translate3d(" + x + "px," + y + "px," + z + "px) rotateY(" + (-distance * 13) + "deg) rotateZ(" + (-distance * 4.5) + "deg) scale(" + scale + ")";
+      card.style.opacity = depth > 2 ? "0" : String(1 - depth * .12);
+      card.style.zIndex = String(10 - depth);
       card.classList.toggle("is-active",distance === 0);
-      card.classList.toggle("is-distant",distance === 2);
-      card.classList.toggle("is-rear",distance > 2);
+      card.classList.toggle("is-far",depth > 2);
       card.tabIndex = distance === 0 ? 0 : -1;
       if(distance === 0) card.setAttribute("aria-current","true");
       else card.removeAttribute("aria-current");
     });
-    carouselStatus.innerHTML = cards[active].dataset.title + ' <span>' +
-      String(active + 1).padStart(2,"0") + " / " + String(cards.length).padStart(2,"0") + "</span>";
+    carouselTitle.textContent = cards[active].dataset.title;
+    carouselStatus.textContent = String(active + 1).padStart(2,"0") + " / " + String(cards.length).padStart(2,"0");
+    stage.classList.toggle("is-expanded",expanded);
   }
   function showCard(index){
-    var current = currentCard();
-    var offset = (index-current+cards.length) % cards.length;
-    if(offset > cards.length / 2) offset -= cards.length;
-    rotation = Math.round(rotation / step) * step - offset * step;
+    active = (index + cards.length) % cards.length;
+    expanded = false;
+    dragOffset = 0;
     paintCarousel();
   }
   cards.forEach(function(card,index){
-    card.style.setProperty("--item-angle",index * step + "deg");
     var photo = card.dataset.photo;
     if(photo){
       var image = document.createElement("img");
@@ -2322,53 +2420,90 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       image.src = photo;
       card.querySelector(".showcase-photo").appendChild(image);
     }
-    card.addEventListener("click",function(){ if(!suppressClick) showCard(index); });
+    card.addEventListener("click",function(){
+      if(suppressClick) return;
+      if(index === active){ expanded = !expanded; paintCarousel(); }
+      else showCard(index);
+    });
   });
-  document.getElementById("showcase-prev").addEventListener("click",function(){showCard((currentCard()-1+cards.length)%cards.length);});
-  document.getElementById("showcase-next").addEventListener("click",function(){showCard((currentCard()+1)%cards.length);});
+  document.getElementById("showcase-prev").addEventListener("click",function(){showCard(active-1);});
+  document.getElementById("showcase-next").addEventListener("click",function(){showCard(active+1);});
   stage.addEventListener("keydown",function(event){
+    if(event.key === "Escape" && expanded){ expanded = false; paintCarousel(); return; }
     if(event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
-    showCard((currentCard()+(event.key === "ArrowRight" ? 1 : -1)+cards.length)%cards.length);
-    cards[currentCard()].focus();
+    showCard(active+(event.key === "ArrowRight" ? 1 : -1));
+    cards[active].focus();
   });
   stage.addEventListener("pointerdown",function(event){
     if(event.pointerType === "mouse" && event.button !== 0) return;
-    dragStart = event.clientX; dragOrigin = rotation; moved = false;
+    dragStart = event.clientX; moved = false;
   });
   stage.addEventListener("pointermove",function(event){
     if(dragStart === null) return;
     var dx = event.clientX-dragStart;
     if(Math.abs(dx) < 5 && !moved) return;
     if(!moved) stage.setPointerCapture(event.pointerId);
-    moved = true; ring.style.transition = "none";
-    rotation = dragOrigin + dx * .27;
-    ring.style.transform = "rotateY(" + rotation + "deg)";
+    moved = true;
+    dragOffset = dx;
+    expanded = false;
+    stage.classList.add("is-dragging");
+    paintCarousel();
     event.preventDefault();
   });
-  function finishDrag(){
+  function finishDrag(event){
     if(dragStart === null) return;
+    var dx = event.clientX - dragStart;
     dragStart = null;
-    ring.style.transition = "";
+    stage.classList.remove("is-dragging");
     if(moved){
       suppressClick = true;
-      rotation = Math.round(rotation / step) * step;
-      paintCarousel();
+      var width = parseFloat(stage.style.getPropertyValue("--card-width")) || 208;
+      var steps = Math.max(1,Math.round(Math.abs(dx)/(width+12)));
+      moved = false;
+      showCard(active+(dx < 0 ? steps : -steps));
       setTimeout(function(){suppressClick = false;},0);
     }
   }
   stage.addEventListener("pointerup",finishDrag);
   stage.addEventListener("pointercancel",finishDrag);
-  carousel.addEventListener("pointerenter",function(){carouselHovered = true;});
-  carousel.addEventListener("pointerleave",function(){carouselHovered = false;});
-  new IntersectionObserver(function(entries){carouselVisible = entries[0].isIntersecting;},{threshold:.2}).observe(stage);
-  setInterval(function(){
-    if(carouselVisible && !carouselHovered && !carousel.contains(document.activeElement) &&
-       !document.hidden && !motionPreference.matches && dragStart === null){
-      showCard((currentCard()+1)%cards.length);
-    }
-  },5500);
+  stage.addEventListener("wheel",function(event){
+    if(event.ctrlKey || Date.now()-wheelTime < 420) return;
+    var delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+    if(!delta) return;
+    event.preventDefault();
+    wheelTime = Date.now();
+    showCard(active+(delta > 0 ? 1 : -1));
+  },{passive:false});
+  new ResizeObserver(paintCarousel).observe(stage);
   paintCarousel();
+  if(motionPreference.matches){ stage.classList.add("is-ready"); paintCarousel(); }
+  else requestAnimationFrame(function(){ stage.classList.add("is-ready"); paintCarousel(); });
+
+  // Tre fasce continue, con la copia nascosta ai lettori di schermo.
+  var reviewMarquees = document.getElementById("review-marquees");
+  var reviewsPause = document.getElementById("reviews-pause");
+  Array.prototype.forEach.call(reviewMarquees.querySelectorAll(".review-row"),function(row,index){
+    var original = row.querySelector(".review-set");
+    var clone = original.cloneNode(true);
+    clone.setAttribute("aria-hidden","true");
+    row.querySelector(".review-track").appendChild(clone);
+    row.style.setProperty("--review-duration",[43,49,46][index] + "s");
+  });
+  reviewsPause.addEventListener("click",function(){
+    var paused = reviewMarquees.classList.toggle("is-paused");
+    reviewsPause.setAttribute("aria-pressed",String(paused));
+    reviewsPause.textContent = paused ? "Riprendi le recensioni" : "Metti in pausa le recensioni";
+  });
+  var reviewsVisible = false;
+  function syncReviews(){ reviewMarquees.classList.toggle("is-offscreen",!reviewsVisible || document.hidden); }
+  new IntersectionObserver(function(entries){
+    reviewsVisible = entries[0].isIntersecting;
+    syncReviews();
+  },{threshold:0}).observe(reviewMarquees);
+  document.addEventListener("visibilitychange",function(){
+    syncReviews();
+  });
 
   render();
   renderCustom();
