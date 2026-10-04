@@ -881,14 +881,16 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 @media(hover:none){.perf::after{display:none}.perf::before{opacity:0}.perf.chosen::before,.perf:focus-within::before{opacity:.8}}
 @media(prefers-reduced-motion:reduce){.perf::before,.perf::after{transition:none}}
 
-/* Desktop: catalogo a tre colonne, poi due colonne con preventivo a destra. */
+/* Desktop: catalogo a tre colonne, poi una lista leggibile con preventivo ampio. */
 @media(min-width:1020px){
   .pick-grid{grid-template-columns:minmax(0,1fr)}
-  .pick-grid.has-selection{grid-template-columns:minmax(0,1fr) minmax(325px,360px);transition:grid-template-columns .55s cubic-bezier(.22,1,.36,1)}
+  .pick-grid.has-selection{grid-template-columns:minmax(340px,.86fr) minmax(0,1.14fr);transition:grid-template-columns .55s cubic-bezier(.22,1,.36,1)}
   .pick-grid:not(.has-selection)>.quote{display:none}
   .perf-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:16px}
-  .pick-grid.has-selection .perf-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pick-grid.has-selection .perf-list{grid-template-columns:minmax(0,1fr)}
   .perf-shell{display:block;padding:12px}
+  .pick-grid.has-selection .perf-shell{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px}
+  .pick-grid.has-selection .perf .perf-pick{margin:0}
   .perf-head{grid-template-columns:64px minmax(0,1fr) 16px;gap:10px;min-height:82px}
   .perf-fig{width:64px;height:82px}
   .perf-title{gap:6px;padding:0}
@@ -908,40 +910,46 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   .perf-fig{width:58px;height:78px}
   .perf-title{padding:0}
 }
-@media(min-width:1020px) and (max-width:1170px){.pick-grid.has-selection{grid-template-columns:minmax(0,1fr) 325px}.perf-list{gap:12px}.perf-shell{padding:10px}}
+@media(min-width:1020px) and (max-width:1170px){.pick-grid.has-selection{grid-template-columns:minmax(310px,.9fr) minmax(0,1.1fr)}.perf-list{gap:12px}.perf-shell{padding:10px}}
 
-/* Galleria fotografica: fila flessibile con lente inclinata, ispirata a FlexCarousel. */
-.showcase{margin-top:clamp(84px,10vw,140px);padding-top:clamp(50px,7vw,90px);border-top:1px solid rgba(229,200,107,.25)}
-.showcase-heading,.reviews-heading{display:flex;justify-content:space-between;align-items:end;gap:30px}
-.showcase-heading h3,.reviews-heading h3{font-size:clamp(2.4rem,4.5vw,4.5rem);max-width:15ch;margin-top:12px;color:var(--ivory);line-height:1.12}
-.showcase-heading h3 em,.reviews-heading h3 em{font-weight:400;color:var(--gold-soft)}
-.showcase-heading>p{max-width:35ch;padding-bottom:7px}
-.showcase-stage{position:relative;height:560px;max-width:1120px;margin:35px auto 0;perspective:1500px;perspective-origin:50% 50%;touch-action:pan-y;cursor:grab;overflow:hidden;user-select:none;background:radial-gradient(ellipse at 50% 60%,rgba(196,122,135,.14),transparent 65%),#230e24}
-.showcase-stage:active{cursor:grabbing}
-.showcase-stage::before{content:"";position:absolute;left:13%;top:-18%;width:74%;height:136%;border:1px solid rgba(229,200,107,.15);border-radius:50%;transform:rotate(62deg);box-shadow:inset 0 0 80px rgba(196,122,135,.07),0 0 55px rgba(212,175,55,.04);pointer-events:none}
-.showcase-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#230e24 0%,transparent 8%,transparent 92%,#230e24 100%);z-index:12}
-.showcase-current{position:absolute;top:30px;left:0;right:0;z-index:13;text-align:center;color:var(--ivory)!important;font:400 1.2rem/1.3 var(--serif)!important;pointer-events:none}
-.showcase-ring{position:absolute;inset:0;transform-style:preserve-3d}
-.showcase-card{position:absolute;left:50%;top:50%;width:var(--card-width,208px);height:var(--card-height,280px);padding:0;display:block;overflow:hidden;border:1px solid rgba(229,200,107,.33);border-radius:0;text-align:left;color:var(--ivory);background:#40243c;box-shadow:0 18px 42px rgba(12,2,18,.4);backface-visibility:hidden;transform:translate(-50%,-50%);transition:transform .85s cubic-bezier(.22,1,.36,1),opacity .7s ease,border-color .4s ease,filter .4s ease;will-change:transform;opacity:0}
-.showcase-stage.is-ready .showcase-card{opacity:1}
-.showcase-card.is-active{border-color:var(--gold-soft);box-shadow:0 24px 60px rgba(10,2,18,.56),2px 0 0 rgba(255,160,140,.35),-2px 0 0 rgba(110,175,210,.2)}
-.showcase-card.is-far{pointer-events:none}
-.showcase-card::after{content:"";position:absolute;inset:8px;border:1px solid rgba(248,220,168,.24);pointer-events:none}
-.showcase-stage.is-dragging .showcase-card{transition:none}
-.showcase-stage.is-expanded .showcase-card:not(.is-active){filter:blur(2px) brightness(.55)}
-.showcase-photo{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:7px;background:radial-gradient(circle at 24% 24%,rgba(230,160,155,.2),transparent 45%),radial-gradient(circle at 84% 80%,rgba(212,175,55,.2),transparent 47%),linear-gradient(148deg,#351427,#693c55 55%,#281126);isolation:isolate}
-.showcase-photo::before{content:"";position:absolute;inset:14px;background:url('media/tex-macchia.png') center/cover no-repeat;opacity:.12;mix-blend-mode:screen;pointer-events:none}
-.showcase-monogram{position:relative;font:italic 3.6rem/1 var(--serif);letter-spacing:-.1em;color:rgba(247,244,239,.18);padding-right:.1em}
-.showcase-empty{position:relative;font:600 .58rem/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,239,.65)}
-.showcase-photo img{width:100%;height:100%;object-fit:contain;display:none}
+.quote-step-indicator{display:flex;align-items:center;gap:10px;margin:0 0 18px;font:600 .68rem/1.4 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--wine)}
+.quote-step-indicator span{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:var(--wine);color:#fff}
+.quote-step-indicator i{width:25px;height:1px;background:var(--line)}
+.quote-step-indicator .is-upcoming{background:#eee2de;color:var(--ink-faint)}
+.quote-next{width:100%;margin-top:18px}
+.quote-step[hidden]{display:none!important}
+.quote-back{display:inline-flex;align-items:center;gap:7px;margin:0 0 15px;color:var(--wine);font:600 .75rem/1.3 var(--sans)}
+.quote-back:hover{text-decoration:underline}
+.quote-step-title{font:400 clamp(1.6rem,2vw,2rem)/1.1 var(--serif);color:var(--plum);margin:0 0 8px}
+.quote-step-intro{font:400 .84rem/1.5 var(--sans);color:var(--ink-faint);margin:0 0 17px}
+.custom-inline{display:block;margin-top:18px;padding:17px 18px;border:1px solid transparent;border-radius:15px;background:linear-gradient(#fff9f4,#fff9f4) padding-box,linear-gradient(110deg,#e5c86b,#c47a87,#8e3354,#e5c86b) border-box;box-shadow:0 8px 24px rgba(82,34,61,.08);text-decoration:none!important;transition:transform .25s,box-shadow .25s}
+.custom-inline:hover,.custom-inline:focus-visible{transform:translateY(-2px);background:linear-gradient(#fff9f4,#fff9f4) padding-box,conic-gradient(from 90deg,#f4d587,#ef9a98,#c28dd9,#7ab6d2,#e5c86b,#f4d587) border-box;box-shadow:0 12px 30px rgba(82,34,61,.17),0 0 20px rgba(194,141,217,.2)}
+.custom-inline strong{display:block;font:400 1.28rem/1.2 var(--serif);color:var(--plum)}
+.custom-inline small{display:block;margin-top:5px;font:400 .76rem/1.4 var(--sans);color:var(--ink-faint)}
+.custom-inline svg{float:right;width:19px;height:19px;color:var(--wine)}
+
+/* Spirale fotografica sospesa: segnaposto astratti, senza cornice o didascalie. */
+.showcase{position:relative;margin:clamp(70px,9vw,120px) calc(-1 * var(--pad)) 0}
+.showcase-title{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.reviews-heading{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.reviews-heading h3{font-size:clamp(2.4rem,4.5vw,4.5rem);max-width:15ch;margin-top:12px;color:var(--ivory);line-height:1.12}
+.reviews-heading h3 em{font-weight:400;color:var(--gold-soft)}
+.showcase-stage{position:relative;height:clamp(520px,54vw,680px);width:100%;perspective:1000px;perspective-origin:50% 50%;overflow:hidden;touch-action:pan-y;user-select:none;cursor:grab;mask-image:linear-gradient(to bottom,transparent,#000 11%,#000 89%,transparent)}
+.showcase-stage.is-dragging{cursor:grabbing}
+.showcase-ring{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
+.showcase-card{position:absolute;left:50%;top:50%;width:140px;height:176px;overflow:hidden;border:1px solid rgba(243,220,178,.38);background:linear-gradient(145deg,#533146,#a96668 55%,#3b233f);box-shadow:0 18px 45px rgba(12,2,18,.34),inset 0 0 30px rgba(255,235,205,.08);backface-visibility:hidden;transform:translate(-50%,-50%);will-change:transform,opacity,filter;pointer-events:none}
+.showcase-card:nth-child(3n+2){background:linear-gradient(160deg,#a87570,#e2b09d 43%,#633b50)}
+.showcase-card:nth-child(3n){background:linear-gradient(145deg,#503247,#bc866d 48%,#7b4757)}
+.showcase-card::before{content:"";position:absolute;inset:7px;border:1px solid rgba(255,244,218,.24);pointer-events:none;z-index:2}
+.showcase-card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 25%,rgba(255,245,221,.3),transparent 55%);pointer-events:none}
+.showcase-brush{position:absolute;inset:-12%;background:var(--brush-image) center/contain no-repeat;opacity:.58;mix-blend-mode:screen;transform:rotate(var(--brush-rotate,0deg)) scale(1.12)}
+.showcase-card:nth-child(2n) .showcase-brush{opacity:.34}
+.showcase-card.has-photo .showcase-brush{display:none}
+.showcase-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
 .showcase-card.has-photo img{display:block}
-.showcase-card.has-photo .showcase-monogram,.showcase-card.has-photo .showcase-empty{display:none}
-.showcase-card-title{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:36px 16px 17px;font:400 1.1rem/1.2 var(--serif);background:linear-gradient(0deg,rgba(23,5,22,.94),transparent)}
-.showcase-controls{display:flex;align-items:center;justify-content:center;gap:clamp(15px,3vw,35px);margin:0 auto}
-.showcase-arrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(229,200,107,.5);border-radius:50%;color:var(--gold-soft);font:400 1.4rem/1 var(--sans);transition:background .25s,border-color .25s,transform .25s}
-.showcase-arrow:hover{background:rgba(229,200,107,.13);border-color:var(--gold-soft);transform:scale(1.06)}
-.showcase-status{min-width:120px;text-align:center;color:var(--gold-soft)!important;font:600 .72rem/1.4 var(--sans)!important;letter-spacing:.16em}
-.showcase-hint{text-align:center;font:500 .69rem/1.4 var(--sans)!important;letter-spacing:.1em;color:var(--on-dark-faint)!important;margin-top:13px}
+.showcase-pause{position:absolute;right:clamp(22px,5vw,80px);bottom:42px;z-index:20;width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(235,205,151,.38);border-radius:50%;color:var(--gold-soft);background:rgba(35,14,36,.46);backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
+.showcase-pause:hover,.showcase-pause:focus-visible{background:rgba(148,87,106,.5);border-color:var(--gold-soft)}
+.showcase-pause svg{width:14px;height:14px;fill:currentColor}
 .reviews-block{margin-top:clamp(90px,10vw,140px)}
 .reviews-heading{margin-bottom:28px}
 .reviews-disclosure{max-width:36ch;padding:14px 18px;border-left:2px solid var(--gold-soft);background:rgba(247,244,239,.06);font-size:.82rem!important;line-height:1.55!important}
@@ -960,21 +968,17 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 .reviews-pause{display:block;margin:20px auto 0;padding:8px 15px;border:1px solid rgba(229,200,107,.36);border-radius:999px;color:var(--gold-soft);font:600 .65rem/1.4 var(--sans);letter-spacing:.07em;transition:background .25s}
 .reviews-pause:hover{background:rgba(229,200,107,.12)}
 @media(max-width:700px){
-  .showcase-heading,.reviews-heading{display:block}
-  .showcase-heading>p,.reviews-disclosure{margin-top:18px;max-width:50ch}
-  .showcase-stage{height:390px;margin-top:26px;perspective:900px}
-  .showcase-stage::after{background:linear-gradient(90deg,#230e24 0%,transparent 5%,transparent 95%,#230e24 100%)}
-  .showcase-current{top:19px;font-size:1.04rem!important}
-  .showcase-card-title{font-size:.86rem;padding:30px 11px 13px}
-  .showcase-monogram{font-size:2.7rem}
-  .showcase-status{min-width:100px;font-size:.7rem!important}
-  .showcase-arrow{width:44px;height:44px}
+  .reviews-heading{display:block}
+  .reviews-disclosure{margin-top:18px;max-width:50ch}
+  .showcase-stage{height:510px;perspective:850px}
+  .showcase-card{width:112px;height:144px}
+  .showcase-pause{right:24px;bottom:28px}
   .review-marquees{gap:12px}
   .review-card{width:285px;min-height:200px;padding:18px 20px}
   #recensioni .review-card p{font-size:1rem}
 }
 @media(prefers-reduced-motion:reduce){
-  .showcase-card,.showcase-arrow{transition:none!important}
+  .showcase-pause{display:none}
   .review-row{overflow-x:auto;mask-image:none}
   .review-track{animation:none!important}
   .review-set[aria-hidden="true"]{display:none}
@@ -1442,6 +1446,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
       <aside class="quote" id="riepilogo" aria-label="Riepilogo del preventivo">
         <button class="quote-close" type="button" id="closeQuote" aria-label="Chiudi il riepilogo">&times;</button>
+        <div class="quote-step-indicator" aria-label="Passaggio 1 di 2" id="quote-step-indicator"><span id="step-dot-1">1</span><i></i><span class="is-upcoming" id="step-dot-2">2</span><b id="step-text">Serata</b></div>
+        <div class="quote-step" id="quote-step-1">
         <h3>La tua scaletta</h3>
         <ul class="scaletta" id="scaletta"></ul>
         <div class="selection-count" id="quote-performance-count" hidden>
@@ -1469,6 +1475,13 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
         <div class="tot"><span>Totale</span><b id="totale">0 €</b></div>
         <p class="saving" id="risparmio"></p>
+        <button class="btn btn--primary quote-next" id="quote-next" type="button">Avanti <span aria-hidden="true">→</span></button>
+        <p class="quote-note" id="quote-note">Il totale è indicativo. Elisa ti risponderà per confermare disponibilità e preventivo.</p>
+        </div>
+        <div class="quote-step" id="quote-step-2" hidden>
+        <button class="quote-back" id="quote-back" type="button"><span aria-hidden="true">←</span> Torna alla serata</button>
+        <h3 class="quote-step-title">A chi posso rispondere?</h3>
+        <p class="quote-step-intro">Lascia i tuoi recapiti e, se vuoi, qualche dettaglio in più. Elisa ti risponderà personalmente.</p>
         <form id="quote-form" class="quote-form" novalidate>
           <div class="field"><label for="q-nome">Il tuo nome</label><input id="q-nome" name="name" autocomplete="name" required placeholder="Come ti chiami"></div>
           <div class="field"><label for="q-email">La tua email</label><input id="q-email" name="email" type="email" autocomplete="email" required placeholder="Per risponderti"></div>
@@ -1486,7 +1499,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
           <p class="data-note">Useremo i tuoi recapiti solo per rispondere alla tua richiesta.</p>
           <p class="form-status" id="quote-status" role="status" aria-live="polite"></p>
         </form>
-        <p class="quote-note" id="quote-note">Il totale è indicativo. Elisa ti risponderà per confermare disponibilità e preventivo.</p>
+        <a class="custom-inline" href="#personalizzata"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M4 18 19 5M9 5h10v10" stroke="currentColor" stroke-width="1.5"/></svg><strong>Hai in mente qualcosa di diverso?</strong><small>Raccontaci la tua idea con una richiesta personalizzata.</small></a>
+        </div>
       </aside>
     </div>
   </div>
@@ -1575,31 +1589,21 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     </div>
 
     <div class="showcase rev" aria-labelledby="showcase-title">
-      <div class="showcase-heading">
-        <div>
-          <p class="eyebrow on-dark">La galleria</p>
-          <h3 id="showcase-title">Ogni serata ha il suo <em>momento.</em></h3>
-        </div>
-        <p>Scorri le performance di Elisa Carosi. Le fotografie saranno aggiunte qui, una per volta.</p>
-      </div>
-      <div class="showcase-stage" id="showcase-stage" role="region" tabindex="0" aria-label="Galleria fotografica delle performance di Elisa Carosi">
-        <p class="showcase-current" id="showcase-current" aria-live="polite">Tessuti Aerei</p>
+      <h3 class="showcase-title" id="showcase-title">Galleria fotografica di Elisa Carosi</h3>
+      <div class="showcase-stage" id="showcase-stage" role="region" tabindex="0" aria-label="Galleria fotografica. Scorri la pagina o usa le frecce su e giù per far ruotare la spirale.">
         <div class="showcase-ring" id="showcase-ring">
-          <button class="showcase-card" type="button" data-photo="" data-title="Tessuti Aerei" aria-label="Tessuti Aerei, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Tessuti Aerei</span></button>
-          <button class="showcase-card" type="button" data-photo="" data-title="Cerchio Aereo" aria-label="Cerchio Aereo, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Cerchio Aereo</span></button>
-          <button class="showcase-card" type="button" data-photo="" data-title="Lollipop" aria-label="Lollipop, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Lollipop</span></button>
-          <button class="showcase-card" type="button" data-photo="" data-title="Palo" aria-label="Palo, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Palo</span></button>
-          <button class="showcase-card" type="button" data-photo="" data-title="Fuoco" aria-label="Fuoco, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Fuoco</span></button>
-          <button class="showcase-card" type="button" data-photo="" data-title="Ali di Luce" aria-label="Ali di Luce, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Ali di Luce</span></button>
-          <button class="showcase-card" type="button" data-photo="" data-title="Danza a Terra" aria-label="Danza a Terra, foto in arrivo"><span class="showcase-photo"><span class="showcase-monogram" aria-hidden="true">EC</span><span class="showcase-empty">Spazio foto</span></span><span class="showcase-card-title">Danza a Terra</span></button>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 1 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-macchia.png');--brush-rotate:-20deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 2 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-corallo.png');--brush-rotate:15deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 3 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-oro.png');--brush-rotate:35deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 4 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-schizzi.png');--brush-rotate:-10deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 5 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-macchia.png');--brush-rotate:22deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 6 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-oro.png');--brush-rotate:-35deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 7 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-corallo.png');--brush-rotate:10deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 8 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-schizzi.png');--brush-rotate:28deg"></span></div>
+          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 9 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-macchia.png');--brush-rotate:-12deg"></span></div>
         </div>
+        <button class="showcase-pause" id="showcase-pause" type="button" aria-label="Metti in pausa la galleria" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2h3v12H3zm7 0h3v12h-3z"/></svg></button>
       </div>
-      <div class="showcase-controls">
-        <button class="showcase-arrow" id="showcase-prev" type="button" aria-label="Foto precedente">&#8592;</button>
-        <p class="showcase-status" id="showcase-status" role="status" aria-live="polite">01 / 07</p>
-        <button class="showcase-arrow" id="showcase-next" type="button" aria-label="Foto successiva">&#8594;</button>
-      </div>
-      <p class="showcase-hint">Trascina, scorri o seleziona una foto. Tocca quella al centro per ingrandirla.</p>
     </div>
 
     <div class="reviews-block rev" aria-labelledby="reviews-title">
@@ -1859,6 +1863,33 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   var qFine = document.getElementById("q-fine");
   var qNote = document.getElementById("q-note");
   var qTelefono = document.getElementById("q-telefono");
+  var quoteStep1 = document.getElementById("quote-step-1");
+  var quoteStep2 = document.getElementById("quote-step-2");
+  function setQuoteStep(step){
+    quoteStep1.hidden = step !== 1;
+    quoteStep2.hidden = step !== 2;
+    document.getElementById("step-dot-1").classList.toggle("is-upcoming", step !== 1);
+    document.getElementById("step-dot-2").classList.toggle("is-upcoming", step !== 2);
+    document.getElementById("step-text").textContent = step === 1 ? "Serata" : "I tuoi recapiti";
+    document.getElementById("quote-step-indicator").setAttribute("aria-label", "Passaggio " + step + " di 2");
+    if(step === 2) document.getElementById("q-nome").focus({preventScroll:true});
+    else document.getElementById("quote-next").focus({preventScroll:true});
+    if(window.innerWidth < 1020) document.getElementById("riepilogo").scrollTop = 0;
+  }
+  document.getElementById("quote-next").addEventListener("click", function(){
+    if(!stato().voci.length){ noteEl.textContent = "Scegli almeno una performance."; return; }
+    if(!qData.reportValidity()) return;
+    if(!qOra.reportValidity()) return;
+    if(!qFine.reportValidity()) return;
+    if(minutiSerata(qFine.value) <= minutiSerata(qOra.value)){
+      qFine.setCustomValidity("Scegli un orario successivo all'inizio della serata.");
+      qFine.reportValidity();
+      qFine.setCustomValidity("");
+      return;
+    }
+    setQuoteStep(2);
+  });
+  document.getElementById("quote-back").addEventListener("click", function(){ setQuoteStep(1); });
 
   // La serata va dalle 08:00 del giorno scelto alle 04:00 del giorno successivo.
   function minutiSerata(value){
@@ -2122,6 +2153,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       "?subject=" + encodeURIComponent("Richiesta preventivo — serata del " + (qData.value ? dataIT(qData.value) : "…")) +
       "&body=" + encodeURIComponent(righe.join("\n"));
     mail.disabled = !attivo;
+    document.getElementById("quote-next").disabled = !attivo;
+    if(!attivo && !quoteStep2.hidden) setQuoteStep(1);
 
     noteEl.textContent = !attivo
       ? "Scegli almeno una performance per poter inviare la richiesta."
@@ -2215,6 +2248,9 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   quotePanel.querySelector(".limit-custom-cta").addEventListener("click", function(){
     if(quotePanel.classList.contains("sheet-open")) toggleQuote(false);
   });
+  quotePanel.querySelector(".custom-inline").addEventListener("click", function(){
+    if(quotePanel.classList.contains("sheet-open")) toggleQuote(false);
+  });
   document.addEventListener("keydown", function(e){
     if(e.key === "Escape" && quotePanel.classList.contains("sheet-open")) toggleQuote(false);
     if(e.key === "Tab" && quotePanel.classList.contains("sheet-open")){
@@ -2301,6 +2337,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     var email = document.getElementById("q-email");
     if(!name.reportValidity() || !email.reportValidity()) return;
     if(!qData.value || !qOra.value || !qFine.value){
+      setQuoteStep(1);
       (!qData.value ? qData : !qOra.value ? qOra : qFine).focus();
       noteEl.textContent = "Inserisci giorno, inizio e fine serata prima di richiedere il preventivo.";
       return;
@@ -2370,116 +2407,92 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     });
   },{passive:true});
 
-  // Galleria flessibile: card inclinate, drag e ingrandimento senza dipendenze React.
-  var carousel = document.querySelector(".showcase");
+  // Spirale fotografica: auto movimento discreto, scroll della pagina e drag desktop.
   var stage = document.getElementById("showcase-stage");
-  var ring = document.getElementById("showcase-ring");
-  var cards = Array.prototype.slice.call(ring.querySelectorAll(".showcase-card"));
-  var carouselStatus = document.getElementById("showcase-status");
-  var carouselTitle = document.getElementById("showcase-current");
-  var active = 0, expanded = false, dragStart = null, dragOffset = 0, moved = false, suppressClick = false;
-  var wheelTime = 0;
-  function relativeCard(index){
-    var distance = (index - active + cards.length) % cards.length;
-    return distance > cards.length / 2 ? distance - cards.length : distance;
-  }
-  function paintCarousel(){
-    var cardWidth = Math.min(208, Math.max(166, stage.clientWidth * .19));
-    stage.style.setProperty("--card-width", cardWidth + "px");
-    stage.style.setProperty("--card-height", stage.clientHeight * .5 + "px");
-    cards.forEach(function(card, index){
-      var distance = relativeCard(index), depth = Math.abs(distance);
-      var x = distance * (cardWidth + 12) * .96 + dragOffset + (expanded && distance ? Math.sign(distance) * 65 : 0);
-      var y = -distance * 23 + (stage.classList.contains("is-ready") ? 0 : 65);
-      var z = -depth * 32 + (expanded && !distance ? 100 : 0);
-      var scale = (1 - depth * .07) * (expanded && !distance ? 1.4 : 1) * (moved ? .8 : 1);
-      card.style.transform = "translate(-50%,-50%) translate3d(" + x + "px," + y + "px," + z + "px) rotateY(" + (-distance * 13) + "deg) rotateZ(" + (-distance * 4.5) + "deg) scale(" + scale + ")";
-      card.style.opacity = depth > 2 ? "0" : String(1 - depth * .12);
-      card.style.zIndex = String(10 - depth);
-      card.classList.toggle("is-active",distance === 0);
-      card.classList.toggle("is-far",depth > 2);
-      card.tabIndex = distance === 0 ? 0 : -1;
-      if(distance === 0) card.setAttribute("aria-current","true");
-      else card.removeAttribute("aria-current");
+  var cards = Array.prototype.slice.call(stage.querySelectorAll(".showcase-card"));
+  var spiralPause = document.getElementById("showcase-pause");
+  var spiralProgress = 0, spiralTarget = 0, spiralVisible = false, spiralHover = false;
+  var spiralPaused = false, spiralDragging = false, spiralLastY = 0, spiralLastTime = 0;
+  var spiralFrame = 0, spiralScrollY = window.scrollY;
+  var spiralCount = cards.length;
+  function spiralModulo(value, base){ return ((value % base) + base) % base; }
+  function paintSpiral(){
+    var mobile = stage.clientWidth < 700;
+    var radius = Math.min(mobile ? 115 : 190, stage.clientWidth * (mobile ? .28 : .22));
+    var spacing = mobile ? 65 : 79;
+    cards.forEach(function(card,index){
+      var offset = spiralModulo(index - spiralProgress + spiralCount / 2, spiralCount) - spiralCount / 2;
+      var angle = offset * (Math.PI * 2 / 7);
+      var x = Math.sin(angle) * radius;
+      var z = Math.cos(angle) * radius;
+      var y = offset * spacing;
+      var focus = Math.max(0,1 - Math.abs(offset) / 2.4);
+      var depth = Math.max(.72,Math.min(1.45,1000 / (1000 - z)));
+      var scale = (1 + .2 * focus) * depth;
+      var fade = Math.max(0,1 - Math.max(0,Math.abs(offset)-2.2) / 2.2);
+      var blur = Math.max(0,Math.abs(offset)-2.5) * 2.5;
+      card.style.transform = "translate(-50%,-50%) translate3d(" + x.toFixed(2) + "px," + y.toFixed(2) + "px," + z.toFixed(2) + "px) rotateY(" + (-Math.sin(angle)*24).toFixed(2) + "deg) scale(" + scale.toFixed(3) + ")";
+      card.style.opacity = fade.toFixed(3);
+      card.style.filter = "blur(" + blur.toFixed(2) + "px)";
+      card.style.zIndex = String(Math.round(z + 300));
+      card.setAttribute("aria-hidden", Math.abs(offset) > 2.5 ? "true" : "false");
     });
-    carouselTitle.textContent = cards[active].dataset.title;
-    carouselStatus.textContent = String(active + 1).padStart(2,"0") + " / " + String(cards.length).padStart(2,"0");
-    stage.classList.toggle("is-expanded",expanded);
-  }
-  function showCard(index){
-    active = (index + cards.length) % cards.length;
-    expanded = false;
-    dragOffset = 0;
-    paintCarousel();
   }
   cards.forEach(function(card,index){
     var photo = card.dataset.photo;
-    if(photo){
-      var image = document.createElement("img");
-      image.alt = "Elisa Carosi · " + card.dataset.title;
-      image.onload = function(){ card.classList.add("has-photo"); card.setAttribute("aria-label",image.alt); };
-      image.src = photo;
-      card.querySelector(".showcase-photo").appendChild(image);
-    }
-    card.addEventListener("click",function(){
-      if(suppressClick) return;
-      if(index === active){ expanded = !expanded; paintCarousel(); }
-      else showCard(index);
-    });
+    if(!photo) return;
+    var image = document.createElement("img");
+    image.alt = card.dataset.alt || "Elisa Carosi durante un evento, fotografia " + (index + 1);
+    image.onload = function(){ card.classList.add("has-photo"); card.setAttribute("aria-label",image.alt); };
+    image.src = photo;
+    card.appendChild(image);
   });
-  document.getElementById("showcase-prev").addEventListener("click",function(){showCard(active-1);});
-  document.getElementById("showcase-next").addEventListener("click",function(){showCard(active+1);});
-  stage.addEventListener("keydown",function(event){
-    if(event.key === "Escape" && expanded){ expanded = false; paintCarousel(); return; }
-    if(event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-    event.preventDefault();
-    showCard(active+(event.key === "ArrowRight" ? 1 : -1));
-    cards[active].focus();
-  });
+  function runSpiral(time){
+    if(!spiralVisible || document.hidden){ spiralFrame = 0; spiralLastTime = 0; return; }
+    var dt = spiralLastTime ? Math.min(50,time - spiralLastTime) : 16;
+    spiralLastTime = time;
+    if(!spiralPaused && !spiralHover && !spiralDragging && !motionPreference.matches) spiralTarget += dt * .00011;
+    spiralProgress += (spiralTarget - spiralProgress) * Math.min(1,dt * .012);
+    paintSpiral();
+    spiralFrame = requestAnimationFrame(runSpiral);
+  }
+  function syncSpiral(){
+    if(spiralVisible && !document.hidden && !spiralFrame) spiralFrame = requestAnimationFrame(runSpiral);
+    else if((!spiralVisible || document.hidden) && spiralFrame){ cancelAnimationFrame(spiralFrame); spiralFrame = 0; spiralLastTime = 0; }
+  }
+  new IntersectionObserver(function(entries){ spiralVisible = entries[0].isIntersecting; syncSpiral(); },{rootMargin:"120px"}).observe(stage);
+  document.addEventListener("visibilitychange",syncSpiral);
+  stage.addEventListener("mouseenter",function(){ spiralHover = true; });
+  stage.addEventListener("mouseleave",function(){ spiralHover = false; });
   stage.addEventListener("pointerdown",function(event){
-    if(event.pointerType === "mouse" && event.button !== 0) return;
-    dragStart = event.clientX; moved = false;
+    if(event.target.closest("button") || event.pointerType === "touch" || (event.pointerType === "mouse" && event.button !== 0)) return;
+    spiralDragging = true; spiralLastY = event.clientY; stage.classList.add("is-dragging"); stage.setPointerCapture(event.pointerId);
   });
   stage.addEventListener("pointermove",function(event){
-    if(dragStart === null) return;
-    var dx = event.clientX-dragStart;
-    if(Math.abs(dx) < 5 && !moved) return;
-    if(!moved) stage.setPointerCapture(event.pointerId);
-    moved = true;
-    dragOffset = dx;
-    expanded = false;
-    stage.classList.add("is-dragging");
-    paintCarousel();
-    event.preventDefault();
+    if(!spiralDragging) return;
+    spiralTarget += (spiralLastY - event.clientY) / 90;
+    spiralLastY = event.clientY;
   });
-  function finishDrag(event){
-    if(dragStart === null) return;
-    var dx = event.clientX - dragStart;
-    dragStart = null;
-    stage.classList.remove("is-dragging");
-    if(moved){
-      suppressClick = true;
-      var width = parseFloat(stage.style.getPropertyValue("--card-width")) || 208;
-      var steps = Math.max(1,Math.round(Math.abs(dx)/(width+12)));
-      moved = false;
-      showCard(active+(dx < 0 ? steps : -steps));
-      setTimeout(function(){suppressClick = false;},0);
-    }
-  }
-  stage.addEventListener("pointerup",finishDrag);
-  stage.addEventListener("pointercancel",finishDrag);
-  stage.addEventListener("wheel",function(event){
-    if(event.ctrlKey || Date.now()-wheelTime < 420) return;
-    var delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
-    if(!delta) return;
-    event.preventDefault();
-    wheelTime = Date.now();
-    showCard(active+(delta > 0 ? 1 : -1));
-  },{passive:false});
-  new ResizeObserver(paintCarousel).observe(stage);
-  paintCarousel();
-  if(motionPreference.matches){ stage.classList.add("is-ready"); paintCarousel(); }
-  else requestAnimationFrame(function(){ stage.classList.add("is-ready"); paintCarousel(); });
+  function stopSpiralDrag(){ spiralDragging = false; stage.classList.remove("is-dragging"); }
+  stage.addEventListener("pointerup",stopSpiralDrag);
+  stage.addEventListener("pointercancel",stopSpiralDrag);
+  stage.addEventListener("keydown",function(event){
+    if(event.key !== "ArrowUp" && event.key !== "ArrowDown") return;
+    event.preventDefault(); spiralTarget += event.key === "ArrowDown" ? 1 : -1;
+  });
+  window.addEventListener("scroll",function(){
+    var nextY = window.scrollY, delta = nextY - spiralScrollY;
+    spiralScrollY = nextY;
+    if(spiralVisible && !motionPreference.matches) spiralTarget += Math.max(-120,Math.min(120,delta)) * .004;
+  },{passive:true});
+  spiralPause.addEventListener("click",function(){
+    spiralPaused = !spiralPaused;
+    spiralPause.setAttribute("aria-pressed",String(spiralPaused));
+    spiralPause.setAttribute("aria-label",spiralPaused ? "Riprendi la galleria" : "Metti in pausa la galleria");
+    spiralPause.querySelector("path").setAttribute("d",spiralPaused ? "M4 2v12l10-6z" : "M3 2h3v12H3zm7 0h3v12h-3z");
+  });
+  new ResizeObserver(paintSpiral).observe(stage);
+  paintSpiral();
 
   // Tre fasce continue, con la copia nascosta ai lettori di schermo.
   var reviewMarquees = document.getElementById("review-marquees");
