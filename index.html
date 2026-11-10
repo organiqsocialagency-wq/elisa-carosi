@@ -2526,7 +2526,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   window.addEventListener("scroll",function(){
     var nextY = window.scrollY, delta = nextY - spiralScrollY;
     spiralScrollY = nextY;
-    if(spiralVisible && !motionPreference.matches) spiralTarget += Math.max(-120,Math.min(120,delta)) * .004;
+    if(spiralVisible && !motionPreference.matches) spiralTarget += Math.max(-120,Math.min(120,delta)) * .0012;
   },{passive:true});
   spiralPause.addEventListener("click",function(){
     spiralPaused = !spiralPaused;
