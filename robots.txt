@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elisacarosiperformer.it/sitemap.xml

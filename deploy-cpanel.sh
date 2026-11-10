@@ -10,3 +10,5 @@ fi
 cp -R media/. "$webroot/media/"
 cp index.html "$webroot/index.html"
 cp richiesta.php "$webroot/richiesta.php"
+cp robots.txt "$webroot/robots.txt"
+cp sitemap.xml "$webroot/sitemap.xml"

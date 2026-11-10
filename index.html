@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elisa Carosi · Danza aerea e fuoco per matrimoni ed eventi a Roma</title>
-<meta name="description" content="Elisa Carosi, performer di danza aerea, fuoco e ali di luce per matrimoni ed eventi a Roma e in tutta Italia. Scegli le performance e richiedi un preventivo.">
+<title>Elisa Carosi | Danza aerea e spettacoli per eventi a Roma</title>
+<meta name="description" content="Danza aerea, fuoco e ali di luce con Elisa Carosi per matrimoni, compleanni, locali ed eventi aziendali a Roma e provincia. Richiedi una proposta.">
 <meta name="theme-color" content="#2B0F2E">
 <link rel="canonical" href="https://elisacarosiperformer.it/">
 
@@ -13,8 +13,8 @@
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="Elisa Carosi">
 <meta property="og:url" content="https://elisacarosiperformer.it/">
-<meta property="og:title" content="Elisa Carosi — Danza aerea, fuoco e ali di luce per i vostri eventi">
-<meta property="og:description" content="Tessuti aerei, cerchio, palo, fuoco e ali di luce per matrimoni, diciottesimi e serate. Scegli le performance e richiedi il preventivo. Roma e trasferte.">
+<meta property="og:title" content="Elisa Carosi | Spettacoli per eventi a Roma e provincia">
+<meta property="og:description" content="Danza aerea, fuoco e ali di luce con Elisa Carosi per matrimoni, compleanni, locali ed eventi aziendali a Roma e provincia. Richiedi una proposta.">
 <meta property="og:image" content="https://elisacarosiperformer.it/media/anteprima.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -453,7 +453,7 @@ section{position:relative;padding:clamp(62px,8.5vw,116px) var(--pad);overflow-x:
 .evento{background:var(--ivory-pure);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(20px,2.1vw,26px);display:flex;flex-direction:column;gap:8px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease,border-color .4s ease}
 .evento:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(43,15,46,.1);border-color:var(--line-gold)}
 .evento svg{width:25px;height:25px;color:var(--rose)}
-.evento b{font-size:1.48rem;font-weight:500}
+.evento h3{font-size:1.48rem;font-weight:500}
 .evento p{font-size:1.08rem;color:var(--ink-soft);line-height:1.5}
 
 .evento .tipo{
@@ -731,7 +731,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 .bio-testo p,.evento p,.nota p,.form>p,.contact-aside>p,.venues-section p:not(.eyebrow){font-family:var(--sans);font-size:1rem;line-height:1.8}
 .bio-testo p+p{margin-top:20px}
 .nota h3{font-size:1.5rem;line-height:1.3;margin-bottom:12px}
-.evento b{font-family:var(--serif);font-size:1.65rem;font-weight:400;line-height:1.3}
+.evento h3{font-family:var(--serif);font-size:1.65rem;font-weight:400;line-height:1.3}
 .numeri .numero b{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.6rem)}
 .numero>span{font-size:.72rem;letter-spacing:.1em}
 .btn{font-size:.78rem;font-weight:700;letter-spacing:.065em;min-height:48px}
@@ -945,8 +945,11 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 .showcase-brush{position:absolute;inset:-12%;background:var(--brush-image) center/contain no-repeat;opacity:.58;mix-blend-mode:screen;transform:rotate(var(--brush-rotate,0deg)) scale(1.12)}
 .showcase-card:nth-child(2n) .showcase-brush{opacity:.34}
 .showcase-card.has-photo .showcase-brush{display:none}
-.showcase-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.showcase-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#201025;display:none}
 .showcase-card.has-photo img{display:block}
+.showcase-card.has-photo::before,.showcase-card.has-photo::after{display:none}
+.showcase-card.is-landscape{width:190px;height:128px}
+@media(max-width:700px){.showcase-card.is-landscape{width:150px;height:102px}}
 .showcase-pause{position:absolute;right:clamp(22px,5vw,80px);bottom:42px;z-index:20;width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(235,205,151,.38);border-radius:50%;color:var(--gold-soft);background:rgba(35,14,36,.46);backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
 .showcase-pause:hover,.showcase-pause:focus-visible{background:rgba(148,87,106,.5);border-color:var(--gold-soft)}
 .showcase-pause svg{width:14px;height:14px;fill:currentColor}
@@ -989,31 +992,15 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "PerformingGroup",
+ "@type": "Person",
  "@id": "https://elisacarosiperformer.it/#elisa",
  "name": "Elisa Carosi",
- "alternateName": "Elisa Carosi — Performer di danza aerea",
- "description": "Performer di danza aerea con oltre dieci anni di pratica e cinque di attività professionale, più di duecento serate all'attivo. Tessuti aerei, cerchio aereo, lollipop, palo, fuoco e ali di luce per matrimoni, diciottesimi, anniversari, serate nei locali ed eventi aziendali a Roma e in tutta Italia.",
+ "alternateName": "Elisa Carosi Performer",
+ "description": "Elisa Carosi propone danza aerea, fuoco, ali di luce e danza a terra per matrimoni, compleanni, anniversari, locali ed eventi aziendali a Roma e provincia.",
  "url": "https://elisacarosiperformer.it/",
  "image": "https://elisacarosiperformer.it/media/anteprima.jpg",
  "email": "elisa.carosi@me.com",
  "telephone": "+39 334 284 3928",
- "address": {
-  "@type": "PostalAddress",
-  "addressLocality": "Roma",
-  "addressRegion": "RM",
-  "addressCountry": "IT"
- },
- "areaServed": [
-  {
-   "@type": "City",
-   "name": "Roma"
-  },
-  {
-   "@type": "Country",
-   "name": "Italia"
-  }
- ],
  "knowsLanguage": "it",
  "makesOffer": [
   {
@@ -1024,6 +1011,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     "serviceType": "Performance dal vivo per eventi",
     "provider": {
      "@id": "https://elisacarosiperformer.it/#elisa"
+    },
+    "areaServed": {
+     "@type": "AdministrativeArea",
+     "name": "Roma e provincia"
     }
    }
   },
@@ -1035,6 +1026,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     "serviceType": "Performance dal vivo per eventi",
     "provider": {
      "@id": "https://elisacarosiperformer.it/#elisa"
+    },
+    "areaServed": {
+     "@type": "AdministrativeArea",
+     "name": "Roma e provincia"
     }
    }
   },
@@ -1046,6 +1041,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     "serviceType": "Performance dal vivo per eventi",
     "provider": {
      "@id": "https://elisacarosiperformer.it/#elisa"
+    },
+    "areaServed": {
+     "@type": "AdministrativeArea",
+     "name": "Roma e provincia"
     }
    }
   },
@@ -1057,6 +1056,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     "serviceType": "Performance dal vivo per eventi",
     "provider": {
      "@id": "https://elisacarosiperformer.it/#elisa"
+    },
+    "areaServed": {
+     "@type": "AdministrativeArea",
+     "name": "Roma e provincia"
     }
    }
   },
@@ -1068,6 +1071,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     "serviceType": "Performance dal vivo per eventi",
     "provider": {
      "@id": "https://elisacarosiperformer.it/#elisa"
+    },
+    "areaServed": {
+     "@type": "AdministrativeArea",
+     "name": "Roma e provincia"
     }
    }
   },
@@ -1079,6 +1086,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     "serviceType": "Performance dal vivo per eventi",
     "provider": {
      "@id": "https://elisacarosiperformer.it/#elisa"
+    },
+    "areaServed": {
+     "@type": "AdministrativeArea",
+     "name": "Roma e provincia"
     }
    }
   },
@@ -1090,9 +1101,17 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     "serviceType": "Performance dal vivo per eventi",
     "provider": {
      "@id": "https://elisacarosiperformer.it/#elisa"
+    },
+    "areaServed": {
+     "@type": "AdministrativeArea",
+     "name": "Roma e provincia"
     }
    }
   }
+ ],
+ "jobTitle": "Performer di danza aerea e spettacoli per eventi",
+ "sameAs": [
+  "https://www.instagram.com/elisa_aerialist/"
  ]
 }
 </script>
@@ -1103,10 +1122,34 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
  "mainEntity": [
   {
    "@type": "Question",
+   "name": "Quanto costa una performance per un evento?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Il calcolatore mostra tariffe provvisorie: 100 € per una performance aerea e 50 € per danza a terra, fuoco o ali di luce. Tre performance uguali di danza a terra, fuoco o ali di luce costano indicativamente 130 €. Struttura, date speciali e trasferte possono aggiungere costi. Il prezzo definitivo viene confermato da Elisa nella proposta."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quante performance posso scegliere per una serata?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Puoi selezionare fino a 4 performance complessive, anche di discipline diverse. Il tessuto classico ha un limite di 2; puoi arrivare a 3 se almeno una è in amaca. Le altre discipline arrivano a 3 ciascuna. Con almeno 2 aeree, la danza a terra è limitata a 2. Per altre combinazioni usa la richiesta personalizzata."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Come funziona la richiesta di preventivo?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Scegli le performance e indica giorno, inizio e fine serata. Premi Avanti, lascia nome ed email e invia la richiesta. Elisa verificherà disponibilità e requisiti della location prima di confermare il preventivo. L’invio del modulo non costituisce una prenotazione."
+   }
+  },
+  {
+   "@type": "Question",
    "name": "Che altezza deve avere la sala?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Per cerchio, lollipop e palo servono almeno 3 metri liberi. I tessuti divisi richiedono almeno 4,5 metri per eseguire le cadute controllate e le altre figure della coreografia. Con meno altezza, per il tessuto si può valutare solo la versione amaca: lo spazio disponibile e la struttura vanno verificati con Elisa prima di confermare."
+    "text": "Per cerchio aereo, lollipop e palo servono almeno 3 metri liberi; per i tessuti divisi almeno 4,5 metri, necessari per le cadute controllate e le figure previste. Con meno altezza si può valutare il tessuto in amaca. Altezza e struttura vanno comunque verificate con Elisa prima della conferma."
    }
   },
   {
@@ -1114,7 +1157,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
    "name": "Serve un punto di aggancio al soffitto?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Per i tessuti e per il cerchio sì, e deve essere un aggancio certificato: lo verifico con il locale prima di confermare. Il lollipop e il palo montano su una pedana autoportante, quindi non serve appendere niente. Se in sala non c'è nulla a cui agganciarsi, porto un tripode autoportante."
+    "text": "Tessuti e cerchio aereo richiedono un punto di aggancio adeguato oppure una struttura autoportante. Se serve, Elisa può portare la struttura, con un supplemento nel riepilogo. Palo e lollipop si montano su una pedana. Prima della conferma verifichiamo con la location l’allestimento possibile."
    }
   },
   {
@@ -1122,7 +1165,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
    "name": "Quanto dura una performance?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Le performance aeree, di fuoco e con le ali di luce durano quanto una canzone, circa tre o quattro minuti. La danza a terra prevede performance da 30 minuti. Con il cerchio e il lollipop posso anche restare in aria dieci o quindici minuti in pose lente, mentre gli ospiti cenano o ballano. Sul lollipop posso accogliere gli ospiti con una bottiglia in mano, se nell’evento è previsto il drink di benvenuto."
+    "text": "Le performance aeree, di fuoco e con le ali di luce durano circa 3-4 minuti, quanto una canzone. La danza a terra dura 30 minuti. Servono 30 minuti tra una performance e l’altra. Per un’accoglienza più lunga su cerchio o lollipop, anche con la bottiglia del drink di benvenuto, chiedi una proposta personalizzata."
    }
   },
   {
@@ -1130,7 +1173,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
    "name": "Quali performance posso fare all'aperto?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Tutte le performance si possono fare all’aperto, con spazio e strutture adeguati. Per il fuoco serve un’area sgombra, senza oggetti che ostacolino i movimenti e lontana da materiali infiammabili, come tende, decorazioni e vegetazione secca. Il fuoco e le ali di luce si eseguono in orario notturno."
+    "text": "Tutte le performance possono svolgersi all’aperto, con spazio e strutture adeguati e condizioni meteo da valutare. Per il fuoco serve un’area sgombra e lontana da materiali infiammabili. Fuoco e ali di luce sono previsti in orario notturno; l’allestimento va concordato prima dell’evento."
    }
   },
   {
@@ -1138,7 +1181,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
    "name": "Quanto spazio serve intorno?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Un'area sgombra di circa tre metri per tre attorno all'attrezzo, senza tavoli né lampadari nel raggio d'azione. Serve anche un camerino o una stanza riservata per i cambi di costume."
+    "text": "Lo spazio necessario dipende dall’attrezzo, dalla struttura e dalla coreografia. Invia le misure della location, considerando anche arredi, lampadari e passaggio degli ospiti: Elisa verificherà l’allestimento adatto. Serve inoltre uno spazio riservato per i cambi di costume."
    }
   },
   {
@@ -1146,7 +1189,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
    "name": "Come si sceglie la musica?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "La scegliamo insieme prima dell'evento e la passo al DJ o al tecnico audio della serata. Le coreografie le costruisco su quelle canzoni, quindi vanno decise con un po' di anticipo."
+    "text": "La musica si concorda prima dell’evento, insieme al momento della performance. Se hai una canzone in mente, indicala nelle note: ne valutiamo l’adattamento alla coreografia e coordiniamo la riproduzione con il DJ o il tecnico audio."
    }
   },
   {
@@ -1154,7 +1197,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
    "name": "Posso richiedere performance di gruppo?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Sì, puoi richiedere una performance di gruppo. Indica nella richiesta personalizzata quante performer desideri coinvolgere, insieme alla data e ai dettagli dell’evento."
+    "text": "Sì. Nella richiesta personalizzata indica quante performer desideri coinvolgere, il tipo di evento e la location. Aggiungi la data, se già definita: riceverai una proposta in base alla disponibilità e alle caratteristiche dello spettacolo."
    }
   },
   {
@@ -1162,7 +1205,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
    "name": "Lavori anche fuori Roma?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Sì. Roma e provincia sono la zona abituale, ma faccio trasferte in tutta Italia: il costo della trasferta si concorda in consulenza, in base alla location."
+    "text": "Sì. Elisa Carosi si esibisce principalmente a Roma e provincia; le trasferte in altre zone si valutano su richiesta. Se l’evento è fuori Roma e provincia, seleziona la relativa voce nel modulo. Il costo della trasferta si concorda a parte ed è escluso dalla stima online."
    }
   }
  ]
@@ -1255,9 +1298,9 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="eyebrow on-dark">Performer di danza aerea · Oltre 200 serate · Roma e trasferte</p>
-      <h1>Il momento in cui tutti <span class="pw on-dark">alzano lo sguardo.</span></h1>
-      <p class="hero-lead">Danza aerea, fuoco e luce per il tuo evento. Con Elisa Carosi, a Roma e in tutta Italia.</p>
+      <p class="eyebrow on-dark">Elisa Carosi · Performer per eventi a Roma e provincia</p>
+      <h1>Danza aerea e spettacoli <span class="pw on-dark">per eventi a Roma.</span></h1>
+      <p class="hero-lead">Performance di danza aerea, fuoco e ali di luce per matrimoni, compleanni, anniversari, locali ed eventi aziendali a Roma e provincia. Scegli lo spettacolo per il tuo evento e richiedi una proposta a Elisa Carosi.</p>
       <div class="hero-cta">
         <a class="btn btn--onDark" href="#performance">Seleziona la performance</a>
       </div>
@@ -1282,14 +1325,10 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         <img src="media/elisa-ritratto.jpg" alt="Elisa Carosi durante una performance con i ventagli di fuoco">
       </div>
       <div class="bio-testo">
-        <p>Ho cominciato più di dieci anni fa, in palestra, per il gusto di stare a testa in giù. Da cinque salgo in scena per lavoro, e nel frattempo ho fatto più di duecento serate: matrimoni, diciottesimi, locali, inaugurazioni.</p>
-        <p>Quello che ho imparato in duecento serate è che il numero perfetto non esiste: esiste quello giusto per la vostra sala, alla vostra ora, davanti ai vostri ospiti. Per questo prima di propormi vi faccio qualche domanda.</p>
+        <p>Sono Elisa Carosi. Porto la danza aerea, il fuoco e le ali di luce negli eventi a Roma e provincia: dalle feste private alle serate nei locali, fino a gala e inaugurazioni.</p>
+        <p>Per scegliere la performance parto dal tuo evento: quanto spazio c’è, quale atmosfera desideri e in quale momento vuoi coinvolgere gli ospiti. Da qui definiamo insieme lo spettacolo e il suo posto nella serata.</p>
         <span class="bio-firma">Elisa</span>
-        <div class="numeri">
-          <div class="numero"><b>10<span class="piu">+</span></b><span>anni di pratica</span></div>
-          <div class="numero"><b>5</b><span>anni in scena</span></div>
-          <div class="numero"><b>200<span class="piu">+</span></b><span>serate</span></div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -1305,7 +1344,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     <div class="sec-head rev">
       <p class="eyebrow">Il repertorio</p>
       <h2>Seleziona la <span class="pw">performance</span></h2>
-      <p>Scegli quante performance desideri con + e −. Tocca una card per scoprirla: il tuo preventivo prende forma nel riepilogo.</p>
+      <p>Apri una card per conoscere la performance e i requisiti. Con + e − scegli quante ne desideri; poi aggiungi data e orari per inviare la richiesta.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
 
@@ -1336,7 +1375,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
         <div class="perf-body" id="body-tessuti" inert><div><div class="perf-inner">
           <svg class="discipline-art art-tessuti" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-tessuti" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="silk-unroll"><path d="M100-30 C44 40 202 43 132 105 S41 150 101 225 L159 225 C87 149 222 140 188 71 S136 5 160-30Z" fill="url(#art-tessuti)"/><path d="M143-30 C102 28 211 50 156 113 S100 170 135 225" fill="none" stroke="#ffe3c5" stroke-width="1.5"/><path d="M232-30 C160 55 274 40 215 132 S189 188 242 225" fill="none" stroke="url(#art-tessuti)" stroke-width="20"/></g></svg>
-          <div class="perf-description"><p>Due teli, figure sospese e cadute controllate. Un momento che cattura gli sguardi, ideale quando vuoi portare tutta l’attenzione sullo spettacolo.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+          <div class="perf-description"><p>Avvolgimenti, figure sospese e cadute controllate sui tessuti aerei. Da scegliere per dedicare qualche minuto della serata a uno spettacolo acrobatico.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € indicativi a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
         </div></div></div>
       </article>
 
@@ -1353,7 +1392,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
         <div class="perf-body" id="body-cerchio" inert><div><div class="perf-inner">
           <svg class="discipline-art art-cerchio" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-cerchio" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="orbit-reveal"><circle cx="164" cy="99" r="70" fill="none" stroke="url(#art-cerchio)" stroke-width="7"/><circle cx="164" cy="99" r="81" fill="none" stroke="#d4af37" stroke-width=".8" stroke-dasharray="3 9"/><path d="M164-20V25" stroke="#b98461" stroke-width="2"/><path d="M128 49 Q176 88 138 122 T192 151" fill="none" stroke="#c47a87" stroke-width="2"/></g></svg>
-          <div class="perf-description"><p>Una coreografia sospesa sul cerchio, oppure pose lente per accompagnare la cena. Può diventare il centro della scena o parte dell’atmosfera.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+          <div class="perf-description"><p>Una coreografia sul cerchio aereo, tra equilibri e figure sospese. Adatta al ricevimento o a un momento dedicato durante la festa; l’accoglienza con pose lente si concorda a parte.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € indicativi a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
         </div></div></div>
       </article>
 
@@ -1370,7 +1409,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
         <div class="perf-body" id="body-lollipop" inert><div><div class="perf-inner">
           <svg class="discipline-art art-lollipop" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-lollipop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="pedestal-rise"><path d="M159 123V196 M112 197H206" fill="none" stroke="url(#art-lollipop)" stroke-width="5"/><circle cx="159" cy="68" r="54" fill="none" stroke="url(#art-lollipop)" stroke-width="6"/><ellipse cx="159" cy="198" rx="67" ry="7" fill="none" stroke="#d4af37" stroke-width="1"/></g></svg>
-          <div class="perf-description"><p>Un cerchio su pedana, senza agganci al soffitto. Perfetto anche per accogliere gli ospiti dall’alto, con il drink di benvenuto se previsto.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+          <div class="perf-description"><p>Il lollipop è un cerchio montato su una pedana autoportante: non richiede agganci al soffitto. Puoi sceglierlo per una coreografia o concordare un’accoglienza con il drink di benvenuto.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € indicativi a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
         </div></div></div>
       </article>
 
@@ -1387,7 +1426,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
         <div class="perf-body" id="body-palo" inert><div><div class="perf-inner">
           <svg class="discipline-art art-palo" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-palo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="pole-reveal"><path d="M164 5V196 M112 197H213" stroke="url(#art-palo)" stroke-width="5" fill="none"/><ellipse cx="164" cy="93" rx="88" ry="29" transform="rotate(-35 164 93)" fill="none" stroke="url(#art-palo)" stroke-width="3"/><ellipse cx="164" cy="120" rx="73" ry="23" transform="rotate(-35 164 120)" fill="none" stroke="#d4af37" stroke-width="1"/></g></svg>
-          <div class="perf-description"><p>Forza e fluidità su pedana autoportante. Una performance da vivere da vicino, per cogliere ogni figura e ogni passaggio.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+          <div class="perf-description"><p>Rotazioni, equilibri e figure acrobatiche al palo su pedana autoportante. Una coreografia a tempo di musica per una festa privata, un locale o un evento aziendale.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">100 € indicativi a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
         </div></div></div>
       </article>
 
@@ -1404,7 +1443,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
         <div class="perf-body" id="body-fuoco" inert><div><div class="perf-inner">
           <svg class="discipline-art art-fuoco" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-fuoco" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#ff793e"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="flame-rise"><path d="M162 10 C187 62 224 59 210 114 C240 80 248 134 217 175 C185 214 125 206 105 170 C81 125 121 93 132 74 C127 125 174 121 151 69 C142 47 153 26 162 10Z" fill="url(#art-fuoco)"/><path d="M166 83 C184 122 202 127 180 167 C216 151 179 216 149 183 C126 153 159 140 166 83Z" fill="#f7cf7b" opacity=".9"/></g><g class="embers" fill="#cf9342"><circle cx="105" cy="56" r="3"/><circle cx="231" cy="38" r="2"/><circle cx="79" cy="125" r="2"/><circle cx="228" cy="99" r="4"/></g></svg>
-          <div class="perf-description"><p>Ventagli, bastone e catene accese disegnano la notte. Un finale intenso, in uno spazio esterno libero da ostacoli e materiali infiammabili.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">50 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+          <div class="perf-description"><p>Una danza con il fuoco, tra ventagli, bastone e catene accese. Per un momento a serata inoltrata, all’aperto e in un’area libera da ostacoli e materiali infiammabili.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">50 € indicativi a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
         </div></div></div>
       </article>
 
@@ -1421,24 +1460,24 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         </div>
         <div class="perf-body" id="body-ali" inert><div><div class="perf-inner">
           <svg class="discipline-art art-ali" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-ali" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="wings-open"><path d="M160 181 Q38 168 16 36 Q102 32 160 126 Q219 32 304 36 Q282 168 160 181Z" fill="url(#art-ali)" opacity=".65"/><path d="M160 181 Q25 118 25 51" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q45 118 45 49" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q65 118 65 46" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q85 118 85 44" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q105 118 105 41" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q125 118 125 39" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q145 118 145 36" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q165 118 165 35" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q185 118 185 38" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q205 118 205 40" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q225 118 225 43" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q245 118 245 45" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q265 118 265 48" fill="none" stroke="#d4af37" stroke-width="1.4"/><path d="M160 181 Q285 118 285 50" fill="none" stroke="#d4af37" stroke-width="1.4"/></g></svg>
-          <div class="perf-description"><p>Ali luminose che si aprono a tempo di musica. Per il taglio della torta o un momento speciale a serata inoltrata, quando la luce può risaltare.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">50 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+          <div class="perf-description"><p>Ali di luce che si aprono e disegnano figure a tempo di musica. Una scelta per il taglio della torta o un altro momento notturno, con un’illuminazione che valorizzi lo spettacolo.</p><div class="perf-details"><span>3-4 minuti a performance</span><span class="perf-price">50 € indicativi a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
         </div></div></div>
       </article>
 
-      <article class="perf" data-key="ballerina" data-name="Ballerina" data-req="Nessun requisito di altezza" data-max="3" data-n="0" data-cat="terra" data-durata="30 minuti" data-structure-fee="0">
+      <article class="perf" data-key="ballerina" data-name="Danza a terra" data-req="Nessun requisito di altezza" data-max="3" data-n="0" data-cat="terra" data-durata="30 minuti" data-structure-fee="0">
         <div class="perf-shell">
-          <button type="button" class="perf-head" aria-label="Scopri Ballerina" aria-expanded="false" aria-controls="body-ballerina">
+          <button type="button" class="perf-head" aria-label="Scopri Danza a terra" aria-expanded="false" aria-controls="body-ballerina">
             <span class="perf-fig"><img src="media/perf-ballerina.jpg" alt="Elisa Carosi durante una coreografia a terra" loading="lazy"></span>
-            <span class="perf-title"><b>Ballerina</b><span class="perf-capsules"><span class="height-pill">Danza a terra</span><span class="max-pill">Fino a 3</span></span></span>
+            <span class="perf-title"><b>Danza a terra</b><span class="perf-capsules"><span class="height-pill">30 minuti</span><span class="max-pill">Fino a 3</span></span></span>
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="perf-pick" role="group" aria-label="Numero di performance di Ballerina">
-            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Ballerina">−</button><output aria-live="polite" aria-label="Performance di Ballerina selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Ballerina">+</button></div>
+          <div class="perf-pick" role="group" aria-label="Numero di performance di Danza a terra">
+            <div class="stepper"><button type="button" data-step="-1" aria-label="Togli una performance di Danza a terra">−</button><output aria-live="polite" aria-label="Performance di Danza a terra selezionate">0</output><button type="button" data-step="1" aria-label="Aggiungi una performance di Danza a terra">+</button></div>
           </div>
         </div>
         <div class="perf-body" id="body-ballerina" inert><div><div class="perf-inner">
           <svg class="discipline-art art-ballerina" viewBox="0 0 320 210" aria-hidden="true"><defs><linearGradient id="art-ballerina" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e2140"/><stop offset=".48" stop-color="#c47a87"/><stop offset="1" stop-color="#dfba64"/></linearGradient></defs><g class="dance-draw" fill="none" stroke="url(#art-ballerina)" stroke-linecap="round"><circle cx="177" cy="39" r="11" stroke-width="3"/><path d="M174 56 Q142 89 162 113 Q185 137 197 175 M161 113 Q129 146 110 193 M166 72 Q126 62 88 79 M167 73 Q211 76 235 42" stroke-width="4"/><path d="M156 107 Q90 102 72 140 Q159 171 227 145 Q213 119 168 108" stroke-width="1.4"/><path d="M76 180 Q-5 95 77 37 Q143-2 253 94" stroke-width=".9"/></g></svg>
-          <div class="perf-description"><p>Latino, commerciale o contemporaneo: una coreografia a terra che accompagna il ritmo della festa. Ogni performance dura 30 minuti.</p><div class="perf-details"><span>30 minuti a performance</span><span class="perf-price">50 € a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
+          <div class="perf-description"><p>Danza a terra in stile latino, commerciale o contemporaneo, secondo l’atmosfera dell’evento. Ogni performance dura 30 minuti e si inserisce nella scaletta della festa.</p><div class="perf-details"><span>30 minuti a performance</span><span class="perf-price">50 € indicativi a performance</span><span class="badge"></span><span class="pick-sum" hidden></span></div><p class="recupero">Servono 30 minuti tra una performance e l'altra</p></div>
         </div></div></div>
       </article>        </div>
 
@@ -1448,7 +1487,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         <button class="quote-close" type="button" id="closeQuote" aria-label="Chiudi il riepilogo">&times;</button>
         <div class="quote-step-indicator" aria-label="Passaggio 1 di 2" id="quote-step-indicator"><span id="step-dot-1">1</span><i></i><span class="is-upcoming" id="step-dot-2">2</span><b id="step-text">Serata</b></div>
         <div class="quote-step" id="quote-step-1">
-        <h3>La tua scaletta</h3>
+        <h3>Il tuo preventivo</h3>
         <ul class="scaletta" id="scaletta"></ul>
         <div class="selection-count" id="quote-performance-count" hidden>
           <p>Puoi selezionare massimo 4 performance per serata.</p>
@@ -1467,21 +1506,21 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
             <label for="q-fine">Fine serata</label>
             <select id="q-fine" form="quote-form" name="q-fine" aria-describedby="q-time-help" required></select>
           </div>
-          <p class="time-help" id="q-time-help">La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
+          <p class="time-help" id="q-time-help">Dopo mezzanotte, l’orario si riferisce al giorno successivo alla data scelta.</p>
         </div>
         <p class="legenda" id="legenda">
           <span aria-hidden="true">*</span> Date speciali con supplemento di 100&nbsp;€: <b>31 dicembre</b>.
         </p>
 
-        <div class="tot"><span>Totale</span><b id="totale">0 €</b></div>
+        <div class="tot"><span>Stima iniziale</span><b id="totale">0 €</b></div>
         <p class="saving" id="risparmio"></p>
         <button class="btn btn--primary quote-next" id="quote-next" type="button">Avanti <span aria-hidden="true">→</span></button>
-        <p class="quote-note" id="quote-note">Il totale è indicativo. Elisa ti risponderà per confermare disponibilità e preventivo.</p>
+        <p class="quote-note" id="quote-note">Gli importi sono provvisori: questa è una stima iniziale. Elisa confermerà disponibilità, fattibilità e prezzo prima della prenotazione.</p>
         </div>
         <div class="quote-step" id="quote-step-2" hidden>
         <button class="quote-back" id="quote-back" type="button"><span aria-hidden="true">←</span> Torna alla serata</button>
-        <h3 class="quote-step-title">A chi posso rispondere?</h3>
-        <p class="quote-step-intro">Lascia i tuoi recapiti e, se vuoi, qualche dettaglio in più. Elisa ti risponderà personalmente.</p>
+        <h3 class="quote-step-title">Dove vuoi ricevere la proposta?</h3>
+        <p class="quote-step-intro">Inserisci nome ed email per ricevere la risposta di Elisa. Nelle note puoi indicare location, tipo di evento ed eventuali richieste particolari.</p>
         <form id="quote-form" class="quote-form" novalidate>
           <div class="field"><label for="q-nome">Il tuo nome</label><input id="q-nome" name="name" autocomplete="name" required placeholder="Come ti chiami"></div>
           <div class="field"><label for="q-email">La tua email</label><input id="q-email" name="email" type="email" autocomplete="email" required placeholder="Per risponderti"></div>
@@ -1492,14 +1531,14 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
             <label class="extra">
               <input type="checkbox" data-extra="trasferta" data-label="Trasferta fuori Roma" data-amount="0" data-quote="true">
               <span class="tick" aria-hidden="true"></span>
-              <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Se l’evento è fuori Roma e provincia, seleziona questa voce: il costo della trasferta si concorda in consulenza e non è incluso nel totale indicativo.</small></span>
+              <span class="extra-txt"><b>Trasferta fuori Roma</b><small>Se la location è fuori Roma e provincia, spunta questa voce per ricevere una proposta che includa la trasferta. Il costo si concorda a parte ed è escluso dalla stima.</small></span>
             </label>
           </div>
           <button class="btn btn--primary" id="mail" type="submit">Richiedi ora via mail</button>
-          <p class="data-note">Useremo i tuoi recapiti solo per rispondere alla tua richiesta.</p>
+          <p class="data-note">I recapiti inseriti servono a gestire questa richiesta.</p>
           <p class="form-status" id="quote-status" role="status" aria-live="polite"></p>
         </form>
-        <a class="custom-inline" href="#personalizzata"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M4 18 19 5M9 5h10v10" stroke="currentColor" stroke-width="1.5"/></svg><strong>Hai in mente qualcosa di diverso?</strong><small>Raccontaci la tua idea con una richiesta personalizzata.</small></a>
+        <a class="custom-inline" href="#personalizzata"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M4 18 19 5M9 5h10v10" stroke="currentColor" stroke-width="1.5"/></svg><strong>Hai in mente qualcosa di diverso?</strong><small>Scrivi a Elisa per una performance di gruppo o un’idea su misura.</small></a>
         </div>
       </aside>
     </div>
@@ -1534,102 +1573,90 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   <div class="wrap">
     <div class="sec-head rev">
       <p class="eyebrow">Tipi di evento</p>
-      <h2>La performance <span class="pw">migliore</span> a seconda della tua serata</h2>
-      <p>Un matrimonio, un diciottesimo e una serata in un locale non chiedono la stessa cosa. Cambia la sala, cambia l'ora, cambia quello che rende. Ecco cosa consiglio di solito.</p>
+      <h2>Spettacoli per <span class="pw">ogni occasione</span> a Roma</h2>
+      <p>La stessa performance cambia con lo spazio, la luce e il momento della serata. Queste proposte ti aiutano a scegliere: poi verifichiamo insieme come inserirle nel tuo evento.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
     <div class="eventi rev">
       <div class="evento">
         <svg aria-hidden="true"><use href="#i-rings"/></svg>
-        <b>Matrimoni</b>
-        <p>Il cerchio può accompagnare il ricevimento; le ali di luce valorizzano il taglio della torta, se previsto in orario notturno. Le inserisco a serata inoltrata, quando l’illuminazione permette loro di risaltare.</p>
-        <p class="tipo"><span>Scaletta tipo</span>cerchio durante il ricevimento + ali di luce al taglio della torta, in orario notturno</p>
+        <h3>Matrimoni</h3>
+        <p>Per un matrimonio, il cerchio aereo può accompagnare un momento del ricevimento. Le ali di luce si prestano al taglio della torta quando si svolge di notte. Definiamo la scaletta con chi organizza la giornata.</p>
+        <p class="tipo"><span>Scaletta tipo</span> cerchio durante il ricevimento + ali di luce al taglio della torta, in orario notturno</p>
       </div>
       <div class="evento">
         <svg aria-hidden="true"><use href="#i-balloon"/></svg>
-        <b>Diciottesimi</b>
-        <p>L'attenzione dura poco: tre performance brevi tengono meglio di una lunga. Palo e fuoco sono quelle che fanno alzare i telefoni.</p>
-        <p class="tipo"><span>Scaletta tipo</span>lollipop all'arrivo + palo a metà serata + fuoco per chiudere</p>
+        <h3>Diciottesimi e compleanni</h3>
+        <p>Per un diciottesimo o un compleanno, puoi distribuire le performance tra l’arrivo degli ospiti e la festa. Il palo aggiunge un momento acrobatico; il fuoco può chiudere la serata, in uno spazio esterno adatto.</p>
+        <p class="tipo"><span>Scaletta tipo</span> lollipop all'arrivo + palo a metà serata + fuoco per chiudere</p>
       </div>
       <div class="evento">
         <svg aria-hidden="true"><use href="#i-glass"/></svg>
-        <b>Anniversari e cene</b>
-        <p>Qui non serve interrompere, serve un'atmosfera. Il cerchio in pose lente resta sospeso mentre si cena: chi vuole guarda, chi vuole continua a parlare.</p>
-        <p class="tipo"><span>Scaletta tipo</span>cerchio durante la cena + una coreografia dedicata</p>
+        <h3>Anniversari e cene</h3>
+        <p>Per un anniversario o una cena, scegli una coreografia sul cerchio o una performance di danza a terra. Musica e momento dello spettacolo si concordano in base ai tempi della serata.</p>
+        <p class="tipo"><span>Scaletta tipo</span> cerchio dopo cena + danza a terra</p>
       </div>
       <div class="evento">
         <svg aria-hidden="true"><use href="#i-music"/></svg>
-        <b>Locali e serate</b>
-        <p>Il pubblico è a due metri e vede ogni dettaglio: contano la pulizia e i tempi, non la durata. Il lollipop è l'unico attrezzo su cui posso accogliere la gente mentre il locale si riempie.</p>
-        <p class="tipo"><span>Scaletta tipo</span>accoglienza sul lollipop + due performance brevi</p>
+        <h3>Locali e serate</h3>
+        <p>Per un locale, il lollipop permette di inserire uno spettacolo aereo senza agganci al soffitto. Possiamo concordare un’accoglienza all’ingresso e performance successive, rispettando spazio e tempi del programma.</p>
+        <p class="tipo"><span>Scaletta tipo</span> accoglienza sul lollipop + due performance brevi</p>
       </div>
       <div class="evento">
         <svg aria-hidden="true"><use href="#i-corp"/></svg>
-        <b>Eventi aziendali</b>
-        <p>Inaugurazioni, gala e presentazioni: una performance aerea può accompagnare il rinfresco o il brindisi. Riservo le ali di luce a un momento successivo, solo in orario notturno, quando l’illuminazione ne valorizza l’effetto.</p>
-        <p class="tipo"><span>Scaletta tipo</span>cerchio durante il rinfresco + ali di luce a serata inoltrata, in orario notturno</p>
+        <h3>Eventi aziendali</h3>
+        <p>Per inaugurazioni, gala e presentazioni aziendali, una performance aerea può accompagnare il rinfresco o il brindisi. Fuoco e ali di luce si inseriscono in un momento notturno, dopo aver verificato spazi e illuminazione.</p>
+        <p class="tipo"><span>Scaletta tipo</span> cerchio durante il rinfresco + ali di luce a serata inoltrata</p>
       </div>
     </div>
     <div class="eventi-chiusura rev">
-      <p>Non trovi il tuo caso? Battesimi, compleanni, feste in piscina, Capodanno: scrivimi giorno e ora, la scaletta la costruisco io.</p>
-      <a class="btn btn--onDark" href="#performance">Componi la tua scaletta</a>
+      <p>Stai organizzando un altro tipo di evento? Indica l’occasione e la location nella richiesta: valuteremo insieme le performance adatte.</p>
+      <a class="btn btn--onDark" href="#performance">Seleziona la performance</a>
     </div>
   </div>
 </section>
 
-<!-- ============ LOCATION, GALLERIA E RECENSIONI ============ -->
+<!-- ============ GALLERIA FOTOGRAFICA ============ -->
 <section id="recensioni" class="venues-section">
   <div class="wrap">
-    <p class="eyebrow on-dark">Esperienza sul campo</p>
-    <h2>Luoghi che hanno già fatto <span class="pw on-dark">spazio allo spettacolo.</span></h2>
-    <p>Le performance di Elisa Carosi hanno accompagnato eventi e serate anche in queste location:</p>
-    <div class="venue-list" aria-label="Location">
-      <span>Collina dei Silenzi <small>Trevignano Romano</small></span>
-      <span>Villa Miani</span>
-    </div>
+    <p class="eyebrow on-dark">La galleria</p>
+    <h2>Le performance di Elisa Carosi <span class="pw on-dark">in immagini.</span></h2>
+    <p>Tessuti, cerchio, palo, fuoco e ali di luce: guarda le fotografie per scegliere l’atmosfera che immagini per il tuo evento.</p>
+
 
     <div class="showcase rev" aria-labelledby="showcase-title">
       <h3 class="showcase-title" id="showcase-title">Galleria fotografica di Elisa Carosi</h3>
       <div class="showcase-stage" id="showcase-stage" role="region" tabindex="0" aria-label="Galleria fotografica. Scorri la pagina o usa le frecce su e giù per far ruotare la spirale.">
         <div class="showcase-ring" id="showcase-ring">
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 1 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-macchia.png');--brush-rotate:-20deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 2 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-corallo.png');--brush-rotate:15deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 3 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-oro.png');--brush-rotate:35deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 4 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-schizzi.png');--brush-rotate:-10deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 5 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-macchia.png');--brush-rotate:22deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 6 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-oro.png');--brush-rotate:-35deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 7 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-corallo.png');--brush-rotate:10deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 8 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-schizzi.png');--brush-rotate:28deg"></span></div>
-          <div class="showcase-card" data-photo="" data-alt="" role="img" aria-label="Fotografia 9 da aggiungere"><span class="showcase-brush" aria-hidden="true" style="--brush-image:url('media/tex-macchia.png');--brush-rotate:-12deg"></span></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-04.webp" data-alt="Elisa Carosi sospesa ai tessuti rossi con luci blu"><img src="media/galleria-elisa-carosi-04.webp" alt="Elisa Carosi sospesa ai tessuti rossi con luci blu" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-22.webp" data-alt="Elisa Carosi con le ali di luce aperte durante uno spettacolo notturno"><img src="media/galleria-elisa-carosi-22.webp" alt="Elisa Carosi con le ali di luce aperte durante uno spettacolo notturno" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-02.webp" data-alt="Figura sui tessuti aerei rossi, con costume rosso"><img src="media/galleria-elisa-carosi-02.webp" alt="Figura sui tessuti aerei rossi, con costume rosso" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-11.webp" data-alt="Performance di gruppo con ventagli di fuoco in un giardino"><img src="media/galleria-elisa-carosi-11.webp" alt="Performance di gruppo con ventagli di fuoco in un giardino" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-19.webp" data-alt="Elisa Carosi sul cerchio del lollipop durante un evento serale"><img src="media/galleria-elisa-carosi-19.webp" alt="Elisa Carosi sul cerchio del lollipop durante un evento serale" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-06.webp" data-alt="Figura in estensione sul palo, su uno sfondo di luci blu"><img src="media/galleria-elisa-carosi-06.webp" alt="Figura in estensione sul palo, su uno sfondo di luci blu" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo is-landscape" data-photo="media/galleria-elisa-carosi-01.webp" data-alt="Elisa Carosi con ali luminose dorate durante uno spettacolo"><img src="media/galleria-elisa-carosi-01.webp" alt="Elisa Carosi con ali luminose dorate durante uno spettacolo" width="1000" height="664" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-17.webp" data-alt="Elisa Carosi sul cerchio aereo tra gli alberi"><img src="media/galleria-elisa-carosi-17.webp" alt="Elisa Carosi sul cerchio aereo tra gli alberi" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo is-landscape" data-photo="media/galleria-elisa-carosi-12.webp" data-alt="Elisa Carosi danza con un bastone di fuoco durante un evento serale"><img src="media/galleria-elisa-carosi-12.webp" alt="Elisa Carosi danza con un bastone di fuoco durante un evento serale" width="1000" height="667" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-03.webp" data-alt="Figura capovolta sul cerchio aereo, con costume blu"><img src="media/galleria-elisa-carosi-03.webp" alt="Figura capovolta sul cerchio aereo, con costume blu" width="801" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-10.webp" data-alt="Elisa Carosi in costume bianco durante una performance di danza"><img src="media/galleria-elisa-carosi-10.webp" alt="Elisa Carosi in costume bianco durante una performance di danza" width="960" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-16.webp" data-alt="Figura sui tessuti aerei bianchi in un giardino"><img src="media/galleria-elisa-carosi-16.webp" alt="Figura sui tessuti aerei bianchi in un giardino" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-05.webp" data-alt="Due performer sul lollipop durante una coreografia di coppia"><img src="media/galleria-elisa-carosi-05.webp" alt="Due performer sul lollipop durante una coreografia di coppia" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-08.webp" data-alt="Elisa Carosi con attrezzi di fuoco durante una performance all’aperto"><img src="media/galleria-elisa-carosi-08.webp" alt="Elisa Carosi con attrezzi di fuoco durante una performance all’aperto" width="960" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-13.webp" data-alt="Figura aerea illuminata da fasci di luce blu in un locale"><img src="media/galleria-elisa-carosi-13.webp" alt="Figura aerea illuminata da fasci di luce blu in un locale" width="798" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-18.webp" data-alt="Figura sui tessuti aerei bianchi davanti a una cascata"><img src="media/galleria-elisa-carosi-18.webp" alt="Figura sui tessuti aerei bianchi davanti a una cascata" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-09.webp" data-alt="Coreografia con fiamme in uno spazio esterno di notte"><img src="media/galleria-elisa-carosi-09.webp" alt="Coreografia con fiamme in uno spazio esterno di notte" width="960" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-20.webp" data-alt="Figura sul lollipop sotto una fila di luci all’aperto"><img src="media/galleria-elisa-carosi-20.webp" alt="Figura sul lollipop sotto una fila di luci all’aperto" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-07.webp" data-alt="Figura capovolta sul palo con una gamba distesa"><img src="media/galleria-elisa-carosi-07.webp" alt="Figura capovolta sul palo con una gamba distesa" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-14.webp" data-alt="Elisa Carosi in una figura sul palo tra luci viola e sfere a specchio"><img src="media/galleria-elisa-carosi-14.webp" alt="Elisa Carosi in una figura sul palo tra luci viola e sfere a specchio" width="798" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-21.webp" data-alt="Elisa Carosi in posa sul lollipop sotto le luci di una festa"><img src="media/galleria-elisa-carosi-21.webp" alt="Elisa Carosi in posa sul lollipop sotto le luci di una festa" width="800" height="1200" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo is-landscape" data-photo="media/galleria-elisa-carosi-15.webp" data-alt="Coreografia sul palo con illuminazione rosa e viola"><img src="media/galleria-elisa-carosi-15.webp" alt="Coreografia sul palo con illuminazione rosa e viola" width="1000" height="665" loading="lazy" decoding="async"></div>
+          <div class="showcase-card has-photo" data-photo="media/galleria-elisa-carosi-23.webp" data-alt="Figura sul cerchio del lollipop illuminata dalle luci di una serata"><img src="media/galleria-elisa-carosi-23.webp" alt="Figura sul cerchio del lollipop illuminata dalle luci di una serata" width="800" height="1200" loading="lazy" decoding="async"></div>
         </div>
         <button class="showcase-pause" id="showcase-pause" type="button" aria-label="Metti in pausa la galleria" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2h3v12H3zm7 0h3v12h-3z"/></svg></button>
       </div>
     </div>
 
-    <div class="reviews-block rev" aria-labelledby="reviews-title">
-      <div class="reviews-heading">
-        <div><p class="eyebrow on-dark">Le parole dopo lo spettacolo</p><h3 id="reviews-title">Quello che resta <em>negli occhi.</em></h3></div>
-        <p class="reviews-disclosure">Recensioni di esempio: testi inventati per l'anteprima del sito, da sostituire con testimonianze autentiche.</p>
-      </div>
-      <div class="review-marquees" id="review-marquees" aria-label="Esempi di recensioni per Elisa Carosi">
-        <div class="review-row" data-direction="right" aria-label="Prima riga, da sinistra verso destra"><div class="review-track"><div class="review-set">
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il cerchio durante il ricevimento ha raccolto tutti gli sguardi. Un momento delicato, arrivato proprio quando la festa ne aveva bisogno.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il fuoco dopo il tramonto ha cambiato l'energia della serata. Anche i tempi erano pensati bene.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Le ali di luce sono apparse quando la sala era già al buio. È stato il dettaglio che tutti hanno ricordato.</p><footer>Evento aziendale · testo dimostrativo</footer></blockquote>
-        </div></div></div>
-        <div class="review-row" data-direction="left" aria-label="Seconda riga, da destra verso sinistra"><div class="review-track"><div class="review-set">
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il lollipop all'ingresso ha dato subito carattere alla serata. Gli ospiti si sono fermati a guardare.</p><footer>Serata in un locale · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>I tessuti sono stati una sorpresa per tutti. Elisa ha trovato il punto giusto della cena per iniziare.</p><footer>Matrimonio · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Volevamo qualcosa di elegante e breve. La danza ha lasciato spazio alla festa, senza interromperla.</p><footer>Anniversario · testo dimostrativo</footer></blockquote>
-        </div></div></div>
-        <div class="review-row" data-direction="right" aria-label="Terza riga, da sinistra verso destra"><div class="review-track"><div class="review-set">
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>La performance al palo è stata il momento più fotografato della serata. Elisa Carosi ha coinvolto tutti.</p><footer>Diciottesimo · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Il cerchio sopra la pista ha creato una pausa bellissima. Poi la musica è ripartita e si è tornati a ballare.</p><footer>Evento privato · testo dimostrativo</footer></blockquote>
-          <blockquote class="review-card"><span class="review-stars" aria-hidden="true">★★★★★</span><p>Fuoco all'aperto, dopo cena: una chiusura semplice da organizzare e impossibile da dimenticare.</p><footer>Festa serale · testo dimostrativo</footer></blockquote>
-        </div></div></div>
-      </div>
-      <button class="reviews-pause" id="reviews-pause" type="button" aria-pressed="false">Metti in pausa le recensioni</button>
-    </div>
+
   </div>
 </section>
 
@@ -1640,42 +1667,45 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   <div class="wrap">
     <div class="sec-head rev">
       <p class="eyebrow">Prima di prenotare</p>
-      <h2>Le domande che mi fanno <span class="pw">sempre</span></h2>
-      <p>Sono più o meno sempre queste. Se la vostra non c'è, scrivetemi pure: rispondo io.</p>
+      <h2>Organizzare una performance: <span class="pw">le domande frequenti</span></h2>
+      <p>Spazi, durata, strutture e richiesta di preventivo: qui trovi le informazioni per organizzare lo spettacolo nella tua location.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
     <div class="note rev">
+      <div class="nota"><span class="nota-k"><svg aria-hidden="true"><use href="#i-note"/></svg></span><div><h3>Quanto costa una performance per un evento?</h3><p>Il calcolatore mostra tariffe provvisorie: 100 € per una performance aerea e 50 € per danza a terra, fuoco o ali di luce. Tre performance uguali di danza a terra, fuoco o ali di luce costano indicativamente 130 €. Struttura, date speciali e trasferte possono aggiungere costi. Il prezzo definitivo viene confermato da Elisa nella proposta.</p></div></div>
+      <div class="nota"><span class="nota-k"><svg aria-hidden="true"><use href="#i-note"/></svg></span><div><h3>Quante performance posso scegliere per una serata?</h3><p>Puoi selezionare fino a 4 performance complessive, anche di discipline diverse. Il tessuto classico ha un limite di 2; puoi arrivare a 3 se almeno una è in amaca. Le altre discipline arrivano a 3 ciascuna. Con almeno 2 aeree, la danza a terra è limitata a 2. Per altre combinazioni usa la richiesta personalizzata.</p></div></div>
+      <div class="nota"><span class="nota-k"><svg aria-hidden="true"><use href="#i-note"/></svg></span><div><h3>Come funziona la richiesta di preventivo?</h3><p>Scegli le performance e indica giorno, inizio e fine serata. Premi Avanti, lascia nome ed email e invia la richiesta. Elisa verificherà disponibilità e requisiti della location prima di confermare il preventivo. L’invio del modulo non costituisce una prenotazione.</p></div></div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-height"/></svg></span>
-        <div><h3>Che altezza deve avere la sala?</h3><p>Per cerchio, lollipop e palo servono almeno 3 metri liberi. I tessuti divisi richiedono almeno 4,5 metri per eseguire le cadute controllate e le altre figure della coreografia. Con meno altezza, per il tessuto si può valutare solo la versione amaca: lo spazio disponibile e la struttura vanno verificati con Elisa prima di confermare.</p></div>
+        <div><h3>Che altezza deve avere la sala?</h3><p>Per cerchio aereo, lollipop e palo servono almeno 3 metri liberi; per i tessuti divisi almeno 4,5 metri, necessari per le cadute controllate e le figure previste. Con meno altezza si può valutare il tessuto in amaca. Altezza e struttura vanno comunque verificate con Elisa prima della conferma.</p></div>
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-space"/></svg></span>
-        <div><h3>Serve un punto di aggancio al soffitto?</h3><p>Per i tessuti e per il cerchio sì, e deve essere un aggancio certificato: lo verifico con il locale prima di confermare. Il lollipop e il palo montano su una pedana autoportante, quindi non serve appendere niente. Se in sala non c'è nulla a cui agganciarsi, porto un tripode autoportante.</p></div>
+        <div><h3>Serve un punto di aggancio al soffitto?</h3><p>Tessuti e cerchio aereo richiedono un punto di aggancio adeguato oppure una struttura autoportante. Se serve, Elisa può portare la struttura, con un supplemento nel riepilogo. Palo e lollipop si montano su una pedana. Prima della conferma verifichiamo con la location l’allestimento possibile.</p></div>
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
-        <div><h3>Quanto dura una performance?</h3><p>Le performance aeree, di fuoco e con le ali di luce durano quanto una canzone, circa tre o quattro minuti. La danza a terra prevede performance da 30 minuti. Con il cerchio e il lollipop posso anche restare in aria dieci o quindici minuti in pose lente, mentre gli ospiti cenano o ballano. Sul lollipop posso accogliere gli ospiti con una bottiglia in mano, se nell’evento è previsto il drink di benvenuto.</p></div>
+        <div><h3>Quanto dura una performance?</h3><p>Le performance aeree, di fuoco e con le ali di luce durano circa 3-4 minuti, quanto una canzone. La danza a terra dura 30 minuti. Servono 30 minuti tra una performance e l’altra. Per un’accoglienza più lunga su cerchio o lollipop, anche con la bottiglia del drink di benvenuto, chiedi una proposta personalizzata.</p></div>
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
-        <div><h3>Quali performance posso fare all'aperto?</h3><p>Tutte le performance si possono fare all’aperto, con spazio e strutture adeguati. Per il fuoco serve un’area sgombra, senza oggetti che ostacolino i movimenti e lontana da materiali infiammabili, come tende, decorazioni e vegetazione secca. Il fuoco e le ali di luce si eseguono in orario notturno.</p></div>
+        <div><h3>Quali performance posso fare all'aperto?</h3><p>Tutte le performance possono svolgersi all’aperto, con spazio e strutture adeguati e condizioni meteo da valutare. Per il fuoco serve un’area sgombra e lontana da materiali infiammabili. Fuoco e ali di luce sono previsti in orario notturno; l’allestimento va concordato prima dell’evento.</p></div>
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-space"/></svg></span>
-        <div><h3>Quanto spazio serve intorno?</h3><p>Un'area sgombra di circa tre metri per tre attorno all'attrezzo, senza tavoli né lampadari nel raggio d'azione. Serve anche un camerino o una stanza riservata per i cambi di costume.</p></div>
+        <div><h3>Quanto spazio serve intorno?</h3><p>Lo spazio necessario dipende dall’attrezzo, dalla struttura e dalla coreografia. Invia le misure della location, considerando anche arredi, lampadari e passaggio degli ospiti: Elisa verificherà l’allestimento adatto. Serve inoltre uno spazio riservato per i cambi di costume.</p></div>
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-note"/></svg></span>
-        <div><h3>Come si sceglie la musica?</h3><p>La scegliamo insieme prima dell'evento e la passo al DJ o al tecnico audio della serata. Le coreografie le costruisco su quelle canzoni, quindi vanno decise con un po' di anticipo.</p></div>
+        <div><h3>Come si sceglie la musica?</h3><p>La musica si concorda prima dell’evento, insieme al momento della performance. Se hai una canzone in mente, indicala nelle note: ne valutiamo l’adattamento alla coreografia e coordiniamo la riproduzione con il DJ o il tecnico audio.</p></div>
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-corp"/></svg></span>
-        <div><h3>Lavori anche fuori Roma?</h3><p>Sì. Roma e provincia sono la zona abituale, ma faccio trasferte in tutta Italia: il costo della trasferta si concorda in consulenza, in base alla location.</p></div>
+        <div><h3>Lavori anche fuori Roma?</h3><p>Sì. Elisa Carosi si esibisce principalmente a Roma e provincia; le trasferte in altre zone si valutano su richiesta. Se l’evento è fuori Roma e provincia, seleziona la relativa voce nel modulo. Il costo della trasferta si concorda a parte ed è escluso dalla stima online.</p></div>
       </div>
       <div class="nota">
         <span class="nota-k"><svg aria-hidden="true"><use href="#i-private"/></svg></span>
-        <div><h3>Posso richiedere performance di gruppo?</h3><p>Sì, puoi richiedere una performance di gruppo. Indica nella richiesta personalizzata quante performer desideri coinvolgere, insieme alla data e ai dettagli dell’evento.</p>
+        <div><h3>Posso richiedere performance di gruppo?</h3><p>Sì. Nella richiesta personalizzata indica quante performer desideri coinvolgere, il tipo di evento e la location. Aggiungi la data, se già definita: riceverai una proposta in base alla disponibilità e alle caratteristiche dello spettacolo.</p>
           <a class="btn btn--onDark" href="#personalizzata" style="margin-top:16px;white-space:normal;text-align:center">Crea una richiesta personalizzata</a>
         </div>
       </div>
@@ -1693,7 +1723,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     <div class="sec-head rev">
       <p class="eyebrow on-dark">Su misura</p>
       <h2>Richiedi una performance <span class="pw on-dark">personalizzata</span></h2>
-      <p>Se avete in mente qualcosa che non trovate qui sopra, scrivetemelo. Costume, musica e coreografia si costruiscono attorno al momento preciso della serata in cui deve succedere.</p>
+      <p>Vuoi una performance di gruppo, un’accoglienza speciale o una proposta diversa dal repertorio? Racconta a Elisa Carosi l’idea, il tipo di evento e la location. Puoi scrivere anche se data e orari non sono ancora definiti.</p>
       <svg class="orn" viewBox="0 0 80 12" aria-hidden="true"><use href="#i-orn"/></svg>
     </div>
 
@@ -1735,7 +1765,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
           <label for="c-fine">Fine serata (facoltativo)</label>
           <select id="c-fine" aria-describedby="c-time-help"></select>
         </div>
-        <p class="time-help" id="c-time-help">La data si riferisce alla serata; gli orari dopo mezzanotte sono del giorno successivo.</p>
+        <p class="time-help" id="c-time-help">Dopo mezzanotte, l’orario si riferisce al giorno successivo alla data scelta.</p>
       </div>
       <div class="form-row">
         <div class="field">
@@ -1756,9 +1786,9 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
         <textarea id="c-note" rows="3" maxlength="2000" placeholder="Altri dettagli sulla location, sugli ospiti o sull'organizzazione…"></textarea>
       </div>
       <div class="trap" aria-hidden="true"><label for="c-website">Lascia vuoto</label><input id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
-      <p class="form-note">La richiesta arriva direttamente a Elisa Carosi, che ti risponderà via email per definire i dettagli.</p>
+      <p class="form-note">Elisa Carosi riceverà la tua richiesta e ti risponderà via email per valutare disponibilità, spettacolo e preventivo.</p>
       <button class="btn btn--primary" id="custom-mail" type="submit">Richiedi ora</button>
-      <p class="data-note">Useremo i tuoi recapiti solo per rispondere alla tua richiesta.</p>
+      <p class="data-note">I recapiti inseriti servono a gestire questa richiesta.</p>
       <p class="form-status" id="custom-status" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -1773,7 +1803,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       <div class="contact-aside rev">
         <p class="eyebrow">Contatti</p>
         <span class="pw">Parliamone</span>
-        <p>Scrivimi giorno, luogo e che tipo di serata è. Se avete già un'idea del momento in cui vorreste la performance, meglio ancora: è da lì che parto per costruirla.</p>
+        <p>Per organizzare una performance a Roma e provincia, scrivi a Elisa Carosi via email o WhatsApp. Indica il tipo di evento, la location e la data, se la conosci: sono i primi dettagli utili per valutare la proposta.</p>
         <div class="contact-list">
           <a href="mailto:elisa.carosi@me.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>elisa.carosi@me.com</a>
           <a href="https://wa.me/393342843928" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
@@ -1784,12 +1814,12 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
 
       <div class="form rev">
         <h3>Hai già scelto le performance?</h3>
-        <p>Torna su, aggiungi giorno, inizio e fine serata e invia: il messaggio arriva con la scaletta completa e il totale, così posso risponderti con un preventivo preciso.</p>
+        <p>Aggiungi le performance al riepilogo, scegli giorno e orari, poi lascia i tuoi recapiti. Elisa riceverà le scelte e ti risponderà per confermare disponibilità e preventivo. La richiesta è senza impegno.</p>
         <div class="perf-tags" style="margin-top:4px">
           <span class="req"><svg aria-hidden="true"><use href="#i-clock"/></svg>Risposta personale</span>
           <span><svg aria-hidden="true"><use href="#i-star-o"/></svg>Preventivo senza impegno</span>
         </div>
-        <a class="btn btn--ghost" href="#performance">Scegli le performance</a>
+        <a class="btn btn--ghost" href="#performance">Seleziona la performance</a>
         <p class="form-note">Oppure scrivimi direttamente a <strong>elisa.carosi@me.com</strong>.</p>
       </div>
     </div>
@@ -1810,7 +1840,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       <a href="https://wa.me/393342843928" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://www.instagram.com/elisa_aerialist" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <p class="copy">Performer di danza aerea, fuoco e ali di luce · Roma e trasferte in tutta Italia</p>
+    <p class="copy">Elisa Carosi · Danza aerea, fuoco e ali di luce per eventi a Roma e provincia</p>
   </div>
 </footer>
 
@@ -2157,8 +2187,8 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     if(!attivo && !quoteStep2.hidden) setQuoteStep(1);
 
     noteEl.textContent = !attivo
-      ? "Scegli almeno una performance per poter inviare la richiesta."
-      : "Il totale è indicativo: Elisa ti risponderà per confermare disponibilità e preventivo.";
+      ? "Aggiungi una performance per preparare la richiesta."
+      : "Gli importi sono provvisori: questa è una stima iniziale. Elisa confermerà disponibilità, fattibilità e prezzo prima della prenotazione.";
     if(quoteFocus && quoteFocus.isConnected && !quoteFocus.disabled) quoteFocus.focus({preventScroll:true});
   }
 
@@ -2318,7 +2348,7 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
       return response.json();
     }).then(function(result){
       if(!result.ok) throw new Error("Invio non riuscito");
-      status.textContent = "Richiesta inviata. Elisa ti risponderà via email.";
+      status.textContent = "Richiesta inviata. Elisa ti risponderà via email per confermare disponibilità e proposta.";
       status.classList.add("success");
     }).catch(function(){
       status.textContent = "Non sono riuscito a inviarla dal sito. ";
@@ -2422,6 +2452,11 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     var spacing = mobile ? 65 : 79;
     cards.forEach(function(card,index){
       var offset = spiralModulo(index - spiralProgress + spiralCount / 2, spiralCount) - spiralCount / 2;
+      if(Math.abs(offset) > 4.5){
+        card.style.opacity = "0";
+        card.setAttribute("aria-hidden","true");
+        return;
+      }
       var angle = offset * (Math.PI * 2 / 7);
       var x = Math.sin(angle) * radius;
       var z = Math.cos(angle) * radius;
@@ -2439,11 +2474,17 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
     });
   }
   cards.forEach(function(card,index){
+    var image = card.querySelector("img");
+    if(image){
+      image.addEventListener("error",function(){ card.classList.remove("has-photo"); });
+      return;
+    }
     var photo = card.dataset.photo;
     if(!photo) return;
-    var image = document.createElement("img");
-    image.alt = card.dataset.alt || "Elisa Carosi durante un evento, fotografia " + (index + 1);
-    image.onload = function(){ card.classList.add("has-photo"); card.setAttribute("aria-label",image.alt); };
+    image = document.createElement("img");
+    image.alt = card.dataset.alt || "Elisa Carosi durante una performance";
+    image.decoding = "async";
+    image.onload = function(){ card.classList.add("has-photo"); };
     image.src = photo;
     card.appendChild(image);
   });
@@ -2493,31 +2534,6 @@ h2{font-size:clamp(2.4rem,4.5vw,4.1rem)}
   });
   new ResizeObserver(paintSpiral).observe(stage);
   paintSpiral();
-
-  // Tre fasce continue, con la copia nascosta ai lettori di schermo.
-  var reviewMarquees = document.getElementById("review-marquees");
-  var reviewsPause = document.getElementById("reviews-pause");
-  Array.prototype.forEach.call(reviewMarquees.querySelectorAll(".review-row"),function(row,index){
-    var original = row.querySelector(".review-set");
-    var clone = original.cloneNode(true);
-    clone.setAttribute("aria-hidden","true");
-    row.querySelector(".review-track").appendChild(clone);
-    row.style.setProperty("--review-duration",[43,49,46][index] + "s");
-  });
-  reviewsPause.addEventListener("click",function(){
-    var paused = reviewMarquees.classList.toggle("is-paused");
-    reviewsPause.setAttribute("aria-pressed",String(paused));
-    reviewsPause.textContent = paused ? "Riprendi le recensioni" : "Metti in pausa le recensioni";
-  });
-  var reviewsVisible = false;
-  function syncReviews(){ reviewMarquees.classList.toggle("is-offscreen",!reviewsVisible || document.hidden); }
-  new IntersectionObserver(function(entries){
-    reviewsVisible = entries[0].isIntersecting;
-    syncReviews();
-  },{threshold:0}).observe(reviewMarquees);
-  document.addEventListener("visibilitychange",function(){
-    syncReviews();
-  });
 
   render();
   renderCustom();
